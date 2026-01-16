@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lighthouse Archives</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="background-container">
+        <img src="image_9cbbba.png" alt="Lighthouse" class="background-image">
+        <div class="overlay"></div>
+    </div>
+
+    <header class="main-header">
+        <nav class="main-nav">
+            <a href="index.html" class="nav-item">HOME( )</a>
+            <a href="text.html" class="nav-item">TEXT.created( )</a>
+            <a href="image.html" class="nav-item">IMAGE.created( )</a>
+            <a href="log.html" class="nav-item active">DAILY.LOG( )</a>
+        </nav>
+    </header>
+
+    <main class="content-area">
+        
+        <section class="hero-section">
+            <h2 class="hero-title">Lighthouse Archives</h2>
+            <p class="hero-subtitle">Entropy fragments</p>
+        </section>
+
+        <nav class="internal-nav">
+            <button class="tab-btn active-tab" data-target="entropy-log">Log</button>
+            <button class="tab-btn" data-target="data-library">Bookcase</button>
+            <button class="tab-btn" data-target="data-stats">Constellations</button>
+        </nav>
+
+        <!-- ABA 1: DIÁRIO -->
+        <div id="entropy-log" class="tab-content active-content">
+            <section class="log-container">
+                
+                <article class="log-entry">
+                    <span class="log-date">November 12, 2025</span>
+                    <div class="log-content">
+                        <h3>Foundation</h3>
+                        <p>The first handful of sand was placed today. The structure is still invisible, just an idea projected on the dark screen. The wind blows hard outside, but in here, we organize the chaos.</p>
+                    </div>
+                </article>
+
+                <article class="log-entry">
+                    <span class="log-date">November 10, 2025</span>
+                    <div class="log-content">
+                        <h3>Welcome</h3>
+                        <p>Hello, world.</p>
+                    </div>
+                </article>
+
+            </section>
+        </div>
+
+        <!-- ABA 2: ACERVO (LIVROS) - ENHANCED -->
+        <div id="data-library" class="tab-content">
+            
+            <div class="controls-wrapper">
+                <button id="toggle-filter-btn">Filter Collection +</button>
+            </div>
+            
+            <div class="controls-container" id="filter-panel">
+                <div class="control-group">
+                    <input type="text" id="search-input" placeholder="Search title or author...">
+                </div>
+                <div class="control-group">
+                    <select id="genre-filter">
+                        <option value="todos">All Genres</option>
+                    </select>
+                </div>
+                <!-- NOVO: Filtro de Status -->
+                <div class="control-group">
+                    <select id="status-filter">
+                        <option value="all">All Status</option>
+                        <option value="Lido">Read</option>
+                        <option value="Em Andamento">Reading</option>
+                        <option value="Pendente">Pending</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <select id="sort-by">
+                        <option value="date_desc">Most Recent</option>
+                        <option value="date_asc">Oldest</option>
+                        <option value="rating_desc">Highest Rated</option>
+                        <option value="title_asc">Title (A-Z)</option>
+                        <option value="author_asc">Author (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <section id="reading-now-section" class="book-section">
+                <h2>Current Tides</h2>
+                <div id="reading-now-grid" class="book-grid"></div>
+            </section>
+
+            <section id="pending-section" class="book-section">
+                <h2>On the Horizon</h2>
+                <div id="pending-grid" class="book-grid"></div>
+            </section>
+
+            <section id="read-history-section" class="book-section">
+                <h2>Memory</h2>
+                <div id="read-history-container"></div>
+            </section>
+
+            <div id="no-results" style="display:none; text-align: center; margin-top: 50px; font-family: var(--font-serif); font-style: italic;">
+                <p>Nothing found in these waters.</p>
+            </div>
+        </div>
+
+        <!-- ABA 3: ESTATÍSTICAS - ENHANCED -->
+        <div id="data-stats" class="tab-content">
+             
+            <!-- NOVO: Filtro por Ano -->
+            <div class="controls-wrapper" style="margin-bottom: 30px;">
+                <select id="stats-year-filter" style="padding: 10px 15px; background: rgba(255,255,255,0.05); border: 1px solid var(--gold); border-radius: 4px; color: var(--gold); font-family: var(--font-mono); cursor: pointer;">
+                    <option value="all">All Years</option>
+                </select>
+            </div>
+
+            <div class="stats-overview">
+                <div class="stat-item">
+                    <span class="stat-label">Total Read</span>
+                    <span id="stat-total-read" class="stat-number">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Average Rating</span>
+                    <span id="stat-avg-rating" class="stat-number">0.0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Top Genre</span>
+                    <span id="stat-fav-genre" class="stat-number">-</span>
+                </div>
+                <!-- NOVO: Livro mais bem avaliado -->
+                <div class="stat-item">
+                    <span class="stat-label">Highest Rated</span>
+                    <span id="stat-top-book" class="stat-number">-</span>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <div class="chart-wrapper">
+                    <h3 class="chart-title">Timeflow</h3>
+                    <canvas id="chart-books-per-year"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <h3 class="chart-title">World Distribution</h3>
+                    <canvas id="chart-genres"></canvas>
+                </div>
+                <!-- NOVO: Gráfico mensal (aparece apenas quando um ano é selecionado) -->
+                <div class="chart-wrapper" style="grid-column: 1 / -1;">
+                    <h3 class="chart-title">Monthly Reading Pattern</h3>
+                    <canvas id="chart-books-per-month" style="display: none;"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>Original work - No IA - Thomas - Brasília 🇧🇷</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

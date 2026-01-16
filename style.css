@@ -1,0 +1,586 @@
+/* style.css - Versão Final Unificada (Lighthouse Archives) */
+
+/* 1. IMPORTANDO FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;0,400&display=swap');
+
+/* 2. VARIÁVEIS GERAIS */
+:root {
+    /* Tipografia */
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Inter', sans-serif;
+    
+    /* Paleta "Farol na Noite" */
+    --bg-deep: #0C141C;       /* Fundo Profundo */
+    
+    /* Variáveis de Vidro (Glassmorphism) */
+    --glass-bg: rgba(20, 30, 40, 0.25); /* Fundo muito sutil */
+    --glass-border: rgba(255, 255, 255, 0.08); /* Borda quase invisível */
+    --glass-highlight: rgba(255, 255, 255, 0.15); /* Brilho no hover */
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Sombra profunda */
+    
+    --text-main: #EAEAEA;      /* Texto Principal */
+    --text-muted: #b2bfbe;     /* Texto Secundário */
+    --accent: #4E91A5;         /* Azul Munsell */
+    --accent-subtle: #2c4a54; 
+    --gold: #D4AF37;           /* Dourado */
+}
+
+/* 3. RESET E ESTRUTURA BÁSICA */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--text-main);
+    background-color: var(--bg-deep);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* 4. FUNDO (BACKGROUND) - BLOQUEADO */
+.background-container {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
+    pointer-events: none;      /* Impede cliques */
+    user-select: none;         /* Impede seleção */
+    -webkit-user-select: none;
+}
+.background-image {
+    width: 100%; height: 100%; object-fit: cover;
+    /* Filtro Noir: Escuro, contraste alto e levemente sépia */
+    filter: brightness(0.6) contrast(1.1) sepia(20%); 
+}
+.overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    /* Vinheta para escurecer as bordas */
+    background: radial-gradient(circle at center, transparent 0%, var(--bg-deep) 90%);
+    z-index: -1;
+}
+
+/* 5. CABEÇALHO E NAVEGAÇÃO SUPERIOR */
+.main-header {
+    padding: 30px 50px;
+    display: flex; justify-content: flex-end;
+    position: relative; z-index: 10;
+}
+.nav-item {
+    font-family: var(--font-sans);
+    font-size: 0.85em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 40px;
+    transition: color 0.4s ease;
+}
+.nav-item:hover, .nav-item.active { color: var(--accent); }
+
+/* 6. ÁREA DE CONTEÚDO E HERO */
+.content-area {
+    flex-grow: 1; padding: 40px 50px; position: relative; z-index: 1;
+    max-width: 1200px; margin: 0 auto; width: 100%;
+}
+
+.hero-section { 
+    text-align: left;
+    margin-bottom: 60px; 
+}
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: 3.5em;
+    font-weight: 300;
+    font-style: italic;
+    margin: 0;
+    color: var(--text-main);
+    letter-spacing: 1px;
+}
+.hero-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.9em;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+/* 7. ESTILOS DE INPUTS E SELECTS (PADRÃO ESCURO) */
+.control-group select, 
+.control-group input,
+.sort-wrapper select,
+#stats-year-filter {
+    background: transparent; 
+    border: none; 
+    border-bottom: 1px solid var(--text-muted);
+    color: var(--text-main); 
+    font-family: var(--font-serif); 
+    font-size: 1em; 
+    padding: 5px;
+    min-width: 150px;
+    cursor: pointer;
+}
+
+.control-group select:focus, 
+.control-group input:focus,
+.sort-wrapper select:focus,
+#stats-year-filter:focus {
+    outline: none; 
+    border-bottom-color: var(--gold);
+    box-shadow: none; 
+}
+
+.control-group option,
+.sort-wrapper option,
+#stats-year-filter option { 
+    background: var(--bg-deep);
+    color: var(--text-main);
+    padding: 10px;
+}
+
+/* 8. HOME (INDEX) */
+.intro-text {
+    max-width: 700px;
+    margin: 0;
+    text-align: left;
+}
+.intro-text p {
+    font-family: var(--font-serif);
+    font-size: 1.8em;
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--text-main);
+    opacity: 0.9;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* 9. NAVEGAÇÃO INTERNA (ABAS) */
+.internal-nav {
+    display: flex; justify-content: center; gap: 40px;
+    margin-bottom: 60px; border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 20px;
+}
+.tab-btn {
+    background: none; border: none;
+    font-family: var(--font-serif);
+    font-size: 1.3em;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+}
+.tab-btn:hover { color: var(--text-main); }
+.tab-btn.active-tab { color: var(--text-main); font-style: italic; }
+.tab-btn.active-tab::after {
+    content: ''; position: absolute; bottom: -21px; left: 0; width: 100%;
+    height: 2px; background-color: var(--accent);
+}
+
+.tab-content { display: none; animation: fadeUp 0.8s ease; }
+.tab-content.active-content { display: block; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* 10. DAILY LOG (Diário) & LISTA DE TEXTOS */
+.log-container { max-width: 700px; margin: 0 auto; }
+.log-entry {
+    margin-bottom: 60px; position: relative; padding-left: 30px;
+    border-left: 1px solid var(--glass-border);
+}
+.log-date {
+    font-family: var(--font-sans); font-size: 0.75em; letter-spacing: 1px;
+    color: var(--accent); display: block; margin-bottom: 5px; text-transform: uppercase;
+}
+
+/* --- NOVOS ESTILOS PARA LISTA DUPLA (PT/EN) - ATUALIZADO (MENOR) --- */
+.links-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Espaço reduzido */
+    margin-bottom: 15px;
+}
+
+.story-link {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    text-decoration: none;
+    color: var(--text-main);
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: 1.2;
+    transition: all 0.3s ease;
+}
+
+.story-link:hover {
+    color: var(--accent);
+    transform: translateX(5px);
+}
+
+.flag-icon {
+    font-size: 0.7em;
+    margin-right: 10px;
+    filter: grayscale(40%);
+    transition: filter 0.3s;
+    opacity: 0.8;
+}
+
+.story-link:hover .flag-icon {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Estilo específico para PT (Reduzido de 1.8em para 1.4em) */
+.link-pt {
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+/* Estilo específico para EN (Reduzido de 1.3em para 1.0em) */
+.link-en {
+    font-size: 1.0em; 
+    font-style: italic;
+    color: var(--text-muted);
+    opacity: 0.8;
+    margin-top: -2px;
+}
+.link-en:hover {
+    color: var(--gold); 
+    opacity: 1;
+}
+/* --- FIM DOS NOVOS ESTILOS --- */
+
+.log-content h3 {
+    font-family: var(--font-serif); font-size: 1.8em; font-weight: 400;
+    margin: 0 0 15px 0; color: var(--text-main);
+}
+.log-content p { color: #ccc; font-size: 1.05em; font-weight: 300; }
+
+.log-content h3 a {
+    color: inherit; transition: color 0.3s ease;
+}
+.log-content h3 a:hover { color: var(--accent); }
+
+/* Categoria na lista de textos */
+.log-content .text-category {
+    font-family: var(--font-sans); font-size: 0.8em; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--text-muted);
+    margin-top: 5px; margin-bottom: 15px;
+}
+
+/* 11. SISTEMA DE FILTROS E BOTÕES */
+.controls-wrapper { display: flex; justify-content: center; margin-bottom: 40px; }
+
+#toggle-filter-btn,
+#toggle-text-filter-btn {
+    font-family: var(--font-sans); font-size: 0.8em; letter-spacing: 2px;
+    color: var(--text-muted); background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 10px 20px; cursor: pointer; transition: 0.3s; border-radius: 20px;
+    backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+}
+
+#toggle-filter-btn:hover,
+#toggle-text-filter-btn:hover { 
+    border-color: var(--gold); color: var(--gold); background: var(--glass-highlight); 
+}
+
+.controls-container {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    
+    padding: 0 20px; max-height: 0; overflow: hidden; transition: all 0.5s ease;
+    display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
+    margin-top: 0;
+}
+
+.controls-container.is-open { 
+    max-height: 400px; padding: 20px; margin-top: 15px; margin-bottom: 40px; 
+}
+
+/* --- ESTILO ESPECÍFICO LISTA DE TEXTOS (Fusão Old+New) --- */
+
+/* Botões Pílula (Chips) */
+.filter-buttons-wrapper {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center; margin-bottom: 20px; width: 100%;
+}
+.filter-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    font-family: var(--font-sans); font-size: 0.85em;
+    padding: 8px 16px; border-radius: 50px; 
+    cursor: pointer; transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+.filter-pill:hover {
+    background: var(--glass-highlight);
+    border-color: var(--accent);
+    color: var(--text-main);
+    transform: translateY(-2px);
+}
+.filter-pill.active {
+    background: var(--accent-subtle);
+    border-color: var(--accent);
+    color: var(--text-main);
+    box-shadow: 0 0 10px rgba(78, 145, 165, 0.4);
+}
+
+/* Blocos de Ano (Year Groups) */
+.year-block {
+    margin-bottom: 60px;
+    position: relative;
+    animation: fadeUp 0.6s ease;
+}
+.year-title {
+    font-family: var(--font-serif);
+    font-size: 4em; font-weight: 700; font-style: italic;
+    position: absolute; top: -40px; left: -20px; z-index: -1;
+    pointer-events: none;
+    color: var(--text-muted); opacity: 0.20; 
+}
+.year-block .log-entry {
+    margin-bottom: 30px; 
+    border-left: 1px solid var(--accent-subtle); 
+}
+.sort-wrapper {
+    width: 100%; text-align: right;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 15px; margin-top: 10px;
+}
+
+/* 12. ESTANTE (BOOKCASE) */
+.book-section h2 {
+    font-family: var(--font-serif); font-size: 1.5em; font-weight: 300; font-style: italic;
+    color: var(--text-muted); border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 10px; margin-top: 50px; margin-bottom: 30px;
+}
+.book-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 30px;
+}
+.book-card {
+    background: var(--glass-bg);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    padding: 25px; border-radius: 8px; 
+    display: flex; flex-direction: column; 
+    transition: transform 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+}
+.book-card:hover {
+    transform: translateY(-5px);
+    background: var(--glass-highlight);
+    border-color: var(--accent-subtle);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+}
+.book-title {
+    font-family: var(--font-serif); font-size: 1.3em; line-height: 1.2;
+    margin: 0 0 5px 0; color: var(--text-main);
+}
+.book-author {
+    font-family: var(--font-sans); font-size: 0.8em; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--text-muted); margin-bottom: 15px;
+}
+.card-footer {
+    margin-top: auto; padding-top: 15px; display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.03);
+}
+.tags { display: flex; gap: 8px; }
+.tag { padding: 2px 0; color: var(--text-muted); position: relative; font-size: 0.8em; }
+.tag::after { content: '•'; margin-left: 8px; opacity: 0.5; }
+.tag:last-child::after { content: ''; }
+.status-lido { color: var(--accent); }
+.status-lendo { color: var(--gold); }
+.status-pendente { color: var(--text-muted); }
+.book-rating { color: var(--gold); font-family: var(--font-serif); font-size: 1.1em; }
+
+/* 13. ESTATÍSTICAS */
+.stats-overview { display: flex; justify-content: center; gap: 50px; margin-bottom: 50px; flex-wrap: wrap; }
+.stat-item { text-align: center; }
+.stat-label { display: block; font-family: var(--font-sans); font-size: 0.75em; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+.stat-number { font-family: var(--font-serif); font-size: 3em; line-height: 1; color: var(--text-main); }
+
+.chart-container {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px;
+}
+.chart-wrapper {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    padding: 30px; border-radius: 8px;
+}
+.chart-title {
+    text-align: center; font-family: var(--font-serif); font-size: 1.2em; color: var(--text-muted); margin-bottom: 20px;
+}
+
+/* 14. GALERIA (IMAGES) */
+.gallery-intro-text {
+    font-family: var(--font-serif); font-style: italic; color: var(--text-muted);
+    text-align: center; font-size: 1.1em; margin-bottom: 40px;
+}
+.gallery-card {
+    background: var(--glass-bg);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    padding: 20px; border-radius: 8px; 
+    transition: transform 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+    cursor: pointer; overflow: hidden;
+}
+.gallery-card:hover {
+    transform: translateY(-5px);
+    background: var(--glass-highlight);
+    border-color: var(--accent-subtle);
+}
+.gallery-card img {
+    width: 100%; height: auto;
+    aspect-ratio: 1 / 1; object-fit: contain; 
+    border-radius: 4px; margin-bottom: 15px;
+    border: 1px solid var(--glass-border);
+}
+.gallery-caption {
+    font-family: var(--font-sans); font-size: 0.8em; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--text-muted);
+    text-align: center; margin: 0;
+}
+
+/* 15. LIGHTBOX */
+.lightbox-modal {
+    display: none; position: fixed; z-index: 1000; left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(12, 20, 28, 0.95);
+    animation: fadeUp 0.5s ease; 
+}
+.lightbox-content {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; max-width: 1200px; text-align: center;
+}
+#lightbox-image {
+    max-width: 100%; max-height: 85vh;
+    border-radius: 4px; border: 1px solid var(--glass-border);
+}
+#lightbox-caption {
+    font-family: var(--font-serif); font-size: 1.2em; font-style: italic;
+    color: var(--text-muted); margin-top: 15px;
+    animation: fadeUp 0.5s ease;
+}
+.lightbox-close {
+    position: absolute; top: 20px; right: 40px;
+    color: var(--text-muted); font-size: 40px; font-weight: bold;
+    cursor: pointer; transition: color 0.3s ease; z-index: 1001;
+}
+.lightbox-close:hover { color: var(--text-main); }
+.lightbox-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    color: var(--text-muted); font-size: 20px; padding: 20px;
+    cursor: pointer; user-select: none;
+    transition: color 0.3s ease; z-index: 1001;
+}
+.lightbox-nav:hover { color: var(--text-main); }
+.lightbox-nav.prev { left: 15px; }
+.lightbox-nav.next { right: 15px; }
+.lightbox-nav.disabled { opacity: 0.2; cursor: default; pointer-events: none; }
+
+/* 16. PÁGINA DE LEITURA (CONTOS INDIVIDUAIS) */
+.story-paper {
+    background: var(--glass-bg);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    max-width: 740px; margin: 0 auto 80px auto; 
+    padding: 60px 50px; border-radius: 4px;
+}
+.story-header {
+    text-align: center; margin-bottom: 50px;
+    border-bottom: 1px solid var(--glass-border); padding-bottom: 30px;
+}
+
+/* CORREÇÃO AQUI: Adicionei .story-header antes para limitar o escopo */
+.story-header .story-title {
+    font-family: var(--font-serif); font-size: 3em; font-weight: 300; font-style: italic;
+    color: var(--text-main); line-height: 1.2; margin: 0 0 10px 0;
+}
+
+.story-meta {
+    font-family: var(--font-sans); font-size: 0.8em; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--accent); opacity: 0.9;
+}
+.story-body {
+    font-family: var(--font-serif); font-size: 1.3em; line-height: 1.8;
+    color: #d1d1d1; text-align: justify;
+}
+.story-body p { margin-bottom: 1.5em; }
+.story-body p:first-of-type::first-letter {
+    font-size: 3.5em; float: left; line-height: 0.8;
+    margin-right: 10px; margin-top: 5px;
+    color: var(--gold); font-family: var(--font-serif);
+}
+.story-separator {
+    text-align: center; color: var(--gold);
+    margin: 40px 0; font-size: 1.5em; letter-spacing: 10px; opacity: 0.7;
+}
+
+/* 17. RODAPÉ */
+.main-footer {
+    text-align: center; padding: 40px; font-family: var(--font-sans); font-size: 0.75em;
+    letter-spacing: 1px; color: var(--text-muted); margin-top: auto; opacity: 0.6;
+}
+
+.hidden { display: none !important; }
+
+/* 18. RESPONSIVIDADE (MOBILE) */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 20px 20px; justify-content: center;
+        background: var(--glass-bg);
+        backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+        border-bottom: 1px solid var(--glass-border);
+    }
+    .content-area { padding: 25px 20px; }
+    .nav-item { margin: 0 15px; font-size: 0.8em; }
+    
+    .hero-title { font-size: 2.5em; text-align: center; }
+    .hero-subtitle { text-align: center; }
+    .intro-text { text-align: center; max-width: 100%; }
+    .intro-text p { font-size: 1.3em; }
+
+    .internal-nav { gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .tab-btn { font-size: 1.1em; }
+    
+    .controls-container.is-open { max-height: 500px; }
+    .control-group { width: 100%; display: flex; flex-direction: column; }
+    .control-group select, .control-group input { width: 100%; }
+
+    .log-container { max-width: 100%; }
+    .log-entry { padding-left: 15px; }
+    
+    /* Ajuste para os títulos dos contos no mobile (Atualizado) */
+    .link-pt { font-size: 1.3em; }
+    .link-en { font-size: 0.95em; }
+    
+    .chart-container { grid-template-columns: 1fr; }
+    .stats-overview { gap: 25px; }
+    .stat-number { font-size: 2.2em; }
+    
+    .book-grid { gap: 15px; }
+    .lightbox-close { top: 15px; right: 25px; }
+    .lightbox-nav { padding: 15px; }
+    .lightbox-nav.prev { left: 10px; }
+    .lightbox-nav.next { right: 10px; }
+    
+    .story-paper {
+        padding: 30px 20px; width: 100%; border: none;
+        background: rgba(20, 30, 40, 0.4); box-shadow: none;
+    }
+    .story-title { font-size: 2.2em; }
+    .story-body { font-size: 1.15em; text-align: left; }
+}

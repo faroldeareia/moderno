@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lighthouse Archives - Text</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background-container">
+        <img src="image_9cbbba.png" alt="Lighthouse" class="background-image">
+        <div class="overlay"></div>
+    </div>
+
+    <header class="main-header">
+        <nav class="main-nav">
+            <a href="index.html" class="nav-item">HOME( )</a>
+            <a href="text.html" class="nav-item active">TEXT.created( )</a>
+            <a href="image.html" class="nav-item">IMAGE.created( )</a>
+            <a href="log.html" class="nav-item">DAILY.log( )</a>
+        </nav>
+    </header>
+
+    <main class="content-area">
+        
+        <section class="hero-section">
+            <h2 class="hero-title">Text.created</h2>
+            <p class="hero-subtitle">Written Fragments</p>
+        </section>
+
+        <!-- 
+          FILTRO (Estilo da Estante / Bookcase)
+          Um único botão que abre o painel de vidro.
+        -->
+        <div class="controls-wrapper">
+            <button id="toggle-text-filter-btn">Filter Texts +</button>
+        </div>
+        
+<div class="controls-container" id="text-filter-panel">
+    
+    <div class="filter-buttons-wrapper" id="category-buttons-container">
+        </div>
+
+    <div class="sort-wrapper">
+        <label for="sort-by" style="font-family: var(--font-sans); color: var(--text-muted); font-size: 0.8em; margin-right: 10px;">ORDENAR:</label>
+        <select id="sort-by">
+            <option value="date_desc">Mais Recentes</option>
+            <option value="date_asc">Mais Antigos</option>
+        </select>
+    </div>
+</div>
+        
+        <!-- 
+          Container para a lista de contos.
+          Usará o mesmo estilo do .log-container.
+        -->
+        <div id="text-list-log-container" class="log-container">
+            <!-- O JavaScript vai agrupar por ano e inserir grids aqui -->
+        </div>
+
+        <!-- Mensagem de "Sem Resultados", controlada pelo JS -->
+        <div id="no-results-text" style="display:none; text-align: center; margin-top: 50px; font-family: var(--font-serif); font-style: italic;">
+            <p>Nenhum texto encontrado para esta categoria.</p>
+        </div>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>Original work - No IA - Thomas - Brasília 🇧🇷</p>
+    </footer>
+
+    <!-- Novo script para a lista de textos -->
+    <script src="text-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lighthouse Archives - Images</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Não precisamos do Chart.js aqui -->
+</head>
+<body>
+
+    <div class="background-container">
+        <img src="image_9cbbba.png" alt="Lighthouse" class="background-image">
+        <div class="overlay"></div>
+    </div>
+
+    <header class="main-header">
+        <nav class="main-nav">
+            <a href="index.html" class="nav-item">HOME( )</a>
+            <a href="text.html" class="nav-item">TEXT.created( )</a>
+            <a href="image.html" class="nav-item active">IMAGE.created( )</a>
+            <a href="log.html" class="nav-item">DAILY.log( )</a>
+        </nav>
+    </header>
+
+    <main class="content-area">
+        
+        <section class="hero-section">
+            <h2 class="hero-title">Gallery</h2>
+            <p class="hero-subtitle">Visual Fragments</p>
+        </section>
+
+        <!-- NOVO TEXTO INTRODUTÓRIO -->
+        <p class="gallery-intro-text">
+           All images created in Blender 3D and Krita. No IA.
+        </p>
+
+        <!-- 
+          Usamos a classe .book-grid que já existe no seu CSS 
+          para criar o grid responsivo.
+        -->
+        <div class="book-grid">
+
+            <!-- Card 1 -->
+            <div class="gallery-card" data-src="asset/congresso.png" data-caption="Congresso Nacional">
+                <img src="asset/tb/congresso.webp" alt="Congresso Nacional">
+                <p class="gallery-caption">Congresso Nacional / National Congress</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="gallery-card" data-src="asset/caixa.png" data-caption="Caixa D'Água de Ceilândia">
+                <img src="asset/tb/caixa.webp" alt="Caixa D'Água de Ceilândia">
+                <p class="gallery-caption">Caixa D'Água de Ceilândia / Ceilândia Water Tower</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="gallery-card" data-src="asset/carranca.png" data-caption="Carrancas">
+                <img src="asset/tb/carranca.webp" alt="Carrancas">
+                <p class="gallery-caption">Carrancas / Figureheads</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="gallery-card" data-src="asset/astronauta.png" data-caption="Astronauta">
+                <img src="asset/tb/astronauta.webp" alt="Astronauta">
+                <p class="gallery-caption">Astronauta / Astronaut </p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="gallery-card" data-src="asset/dombosco.png" data-caption="Catedral Dom Bosco">
+                <img src="asset/tb/dombosco.webp" alt="Catedral Dom Bosco">
+                <p class="gallery-caption">Catedral Dom Bosco / Dom Bosco Cathedral</p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="gallery-card" data-src="asset/itamaraty.png" data-caption="Itamaraty">
+                <img src="asset/tb/itamaraty.webp" alt="Itamaraty">
+                <p class="gallery-caption">Itamaraty</p>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="gallery-card" data-src="asset/nave.png" data-caption="Hangar">
+                <img src="asset/tb/nave.webp" alt="Hangar">
+                <p class="gallery-caption">Hangar</p>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="gallery-card" data-src="asset/pf.png" data-caption="Polícia Federal">
+                <img src="asset/tb/pf.webp" alt="Polícia Federal">
+                <p class="gallery-caption">Polícia Federal / Federal Police</p>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="gallery-card" data-src="asset/pontejk.png" data-caption="Ponte JK">
+                <img src="asset/tb/pontejk.webp" alt="Ponte JK">
+                <p class="gallery-caption">Ponte JK / JK Bridge</p>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="gallery-card" data-src="asset/stf.png" data-caption="Supremo Tribunal Federal">
+                <img src="asset/tb/stf.webp" alt="Supremo Tribunal Federal">
+                <p class="gallery-caption">Supremo Tribunal Federal / Supreme Court </p>
+            </div>
+
+            <!-- Card 11 -->
+            <div class="gallery-card" data-src="asset/torre.png" data-caption="Torre de TV digital">
+                <img src="asset/tb/torre.webp" alt="Torre de TV digital">
+                <p class="gallery-caption">Torre de TV digital / Digital TV tower</p>
+            </div>
+
+        </div> <!-- Fim do .book-grid -->
+
+    </main>
+
+    <footer class="main-footer">
+        <p>Original work - No IA - Thomas - Brasília 🇧🇷</p>
+    </footer>
+
+    <!-- 
+      Estrutura do Lightbox (Modal). 
+      Fica escondido até o JS o ativar.
+    -->
+    <div id="gallery-lightbox" class="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
+        <a class="lightbox-nav prev">&#10094;</a>
+        <a class="lightbox-nav next">&#10095;</a>
+        <div class="lightbox-content">
+            <img id="lightbox-image" src="" alt="Imagem ampliada">
+            <p id="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Importa o NOVO script da galeria -->
+    <script src="gallery.js"></script>
+</body>
+</html>

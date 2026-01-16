@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de Fluxo Escolar</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        #map { height: 100vh; width: 100%; }
+        
+        /* Caixa de Legenda flutuante */
+        .legenda {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        .dot { height: 10px; width: 10px; display: inline-block; border-radius: 50%; margin-right: 5px; }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <div class="legenda">
+        <h4>Ocupação das Escolas</h4>
+        <div><span class="dot" style="background: #ff4d4d;"></span>Ociosa (< 50%)</div>
+        <div><span class="dot" style="background: #33cc33;"></span>Normal (50% - 100%)</div>
+        <div><span class="dot" style="background: #00008b;"></span>Superlotada (> 100%)</div>
+        <hr>
+        <small>Linhas cinzas mostram o deslocamento<br>real dos alunos.</small>
+    </div>
+
+    <script>
+        // --- 1. CONFIGURAÇÃO DO MAPA ---
+        // Cria o mapa focado numa coordenada (Ex: São Paulo)
+        var map = L.map('map').setView([-23.5505, -46.6333], 13);
+
+        // Adiciona o "azulejo" do mapa (OpenStreetMap - gratuito)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // --- 2. SEUS DADOS (Aqui entraria o conteúdo do seu JSON) ---
+        // Simulei 10 escolas e alguns alunos para você ver funcionando
+        
+        const dados = {
+            "escolas": [
+                { "id": 1, "nome": "Escola Central (Superlotada)", "lat": -23.5505, "lon": -46.6333, "capacidade": 100, "alunos": 150 }, 
+                { "id": 2, "nome": "Escola Zona Norte (Ociosa)", "lat": -23.5200, "lon": -46.6500, "capacidade": 200, "alunos": 50 },
+                { "id": 3, "nome": "Escola Zona Sul (Normal)", "lat": -23.5800, "lon": -46.6200, "capacidade": 150, "alunos": 140 },
+                { "id": 4, "nome": "Escola Leste (Vazia)", "lat": -23.5600, "lon": -46.5900, "capacidade": 100, "alunos": 20 },
+                { "id": 5, "nome": "Escola Oeste (Cheia)", "lat": -23.5600, "lon": -46.6900, "capacidade": 100, "alunos": 110 }
+            ],
+            // Alunos simulados (apenas alguns para exemplo)
+            "alunos": [
+                { "lat": -23.5550, "lon": -46.6380, "escola_id": 1 }, // Perto da escola 1
+                { "lat": -23.5900, "lon": -46.6300, "escola_id": 1 }, // Mora longe (Sul), estuda no Centro (Distorção!)
+                { "lat": -23.5100, "lon": -46.6600, "escola_id": 2 },
+                { "lat": -23.5700, "lon": -46.6800, "escola_id": 5 }
+            ]
+        };
+
+        // --- 3. LÓGICA DE CORES ---
+        function pegarCor(alunos, capacidade) {
+            const taxa = alunos / capacidade;
+            if (taxa < 0.5) return '#ff4d4d'; // Vermelho (Poucos alunos)
+            if (taxa <= 1.0) return '#33cc33'; // Verde (Ideal)
+            return '#00008b'; // Azul Escuro (Muitos alunos)
+        }
+
+        // --- 4. DESENHAR NO MAPA ---
+
+        // A) Desenhar Escolas
+        dados.escolas.forEach(escola => {
+            // Calcula cor
+            let cor = pegarCor(escola.alunos, escola.capacidade);
+            
+            // Calcula tamanho da bolinha baseado no tamanho da escola
+            let raio = 10 + (escola.alunos / 10); 
+
+            // Adiciona marcador circular
+            var circle = L.circleMarker([escola.lat, escola.lon], {
+                color: cor,
+                fillColor: cor,
+                fillOpacity: 0.7,
+                radius: raio
+            }).addTo(map);
+
+            // Adiciona popup ao clicar
+            circle.bindPopup(`
+                <b>${escola.nome}</b><br>
+                Capacidade: ${escola.capacidade}<br>
+                Matriculados: ${escola.alunos}<br>
+                Ocupação: ${Math.round((escola.alunos/escola.capacidade)*100)}%
+            `);
+        });
+
+        // B) Desenhar Linhas dos Alunos (Distorção)
+        dados.alunos.forEach(aluno => {
+            // Encontrar a escola deste aluno nos dados
+            const escolaDestino = dados.escolas.find(e => e.id === aluno.escola_id);
+            
+            if (escolaDestino) {
+                // Desenha linha do aluno até a escola
+                L.polyline([
+                    [aluno.lat, aluno.lon], 
+                    [escolaDestino.lat, escolaDestino.lon]
+                ], {
+                    color: 'gray',
+                    weight: 1,      // Linha fina
+                    opacity: 0.5,   // Transparente
+                    dashArray: '5, 5' // Linha pontilhada
+                }).addTo(map);
+            }
+        });
+
+    </script>
+</body>
+</html>
