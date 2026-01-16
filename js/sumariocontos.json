@@ -1,0 +1,274 @@
+[
+  {
+    "title": "Monstro na Neve",
+    "date": "12 de janeiro de 2026",
+    "filename": "../contos/monstroneve.html",
+    "title_en": "Monster in the Snow",
+    "filename_en": "../contos/monstroneve_en.html",
+    "category": "Children's"
+  },
+  {
+    "title": "Macaquinho barulhento",
+    "date": "12 de janeiro de 2026",
+    "filename": "../contos/macacobarulho.html",
+    "title_en": "Noisy Little Monkey",
+    "filename_en": "../contos/macacobarulho_en.html",
+    "category": "Children's"
+  },
+  {
+    "title": "Ronco Gigante",
+    "date": "12 de janeiro de 2026",
+    "filename": "../contos/roncogigante.html",
+    "title_en": "Giant Snore",
+    "filename_en": "../contos/roncogigante_en.html",
+    "category": "Children's"
+  },
+  {
+    "title": "Pássaro sem Penas",
+    "date": "12 de janeiro de 2026",
+    "filename": "../contos/passaro.html",
+    "title_en": "Featherless Bird",
+    "filename_en": "../contos/passaro_en.html",
+    "category": "Children's"
+  },
+  {
+    "title": "Uma Maçã",
+    "date": "19 de maio de 2025",
+    "filename": "../contos/maca.html",
+    "title_en": "An Apple",
+    "filename_en": "../contos/maca_en.html",
+    "category": "Sci-Fi with Magical Realism"
+  },
+  {
+    "title": "Antigo",
+    "date": "12 de maio de 2025",
+    "filename": "../contos/antigo.html",
+    "title_en": "Ancient",
+    "filename_en": "../contos/antigo_en.html",
+    "category": "Poetry"
+  },
+  {
+    "title": "Protocolo Sanitário Sete-Beta",
+    "date": "13 de maio de 2025",
+    "filename": "../contos/protocolo.html",
+    "title_en": "Sanitary Protocol Seven-Beta",
+    "filename_en": "../contos/protocolo_en.html",
+    "category": "Sci-Fi with Magical Realism"
+  },
+  {
+    "title": "Lamparinas e Gardênias",
+    "date": "16 de janeiro de 2024",
+    "filename": "../contos/lamparinas.html",
+    "title_en": "Oil Lamps and Gardenias",
+    "filename_en": "../contos/lamparinas_en.html",
+    "category": "Fantasy"
+  },
+  {
+    "title": "Rotina",
+    "date": "5 de janeiro de 2024",
+    "filename": "../contos/rotina.html",
+    "title_en": "Routine",
+    "filename_en": "../contos/rotina_en.html",
+    "category": "Poetry"
+  },
+  {
+    "title": "Plantação de Feijão",
+    "date": "23 de fevereiro de 2023",
+    "filename": "../contos/plantacao.html",
+    "title_en": "Bean Plantation",
+    "filename_en": "../contos/plantacao_en.html",
+    "category": "Sci-Fi with Magical Realism"
+  },
+  {
+    "title": "A Velha, o Inverno, a Montanha",
+    "date": "22 de agosto de 2022",
+    "filename": "../contos/velha.html",
+    "title_en": "The Old Woman, Winter, and the Mountain",
+    "filename_en": "../contos/velha_en.html",
+    "category": "Fantasy"
+  },
+  {
+    "title": "Jantar à Luz de Meteoro",
+    "date": "22 de fevereiro de 2022",
+    "filename": "../contos/jantar.html",
+    "title_en": "Meteor-lit Dinner",
+    "filename_en": "../contos/jantar_en.html",
+    "category": "Sci-Fi with Magical Realism"
+  },
+  {
+    "title": "Esperança em Detritos",
+    "date": "29 de dezembro de 2021",
+    "filename": "../contos/esperanca.html",
+    "title_en": "Hope in Debris",
+    "filename_en": "../contos/esperanca_en.html",
+    "category": "Sci-Fi"
+  },
+  {
+    "title": "O Som no Desfiladeiro",
+    "date": "3 de setembro de 2021",
+    "filename": "../contos/som.html",
+    "title_en": "The Sound in the Canyon",
+    "filename_en": "../contos/som_en.html",
+    "category": "Sci-Fi with Magical Realism"
+  },
+  {
+    "title": "Vigília",
+    "date": "21 de julho de 2021",
+    "filename": "../contos/vigilia.html",
+    "title_en": "Vigil",
+    "filename_en": "../contos/vigilia_en.html",
+    "category": "Sci-Fi with Magical Realism"
+  },
+  {
+    "title": "O Biomecânico",
+    "date": "1º de julho de 2021",
+    "filename": "../contos/biomecanico.html",
+    "title_en": "The Biomechanic",
+    "filename_en": "../contos/biomecanico_en.html",
+    "category": "Sci-Fi"
+  },
+  {
+    "title": "Protetor Solar Especial",
+    "date": "1º de abril de 2021",
+    "filename": "../contos/protetor.html",
+    "title_en": "Special Sunscreen",
+    "filename_en": "../contos/protetor_en.html",
+    "category": "Sci-Fi with Magical Realism"
+  },
+  {
+    "title": "Sereia",
+    "date": "11 de março de 2021",
+    "filename": "../contos/sereia.html",
+    "title_en": "Mermaid",
+    "filename_en": "../contos/sereia_en.html",
+    "category": "Magical Realism"
+  },
+  {
+    "title": "Só mais um Deserto para Atravessar",
+    "date": "9 de janeiro de 2021",
+    "filename": "../contos/deserto.html",
+    "title_en": "Just Another Desert to Cross",
+    "filename_en": "../contos/deserto_en.html",
+    "category": "Sci-Fi"
+  },
+  {
+    "title": "O Filho do Barão",
+    "date": "13 de dezembro de 2019",
+    "filename": "../contos/filhobarao.html",
+    "title_en": "The Baron's Son",
+    "filename_en": "../contos/filhobarao_en.html",
+    "category": "Mystery"
+  },
+  {
+    "title": "As Uvas que Ficaram para Trás",
+    "date": "6 de novembro de 2019",
+    "filename": "../contos/uvas.html",
+    "title_en": "The Grapes Left Behind",
+    "filename_en": "../contos/uvas_en.html",
+    "category": "Sci-Fi with Magical Realism"
+  },
+  {
+    "title": "Incensos 3:69",
+    "date": "5 de junho de 2019",
+    "filename": "../contos/incensos.html",
+    "title_en": "Incense 3:69",
+    "filename_en": "../contos/incensos_en.html",
+    "category": "Microfiction"
+  },
+  {
+    "title": "Campo de Tulipas",
+    "date": "4 de junho de 2019",
+    "filename": "../contos/campos.html",
+    "title_en": "Field of Tulips",
+    "filename_en": "../contos/campos_en.html",
+    "category": "Sci-Fi with Magical Realism"
+  },
+  {
+    "title": "Um Planeta para se Plantar Vida",
+    "date": "3 de junho de 2019",
+    "filename": "../contos/planeta.html",
+    "title_en": "A Planet to Plant Life",
+    "filename_en": "../contos/planeta_en.html",
+    "category": "Sci-Fi with Magical Realism"
+  },
+  {
+    "title": "Toques 3:69",
+    "date": "22 de fevereiro de 2019",
+    "filename": "../contos/toques.html",
+    "title_en": "Touches 3:69",
+    "filename_en": "../contos/toques_en.html",
+    "category": "Microfiction"
+  },
+  {
+    "title": "Artes Visuais, 3:69",
+    "date": "21 de fevereiro de 2019",
+    "filename": "../contos/artes.html",
+    "title_en": "Visual Arts, 3:69",
+    "filename_en": "../contos/artes_en.html",
+    "category": "Microfiction"
+  },
+  {
+    "title": "Culinária 3:69",
+    "date": "20 de fevereiro de 2019",
+    "filename": "../contos/culinaria.html",
+    "title_en": "Cuisine 3:69",
+    "filename_en": "../contos/culinaria_en.html",
+    "category": "Microfiction"
+  },
+  {
+    "title": "Música 3:69",
+    "date": "19 de fevereiro de 2019",
+    "filename": "../contos/musica.html",
+    "title_en": "Music 3:69",
+    "filename_en": "../contos/musica_en.html",
+    "category": "Microfiction"
+  },
+  {
+    "title": "Reino Cercado por Pinheiros",
+    "date": "18 de fevereiro de 2019",
+    "filename": "../contos/reino.html",
+    "title_en": "Kingdom Surrounded by Pines",
+    "filename_en": "../contos/reino_en.html",
+    "category": "Magical Realism"
+  },
+  {
+    "title": "Um Filho Chamado Gulliver",
+    "date": "17 de fevereiro de 2019",
+    "filename": "../contos/filhogulliver.html",
+    "title_en": "A Son Named Gulliver",
+    "filename_en": "../contos/filhogulliver_en.html",
+    "category": "Magical Realism"
+  },
+  {
+    "title": "Para além da fenda dos Universos, ninguém sabia o seu nome",
+    "date": "13 de fevereiro de 2019",
+    "filename": "../contos/alem.html",
+    "title_en": "Beyond the Rift of Universes, No One Knew His Name",
+    "filename_en": "../contos/alem_en.html",
+    "category": "Fantasy"
+  },
+  {
+    "title": "Fronteiras",
+    "date": "5 de fevereiro de 2019",
+    "filename": "../contos/fronteiras.html",
+    "title_en": "Borders",
+    "filename_en": "../contos/fronteiras_en.html",
+    "category": "Magical Realism"
+  },
+  {
+    "title": "Borboletas",
+    "date": "1º de fevereiro de 2019",
+    "filename": "../contos/borboletas.html",
+    "title_en": "Butterflies",
+    "filename_en": "../contos/borboletas_en.html",
+    "category": "Magical Realism"
+  },
+  {
+    "title": "Testemunho de uma Colher e sua Poção",
+    "date": "31 de janeiro de 2019",
+    "filename": "../contos/testemunho.html",
+    "title_en": "Testimony of a Spoon and its Potion",
+    "filename_en": "../contos/testemunho_en.html",
+    "category": "Mystery"
+  }
+]
