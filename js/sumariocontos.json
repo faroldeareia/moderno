@@ -55,6 +55,14 @@
     "filename_en": "../contos/protocolo_en.html",
     "category": "Sci-Fi with Magical Realism"
   },
+    {
+    "title": "Árvores sem frutos",
+    "date": "19 de janeiro de 2024",
+    "filename": "../contos/arvores.html",
+    "title_en": "Fruitless Trees",
+    "filename_en": "../contos/arvores_en.html",
+    "category": "Sci-Fi with Magical Realism"
+  },
   {
     "title": "Lamparinas e Gardênias",
     "date": "16 de janeiro de 2024",
@@ -271,4 +279,5 @@
     "filename_en": "../contos/testemunho_en.html",
     "category": "Mystery"
   }
+
 ]
