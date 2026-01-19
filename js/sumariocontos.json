@@ -279,6 +279,14 @@
     "filename_en": "../contos/fronteiras_en.html",
     "category": "Magical Realism"
   },
+          {
+    "title": "O Incrível Circo Mago Azul",
+    "date": "7 de fevereiro de 2019",
+    "filename": "../contos/circo.html",
+    "title_en": "The Incredible Circus “Blue Magician”",
+    "filename_en": "../contos/circo_en.html",
+    "category": "Mystery"
+  },
       {
     "title": "Por favor, pai",
     "date": "4 de fevereiro de 2019",
@@ -305,6 +313,7 @@
   }
 
 ]
+
 
 
 
