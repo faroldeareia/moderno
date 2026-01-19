@@ -310,9 +310,17 @@
     "title_en": "Testimony of a Spoon and its Potion",
     "filename_en": "../contos/testemunho_en.html",
     "category": "Mystery"
-  }
-
+  },
+  {
+    "title": "Convite",
+    "date": "26 de janeiro de 2019",
+    "filename": "../contos/convite.html",
+    "title_en": "Invite",
+    "filename_en": "../contos/convite_en.html",
+    "category": "Sci-Fi"
+  },
 ]
+
 
 
 
