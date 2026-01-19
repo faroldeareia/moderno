@@ -1,4 +1,12 @@
 [
+    {
+    "title": "Quanto tempo dura uma Escolha",
+    "date": "12 de janeiro de 2026",
+    "filename": "../contos/escolha.html",
+    "title_en": "How long does a Choice last?",
+    "filename_en": "../contos/escolha_en.html",
+    "category": "Sci-Fi with Magical Realism"
+  },
   {
     "title": "Monstro na Neve",
     "date": "12 de janeiro de 2026",
@@ -281,3 +289,4 @@
   }
 
 ]
+
