@@ -39,6 +39,14 @@
     "filename_en": "../contos/passaro_en.html",
     "category": "Children's"
   },
+      {
+    "title": "O Peso das Almas Silenciosas",
+    "date": "25 de maio de 2025",
+    "filename": "../contos/peso.html",
+    "title_en": "The Weight of Silent Souls",
+    "filename_en": "../contos/peso_en.html",
+    "category": "Sci-Fi"
+  },
   {
     "title": "Uma Maçã",
     "date": "19 de maio de 2025",
@@ -289,4 +297,5 @@
   }
 
 ]
+
 
