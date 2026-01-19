@@ -279,6 +279,14 @@
     "filename_en": "../contos/fronteiras_en.html",
     "category": "Magical Realism"
   },
+      {
+    "title": "Por favor, pai",
+    "date": "4 de fevereiro de 2019",
+    "filename": "../contos/pai.html",
+    "title_en": "Please, father",
+    "filename_en": "../contos/pai_en.html",
+    "category": "Mystery"
+  },
   {
     "title": "Borboletas",
     "date": "1º de fevereiro de 2019",
@@ -297,5 +305,6 @@
   }
 
 ]
+
 
 
