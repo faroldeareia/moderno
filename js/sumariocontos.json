@@ -1,5 +1,5 @@
 [
-    {
+  {
     "title": "Quanto tempo dura uma Escolha",
     "date": "12 de janeiro de 2026",
     "filename": "../contos/escolha.html",
@@ -39,7 +39,7 @@
     "filename_en": "../contos/passaro_en.html",
     "category": "Children's"
   },
-      {
+  {
     "title": "O Peso das Almas Silenciosas",
     "date": "25 de maio de 2025",
     "filename": "../contos/peso.html",
@@ -71,7 +71,7 @@
     "filename_en": "../contos/protocolo_en.html",
     "category": "Sci-Fi with Magical Realism"
   },
-    {
+  {
     "title": "Árvores sem frutos",
     "date": "19 de janeiro de 2024",
     "filename": "../contos/arvores.html",
@@ -279,7 +279,7 @@
     "filename_en": "../contos/fronteiras_en.html",
     "category": "Magical Realism"
   },
-          {
+  {
     "title": "O Incrível Circo Mago Azul",
     "date": "7 de fevereiro de 2019",
     "filename": "../contos/circo.html",
@@ -287,7 +287,7 @@
     "filename_en": "../contos/circo_en.html",
     "category": "Mystery"
   },
-      {
+  {
     "title": "Por favor, pai",
     "date": "4 de fevereiro de 2019",
     "filename": "../contos/pai.html",
@@ -318,10 +318,5 @@
     "title_en": "Invite",
     "filename_en": "../contos/convite_en.html",
     "category": "Sci-Fi"
-  },
+  }
 ]
-
-
-
-
-
