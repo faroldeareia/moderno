@@ -1,4 +1,4 @@
-/* style.css - Versão Final Corrigida (No Italics + Glass Container) */
+/* style.css - Versão Final Corrigida (Sem linha extra + Fundo mais claro) */
 
 /* 1. IMPORTANDO FONTES */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Inter:wght@300;0,400&display=swap');
@@ -13,10 +13,11 @@
     --bg-deep: #0C141C;       /* Fundo Profundo */
     
     /* Variáveis de Vidro (Glassmorphism) */
-    --glass-bg: rgba(12, 20, 28, 0.65); /* Mais escuro para contraste melhor no container */
-    --glass-border: rgba(255, 255, 255, 0.08); 
-    --glass-highlight: rgba(255, 255, 255, 0.12); 
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6); 
+    /* CORREÇÃO: Opacidade reduzida (de 0.65 para 0.45) para ficar mais claro */
+    --glass-bg: rgba(20, 30, 40, 0.45); 
+    --glass-border: rgba(255, 255, 255, 0.10); 
+    --glass-highlight: rgba(255, 255, 255, 0.15); 
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); 
     
     --text-main: #EAEAEA;      /* Texto Principal */
     --text-muted: #b2bfbe;     /* Texto Secundário */
@@ -52,12 +53,13 @@ a { text-decoration: none; color: inherit; }
 }
 .background-image {
     width: 100%; height: 100%; object-fit: cover;
-    /* Filtro mais forte para garantir leitura */
-    filter: brightness(0.5) contrast(1.1) sepia(20%); 
+    /* CORREÇÃO: Brilho aumentado (0.5 -> 0.7) para clarear o fundo */
+    filter: brightness(0.7) contrast(1.05) sepia(15%); 
 }
 .overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at center, transparent 0%, var(--bg-deep) 90%);
+    /* Vinheta um pouco mais suave */
+    background: radial-gradient(circle at center, transparent 10%, var(--bg-deep) 95%);
     z-index: -1;
 }
 
@@ -164,7 +166,8 @@ a { text-decoration: none; color: inherit; }
 
 .sort-wrapper {
     width: 100%; text-align: right;
-    border-top: 1px solid var(--glass-border);
+    /* CORREÇÃO: Removida a borda superior que estava sobrando */
+    /* border-top: 1px solid var(--glass-border); */
     padding-top: 15px; margin-top: 10px;
 }
 .sort-wrapper select {
@@ -176,20 +179,20 @@ a { text-decoration: none; color: inherit; }
 .sort-wrapper option { background: var(--bg-deep); color: var(--text-main); }
 
 
-/* 8. LISTA DE TEXTOS (LOG) - REFORMULADA COM GLASSMORPHISM */
+/* 8. LISTA DE TEXTOS (LOG) - COM GLASSMORPHISM */
 
 .log-container { 
     max-width: 800px; 
     margin: 0 auto;
     
-    /* NOVO: Glassmorphism no Container Inteiro */
+    /* Glassmorphism no Container Inteiro */
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(12px); /* Desfoca o fundo atrás da lista */
+    backdrop-filter: blur(12px); 
     -webkit-backdrop-filter: blur(12px);
     border-radius: 12px;
-    padding: 50px; /* Espaço interno para o texto não colar na borda */
+    padding: 50px; 
 }
 
 /* Bloco do Ano (Separador Sóbrio) */
@@ -261,8 +264,6 @@ a { text-decoration: none; color: inherit; }
     font-weight: 400;
     line-height: 1.2;
     transition: all 0.3s ease;
-    
-    /* CORREÇÃO: Força estilo normal para ambos */
     font-style: normal;
 }
 
@@ -283,9 +284,7 @@ a { text-decoration: none; color: inherit; }
     opacity: 1;
 }
 
-/* A classe link-en agora é idêntica à link-pt, apenas existe se precisarmos mudar algo no futuro */
 .link-en {
-    /* Sem itálico e sem cor diferente */
     color: var(--text-main); 
 }
 
@@ -449,7 +448,7 @@ a { text-decoration: none; color: inherit; }
     
     .log-container { 
         max-width: 100%; 
-        padding: 25px; /* Menos padding no mobile */
+        padding: 25px; 
     }
     .log-entry { padding-left: 15px; }
     .story-link { font-size: 1.3em; } 
