@@ -1,4 +1,4 @@
-/* style.css - Versão Final Corrigida (Sem linha extra + Fundo mais claro) */
+/* style.css - Versão Final Restaurada & Corrigida */
 
 /* 1. IMPORTANDO FONTES */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Inter:wght@300;0,400&display=swap');
@@ -12,8 +12,7 @@
     /* Paleta "Farol na Noite" */
     --bg-deep: #0C141C;       /* Fundo Profundo */
     
-    /* Variáveis de Vidro (Glassmorphism) */
-    /* CORREÇÃO: Opacidade reduzida (de 0.65 para 0.45) para ficar mais claro */
+    /* Variáveis de Vidro (Ajustadas para clareza) */
     --glass-bg: rgba(20, 30, 40, 0.45); 
     --glass-border: rgba(255, 255, 255, 0.10); 
     --glass-highlight: rgba(255, 255, 255, 0.15); 
@@ -53,13 +52,12 @@ a { text-decoration: none; color: inherit; }
 }
 .background-image {
     width: 100%; height: 100%; object-fit: cover;
-    /* CORREÇÃO: Brilho aumentado (0.5 -> 0.7) para clarear o fundo */
-    filter: brightness(0.7) contrast(1.05) sepia(15%); 
+    /* Clareando um pouco a imagem para não ficar tudo breu */
+    filter: brightness(0.7) contrast(1.1) sepia(15%); 
 }
 .overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    /* Vinheta um pouco mais suave */
-    background: radial-gradient(circle at center, transparent 10%, var(--bg-deep) 95%);
+    background: radial-gradient(circle at center, transparent 0%, var(--bg-deep) 90%);
     z-index: -1;
 }
 
@@ -110,17 +108,76 @@ a { text-decoration: none; color: inherit; }
     opacity: 0.8;
 }
 
-/* 7. CONTROLES E FILTROS (PAINEL) */
+/* 7. ESTILOS DE INPUTS E SELECTS */
+.control-group select, 
+.control-group input,
+.sort-wrapper select,
+#stats-year-filter {
+    background: transparent; 
+    border: none; 
+    border-bottom: 1px solid var(--text-muted);
+    color: var(--text-main); 
+    font-family: var(--font-serif); 
+    font-size: 1em; 
+    padding: 5px;
+    min-width: 150px;
+    cursor: pointer;
+}
+.control-group select:focus, 
+.control-group input:focus,
+.sort-wrapper select:focus,
+#stats-year-filter:focus {
+    outline: none; 
+    border-bottom-color: var(--gold);
+    box-shadow: none; 
+}
+.control-group option,
+.sort-wrapper option,
+#stats-year-filter option { 
+    background: var(--bg-deep);
+    color: var(--text-main);
+    padding: 10px;
+}
+
+/* 8. NAVEGAÇÃO INTERNA (ABAS - Log.html) */
+.internal-nav {
+    display: flex; justify-content: center; gap: 40px;
+    margin-bottom: 60px; border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 20px;
+}
+.tab-btn {
+    background: none; border: none;
+    font-family: var(--font-serif);
+    font-size: 1.3em;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+}
+.tab-btn:hover { color: var(--text-main); }
+.tab-btn.active-tab { color: var(--text-main); font-style: italic; }
+.tab-btn.active-tab::after {
+    content: ''; position: absolute; bottom: -21px; left: 0; width: 100%;
+    height: 2px; background-color: var(--accent);
+}
+
+.tab-content { display: none; animation: fadeUp 0.8s ease; }
+.tab-content.active-content { display: block; }
+
+
+/* 9. CONTROLES E FILTROS (PAINEL) */
 .controls-wrapper { display: flex; justify-content: center; margin-bottom: 40px; }
 
-#toggle-filter-btn, #toggle-text-filter-btn {
+#toggle-filter-btn,
+#toggle-text-filter-btn {
     font-family: var(--font-sans); font-size: 0.8em; letter-spacing: 2px;
     color: var(--text-muted); background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     padding: 10px 20px; cursor: pointer; transition: 0.3s; border-radius: 20px;
     backdrop-filter: blur(5px);
 }
-#toggle-filter-btn:hover, #toggle-text-filter-btn:hover { 
+#toggle-filter-btn:hover,
+#toggle-text-filter-btn:hover { 
     border-color: var(--gold); color: var(--gold); background: var(--glass-highlight); 
 }
 
@@ -138,7 +195,7 @@ a { text-decoration: none; color: inherit; }
     max-height: 400px; padding: 20px; margin-top: 15px; margin-bottom: 40px; 
 }
 
-/* Botões Pílula (Chips) */
+/* Botões Pílula (Filter Pills) */
 .filter-buttons-wrapper {
     display: flex; flex-wrap: wrap; gap: 10px;
     justify-content: center; margin-bottom: 20px; width: 100%;
@@ -166,136 +223,120 @@ a { text-decoration: none; color: inherit; }
 
 .sort-wrapper {
     width: 100%; text-align: right;
-    /* CORREÇÃO: Removida a borda superior que estava sobrando */
-    /* border-top: 1px solid var(--glass-border); */
+    /* REMOVIDO: border-top: 1px solid var(--glass-border); */
     padding-top: 15px; margin-top: 10px;
 }
-.sort-wrapper select {
-    background: transparent; border: none; border-bottom: 1px solid var(--text-muted);
-    color: var(--text-main); font-family: var(--font-serif); font-size: 1em;
-    padding: 5px; cursor: pointer;
-}
-.sort-wrapper select:focus { outline: none; border-bottom-color: var(--gold); }
-.sort-wrapper option { background: var(--bg-deep); color: var(--text-main); }
 
 
-/* 8. LISTA DE TEXTOS (LOG) - COM GLASSMORPHISM */
+/* 10. DAILY LOG & TEXT LIST (O Cerne da Questão) */
 
+/* .log-container Genérico (Mantém o Daily Log limpo, sem vidro) */
 .log-container { 
-    max-width: 800px; 
-    margin: 0 auto;
-    
-    /* Glassmorphism no Container Inteiro */
+    max-width: 700px; 
+    margin: 0 auto; 
+}
+
+/* NOVO: Estilo EXCLUSIVO para a lista de textos (text.html) */
+/* Isso aplica o vidro SÓ na página de textos, sem quebrar o Daily Log */
+#text-list-log-container {
+    max-width: 800px; /* Um pouco mais largo para acomodar o visual */
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
     backdrop-filter: blur(12px); 
     -webkit-backdrop-filter: blur(12px);
     border-radius: 12px;
-    padding: 50px; 
+    padding: 50px; /* Padding interno */
 }
 
-/* Bloco do Ano (Separador Sóbrio) */
+/* Entradas (Comum aos dois) */
+.log-entry {
+    margin-bottom: 60px; position: relative; padding-left: 30px;
+    border-left: 1px solid var(--glass-border);
+    transition: border-left-color 0.3s;
+}
+/* No text list, reduzimos a margem pois o container já tem padding */
+#text-list-log-container .log-entry {
+    margin-bottom: 40px;
+}
+
+.log-entry:hover { border-left-color: var(--accent); }
+
+.log-date {
+    font-family: var(--font-sans); font-size: 0.75em; letter-spacing: 1px;
+    color: var(--accent); display: block; margin-bottom: 5px; text-transform: uppercase;
+}
+
+/* Conteúdo do Daily Log (Mantido original) */
+.log-content h3 {
+    font-family: var(--font-serif); font-size: 1.8em; font-weight: 400;
+    margin: 0 0 15px 0; color: var(--text-main);
+}
+.log-content p { color: #ccc; font-size: 1.05em; font-weight: 300; }
+.log-content h3 a { color: inherit; transition: color 0.3s ease; }
+.log-content h3 a:hover { color: var(--accent); }
+
+
+/* --- ESTILOS ESPECÍFICOS PARA LISTA DE TEXTOS (Atualizado) --- */
+
+/* Bloco do Ano Sóbrio */
 .year-block {
     margin-bottom: 60px;
     animation: fadeUp 0.6s ease;
 }
-.year-block:last-child {
-    margin-bottom: 0;
-}
+.year-block:last-child { margin-bottom: 0; }
 
 .year-title {
-    /* Estilo Sóbrio: Linha com texto */
     font-family: var(--font-sans);
     font-size: 1.5em; 
     font-weight: 300;
     letter-spacing: 4px;
     color: var(--gold);
-    
     border-bottom: 1px solid var(--glass-border);
     padding-bottom: 10px;
     margin-bottom: 40px;
-    display: flex;
-    align-items: center;
+    display: flex; align-items: center;
+    
+    /* Resetando o estilo "gigante" antigo caso haja resquício */
+    position: static; opacity: 1; pointer-events: auto;
 }
-
-/* Ícone decorativo antes do ano */
 .year-title::before {
-    content: '✦'; 
-    margin-right: 15px;
-    font-size: 0.6em;
-    color: var(--text-muted);
+    content: '✦'; margin-right: 15px; font-size: 0.6em; color: var(--text-muted);
 }
 
-/* Entradas (Posts) */
-.log-entry {
-    margin-bottom: 40px; 
-    position: relative; 
-    padding-left: 30px;
-    border-left: 1px solid rgba(255,255,255,0.1); /* Linha sutil */
-    transition: border-left-color 0.3s;
-}
-.log-entry:hover {
-    border-left-color: var(--accent);
-}
-
-.log-date {
-    font-family: var(--font-sans); font-size: 0.75em; letter-spacing: 1px;
-    color: var(--accent); display: block; margin-bottom: 8px; text-transform: uppercase;
-}
-
-/* Container dos Links (PT e EN) */
+/* Container de Links (PT/EN) */
 .links-wrapper {
-    display: flex;
-    flex-direction: column; 
-    gap: 8px; 
-    margin-bottom: 10px;
+    display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px;
 }
 
-/* Estilo unificado para os Links */
+/* Link Unificado (PT e EN iguais) */
 .story-link {
-    display: inline-flex;
-    align-items: center;
-    width: fit-content;
-    text-decoration: none;
-    color: var(--text-main);
+    display: inline-flex; align-items: center; width: fit-content;
+    text-decoration: none; color: var(--text-main);
     font-family: var(--font-serif);
-    font-size: 1.5em; /* Tamanho igual para ambos */
-    font-weight: 400;
-    line-height: 1.2;
+    font-size: 1.5em; /* Tamanho igual */
+    font-weight: 400; line-height: 1.2;
     transition: all 0.3s ease;
-    font-style: normal;
+    font-style: normal; /* Garante que não tenha itálico */
 }
-
 .story-link:hover {
-    color: var(--gold); 
-    transform: translateX(5px);
+    color: var(--gold); transform: translateX(5px);
 }
 
 .flag-icon {
-    font-size: 0.6em; 
-    margin-right: 12px;
-    filter: grayscale(60%);
-    opacity: 0.7;
-    transition: all 0.3s;
+    font-size: 0.6em; margin-right: 12px;
+    filter: grayscale(60%); opacity: 0.7; transition: all 0.3s;
 }
-.story-link:hover .flag-icon {
-    filter: grayscale(0%);
-    opacity: 1;
-}
+.story-link:hover .flag-icon { filter: grayscale(0%); opacity: 1; }
 
-.link-en {
-    color: var(--text-main); 
-}
-
-/* Categoria */
 .text-category {
     font-family: var(--font-sans); font-size: 0.75em; letter-spacing: 1px;
     text-transform: uppercase; color: var(--text-muted);
     margin-top: 5px; opacity: 0.6;
 }
 
-/* 9. ESTANTE (BOOKCASE) */
+
+/* 12. ESTANTE (BOOKCASE) */
 .book-section h2 {
     font-family: var(--font-serif); font-size: 1.5em; font-weight: 300; font-style: italic;
     color: var(--text-muted); border-bottom: 1px solid var(--glass-border);
@@ -317,6 +358,7 @@ a { text-decoration: none; color: inherit; }
     transform: translateY(-5px);
     background: var(--glass-highlight);
     border-color: var(--accent-subtle);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
 }
 .book-title {
     font-family: var(--font-serif); font-size: 1.3em; line-height: 1.2;
@@ -338,7 +380,26 @@ a { text-decoration: none; color: inherit; }
 .status-lendo { color: var(--gold); }
 .status-pendente { color: var(--text-muted); }
 
-/* 10. GALERIA E LIGHTBOX */
+/* 13. ESTATÍSTICAS */
+.stats-overview { display: flex; justify-content: center; gap: 50px; margin-bottom: 50px; flex-wrap: wrap; }
+.stat-item { text-align: center; }
+.stat-label { display: block; font-family: var(--font-sans); font-size: 0.75em; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+.stat-number { font-family: var(--font-serif); font-size: 3em; line-height: 1; color: var(--text-main); }
+
+.chart-container {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px;
+}
+.chart-wrapper {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    padding: 30px; border-radius: 8px;
+}
+.chart-title {
+    text-align: center; font-family: var(--font-serif); font-size: 1.2em; color: var(--text-muted); margin-bottom: 20px;
+}
+
+/* 14. GALERIA (IMAGES) & LIGHTBOX */
 .gallery-card {
     background: var(--glass-bg);
     box-shadow: var(--glass-shadow);
@@ -369,12 +430,10 @@ a { text-decoration: none; color: inherit; }
     width: 90%; max-width: 1200px; text-align: center;
 }
 #lightbox-image {
-    max-width: 100%; max-height: 85vh;
-    border-radius: 4px; border: 1px solid var(--glass-border);
+    max-width: 100%; max-height: 85vh; border-radius: 4px; border: 1px solid var(--glass-border);
 }
 #lightbox-caption {
-    font-family: var(--font-serif); font-size: 1.2em; font-style: italic;
-    color: var(--text-muted); margin-top: 15px;
+    font-family: var(--font-serif); font-size: 1.2em; font-style: italic; color: var(--text-muted); margin-top: 15px;
 }
 .lightbox-close {
     position: absolute; top: 20px; right: 40px; color: var(--text-muted); 
@@ -390,7 +449,7 @@ a { text-decoration: none; color: inherit; }
 .lightbox-nav.prev { left: 15px; }
 .lightbox-nav.next { right: 15px; }
 
-/* 11. PÁGINA DE LEITURA (CONTOS INDIVIDUAIS) */
+/* 16. PÁGINA DE LEITURA (CONTOS INDIVIDUAIS) */
 .story-paper {
     background: var(--glass-bg);
     box-shadow: var(--glass-shadow);
@@ -421,8 +480,12 @@ a { text-decoration: none; color: inherit; }
     margin-right: 10px; margin-top: 5px;
     color: var(--gold); font-family: var(--font-serif);
 }
+.story-separator {
+    text-align: center; color: var(--gold);
+    margin: 40px 0; font-size: 1.5em; letter-spacing: 10px; opacity: 0.7;
+}
 
-/* 12. RODAPÉ */
+/* 17. RODAPÉ */
 .main-footer {
     text-align: center; padding: 40px; font-family: var(--font-sans); font-size: 0.75em;
     letter-spacing: 1px; color: var(--text-muted); margin-top: auto; opacity: 0.6;
@@ -431,7 +494,7 @@ a { text-decoration: none; color: inherit; }
 .hidden { display: none !important; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* 13. RESPONSIVIDADE (MOBILE) */
+/* 18. RESPONSIVIDADE (MOBILE) */
 @media (max-width: 768px) {
     .main-header {
         padding: 20px 20px; justify-content: center;
@@ -439,29 +502,41 @@ a { text-decoration: none; color: inherit; }
         border-bottom: 1px solid var(--glass-border);
     }
     .content-area { padding: 25px 20px; }
-    .nav-item { margin: 0 10px; font-size: 0.75em; letter-spacing: 1px; }
+    .nav-item { margin: 0 15px; font-size: 0.8em; }
     
     .hero-title { font-size: 2.5em; text-align: center; }
     .hero-subtitle { text-align: center; }
+    .intro-text { text-align: center; max-width: 100%; }
+    .intro-text p { font-size: 1.3em; }
+
+    .internal-nav { gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .tab-btn { font-size: 1.1em; }
     
     .controls-container.is-open { max-height: 500px; }
-    
-    .log-container { 
-        max-width: 100%; 
-        padding: 25px; 
-    }
+    .control-group { width: 100%; display: flex; flex-direction: column; }
+    .control-group select, .control-group input { width: 100%; }
+
+    .log-container { max-width: 100%; }
+    /* Ajuste do container exclusivo no mobile */
+    #text-list-log-container { padding: 25px; }
+
     .log-entry { padding-left: 15px; }
-    .story-link { font-size: 1.3em; } 
+    
+    .link-pt { font-size: 1.3em; }
+    .link-en { font-size: 1.3em; } /* Iguais */
+    
+    .chart-container { grid-template-columns: 1fr; }
+    .stats-overview { gap: 25px; }
+    .stat-number { font-size: 2.2em; }
     
     .book-grid { gap: 15px; }
+    .lightbox-close { top: 15px; right: 25px; }
+    .lightbox-nav { padding: 15px; }
     
     .story-paper {
         padding: 30px 20px; width: 100%; border: none;
-        background: rgba(20, 30, 40, 0.7); box-shadow: none;
+        background: rgba(20, 30, 40, 0.4); box-shadow: none;
     }
-    .story-header .story-title { font-size: 2.2em; }
+    .story-title { font-size: 2.2em; }
     .story-body { font-size: 1.15em; text-align: left; }
-    
-    .lightbox-close { top: 15px; right: 25px; }
-    .lightbox-nav { padding: 15px; }
 }
