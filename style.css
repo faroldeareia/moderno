@@ -1,4 +1,4 @@
-/* style.css - Versão Final Unificada (Sober Year + Equal Titles) */
+/* style.css - Versão Final Corrigida (No Italics + Glass Container) */
 
 /* 1. IMPORTANDO FONTES */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Inter:wght@300;0,400&display=swap');
@@ -13,11 +13,10 @@
     --bg-deep: #0C141C;       /* Fundo Profundo */
     
     /* Variáveis de Vidro (Glassmorphism) */
-    /* Aumentei levemente a opacidade para facilitar leitura sobre imagem */
-    --glass-bg: rgba(20, 30, 40, 0.50); 
-    --glass-border: rgba(255, 255, 255, 0.10); 
-    --glass-highlight: rgba(255, 255, 255, 0.15); 
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); 
+    --glass-bg: rgba(12, 20, 28, 0.65); /* Mais escuro para contraste melhor no container */
+    --glass-border: rgba(255, 255, 255, 0.08); 
+    --glass-highlight: rgba(255, 255, 255, 0.12); 
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6); 
     
     --text-main: #EAEAEA;      /* Texto Principal */
     --text-muted: #b2bfbe;     /* Texto Secundário */
@@ -53,12 +52,11 @@ a { text-decoration: none; color: inherit; }
 }
 .background-image {
     width: 100%; height: 100%; object-fit: cover;
-    /* Filtro Noir: Escuro, contraste alto e levemente sépia */
+    /* Filtro mais forte para garantir leitura */
     filter: brightness(0.5) contrast(1.1) sepia(20%); 
 }
 .overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    /* Vinheta para escurecer as bordas */
     background: radial-gradient(circle at center, transparent 0%, var(--bg-deep) 90%);
     z-index: -1;
 }
@@ -178,13 +176,29 @@ a { text-decoration: none; color: inherit; }
 .sort-wrapper option { background: var(--bg-deep); color: var(--text-main); }
 
 
-/* 8. LISTA DE TEXTOS (LOG) - REFORMULADA */
-.log-container { max-width: 700px; margin: 0 auto; }
+/* 8. LISTA DE TEXTOS (LOG) - REFORMULADA COM GLASSMORPHISM */
+
+.log-container { 
+    max-width: 800px; 
+    margin: 0 auto;
+    
+    /* NOVO: Glassmorphism no Container Inteiro */
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(12px); /* Desfoca o fundo atrás da lista */
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 50px; /* Espaço interno para o texto não colar na borda */
+}
 
 /* Bloco do Ano (Separador Sóbrio) */
 .year-block {
     margin-bottom: 60px;
     animation: fadeUp 0.6s ease;
+}
+.year-block:last-child {
+    margin-bottom: 0;
 }
 
 .year-title {
@@ -215,7 +229,7 @@ a { text-decoration: none; color: inherit; }
     margin-bottom: 40px; 
     position: relative; 
     padding-left: 30px;
-    border-left: 1px solid var(--glass-border); /* Linha vertical discreta */
+    border-left: 1px solid rgba(255,255,255,0.1); /* Linha sutil */
     transition: border-left-color 0.3s;
 }
 .log-entry:hover {
@@ -230,8 +244,8 @@ a { text-decoration: none; color: inherit; }
 /* Container dos Links (PT e EN) */
 .links-wrapper {
     display: flex;
-    flex-direction: column; /* Um embaixo do outro */
-    gap: 8px; /* Espaço entre eles */
+    flex-direction: column; 
+    gap: 8px; 
     margin-bottom: 10px;
 }
 
@@ -247,15 +261,18 @@ a { text-decoration: none; color: inherit; }
     font-weight: 400;
     line-height: 1.2;
     transition: all 0.3s ease;
+    
+    /* CORREÇÃO: Força estilo normal para ambos */
+    font-style: normal;
 }
 
 .story-link:hover {
-    color: var(--gold); /* Hover dourado */
+    color: var(--gold); 
     transform: translateX(5px);
 }
 
 .flag-icon {
-    font-size: 0.6em; /* Bandeira um pouco menor que o texto */
+    font-size: 0.6em; 
     margin-right: 12px;
     filter: grayscale(60%);
     opacity: 0.7;
@@ -266,12 +283,11 @@ a { text-decoration: none; color: inherit; }
     opacity: 1;
 }
 
-/* Diferenciação sutil apenas no estilo (itálico) para o inglês */
+/* A classe link-en agora é idêntica à link-pt, apenas existe se precisarmos mudar algo no futuro */
 .link-en {
-    font-style: italic;
-    color: var(--text-muted); /* Texto levemente mais apagado por padrão */
+    /* Sem itálico e sem cor diferente */
+    color: var(--text-main); 
 }
-.link-en:hover { color: var(--gold); }
 
 /* Categoria */
 .text-category {
@@ -379,7 +395,7 @@ a { text-decoration: none; color: inherit; }
 .story-paper {
     background: var(--glass-bg);
     box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(15px); /* Blur maior para leitura */
+    backdrop-filter: blur(15px); 
     border: 1px solid var(--glass-border);
     max-width: 740px; margin: 0 auto 80px auto; 
     padding: 60px 50px; border-radius: 4px;
@@ -431,9 +447,12 @@ a { text-decoration: none; color: inherit; }
     
     .controls-container.is-open { max-height: 500px; }
     
-    .log-container { max-width: 100%; }
-    .log-entry { padding-left: 20px; }
-    .story-link { font-size: 1.3em; } /* Leve ajuste mobile */
+    .log-container { 
+        max-width: 100%; 
+        padding: 25px; /* Menos padding no mobile */
+    }
+    .log-entry { padding-left: 15px; }
+    .story-link { font-size: 1.3em; } 
     
     .book-grid { gap: 15px; }
     
