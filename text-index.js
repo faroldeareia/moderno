@@ -1,3 +1,5 @@
+/* text-index.js - Versão Final (Language Aware + Sober Year) */
+
 document.addEventListener('DOMContentLoaded', function() {
     
     // --- Configurações ---
@@ -10,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const noResultsEl = document.getElementById('no-results-text');
 
     // --- Mapeamento de Ícones ---
-const categoryIcons = {
+    const categoryIcons = {
         "Children's": "🧸",
         "Fantasy": "🧙",
         "Sci-Fi with Magical Realism": "🌌",
@@ -33,6 +35,7 @@ const categoryIcons = {
 
     function parseDate(dateString) {
         // Tenta parsear formato "12 de janeiro de 2026"
+        if (!dateString) return new Date();
         const parts = dateString.replace(/º/g, '').toLowerCase().split(' de ');
         if (parts.length === 3) {
             const day = parseInt(parts[0]);
@@ -42,7 +45,7 @@ const categoryIcons = {
                 return new Date(year, month - 1, day);
             }
         }
-        return new Date(dateString); // Fallback para formato padrão ISO se houver
+        return new Date(dateString); // Fallback para formato padrão ISO
     }
 
     // --- Inicialização ---
@@ -65,7 +68,7 @@ const categoryIcons = {
     function setupFilters() {
         // Extrai categorias únicas do JSON
         const categories = new Set(allContos.map(c => c.category).filter(Boolean));
-        // Ordena alfabeticamente, mantendo 'all' no início se quiser, ou forçando manual
+        // Ordena alfabeticamente
         const sortedCategories = ['all', ...[...categories].sort()];
 
         filterContainer.innerHTML = '';
@@ -125,7 +128,6 @@ const categoryIcons = {
         }
 
         // 3. Agrupar por Ano
-        // Map preserva a ordem de inserção (importante para manter a ordenação global dentro dos anos)
         const groups = new Map();
         
         filtered.forEach(conto => {
@@ -134,13 +136,13 @@ const categoryIcons = {
             groups.get(y).push(conto);
         });
 
-        // 4. Gerar HTML por Grupo
+        // 4. Gerar HTML por Grupo (Iterando o Map)
         groups.forEach((contosDoAno, ano) => {
             // Cria container do ano
             const yearBlock = document.createElement('div');
             yearBlock.className = 'year-block';
             
-            // Título do Ano (fundo gigante)
+            // Título do Ano (Novo estilo sóbrio)
             yearBlock.innerHTML = `<div class="year-title">${ano}</div>`;
 
             // Adiciona os contos deste ano
@@ -152,62 +154,60 @@ const categoryIcons = {
         });
     }
 
-// --- text-index.js (Apenas a função createEntryHTML atualizada) ---
+    // --- Geração do HTML de cada Item (Com Detecção de Idioma) ---
+    function createEntryHTML(conto) {
+        // Limpeza dos links (remove '../' se existir)
+        const linkPT = conto.filename ? conto.filename.replace('../', '') : '#';
+        const linkEN = conto.filename_en ? conto.filename_en.replace('../', '') : '';
+        const icon = categoryIcons[conto.category] || '';
 
-function createEntryHTML(conto) {
-    // 1. Limpeza dos links
-    const linkPT = conto.filename ? conto.filename.replace('../', '') : '#';
-    const linkEN = conto.filename_en ? conto.filename_en.replace('../', '') : '';
-    const icon = categoryIcons[conto.category] || '';
-
-    // 2. Criação dos blocos HTML individuais
-    // Bloco PT
-    const htmlPT = `
-        <a href="${linkPT}" class="story-link link-pt">
-            <span class="flag-icon">🇧🇷</span> 
-            <span class="story-title">${conto.title}</span>
-        </a>
-    `;
-
-    // Bloco EN (só cria se existir link e título)
-    let htmlEN = '';
-    if (conto.title_en && linkEN) {
-        htmlEN = `
-            <a href="${linkEN}" class="story-link link-en">
-                <span class="flag-icon">🇺🇸</span> 
-                <span class="story-title">${conto.title_en}</span>
+        // 1. Criar Bloco HTML para Português
+        const htmlPT = `
+            <a href="${linkPT}" class="story-link link-pt">
+                <span class="flag-icon">🇧🇷</span> 
+                <span class="story-title">${conto.title}</span>
             </a>
         `;
-    }
 
-    // 3. Detecção do Navegador e Ordenação
-    // Pega o idioma do navegador (ex: 'pt-BR', 'en-US')
-    const userLang = navigator.language || navigator.userLanguage; 
-    const isPortuguese = userLang.toLowerCase().includes('pt');
+        // 2. Criar Bloco HTML para Inglês (se existir)
+        let htmlEN = '';
+        if (conto.title_en && linkEN) {
+            htmlEN = `
+                <a href="${linkEN}" class="story-link link-en">
+                    <span class="flag-icon">🇺🇸</span> 
+                    <span class="story-title">${conto.title_en}</span>
+                </a>
+            `;
+        }
 
-    let linksHTML = '';
+        // 3. Lógica de Ordenação baseada no Navegador
+        // Detecta idioma do usuário (ex: 'pt-BR' ou 'en-US')
+        const userLang = navigator.language || navigator.userLanguage; 
+        const isPortuguese = userLang.toLowerCase().includes('pt');
 
-    if (isPortuguese) {
-        // Se for Brasil/Portugal: PT primeiro, EN depois
-        linksHTML = htmlPT + htmlEN;
-    } else {
-        // Se for gringo: EN primeiro (se existir), PT depois
-        // Se não tiver EN, mostra só o PT mesmo
-        linksHTML = (htmlEN ? htmlEN : '') + htmlPT;
-    }
+        let linksHTML = '';
 
-    // 4. Retorno do HTML completo
-    return `
-    <article class="log-entry">
-        <span class="log-date">${conto.date}</span>
+        if (isPortuguese) {
+            // Se for PT: Português em cima, Inglês embaixo
+            linksHTML = htmlPT + htmlEN;
+        } else {
+            // Se for outro idioma: Inglês em cima (se existir), PT embaixo
+            // Se não tiver EN, mostra só o PT
+            linksHTML = (htmlEN ? htmlEN : '') + htmlPT;
+        }
         
-        <div class="log-content">
-            <div class="links-wrapper">
-                ${linksHTML}
+        // 4. Retorna o Card completo
+        return `
+        <article class="log-entry">
+            <span class="log-date">${conto.date}</span>
+            
+            <div class="log-content">
+                <div class="links-wrapper">
+                    ${linksHTML}
+                </div>
+                
+                <p class="text-category">${icon} ${conto.category}</p>
             </div>
-            <p class="text-category">${icon} ${conto.category}</p>
-        </div>
-    </article>`;
-}
-
+        </article>`;
+    }
 });
