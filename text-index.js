@@ -152,44 +152,62 @@ const categoryIcons = {
         });
     }
 
-    // --- Geração do HTML de cada Item (ATUALIZADO PARA PT/EN) ---
-    function createEntryHTML(conto) {
-        // Remove '../' caso o JSON venha com caminhos relativos de outra pasta
-        const linkPT = conto.filename ? conto.filename.replace('../', '') : '#';
-        const linkEN = conto.filename_en ? conto.filename_en.replace('../', '') : '';
-        
-        // Ícone da categoria
-        const icon = categoryIcons[conto.category] || '';
-        
-        // Verifica se existe versão em inglês e constrói o HTML condicionalmente
-        let englishLinkHTML = '';
-        
-        // Só mostra o link em inglês se houver título E nome de arquivo definidos
-        if (conto.title_en && linkEN) {
-            englishLinkHTML = `
-                <a href="${linkEN}" class="story-link link-en">
-                    <span class="flag-icon">🇺🇸</span> 
-                    <span class="story-title">${conto.title_en}</span>
-                </a>
-            `;
-        }
-    
-        return `
-        <article class="log-entry">
-            <span class="log-date">${conto.date}</span>
-            
-            <div class="log-content">
-                <div class="links-wrapper">
-                    <a href="${linkPT}" class="story-link link-pt">
-                        <span class="flag-icon">🇧🇷</span> 
-                        <span class="story-title">${conto.title}</span>
-                    </a>
-    
-                    ${englishLinkHTML}
-                </div>
-    
-                <p class="text-category">${icon} ${conto.category}</p>
-            </div>
-        </article>`;
+// --- text-index.js (Apenas a função createEntryHTML atualizada) ---
+
+function createEntryHTML(conto) {
+    // 1. Limpeza dos links
+    const linkPT = conto.filename ? conto.filename.replace('../', '') : '#';
+    const linkEN = conto.filename_en ? conto.filename_en.replace('../', '') : '';
+    const icon = categoryIcons[conto.category] || '';
+
+    // 2. Criação dos blocos HTML individuais
+    // Bloco PT
+    const htmlPT = `
+        <a href="${linkPT}" class="story-link link-pt">
+            <span class="flag-icon">🇧🇷</span> 
+            <span class="story-title">${conto.title}</span>
+        </a>
+    `;
+
+    // Bloco EN (só cria se existir link e título)
+    let htmlEN = '';
+    if (conto.title_en && linkEN) {
+        htmlEN = `
+            <a href="${linkEN}" class="story-link link-en">
+                <span class="flag-icon">🇺🇸</span> 
+                <span class="story-title">${conto.title_en}</span>
+            </a>
+        `;
     }
+
+    // 3. Detecção do Navegador e Ordenação
+    // Pega o idioma do navegador (ex: 'pt-BR', 'en-US')
+    const userLang = navigator.language || navigator.userLanguage; 
+    const isPortuguese = userLang.toLowerCase().includes('pt');
+
+    let linksHTML = '';
+
+    if (isPortuguese) {
+        // Se for Brasil/Portugal: PT primeiro, EN depois
+        linksHTML = htmlPT + htmlEN;
+    } else {
+        // Se for gringo: EN primeiro (se existir), PT depois
+        // Se não tiver EN, mostra só o PT mesmo
+        linksHTML = (htmlEN ? htmlEN : '') + htmlPT;
+    }
+
+    // 4. Retorno do HTML completo
+    return `
+    <article class="log-entry">
+        <span class="log-date">${conto.date}</span>
+        
+        <div class="log-content">
+            <div class="links-wrapper">
+                ${linksHTML}
+            </div>
+            <p class="text-category">${icon} ${conto.category}</p>
+        </div>
+    </article>`;
+}
+
 });
