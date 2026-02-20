@@ -405,6 +405,16 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* 14. GALERIA (IMAGES) & LIGHTBOX */
+.gallery-intro-text {
+    text-align: center;
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    font-size: 1.05em;
+    opacity: 0.8;
+}
+
 .gallery-card {
     background: var(--glass-bg);
     box-shadow: var(--glass-shadow);
