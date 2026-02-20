@@ -238,6 +238,12 @@ a { text-decoration: none; color: inherit; }
 
 /* NOVO: Estilo EXCLUSIVO para a lista de textos (text.html) */
 /* Isso aplica o vidro SÓ na página de textos, sem quebrar o Daily Log */
+
+/* Remove o gap visual entre o botão "Filter Texts" e o container de contos */
+.controls-wrapper:has(~ #text-list-log-container) {
+    margin-bottom: 0;
+}
+
 #text-list-log-container {
     max-width: 800px; /* Um pouco mais largo para acomodar o visual */
     background: var(--glass-bg);
