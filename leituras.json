@@ -129,12 +129,12 @@
     "genero": "Ficção Científica",
     "series": "O Pardal #1"
   },
-   {
-    "title": "Ancillary Sword",
+  {
+    "title": "Espada Ancilar",
     "author": "Ann Leckie",
-    "status": "Pendente",
-    "year": "",
-    "month": "",
+    "status": "Lido",
+    "year": "2026",
+    "month": "Janeiro",
     "rating": "",
     "genero": "Ficção Científica",
     "series": "Trilogia Radch #2"
@@ -1452,4 +1452,5 @@
     "genero": "Ficção Policial",
     "series": ""
   }
+
 ]
