@@ -32,7 +32,6 @@
         }
         .card-enter { animation: fadeUp 0.25s ease-out forwards; }
         
-        /* Mobile: abas com scroll horizontal */
         @media (max-width: 640px) {
             .nav-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
             .nav-tabs::-webkit-scrollbar { display: none; }
@@ -84,12 +83,14 @@
             <p class="text-slate-400">Sincronizando com a base de inteligência...</p>
         </div>
 
-        <div id="hint-ruidos" class="hidden mb-4 p-3 bg-slate-800/50 border border-slate-700 rounded-lg">
+        <div id="hint-ruidos" class="hidden mb-4 p-3 bg-slate-800/50 border border-slate-700 rounded-lg flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
             <p class="text-xs text-slate-400">
                 <i class="fa-solid fa-wrench mr-1 text-slate-500"></i>
-                <strong>Painel de Manutenção</strong> — Itens classificados como ruído pela IA nas últimas 24h. 
-                Usado para calibrar o prompt do Gemini.
+                <strong>Painel de Manutenção</strong> — Itens classificados como ruído pela IA nas últimas 24h.
             </p>
+            <button onclick="limparRuidos()" class="text-xs text-red-400 hover:text-white border border-red-900 hover:bg-red-900/50 rounded px-3 py-1.5 transition-colors whitespace-nowrap flex-shrink-0">
+                <i class="fa-solid fa-trash-can mr-1"></i> Limpar Ruídos
+            </button>
         </div>
 
         <div id="conteudo-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -99,36 +100,27 @@
     <script>
         let abaAtual = 'urgentes';
 
-        // ─── SEGURANÇA: Escape HTML contra XSS ─────────────────────
         function esc(str) {
             if (!str) return '';
             return str.replace(/&/g, '&amp;').replace(/</g, '&lt;')
                       .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
         }
 
-        // ─── CORES POR NÍVEL ────────────────────────────────────────
         const getCorNivel = (nivel) => {
             const cores = {
-                5: 'bg-red-600 text-white',
-                4: 'bg-orange-500 text-white',
-                3: 'bg-yellow-500 text-slate-900',
-                2: 'bg-blue-500 text-white',
-                1: 'bg-slate-500 text-white'
+                5: 'bg-red-600 text-white', 4: 'bg-orange-500 text-white',
+                3: 'bg-yellow-500 text-slate-900', 2: 'bg-blue-500 text-white', 1: 'bg-slate-500 text-white'
             };
             return cores[nivel] || cores[1];
         };
 
-        // ─── DATA COM FALLBACK SEGURO ───────────────────────────────
         function formatarData(item) {
             if (item.timestamp) {
-                try {
-                    return new Date(item.timestamp * 1000).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' });
-                } catch(e) {}
+                try { return new Date(item.timestamp * 1000).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' }); } catch(e) {}
             }
             return item.timestamp_str || '—';
         }
 
-        // ─── TROCA DE ABAS ─────────────────────────────────────────
         function mudarAba(novaAba) {
             document.getElementById(`tab-${abaAtual}`).classList.replace('tab-active', 'tab-inactive');
             document.getElementById(`tab-${novaAba}`).classList.replace('tab-inactive', 'tab-active');
@@ -137,7 +129,6 @@
             carregarDados();
         }
 
-        // ─── CARREGAR DADOS ─────────────────────────────────────────
         async function carregarDados() {
             const grid = document.getElementById('conteudo-grid');
             const loading = document.getElementById('loading');
@@ -155,8 +146,8 @@
                 if (dados.length === 0) {
                     const msgs = {
                         urgentes:   { icon: 'fa-shield-halved', cor: 'text-emerald-500', titulo: 'Nenhum alerta pendente', sub: 'Todos os alertas foram revisados pela equipe.' },
-                        arquivados: { icon: 'fa-box-archive',   cor: 'text-slate-500',   titulo: 'Nenhum alerta arquivado', sub: 'Alertas processados aparecerão aqui.' },
-                        ruidos:     { icon: 'fa-volume-xmark',  cor: 'text-slate-600',   titulo: 'Nenhum ruído nas últimas 24h', sub: 'O filtro não descartou nada recentemente.' },
+                        arquivados: { icon: 'fa-box-archive',   cor: 'text-slate-500',   titulo: 'Nenhum alerta arquivado', sub: 'O histórico está limpo.' },
+                        ruidos:     { icon: 'fa-volume-xmark',  cor: 'text-slate-600',   titulo: 'Nenhum ruído detectado', sub: 'O filtro não descartou nada recentemente.' },
                     };
                     const m = msgs[abaAtual];
                     grid.innerHTML = `
@@ -174,21 +165,13 @@
                 });
 
             } catch (error) {
-                console.error("Erro ao carregar:", error);
                 loading.classList.add('hidden');
-                grid.innerHTML = `
-                    <div class="col-span-full text-center py-16">
-                        <i class="fa-solid fa-plug-circle-exclamation text-3xl text-red-400 mb-3"></i>
-                        <p class="text-red-400">Erro de conexão com a API.</p>
-                        <button onclick="carregarDados()" class="mt-3 text-xs text-slate-400 hover:text-white border border-slate-600 rounded px-3 py-1.5">Tentar novamente</button>
-                    </div>`;
+                grid.innerHTML = `<div class="col-span-full text-center py-16"><p class="text-red-400">Erro de conexão com a API.</p></div>`;
             }
             
-            document.getElementById('last-update').textContent = 
-                'Atualizado: ' + new Date().toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' });
+            document.getElementById('last-update').textContent = 'Atualizado: ' + new Date().toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' });
         }
 
-        // ─── BADGES NAS ABAS ────────────────────────────────────────
         async function atualizarBadges() {
             try {
                 const [u, a] = await Promise.all([
@@ -200,7 +183,6 @@
             } catch(e) {}
         }
 
-        // ─── CARD: URGENTES / ARQUIVADOS ────────────────────────────
         function criarCard(item, index) {
             const card = document.createElement('div');
             card.className = "card-enter bg-cardbg rounded-xl border border-slate-700 shadow-lg hover:border-slate-500 transition-all flex flex-col justify-between overflow-hidden";
@@ -209,11 +191,10 @@
             const nivelCor = getCorNivel(item.nivel);
             const dataFormatada = formatarData(item);
             const catLabel = esc((item.categoria || 'OUTRO').replace(/_/g, ' '));
-            
-            // LIMPEZA DO TÍTULO (Remove as tags <b> do Google Alerts)
             const tituloLimpo = (item.titulo || '').replace(/<[^>]+>/g, '');
             
             let botoesHtml = '';
+            
             if (abaAtual === 'urgentes') {
                 botoesHtml = `
                     <div class="flex border-t border-slate-700 bg-slate-800/50">
@@ -226,50 +207,43 @@
                         </button>
                     </div>`;
             } else if (abaAtual === 'arquivados') {
+                // NOVO: Lixeira no Histórico
                 botoesHtml = `
-                    <div class="py-2 px-4 bg-emerald-900/30 border-t border-emerald-800/50 text-emerald-400 text-xs text-center">
-                        <i class="fa-solid fa-box-archive mr-1"></i> Arquivado em: ${esc(item.arquivado_em)}
+                    <div class="flex border-t border-slate-700 bg-emerald-900/10">
+                        <div class="flex-1 py-2 px-4 text-emerald-500/80 text-xs flex items-center justify-center font-medium">
+                            <i class="fa-solid fa-box-archive mr-1.5"></i> Arquivado: ${esc(item.arquivado_em)}
+                        </div>
+                        <div class="w-px bg-slate-700"></div>
+                        <button onclick="acaoAlerta('${esc(item.id)}', 'deletar_arquivado')" class="px-5 py-2 text-slate-500 hover:text-red-400 hover:bg-red-400/10 transition-colors text-sm flex items-center justify-center" title="Apagar do histórico">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
                     </div>`;
             }
 
             card.innerHTML = `
                 <div class="p-4 sm:p-5 flex-1">
                     <div class="flex justify-between items-start mb-3">
-                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                            ${catLabel}
-                        </span>
-                        <span class="${nivelCor} px-2 py-1 rounded text-xs font-bold shadow-sm flex-shrink-0">
-                            Nível ${item.nivel}
-                        </span>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">${catLabel}</span>
+                        <span class="${nivelCor} px-2 py-1 rounded text-xs font-bold shadow-sm flex-shrink-0">Nível ${item.nivel}</span>
                     </div>
-                    
                     <h3 class="text-base sm:text-lg font-bold leading-snug text-white mb-2">
                         <a href="${esc(item.link)}" target="_blank" rel="noopener" class="hover:text-blue-400 transition-colors">
                             ${esc(tituloLimpo)} <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1 opacity-50"></i>
                         </a>
                     </h3>
-                    
-                    <p class="text-sm text-slate-300 mb-3 leading-relaxed">
-                        ${esc(item.resumo)}
-                    </p>
-                    
+                    <p class="text-sm text-slate-300 mb-3 leading-relaxed">${esc(item.resumo)}</p>
                     <div class="bg-slate-900/50 p-2.5 sm:p-3 rounded-lg border border-slate-700/50">
-                        <p class="text-xs text-slate-400 italic leading-relaxed">
-                            <i class="fa-solid fa-lightbulb text-yellow-500/70 mr-1"></i> ${esc(item.justificativa)}
-                        </p>
+                        <p class="text-xs text-slate-400 italic leading-relaxed"><i class="fa-solid fa-lightbulb text-yellow-500/70 mr-1"></i> ${esc(item.justificativa)}</p>
                     </div>
                 </div>
-                
                 <div class="px-4 sm:px-5 pb-3 pt-1 flex justify-between items-center text-xs text-slate-500">
                     <span class="truncate max-w-[60%]"><i class="fa-regular fa-newspaper mr-1"></i> ${esc(item.fonte)}</span>
                     <span class="flex-shrink-0"><i class="fa-regular fa-clock mr-1"></i> ${dataFormatada}</span>
                 </div>
-                
                 ${botoesHtml}`;
             return card;
         }
 
-        // ─── CARD: RUÍDOS (simplificado para auditoria) ─────────────
         function criarCardRuido(item, index) {
             const card = document.createElement('div');
             card.className = "card-enter bg-cardbg/60 rounded-xl border border-slate-700/50 hover:border-slate-600 transition-all overflow-hidden";
@@ -277,40 +251,50 @@
             
             const dataFormatada = formatarData(item);
             const catLabel = esc((item.categoria || 'OUTRO').replace(/_/g, ' '));
-            
-            // LIMPEZA DO TÍTULO (Remove as tags <b> do Google Alerts)
             const tituloLimpo = (item.titulo || '').replace(/<[^>]+>/g, '');
 
             card.innerHTML = `
                 <div class="p-4">
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
-                            ${catLabel}
-                        </span>
-                        <span class="text-[10px] text-slate-600">
-                            <i class="fa-regular fa-clock mr-0.5"></i> ${dataFormatada}
-                        </span>
+                        <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-500">${catLabel}</span>
+                        <span class="text-[10px] text-slate-600"><i class="fa-regular fa-clock mr-0.5"></i> ${dataFormatada}</span>
                     </div>
-                    
                     <h3 class="text-sm font-medium text-slate-400 leading-snug mb-1.5">
-                        <a href="${esc(item.link)}" target="_blank" rel="noopener" class="hover:text-slate-200 transition-colors">
-                            ${esc(tituloLimpo)}
-                        </a>
+                        <a href="${esc(item.link)}" target="_blank" rel="noopener" class="hover:text-slate-200 transition-colors">${esc(tituloLimpo)}</a>
                     </h3>
-                    
-                    <p class="text-xs text-slate-600 italic leading-relaxed">
-                        <i class="fa-solid fa-filter mr-1 text-slate-700"></i> ${esc(item.justificativa)}
-                    </p>
+                    <p class="text-xs text-slate-600 italic leading-relaxed"><i class="fa-solid fa-filter mr-1 text-slate-700"></i> ${esc(item.justificativa)}</p>
                 </div>`;
             return card;
         }
 
-        // ─── AÇÕES ──────────────────────────────────────────────────
+        // NOVO: Função para limpar todos os ruídos
+        async function limparRuidos() {
+            if (!confirm('Deseja apagar todos os ruídos registrados?')) return;
+            try {
+                const response = await fetch('/api/ruidos/limpar', { method: 'DELETE' });
+                if (response.ok) carregarDados();
+            } catch (error) {
+                alert("Erro ao limpar ruídos.");
+            }
+        }
+
         async function acaoAlerta(id, tipo) {
-            if (tipo === 'descartar' && !confirm('Apagar este alerta permanentemente?')) return;
-            
-            const url = tipo === 'arquivar' ? `/api/urgentes/${id}/arquivar` : `/api/urgentes/${id}`;
-            const metodo = tipo === 'arquivar' ? 'POST' : 'DELETE';
+            let url = '';
+            let metodo = '';
+
+            // NOVO: Adicionado lógica para 'deletar_arquivado'
+            if (tipo === 'arquivar') {
+                url = `/api/urgentes/${id}/arquivar`;
+                metodo = 'POST';
+            } else if (tipo === 'descartar') {
+                if (!confirm('Apagar este alerta da caixa de entrada?')) return;
+                url = `/api/urgentes/${id}`;
+                metodo = 'DELETE';
+            } else if (tipo === 'deletar_arquivado') {
+                if (!confirm('Apagar este alerta do histórico permanentemente?')) return;
+                url = `/api/arquivados/${id}`;
+                metodo = 'DELETE';
+            }
             
             try {
                 const response = await fetch(url, { method: metodo });
@@ -324,7 +308,6 @@
             }
         }
 
-        // ─── INIT ───────────────────────────────────────────────────
         window.onload = carregarDados;
         setInterval(carregarDados, 60 * 60 * 1000); // Auto-refresh 1h
     </script>
