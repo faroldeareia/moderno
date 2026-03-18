@@ -6,10 +6,18 @@
     <title>Radar Gov | SNGM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: { extend: { colors: { darkbg: '#0f172a', cardbg: '#1e293b', } } }
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0f172a',
+                        cardbg: '#1e293b',
+                    }
+                }
+            }
         }
     </script>
     <style>
@@ -17,14 +25,22 @@
         .tab-inactive { color: #94a3b8; }
         .tab-inactive:hover { color: #e2e8f0; }
         body { font-family: 'Inter', system-ui, sans-serif; }
+        
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .card-enter { animation: fadeUp 0.25s ease-out forwards; }
+        
+        /* Mobile: abas com scroll horizontal */
+        @media (max-width: 640px) {
+            .nav-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .nav-tabs::-webkit-scrollbar { display: none; }
+        }
     </style>
 </head>
 <body class="bg-darkbg text-slate-200 min-h-screen">
+
     <header class="bg-cardbg border-b border-slate-700 shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="h-14 sm:h-16 flex items-center justify-between">
@@ -34,104 +50,283 @@
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
                     </div>
                     <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white">Radar <span class="text-blue-500">Gov</span></h1>
+                    <span class="hidden sm:inline ml-2 px-2 py-1 bg-slate-700 text-xs rounded-md text-slate-300 font-medium">SNGM / MME</span>
                 </div>
+                
                 <div class="flex items-center gap-3">
-                    <span class="text-xs text-slate-500" id="last-update"></span>
-                    <button onclick="carregarDados()" class="text-xs text-slate-400 hover:text-white border border-slate-600 rounded-md px-2.5 py-1.5 transition-colors">
-                        <i class="fa-solid fa-arrows-rotate mr-1"></i>Atualizar
+                    <span class="text-xs text-slate-500 hidden sm:inline" id="last-update"></span>
+                    <button onclick="carregarDados()" class="text-xs text-slate-400 hover:text-white border border-slate-600 hover:border-slate-400 rounded-md px-2.5 py-1.5 transition-colors">
+                        <i class="fa-solid fa-arrows-rotate mr-1"></i><span class="hidden sm:inline">Atualizar</span>
                     </button>
                 </div>
             </div>
-            <nav class="flex gap-4 sm:gap-6 -mb-px">
-                <button onclick="mudarAba('urgentes')" id="tab-urgentes" class="tab-active pb-3 px-1 transition-colors text-sm font-medium">
+            
+            <nav class="nav-tabs flex gap-1 sm:gap-6 -mb-px">
+                <button onclick="mudarAba('urgentes')" id="tab-urgentes" class="tab-active pb-3 px-2 sm:px-1 transition-colors text-xs sm:text-sm font-medium whitespace-nowrap">
                     <i class="fa-solid fa-inbox mr-1.5"></i>Caixa de Entrada
                     <span class="ml-1 px-1.5 py-0.5 rounded-full text-[10px] bg-slate-700" id="badge-urgentes"></span>
                 </button>
-                <button onclick="mudarAba('arquivados')" id="tab-arquivados" class="tab-inactive pb-3 px-1 transition-colors text-sm font-medium">
+                <button onclick="mudarAba('arquivados')" id="tab-arquivados" class="tab-inactive pb-3 px-2 sm:px-1 transition-colors text-xs sm:text-sm font-medium whitespace-nowrap">
                     <i class="fa-solid fa-folder-open mr-1.5"></i>Histórico
                     <span class="ml-1 px-1.5 py-0.5 rounded-full text-[10px] bg-slate-700" id="badge-arquivados"></span>
                 </button>
-                <button onclick="mudarAba('ruidos')" id="tab-ruidos" class="tab-inactive pb-3 px-1 transition-colors text-sm font-medium">
+                <button onclick="mudarAba('ruidos')" id="tab-ruidos" class="tab-inactive pb-3 px-2 sm:px-1 transition-colors text-xs sm:text-sm font-medium whitespace-nowrap">
                     <i class="fa-solid fa-microchip mr-1.5"></i>Auditoria IA
                 </button>
             </nav>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        
         <div id="loading" class="text-center py-20 hidden">
             <i class="fa-solid fa-circle-notch fa-spin text-4xl text-blue-500 mb-4"></i>
-            <p class="text-slate-400">Sincronizando...</p>
+            <p class="text-slate-400">Sincronizando com a base de inteligência...</p>
         </div>
-        <div id="conteudo-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+        <div id="hint-ruidos" class="hidden mb-4 p-3 bg-slate-800/50 border border-slate-700 rounded-lg">
+            <p class="text-xs text-slate-400">
+                <i class="fa-solid fa-wrench mr-1 text-slate-500"></i>
+                <strong>Painel de Manutenção</strong> — Itens classificados como ruído pela IA nas últimas 24h. 
+                Usado para calibrar o prompt do Gemini.
+            </p>
+        </div>
+
+        <div id="conteudo-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        </div>
     </main>
 
     <script>
         let abaAtual = 'urgentes';
 
+        // ─── SEGURANÇA: Escape HTML contra XSS ─────────────────────
         function esc(str) {
             if (!str) return '';
-            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
         }
 
+        // ─── CORES POR NÍVEL ────────────────────────────────────────
+        const getCorNivel = (nivel) => {
+            const cores = {
+                5: 'bg-red-600 text-white',
+                4: 'bg-orange-500 text-white',
+                3: 'bg-yellow-500 text-slate-900',
+                2: 'bg-blue-500 text-white',
+                1: 'bg-slate-500 text-white'
+            };
+            return cores[nivel] || cores[1];
+        };
+
+        // ─── DATA COM FALLBACK SEGURO ───────────────────────────────
+        function formatarData(item) {
+            if (item.timestamp) {
+                try {
+                    return new Date(item.timestamp * 1000).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' });
+                } catch(e) {}
+            }
+            return item.timestamp_str || '—';
+        }
+
+        // ─── TROCA DE ABAS ─────────────────────────────────────────
+        function mudarAba(novaAba) {
+            document.getElementById(`tab-${abaAtual}`).classList.replace('tab-active', 'tab-inactive');
+            document.getElementById(`tab-${novaAba}`).classList.replace('tab-inactive', 'tab-active');
+            abaAtual = novaAba;
+            document.getElementById('hint-ruidos').classList.toggle('hidden', novaAba !== 'ruidos');
+            carregarDados();
+        }
+
+        // ─── CARREGAR DADOS ─────────────────────────────────────────
         async function carregarDados() {
             const grid = document.getElementById('conteudo-grid');
             const loading = document.getElementById('loading');
-            grid.innerHTML = ''; loading.classList.remove('hidden');
+            
+            grid.innerHTML = '';
+            loading.classList.remove('hidden');
+
             try {
                 const response = await fetch(`/api/${abaAtual}`);
                 const dados = await response.json();
-                atualizarBadges(); loading.classList.add('hidden');
+                
+                atualizarBadges();
+                loading.classList.add('hidden');
                 
                 if (dados.length === 0) {
-                    grid.innerHTML = `<div class="col-span-full text-center py-20 bg-cardbg rounded-xl border border-slate-700"><p class="text-slate-500">Nada por aqui no momento.</p></div>`;
+                    const msgs = {
+                        urgentes:   { icon: 'fa-shield-halved', cor: 'text-emerald-500', titulo: 'Nenhum alerta pendente', sub: 'Todos os alertas foram revisados pela equipe.' },
+                        arquivados: { icon: 'fa-box-archive',   cor: 'text-slate-500',   titulo: 'Nenhum alerta arquivado', sub: 'Alertas processados aparecerão aqui.' },
+                        ruidos:     { icon: 'fa-volume-xmark',  cor: 'text-slate-600',   titulo: 'Nenhum ruído nas últimas 24h', sub: 'O filtro não descartou nada recentemente.' },
+                    };
+                    const m = msgs[abaAtual];
+                    grid.innerHTML = `
+                        <div class="col-span-full text-center py-20 bg-cardbg rounded-xl border border-slate-700">
+                            <i class="fa-solid ${m.icon} text-4xl ${m.cor} mb-4"></i>
+                            <h3 class="text-lg font-medium text-slate-300">${m.titulo}</h3>
+                            <p class="text-slate-500 mt-1 text-sm">${m.sub}</p>
+                        </div>`;
                     return;
                 }
-                dados.forEach((item, i) => {
-                    const card = document.createElement('div');
-                    card.className = "card-enter bg-cardbg rounded-xl border border-slate-700 p-5 flex flex-col justify-between";
-                    card.style.animationDelay = `${i * 50}ms`;
-                    
-                    let botoes = abaAtual === 'urgentes' ? `
-                        <div class="mt-4 pt-4 border-t border-slate-700 flex gap-2">
-                            <button onclick="acaoAlerta('${item.id}', 'arquivar')" class="flex-1 py-2 bg-emerald-600/20 text-emerald-400 rounded-md text-sm font-bold hover:bg-emerald-600/30">Arquivar</button>
-                            <button onclick="acaoAlerta('${item.id}', 'descartar')" class="flex-1 py-2 bg-red-600/20 text-red-400 rounded-md text-sm font-bold hover:bg-red-600/30">Descartar</button>
-                        </div>` : '';
 
-                    card.innerHTML = `
-                        <div>
-                            <div class="flex justify-between mb-2"><span class="text-[10px] text-slate-500 uppercase">${esc(item.categoria)}</span><span class="text-[10px] text-blue-400">Nível ${item.nivel}</span></div>
-                            <h3 class="text-white font-bold mb-2"><a href="${item.link}" target="_blank" class="hover:underline">${esc(item.titulo)}</a></h3>
-                            <p class="text-sm text-slate-400">${esc(item.resumo)}</p>
-                            <p class="text-[11px] text-slate-600 italic mt-2 border-l-2 border-slate-700 pl-2">${esc(item.justificativa)}</p>
-                        </div>
-                        ${botoes}
-                    `;
+                dados.forEach((item, i) => {
+                    const card = abaAtual === 'ruidos' ? criarCardRuido(item, i) : criarCard(item, i);
                     grid.appendChild(card);
                 });
-            } catch (e) { loading.classList.add('hidden'); }
-            document.getElementById('last-update').textContent = 'Atualizado: ' + new Date().toLocaleTimeString();
+
+            } catch (error) {
+                console.error("Erro ao carregar:", error);
+                loading.classList.add('hidden');
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16">
+                        <i class="fa-solid fa-plug-circle-exclamation text-3xl text-red-400 mb-3"></i>
+                        <p class="text-red-400">Erro de conexão com a API.</p>
+                        <button onclick="carregarDados()" class="mt-3 text-xs text-slate-400 hover:text-white border border-slate-600 rounded px-3 py-1.5">Tentar novamente</button>
+                    </div>`;
+            }
+            
+            document.getElementById('last-update').textContent = 
+                'Atualizado: ' + new Date().toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' });
         }
 
+        // ─── BADGES NAS ABAS ────────────────────────────────────────
         async function atualizarBadges() {
             try {
-                const [u, a] = await Promise.all([fetch('/api/urgentes').then(r => r.json()), fetch('/api/arquivados').then(r => r.json())]);
+                const [u, a] = await Promise.all([
+                    fetch('/api/urgentes').then(r => r.json()),
+                    fetch('/api/arquivados').then(r => r.json()),
+                ]);
                 document.getElementById('badge-urgentes').textContent = u.length || '';
                 document.getElementById('badge-arquivados').textContent = a.length || '';
             } catch(e) {}
         }
 
-        async function acaoAlerta(id, tipo) {
-            await fetch(tipo === 'arquivar' ? `/api/urgentes/${id}/arquivar` : `/api/urgentes/${id}`, { method: tipo === 'arquivar' ? 'POST' : 'DELETE' });
-            carregarDados();
+        // ─── CARD: URGENTES / ARQUIVADOS ────────────────────────────
+        function criarCard(item, index) {
+            const card = document.createElement('div');
+            card.className = "card-enter bg-cardbg rounded-xl border border-slate-700 shadow-lg hover:border-slate-500 transition-all flex flex-col justify-between overflow-hidden";
+            card.style.animationDelay = `${index * 50}ms`;
+            
+            const nivelCor = getCorNivel(item.nivel);
+            const dataFormatada = formatarData(item);
+            const catLabel = esc((item.categoria || 'OUTRO').replace(/_/g, ' '));
+            
+            // LIMPEZA DO TÍTULO (Remove as tags <b> do Google Alerts)
+            const tituloLimpo = (item.titulo || '').replace(/<[^>]+>/g, '');
+            
+            let botoesHtml = '';
+            if (abaAtual === 'urgentes') {
+                botoesHtml = `
+                    <div class="flex border-t border-slate-700 bg-slate-800/50">
+                        <button onclick="acaoAlerta('${esc(item.id)}', 'arquivar')" class="flex-1 py-3 text-emerald-400 hover:bg-emerald-400/10 active:bg-emerald-400/20 transition-colors font-medium text-sm flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-check"></i> Processar / OK
+                        </button>
+                        <div class="w-px bg-slate-700"></div>
+                        <button onclick="acaoAlerta('${esc(item.id)}', 'descartar')" class="flex-1 py-3 text-red-400 hover:bg-red-400/10 active:bg-red-400/20 transition-colors font-medium text-sm flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-trash"></i> Descartar
+                        </button>
+                    </div>`;
+            } else if (abaAtual === 'arquivados') {
+                botoesHtml = `
+                    <div class="py-2 px-4 bg-emerald-900/30 border-t border-emerald-800/50 text-emerald-400 text-xs text-center">
+                        <i class="fa-solid fa-box-archive mr-1"></i> Arquivado em: ${esc(item.arquivado_em)}
+                    </div>`;
+            }
+
+            card.innerHTML = `
+                <div class="p-4 sm:p-5 flex-1">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                            ${catLabel}
+                        </span>
+                        <span class="${nivelCor} px-2 py-1 rounded text-xs font-bold shadow-sm flex-shrink-0">
+                            Nível ${item.nivel}
+                        </span>
+                    </div>
+                    
+                    <h3 class="text-base sm:text-lg font-bold leading-snug text-white mb-2">
+                        <a href="${esc(item.link)}" target="_blank" rel="noopener" class="hover:text-blue-400 transition-colors">
+                            ${esc(tituloLimpo)} <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1 opacity-50"></i>
+                        </a>
+                    </h3>
+                    
+                    <p class="text-sm text-slate-300 mb-3 leading-relaxed">
+                        ${esc(item.resumo)}
+                    </p>
+                    
+                    <div class="bg-slate-900/50 p-2.5 sm:p-3 rounded-lg border border-slate-700/50">
+                        <p class="text-xs text-slate-400 italic leading-relaxed">
+                            <i class="fa-solid fa-lightbulb text-yellow-500/70 mr-1"></i> ${esc(item.justificativa)}
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="px-4 sm:px-5 pb-3 pt-1 flex justify-between items-center text-xs text-slate-500">
+                    <span class="truncate max-w-[60%]"><i class="fa-regular fa-newspaper mr-1"></i> ${esc(item.fonte)}</span>
+                    <span class="flex-shrink-0"><i class="fa-regular fa-clock mr-1"></i> ${dataFormatada}</span>
+                </div>
+                
+                ${botoesHtml}`;
+            return card;
         }
 
-        function mudarAba(nova) {
-            document.getElementById(`tab-${abaAtual}`).classList.replace('tab-active', 'tab-inactive');
-            document.getElementById(`tab-${nova}`).classList.replace('tab-inactive', 'tab-active');
-            abaAtual = nova; carregarDados();
+        // ─── CARD: RUÍDOS (simplificado para auditoria) ─────────────
+        function criarCardRuido(item, index) {
+            const card = document.createElement('div');
+            card.className = "card-enter bg-cardbg/60 rounded-xl border border-slate-700/50 hover:border-slate-600 transition-all overflow-hidden";
+            card.style.animationDelay = `${index * 30}ms`;
+            
+            const dataFormatada = formatarData(item);
+            const catLabel = esc((item.categoria || 'OUTRO').replace(/_/g, ' '));
+            
+            // LIMPEZA DO TÍTULO (Remove as tags <b> do Google Alerts)
+            const tituloLimpo = (item.titulo || '').replace(/<[^>]+>/g, '');
+
+            card.innerHTML = `
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+                            ${catLabel}
+                        </span>
+                        <span class="text-[10px] text-slate-600">
+                            <i class="fa-regular fa-clock mr-0.5"></i> ${dataFormatada}
+                        </span>
+                    </div>
+                    
+                    <h3 class="text-sm font-medium text-slate-400 leading-snug mb-1.5">
+                        <a href="${esc(item.link)}" target="_blank" rel="noopener" class="hover:text-slate-200 transition-colors">
+                            ${esc(tituloLimpo)}
+                        </a>
+                    </h3>
+                    
+                    <p class="text-xs text-slate-600 italic leading-relaxed">
+                        <i class="fa-solid fa-filter mr-1 text-slate-700"></i> ${esc(item.justificativa)}
+                    </p>
+                </div>`;
+            return card;
         }
+
+        // ─── AÇÕES ──────────────────────────────────────────────────
+        async function acaoAlerta(id, tipo) {
+            if (tipo === 'descartar' && !confirm('Apagar este alerta permanentemente?')) return;
+            
+            const url = tipo === 'arquivar' ? `/api/urgentes/${id}/arquivar` : `/api/urgentes/${id}`;
+            const metodo = tipo === 'arquivar' ? 'POST' : 'DELETE';
+            
+            try {
+                const response = await fetch(url, { method: metodo });
+                if (response.ok) {
+                    carregarDados();
+                } else {
+                    alert("Erro ao processar a requisição.");
+                }
+            } catch (error) {
+                console.error("Erro na ação:", error);
+            }
+        }
+
+        // ─── INIT ───────────────────────────────────────────────────
         window.onload = carregarDados;
+        setInterval(carregarDados, 60 * 60 * 1000); // Auto-refresh 1h
     </script>
 </body>
 </html>
