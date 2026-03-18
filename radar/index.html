@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radar Gov | SNGM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { colors: { darkbg: '#0f172a', cardbg: '#1e293b', } } }
+        }
+    </script>
+    <style>
+        .tab-active { border-bottom: 2px solid #3b82f6; color: #60a5fa; }
+        .tab-inactive { color: #94a3b8; }
+        .tab-inactive:hover { color: #e2e8f0; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card-enter { animation: fadeUp 0.25s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-darkbg text-slate-200 min-h-screen">
+    <header class="bg-cardbg border-b border-slate-700 shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="h-14 sm:h-16 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="relative flex h-3 w-3 flex-shrink-0">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                    </div>
+                    <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white">Radar <span class="text-blue-500">Gov</span></h1>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-xs text-slate-500" id="last-update"></span>
+                    <button onclick="carregarDados()" class="text-xs text-slate-400 hover:text-white border border-slate-600 rounded-md px-2.5 py-1.5 transition-colors">
+                        <i class="fa-solid fa-arrows-rotate mr-1"></i>Atualizar
+                    </button>
+                </div>
+            </div>
+            <nav class="flex gap-4 sm:gap-6 -mb-px">
+                <button onclick="mudarAba('urgentes')" id="tab-urgentes" class="tab-active pb-3 px-1 transition-colors text-sm font-medium">
+                    <i class="fa-solid fa-inbox mr-1.5"></i>Caixa de Entrada
+                    <span class="ml-1 px-1.5 py-0.5 rounded-full text-[10px] bg-slate-700" id="badge-urgentes"></span>
+                </button>
+                <button onclick="mudarAba('arquivados')" id="tab-arquivados" class="tab-inactive pb-3 px-1 transition-colors text-sm font-medium">
+                    <i class="fa-solid fa-folder-open mr-1.5"></i>Histórico
+                    <span class="ml-1 px-1.5 py-0.5 rounded-full text-[10px] bg-slate-700" id="badge-arquivados"></span>
+                </button>
+                <button onclick="mudarAba('ruidos')" id="tab-ruidos" class="tab-inactive pb-3 px-1 transition-colors text-sm font-medium">
+                    <i class="fa-solid fa-microchip mr-1.5"></i>Auditoria IA
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div id="loading" class="text-center py-20 hidden">
+            <i class="fa-solid fa-circle-notch fa-spin text-4xl text-blue-500 mb-4"></i>
+            <p class="text-slate-400">Sincronizando...</p>
+        </div>
+        <div id="conteudo-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </main>
+
+    <script>
+        let abaAtual = 'urgentes';
+
+        function esc(str) {
+            if (!str) return '';
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+
+        async function carregarDados() {
+            const grid = document.getElementById('conteudo-grid');
+            const loading = document.getElementById('loading');
+            grid.innerHTML = ''; loading.classList.remove('hidden');
+            try {
+                const response = await fetch(`/api/${abaAtual}`);
+                const dados = await response.json();
+                atualizarBadges(); loading.classList.add('hidden');
+                
+                if (dados.length === 0) {
+                    grid.innerHTML = `<div class="col-span-full text-center py-20 bg-cardbg rounded-xl border border-slate-700"><p class="text-slate-500">Nada por aqui no momento.</p></div>`;
+                    return;
+                }
+                dados.forEach((item, i) => {
+                    const card = document.createElement('div');
+                    card.className = "card-enter bg-cardbg rounded-xl border border-slate-700 p-5 flex flex-col justify-between";
+                    card.style.animationDelay = `${i * 50}ms`;
+                    
+                    let botoes = abaAtual === 'urgentes' ? `
+                        <div class="mt-4 pt-4 border-t border-slate-700 flex gap-2">
+                            <button onclick="acaoAlerta('${item.id}', 'arquivar')" class="flex-1 py-2 bg-emerald-600/20 text-emerald-400 rounded-md text-sm font-bold hover:bg-emerald-600/30">Arquivar</button>
+                            <button onclick="acaoAlerta('${item.id}', 'descartar')" class="flex-1 py-2 bg-red-600/20 text-red-400 rounded-md text-sm font-bold hover:bg-red-600/30">Descartar</button>
+                        </div>` : '';
+
+                    card.innerHTML = `
+                        <div>
+                            <div class="flex justify-between mb-2"><span class="text-[10px] text-slate-500 uppercase">${esc(item.categoria)}</span><span class="text-[10px] text-blue-400">Nível ${item.nivel}</span></div>
+                            <h3 class="text-white font-bold mb-2"><a href="${item.link}" target="_blank" class="hover:underline">${esc(item.titulo)}</a></h3>
+                            <p class="text-sm text-slate-400">${esc(item.resumo)}</p>
+                            <p class="text-[11px] text-slate-600 italic mt-2 border-l-2 border-slate-700 pl-2">${esc(item.justificativa)}</p>
+                        </div>
+                        ${botoes}
+                    `;
+                    grid.appendChild(card);
+                });
+            } catch (e) { loading.classList.add('hidden'); }
+            document.getElementById('last-update').textContent = 'Atualizado: ' + new Date().toLocaleTimeString();
+        }
+
+        async function atualizarBadges() {
+            try {
+                const [u, a] = await Promise.all([fetch('/api/urgentes').then(r => r.json()), fetch('/api/arquivados').then(r => r.json())]);
+                document.getElementById('badge-urgentes').textContent = u.length || '';
+                document.getElementById('badge-arquivados').textContent = a.length || '';
+            } catch(e) {}
+        }
+
+        async function acaoAlerta(id, tipo) {
+            await fetch(tipo === 'arquivar' ? `/api/urgentes/${id}/arquivar` : `/api/urgentes/${id}`, { method: tipo === 'arquivar' ? 'POST' : 'DELETE' });
+            carregarDados();
+        }
+
+        function mudarAba(nova) {
+            document.getElementById(`tab-${abaAtual}`).classList.replace('tab-active', 'tab-inactive');
+            document.getElementById(`tab-${nova}`).classList.replace('tab-inactive', 'tab-active');
+            abaAtual = nova; carregarDados();
+        }
+        window.onload = carregarDados;
+    </script>
+</body>
+</html>DF
