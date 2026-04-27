@@ -1,4 +1,14 @@
 [
+      {
+    "title": "Saída Estratégica",
+    "author": "Martha Wells",
+    "status": "Lido",
+    "year": "2026",
+    "month": "Abril",
+    "rating": "4",
+    "genero": "Ficção Científica",
+    "series": "Série Diários de um Robô-Assassino Livro 4"
+  },
   {
     "title": "Como Água para Chocolate",
     "author": "Laura Esquivel",
@@ -140,11 +150,11 @@
     "series": "Trilogia Radch #2"
   },
   {
-    "title": "Ancillary Mercy",
+    "title": "Misericórdia Anciliar",
     "author": "Ann Leckie",
-    "status": "Pendente",
-    "year": "",
-    "month": "",
+    "status": "Lido",
+    "year": "2026",
+    "month": "abril",
     "rating": "",
     "genero": "Ficção Científica",
     "series": "Trilogia Radch #3"
