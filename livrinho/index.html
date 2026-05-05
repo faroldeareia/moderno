@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Dashboard SNGM - Minerais Estratégicos</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Twemoji Country Flags: garante bandeiras em Windows/Chrome -->
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/country-flag-emoji-polyfill@0.1/dist/TwemojiCountryFlags.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face {
+  font-family: "Twemoji Country Flags";
+  unicode-range: U+1F1E6-1F1FF, U+1F3F4, U+E0062-E007F;
+  src: url('https://cdn.jsdelivr.net/npm/country-flag-emoji-polyfill@0.1/dist/TwemojiCountryFlags.woff2') format('woff2');
+  font-display: swap;
+}
+</style>
+
+<style>
+/* ════════════════════════════════════════════════════════════════════
+   🎨 DESIGN TOKENS
+   ════════════════════════════════════════════════════════════════════ */
+:root {
+  --font-main: "Twemoji Country Flags", 'DM Sans', system-ui, sans-serif;
+  --font-display: "Twemoji Country Flags", 'Outfit', system-ui, sans-serif;
+
+  --fs-xs:    12px;
+  --fs-sm:    13px;
+  --fs-base:  14px;
+  --fs-md:    15px;
+  --fs-lg:    17px;
+  --fs-xl:    20px;
+  --fs-2xl:   24px;
+  --fs-3xl:   30px;
+  --fs-hero:  56px;
+
+  --orange:        #E8920D;
+  --orange-fill:   #FFF3DB;
+  --orange-light:  #FFF8EC;
+  --dark:          #1A1A1A;
+  --gray:          #4A4A4A;
+  --light:         #6E6E6E;
+  --bg-card:       #FFFFFF;
+  --bg-page:       #F0EFEC;
+  --br-green:      #009C3B;
+  --br-blue:       #002776;
+  --br-yellow:     #FFDF00;
+
+  --pad-slide-x:   56px;
+  --pad-slide-y:   18px;
+  --pad-card:      18px;
+  --gap-cards:     14px;
+
+  --radius:        12px;
+  --radius-sm:     8px;
+  --shadow-sm:     0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md:     0 6px 24px rgba(0,0,0,0.10);
+
+  --sidebar-w:     290px;
+
+  --glass-bg:       rgba(255,255,255,0.3);
+  --glass-blur:     blur(14px) saturate(160%);
+  --glass-border:   1px solid rgba(255,255,255,0.5);
+
+  --emp-photo-h: 180px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+html{
+  /* importante: deixa o html scrollar mas body fixo no desktop */
+  overflow:hidden;
+}
+body{
+  font-family:var(--font-main);
+  font-size:var(--fs-base);
+  background:#1a1a2e;color:var(--dark);
+  -webkit-tap-highlight-color:transparent;
+  overflow:hidden;
+}
+
+/* ─── HAMBURGER ─── */
+.hamburger{
+  position:fixed;top:18px;left:18px;z-index:1000;
+  width:44px;height:44px;border-radius:10px;
+  background:rgba(0,0,0,.78);border:1px solid rgba(255,255,255,.18);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;
+  cursor:pointer;transition:.25s;backdrop-filter:blur(10px);
+}
+.hamburger:hover{background:var(--orange);border-color:var(--orange)}
+.hamburger span{width:22px;height:2.5px;background:#fff;border-radius:2px;transition:.25s}
+.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ─── SIDEBAR ─── */
+.sidebar{
+  position:fixed;top:0;left:0;height:100vh;height:100dvh;width:var(--sidebar-w);
+  background:linear-gradient(180deg,#0f0f23,#1a1a2e);
+  color:#fff;z-index:999;
+  transform:translateX(-100%);transition:transform .3s ease;
+  display:flex;flex-direction:column;
+  box-shadow:6px 0 24px rgba(0,0,0,.4);
+}
+.sidebar.open{transform:translateX(0)}
+.sidebar-header{
+  padding:24px 22px 20px 76px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.sidebar-title{
+  font-family:var(--font-display);font-weight:800;
+  font-size:var(--fs-lg);letter-spacing:.5px;
+}
+.sidebar-title span{color:var(--orange)}
+.sidebar-subtitle{font-size:var(--fs-xs);color:rgba(255,255,255,.55);margin-top:4px;font-weight:500}
+
+.sidebar-section{
+  padding:16px 20px 8px;
+  font-size:var(--fs-xs);font-weight:700;
+  text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.4);
+}
+
+.mineral-list{flex:1;overflow-y:auto;padding:0 14px 14px;-webkit-overflow-scrolling:touch}
+.mineral-list::-webkit-scrollbar{width:5px}
+.mineral-list::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:3px}
+.mineral-item{
+  display:flex;align-items:center;gap:14px;
+  padding:12px 14px;border-radius:9px;cursor:pointer;
+  font-weight:600;font-size:var(--fs-md);color:rgba(255,255,255,.78);
+  transition:.18s;margin-bottom:3px;border:none;background:none;
+  width:100%;text-align:left;font-family:var(--font-main);
+}
+.mineral-item:hover{background:rgba(255,255,255,.06);color:#fff}
+.mineral-item.active{background:var(--orange);color:#fff}
+.mineral-symbol{
+  width:36px;height:36px;border-radius:7px;
+  background:rgba(255,255,255,.10);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:800;font-size:var(--fs-sm);
+  flex-shrink:0;letter-spacing:.5px;
+}
+.mineral-item.active .mineral-symbol{background:rgba(0,0,0,.28)}
+
+.sidebar-footer{
+  padding:16px 20px;border-top:1px solid rgba(255,255,255,.08);
+  display:flex;flex-direction:column;gap:8px;
+}
+.sidebar-btn{
+  width:100%;padding:11px 14px;border-radius:8px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:#fff;font-weight:600;font-size:var(--fs-sm);cursor:pointer;
+  font-family:var(--font-main);transition:.2s;
+}
+.sidebar-btn:hover{background:rgba(255,255,255,.12)}
+.sidebar-btn.primary{background:var(--orange);border-color:var(--orange)}
+.sidebar-btn.primary:hover{background:#d18209}
+
+.sidebar-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.5);
+  z-index:998;opacity:0;pointer-events:none;transition:.3s;
+}
+.sidebar-overlay.active{opacity:1;pointer-events:auto}
+
+/* ─── NAV CONTROLS ─── */
+.nav-controls{
+  position:fixed;bottom:18px;right:18px;z-index:500;
+  display:flex;align-items:center;gap:8px;
+  background:rgba(0,0,0,.78);backdrop-filter:blur(10px);
+  padding:7px;border-radius:12px;border:1px solid rgba(255,255,255,.15);
+}
+.nav-btn{
+  width:38px;height:38px;border-radius:8px;border:none;
+  background:rgba(255,255,255,.08);color:#fff;cursor:pointer;
+  font-size:var(--fs-md);font-weight:700;transition:.2s;
+}
+.nav-btn:hover{background:var(--orange)}
+.nav-counter{
+  font-size:var(--fs-sm);font-weight:700;color:rgba(255,255,255,.85);
+  padding:0 12px;min-width:65px;text-align:center;font-family:var(--font-display);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   📜 VIEWER + SLIDE — desktop trava em 100vh, mobile rola livre
+   ════════════════════════════════════════════════════════════════════ */
+.viewer{
+  position:fixed;inset:0;
+  display:flex;align-items:stretch;justify-content:center;
+  cursor:pointer;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+}
+.slide{
+  width:100vw;
+  background:var(--bg-page);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+  height:100vh;
+  flex-shrink:0;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.slide{animation:fadeIn .25s ease}
+.slide-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.slide:not(.slide-capa)>*:not(.slide-bg){position:relative;z-index:1}
+
+/* ─── HEADER ─── */
+.slide-header{
+  padding:18px var(--pad-slide-x) 14px 76px;
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:2px solid var(--orange);
+  flex-shrink:0;
+}
+.header-left{display:flex;align-items:center;gap:14px;min-width:0}
+.header-symbol{
+  background:var(--orange);color:#fff;
+  font-family:var(--font-display);font-weight:800;font-size:var(--fs-md);
+  padding:7px 16px;border-radius:7px;letter-spacing:1px;flex-shrink:0;
+}
+.header-title{font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;line-height:1.1}
+.header-subtitle{font-size:var(--fs-sm);color:var(--gray);margin-top:3px}
+.header-logo{
+  text-align:right;font-size:var(--fs-xs);font-weight:700;
+  text-transform:uppercase;letter-spacing:.4px;color:var(--gray);line-height:1.4;
+  flex-shrink:0;
+}
+.header-logo .gov{color:var(--br-blue);font-weight:800}
+
+.slide-content{
+  padding:var(--pad-slide-y) var(--pad-slide-x);flex:1;
+  display:flex;gap:var(--gap-cards);
+  min-height:0;
+}
+
+/* ─── CARDS ─── */
+.card{
+  background:var(--bg-card);border:1px solid #E5E3DF;border-radius:var(--radius);
+  padding:var(--pad-card);display:flex;flex-direction:column;
+  box-shadow:var(--shadow-sm);min-height:0;
+}
+.card-highlight{
+  background:linear-gradient(135deg,var(--orange-fill),#FFF0D0);
+  border:2px solid var(--orange);border-radius:var(--radius);
+  padding:var(--pad-card);display:flex;flex-direction:column;min-height:0;
+}
+.card-badge{
+  font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);
+  text-transform:uppercase;letter-spacing:.7px;color:var(--orange);
+  margin-bottom:11px;padding-bottom:7px;border-bottom:2px solid var(--orange);
+  width:fit-content;flex-shrink:0;
+}
+.card-highlight .card-badge{color:var(--dark);border-color:var(--dark)}
+.text-body{font-size:var(--fs-md);line-height:1.55;color:var(--dark)}
+
+/* ─── FOTO EMPREENDIMENTO ─── */
+.emp-photo{
+  width:100%;height:var(--emp-photo-h);
+  object-fit:cover;
+  border-radius:var(--radius-sm);
+  margin-bottom:14px;
+  background:#f0efec;
+  display:block;
+  box-shadow:var(--shadow-sm);
+}
+.emp-photo-fallback{
+  width:100%;height:var(--emp-photo-h);
+  border-radius:var(--radius-sm);
+  margin-bottom:14px;
+  background:linear-gradient(135deg,#EDECEA,#DAD8D2);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--light);font-weight:600;font-size:var(--fs-sm);
+  border:2px dashed #C9C7C2;
+  text-align:center;padding:10px;
+}
+
+/* ─── CAPA — usa <img> real para podermos ter fallback ─── */
+.slide-capa{padding:0;background:#1a1a2e;position:relative}
+.capa-photo-wrapper{
+  position:absolute;inset:0;overflow:hidden;background:#2a2a3e;
+}
+.capa-photo-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;
+}
+.capa-photo-wrapper::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(105deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.20) 50%,rgba(0,0,0,.05) 100%);
+  pointer-events:none;
+}
+.capa-photo-placeholder{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.35);font-family:var(--font-display);font-weight:700;
+  font-size:var(--fs-xl);text-align:center;letter-spacing:1px;
+  background:linear-gradient(135deg,#2a2a3e,#1a1a2e);padding:30px;
+}
+.capa-photo-placeholder .icon{font-size:120px;display:block;margin-bottom:14px;opacity:.35}
+
+.capa-glass{
+  position:absolute;
+  left:7%;top:50%;transform:translateY(-50%);
+  width:min(46%, 580px);
+  background:var(--glass-bg);
+  backdrop-filter:var(--glass-blur);
+  -webkit-backdrop-filter:var(--glass-blur);
+  border:var(--glass-border);
+  border-radius:20px;
+  padding:38px 42px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  z-index:2;
+}
+.capa-symbol-tag{
+  font-family:var(--font-display);font-weight:800;
+  font-size:var(--fs-xl);color:#fff;background:var(--orange);
+  display:inline-block;padding:9px 24px;border-radius:9px;
+  margin-bottom:20px;letter-spacing:2px;
+}
+.capa-glass h1{
+  font-family:var(--font-display);font-size:var(--fs-hero);font-weight:800;
+  line-height:1.02;margin-bottom:18px;color:var(--dark);
+}
+.capa-glass .sub{
+  font-size:var(--fs-md);color:var(--dark);line-height:1.5;
+  border-left:3px solid var(--orange);padding-left:14px;
+  font-weight:500;
+}
+.capa-footer-bar{
+  position:absolute;bottom:0;left:0;right:0;height:6px;z-index:3;
+  background:linear-gradient(90deg,var(--br-green),var(--br-yellow),var(--br-blue));
+}
+
+/* ─── S2 VISÃO GERAL ─── */
+.s2-layout{display:flex;gap:var(--gap-cards);width:100%;height:100%;min-height:0}
+.s2-col{flex:1;display:flex;flex-direction:column;gap:var(--gap-cards);min-height:0}
+.pos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pos-item{background:var(--orange-light);border-radius:var(--radius-sm);padding:13px;text-align:center}
+.pos-val{font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:800;color:var(--orange)}
+.pos-label{font-size:var(--fs-xs);font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.4px}
+.gap-area{display:flex;flex-direction:column;gap:5px;margin-top:10px}
+.gap-section-label{font-size:var(--fs-xs);font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.4px;margin-top:8px}
+.gap-chart{display:flex;align-items:center;gap:10px}
+.gap-label{width:85px;font-size:var(--fs-sm);font-weight:700;text-align:right}
+.gap-bar-bg{flex:1;height:22px;background:#EDECEA;border-radius:5px;overflow:hidden}
+.gap-bar-fill{height:100%;border-radius:5px;transition:width .5s}
+.gap-bar-fill.br-fill{background:var(--orange)}
+.gap-bar-fill.leader-fill{background:var(--gray)}
+.gap-val{width:55px;font-size:var(--fs-sm);font-weight:700}
+
+/* ─── S3 NÚMEROS ─── */
+.grid-pizza{display:grid;grid-template-columns:1.1fr 0.9fr;gap:var(--gap-cards);height:100%;min-height:0}
+.pie-wrapper{display:flex;align-items:center;gap:22px;flex:1;min-height:0}
+.pie-container{
+  width:180px;height:180px;border-radius:50%;
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.5),0 3px 10px rgba(0,0,0,.1);
+  flex-shrink:0;
+}
+.pie-legend-box{flex:1;font-size:var(--fs-md);min-width:0}
+.pie-legend-row{display:flex;justify-content:space-between;margin-bottom:10px;font-weight:600;align-items:center;gap:8px}
+.pie-dot{width:14px;height:14px;border-radius:3px;margin-right:8px;display:inline-block;flex-shrink:0}
+
+.flags-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:8px;flex:1;align-content:center}
+.flag-box{
+  background:#fff;border:2px solid var(--orange);border-radius:var(--radius-sm);
+  padding:14px 8px;text-align:center;
+}
+.flag-emoji{
+  font-family:"Twemoji Country Flags",sans-serif;
+  font-size:38px;margin-bottom:5px;line-height:1;
+}
+.flag-label{font-size:var(--fs-xs);font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+.flag-country{font-family:var(--font-display);font-size:var(--fs-md);font-weight:700}
+
+.bar-chart-area{display:flex;flex-direction:column;gap:10px}
+.transf-bar-row{display:flex;align-items:center;gap:10px}
+.transf-label{width:80px;font-size:var(--fs-sm);font-weight:700;text-align:right}
+.transf-bar-bg{flex:1;height:26px;background:#EDECEA;border-radius:5px;overflow:hidden}
+.transf-bar-fill{
+  height:100%;border-radius:5px;display:flex;align-items:center;justify-content:flex-end;
+  padding-right:8px;font-size:var(--fs-sm);font-weight:700;color:#fff;min-width:30px;
+}
+.transf-bar-fill.is-br{background:var(--orange)}
+.transf-bar-fill.is-other{background:#888}
+
+/* ─── S5 CADEIA GLOBAL ─── */
+.grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1.4fr;gap:var(--gap-cards);height:100%;min-height:0}
+.company-list{list-style:none;overflow-y:auto;flex:1}
+.company-list::-webkit-scrollbar{width:4px}
+.company-list::-webkit-scrollbar-thumb{background:#ddd;border-radius:2px}
+.company-list li{
+  font-size:var(--fs-sm);padding:9px 0;border-bottom:1px solid #F0EFEC;
+  display:flex;flex-direction:column;gap:3px;
+}
+.c-flag{font-family:"Twemoji Country Flags",sans-serif;margin-right:4px}
+.c-title{font-weight:700;color:var(--dark)}
+.c-meta{color:var(--light);font-size:var(--fs-xs)}
+
+/* ─── PLACEHOLDER IMG ─── */
+.img-placeholder{
+  flex:1;background:#fff;border:2px dashed #D5D3CF;border-radius:var(--radius);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:var(--light);font-size:var(--fs-md);
+  text-align:center;padding:40px;min-height:0;
+  overflow:hidden;
+}
+.img-placeholder img{max-width:100%;max-height:100%;object-fit:contain}
+.img-placeholder .icon{font-size:72px;margin-bottom:14px;opacity:.3;display:block}
+.img-placeholder .title{font-family:var(--font-display);font-size:var(--fs-xl);color:var(--gray);margin-bottom:6px}
+.img-placeholder .hint{font-size:var(--fs-sm);font-weight:400;color:#aaa}
+
+.slide-footer{
+  padding:9px var(--pad-slide-x) 9px 76px;
+  display:flex;justify-content:space-between;
+  font-size:var(--fs-xs);font-weight:600;color:var(--light);
+  border-top:1px solid #E5E3DF;background:rgba(255,255,255,.5);
+  flex-shrink:0;gap:4px;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   📱 MOBILE — slide cresce livremente, viewer rola
+   ════════════════════════════════════════════════════════════════════ */
+
+@media(max-width:900px){
+  :root{
+    --sidebar-w:280px;
+    --pad-slide-x:18px;
+    --pad-slide-y:14px;
+    --pad-card:14px;
+    --gap-cards:12px;
+    --fs-hero:36px;
+    --fs-2xl:18px;
+    --fs-xl:17px;
+    --emp-photo-h:160px;
+  }
+
+  /* ── FIX SCROLL: viewer vira block no mobile (some o flex que travava) ── */
+  .viewer{
+    display:block;
+  }
+
+  .slide{
+    height:auto !important;
+    min-height:100vh;min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* ── FIX SOBREPOSIÇÃO: força altura automática em todos os containers ── */
+  .slide-content, .s2-layout, .grid-pizza, .grid-4{
+    height:auto !important;
+    min-height:auto !important;
+    overflow:visible;
+  }
+
+  .slide-content{
+    flex-direction:column;
+    flex:none;
+  }
+  .slide-header{padding:14px 18px 10px 70px}
+  .slide-footer{padding:8px 18px 8px 70px}
+  .header-logo{display:none}
+  .header-title{font-size:var(--fs-xl)}
+  .header-subtitle{font-size:var(--fs-xs)}
+
+  /* Capa em mobile: foto no topo + glass card sobreposto descendo
+     IMPORTANTE: .slide-capa não vira flex porque ele já é position:relative
+     e os filhos se posicionam por margin/relative — mantemos a estrutura
+     do desktop, só trocando absolute por relative. */
+  .slide-capa{
+    height:auto !important;
+    min-height:0 !important;
+    display:block !important;
+    background:#1a1a2e;
+  }
+  .capa-photo-wrapper{
+    position:relative;inset:auto;
+    width:100%;height:38vh;height:38dvh;
+    display:block;
+  }
+  .capa-glass{
+    position:relative;
+    left:auto;right:auto;top:auto;bottom:auto;
+    transform:none;
+    width:auto;
+    margin:-44px 14px 24px;
+    padding:22px 24px;
+    display:block;
+  }
+
+  /* Cards / colunas */
+  .s2-layout{flex-direction:column}
+  .s2-col{flex:none}
+  .card, .card-highlight{flex:none !important}
+  .grid-pizza{grid-template-columns:1fr;gap:var(--gap-cards)}
+  .grid-4{grid-template-columns:1fr 1fr}
+  .pos-grid{gap:8px}
+  .pos-item{padding:11px 8px}
+  .pos-val{font-size:20px}
+
+  /* Pie chart: empilha vertical */
+  .pie-wrapper{flex-direction:column;gap:14px;align-items:stretch}
+  .pie-container{width:140px;height:140px;margin:0 auto}
+  .pie-legend-box{font-size:var(--fs-sm)}
+
+  /* Listas: sem scroll, mostra tudo */
+  .company-list{overflow-y:visible;max-height:none}
+
+  /* Slides de imagem: altura mínima decente */
+  .img-placeholder{min-height:50vh;min-height:50dvh}
+
+  /* Empreendimento card */
+  .emp-photo, .emp-photo-fallback{height:var(--emp-photo-h)}
+
+  /* Nav controls discretos */
+  .nav-controls{
+    bottom:10px;right:10px;padding:4px;gap:3px;
+    background:rgba(0,0,0,.55);backdrop-filter:blur(10px);
+    border-radius:9px;
+  }
+  .nav-btn{width:34px;height:34px;font-size:13px;border-radius:6px}
+  .nav-counter{
+    padding:0 6px;min-width:46px;font-size:11px;
+    color:rgba(255,255,255,.75);
+  }
+  .hamburger{width:42px;height:42px}
+}
+
+@media(max-width:640px){
+  :root{
+    --sidebar-w:88vw;
+    --pad-slide-x:14px;
+    --pad-card:13px;
+    --gap-cards:10px;
+    --fs-hero:30px;
+    --fs-2xl:17px;
+    --fs-xl:16px;
+    --emp-photo-h:150px;
+  }
+  .grid-4{grid-template-columns:1fr}
+  .flag-emoji{font-size:32px}
+  .flag-box{padding:11px 6px}
+  .flag-country{font-size:var(--fs-sm)}
+
+  .slide-header{padding:12px 14px 9px 64px;gap:10px}
+  .slide-footer{padding:8px 14px 8px 64px;font-size:11px}
+  .header-symbol{padding:5px 11px;font-size:var(--fs-sm)}
+  .header-title{font-size:var(--fs-md);line-height:1.15}
+  .header-subtitle{font-size:11px}
+
+  .capa-photo-wrapper{height:32vh;height:32dvh}
+  .capa-glass{margin:-36px 12px 20px;padding:20px 20px}
+  .capa-symbol-tag{font-size:var(--fs-md);padding:7px 16px;margin-bottom:14px}
+  .capa-glass h1{margin-bottom:12px}
+
+  .gap-label{width:62px;font-size:11px}
+  .gap-bar-bg{height:18px}
+  .gap-val{width:42px;font-size:11px}
+
+  .transf-label{width:62px;font-size:11px}
+  .transf-bar-bg{height:22px}
+  .transf-bar-fill{font-size:11px}
+
+  .card-highlight .text-body{font-size:var(--fs-sm)}
+
+  .hamburger{top:12px;left:12px}
+  .nav-controls{bottom:12px;right:12px}
+}
+
+@media(max-width:380px){
+  :root{
+    --pad-slide-x:12px;
+    --fs-hero:26px;
+    --fs-2xl:16px;
+  }
+  .slide-header{padding:10px 12px 8px 60px}
+  .header-title{font-size:14px}
+  .header-subtitle{font-size:10px}
+  .header-symbol{padding:4px 9px;font-size:11px}
+  .capa-glass h1{font-size:24px}
+  .pos-val{font-size:17px}
+}
+
+/* ─── PRINT ─── */
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .hamburger,.sidebar,.sidebar-overlay,.nav-controls{display:none!important}
+  body,html{overflow:visible!important;height:auto!important}
+  .viewer{position:relative!important;display:block!important;cursor:auto!important;overflow:visible!important}
+  #sc{display:none!important}
+  #pc{display:block!important}
+  .slide{
+    width:297mm!important;height:210mm!important;
+    page-break-after:always;page-break-inside:avoid;
+    overflow:hidden!important;animation:none!important;
+  }
+  .slide-content{flex-direction:row!important}
+  .s2-layout{flex-direction:row!important}
+  .grid-pizza{grid-template-columns:1.1fr 0.9fr!important}
+  .grid-4{grid-template-columns:1fr 1fr 1fr 1.4fr!important}
+  .capa-photo-wrapper{position:absolute!important;inset:0!important;height:auto!important}
+  .capa-glass{position:absolute!important;left:7%!important;top:50%!important;transform:translateY(-50%)!important;width:46%!important;margin:0!important}
+  @page{size:A4 landscape;margin:0}
+}
+</style>
+</head>
+<body>
+
+<button class="hamburger" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
+<div class="sidebar-overlay" id="so"></div>
+
+<nav class="sidebar" id="sb">
+  <div class="sidebar-header">
+    <div class="sidebar-title"><span>MME</span> / SNGM</div>
+    <div class="sidebar-subtitle">Minerais Estratégicos</div>
+  </div>
+  <div class="sidebar-section">Minérios</div>
+  <div class="mineral-list" id="mt"></div>
+  <div class="sidebar-footer">
+    <button class="sidebar-btn primary" onclick="printPDF()">Exportar PDF</button>
+  </div>
+</nav>
+
+<div class="nav-controls">
+  <button class="nav-btn" onclick="prev();event.stopPropagation()" aria-label="Anterior">◀</button>
+  <span class="nav-counter" id="cn">1 / 1</span>
+  <button class="nav-btn" onclick="next();event.stopPropagation()" aria-label="Próximo">▶</button>
+</div>
+
+<div class="viewer" id="sc"></div>
+<div id="pc" style="display:none"></div>
+
+<script>
+/* ════════════════════════════════════════════════════════════════════
+   📦 CONFIG
+   ════════════════════════════════════════════════════════════════════ */
+const CONFIG = {
+  slidesPerMineral: 7,
+  slideNames: ["Capa","Visão Geral","Números Mundiais","Cadeia de Valor","Cadeia Global","Fluxograma","Mapa"],
+  imagePath:    "img/",
+  imageExt:     "jpg",
+  imagesEnabled: true
+};
+
+const MINERAL_DATA = [
+  {
+    "nome":"Elementos de Terras Raras","simbolo":"ETR","slug":"etr",
+    "visaoGeral":{
+      "usos":"Essenciais para ímãs permanentes de alto desempenho usados em motores de veículos elétricos e turbinas eólicas, sendo estratégicos para a tecnologia de ponta.",
+      "destaque":"<strong>Projeto Serra Verde — GO:</strong> Já em produção, é a única produtora em escala, fora da Ásia, dos quatro elementos críticos para ímãs (Nd, Pr, Tb, Dy), posicionando o Brasil como parceiro estratégico para diversificar a cadeia global.",
+      "posicaoBR":{"reserva":"2º lugar","producao":"Muito baixa"},
+      "estadosRes":"GO, MG, AM, BA","estadosProd":"GO",
+      "gapProd":{"br":1,"leader":69,"leaderName":"China"},
+      "gapRes":{"br":25,"leader":52,"leaderName":"China"},
+      "gapTransf":{"br":0,"leader":91,"leaderName":"China"}
+    },
+    "numerosMundiais":{
+      "pieProd":[{"label":"China","val":69,"color":"#D32F2F"},{"label":"EUA","val":13,"color":"#1565C0"},{"label":"Austrália","val":7,"color":"#2E7D32"},{"label":"Myanmar","val":6,"color":"#6A1B9A"},{"label":"Outros","val":5,"color":"#BDBDBD"}],
+      "pieRes":[{"label":"China","val":52,"color":"#D32F2F"},{"label":"Brasil","val":25,"color":"#E8920D"},{"label":"Austrália","val":10,"color":"#2E7D32"},{"label":"Rússia","val":5,"color":"#1565C0"},{"label":"Outros","val":8,"color":"#BDBDBD"}],
+      "barTransf":[{"label":"China","val":91},{"label":"Malásia","val":5},{"label":"EUA","val":1},{"label":"Brasil","val":0}],
+      "quemManda":[{"etapa":"Reservas","bandeira":"🇨🇳","pais":"China"},{"etapa":"Produção","bandeira":"🇨🇳","pais":"China"},{"etapa":"Transformação","bandeira":"🇨🇳","pais":"China"}]
+    },
+    "cadeiaGlobal":{
+      "extracao":[{"bandeira":"🇨🇳","pais":"China","emp":"China Northern RE","opera":"China, Myanmar"},{"bandeira":"🇨🇳","pais":"China","emp":"China Rare Earth Group","opera":"China"},{"bandeira":"🇺🇸","pais":"EUA","emp":"MP Materials","opera":"EUA"},{"bandeira":"🇦🇺","pais":"Austrália","emp":"Lynas Rare Earth","opera":"Austrália"}],
+      "refino":[{"bandeira":"🇨🇳","pais":"China","emp":"China Northern RE","opera":"China"},{"bandeira":"🇨🇳","pais":"China","emp":"Shenghe Resources","opera":"China"},{"bandeira":"🇦🇺","pais":"Austrália","emp":"Lynas","opera":"Canadá, Malásia"},{"bandeira":"🇨🇦","pais":"Canadá","emp":"Neo Performance","opera":"Estônia"},{"bandeira":"🇺🇸","pais":"EUA","emp":"MP Materials","opera":"Refino"}],
+      "manufatura":[{"bandeira":"🇨🇳","pais":"China","emp":"China Northern RE","opera":"Ímãs"},{"bandeira":"🇯🇵","pais":"Japão","emp":"Shin-Etsu Chemical","opera":"Ímãs"},{"bandeira":"🇯🇵","pais":"Japão","emp":"Proterial (ex-Hitachi)","opera":"Ímãs"},{"bandeira":"🇩🇪","pais":"Alemanha","emp":"VACUUMSCHMELZE","opera":"Ímãs"},{"bandeira":"🇺🇸","pais":"EUA","emp":"MP Materials","opera":"Ímãs"}],
+      "analise":"<strong>Internacional:</strong> China controla o refino (>90%). Dependência crítica do Ocidente.<br><br><strong>Brasil:</strong> 2ª maior reserva mundial, produção incipiente. Iniciativa MagBras busca iniciar cadeia de ímãs.<br><br><strong>Gargalo:</strong> Ausência de capacidade de refino e manufatura.<br><strong>Vantagem:</strong> 2ª maior reserva global (23%), incluindo argilas iônicas."
+    }
+  },
+  {
+    "nome":"Cobre","simbolo":"Cu","slug":"cobre",
+    "visaoGeral":{
+      "usos":"Metal-chave da descarbonização, indispensável para eletrificação (VEs, carregadores, turbinas eólicas), construção civil e ligas metálicas.",
+      "destaque":"<strong>Mina Salobo (Vale) — PA:</strong> Maior jazida de cobre do Brasil. Expansão contínua (Salobo 3). Vale investe US$ 290 mi no Projeto Bacaba.",
+      "posicaoBR":{"reserva":"Fora Top 10","producao":"Fora Top 10"},
+      "estadosRes":"PA, GO, BA, MT, AL","estadosProd":"PA, GO, BA, AL, MT",
+      "gapProd":{"br":3,"leader":30,"leaderName":"China"},
+      "gapRes":{"br":3,"leader":18,"leaderName":"Chile"},
+      "gapTransf":{"br":1,"leader":44,"leaderName":"China"}
+    },
+    "numerosMundiais":{
+      "pieProd":[{"label":"China","val":30,"color":"#D32F2F"},{"label":"Chile","val":13,"color":"#1565C0"},{"label":"R.D. Congo","val":12,"color":"#6A1B9A"},{"label":"Peru","val":6,"color":"#2E7D32"},{"label":"Outros","val":39,"color":"#BDBDBD"}],
+      "pieRes":[{"label":"Chile","val":18,"color":"#1565C0"},{"label":"Austrália","val":10,"color":"#2E7D32"},{"label":"Peru","val":8,"color":"#F57F17"},{"label":"R.D. Congo","val":7,"color":"#6A1B9A"},{"label":"Outros","val":57,"color":"#BDBDBD"}],
+      "barTransf":[{"label":"China","val":44},{"label":"RDC","val":11},{"label":"Chile","val":7},{"label":"Brasil","val":1}],
+      "quemManda":[{"etapa":"Reservas","bandeira":"🇨🇱","pais":"Chile"},{"etapa":"Produção","bandeira":"🇨🇳","pais":"China"},{"etapa":"Transformação","bandeira":"🇨🇳","pais":"China"}]
+    },
+    "cadeiaGlobal":{
+      "extracao":[{"bandeira":"🇺🇸","pais":"EUA","emp":"Freeport-McMoRan","opera":"Indonésia, Peru, EUA"},{"bandeira":"🇦🇺","pais":"Austrália","emp":"BHP","opera":"Chile, Peru, Austrália"},{"bandeira":"🇨🇱","pais":"Chile","emp":"Codelco","opera":"Chile"},{"bandeira":"🇨🇳","pais":"China","emp":"Zijin Mining","opera":"Congo, Sérvia"},{"bandeira":"🇨🇭","pais":"Suíça","emp":"Glencore","opera":"Congo, Austrália, Chile"}],
+      "refino":[{"bandeira":"🇨🇳","pais":"China","emp":"Empresas Estatais","opera":"China"},{"bandeira":"🇩🇪","pais":"Alemanha","emp":"Aurubis AG","opera":"Alemanha"},{"bandeira":"🇺🇸","pais":"EUA","emp":"Freeport-McMoRan","opera":"EUA"},{"bandeira":"🇨🇭","pais":"Suíça","emp":"Glencore","opera":"Global"}],
+      "manufatura":[{"bandeira":"🇮🇹","pais":"Itália","emp":"Prysmian","opera":"Cabos"},{"bandeira":"🇫🇷","pais":"França","emp":"Nexans","opera":"Cabos"},{"bandeira":"🇺🇸","pais":"EUA","emp":"Southwire","opera":"Cabos"},{"bandeira":"🇯🇵","pais":"Japão","emp":"Sumitomo Electric","opera":"Manufatura"},{"bandeira":"🇩🇪","pais":"Alemanha","emp":"KME Germany","opera":"Manufatura"}],
+      "analise":"<strong>Internacional:</strong> Extração no Chile e RDC; China domina >45% do refino mundial.<br><br><strong>Brasil:</strong> Extração relevante (Vale, EroBrasil), gargalo no refino com apenas Paranapanema processando Cu primário.<br><br><strong>Gargalo:</strong> Capacidade de refino concentrada em uma empresa.<br><strong>Vantagem:</strong> Geologia favorável — minério de Cu + Au + ETR."
+    }
+  },
+  {
+    "nome":"Lítio","simbolo":"Li","slug":"litio",
+    "visaoGeral":{
+      "usos":"Matéria-prima central para veículos elétricos: bloco de construção fundamental das baterias de íon-lítio.",
+      "destaque":"<strong>Sigma Lithium (Grota do Cirilo) — MG:</strong> Capital canadense, explora o Vale do Jequitinhonha com lítio 'verde' de alta pureza e processos sustentáveis.",
+      "posicaoBR":{"reserva":"6º lugar","producao":"6º lugar"},
+      "estadosRes":"MG, CE, PE, RN","estadosProd":"MG",
+      "gapProd":{"br":4,"leader":32,"leaderName":"Austrália"},
+      "gapRes":{"br":1.5,"leader":25,"leaderName":"Chile"},
+      "gapTransf":{"br":0,"leader":70,"leaderName":"China"}
+    },
+    "numerosMundiais":{
+      "pieProd":[{"label":"Austrália","val":32,"color":"#2E7D32"},{"label":"China","val":22,"color":"#D32F2F"},{"label":"Chile","val":19,"color":"#1565C0"},{"label":"Zimbábue","val":10,"color":"#F57F17"},{"label":"Outros","val":17,"color":"#BDBDBD"}],
+      "pieRes":[{"label":"Chile","val":25,"color":"#1565C0"},{"label":"Austrália","val":22,"color":"#2E7D32"},{"label":"China","val":13,"color":"#D32F2F"},{"label":"Argentina","val":13,"color":"#F57F17"},{"label":"Outros","val":27,"color":"#BDBDBD"}],
+      "barTransf":[{"label":"China","val":70},{"label":"Chile","val":20},{"label":"Argentina","val":6},{"label":"Brasil","val":0}],
+      "quemManda":[{"etapa":"Reservas","bandeira":"🇨🇱","pais":"Chile"},{"etapa":"Produção","bandeira":"🇦🇺","pais":"Austrália"},{"etapa":"Transformação","bandeira":"🇨🇳","pais":"China"}]
+    },
+    "cadeiaGlobal":{
+      "extracao":[{"bandeira":"🇺🇸","pais":"EUA","emp":"Albemarle","opera":"EUA, Chile, Austrália"},{"bandeira":"🇨🇱","pais":"Chile","emp":"SQM","opera":"Chile, Austrália"},{"bandeira":"🇨🇳","pais":"China","emp":"Ganfeng Lithium","opera":"China, Argentina"},{"bandeira":"🇨🇳","pais":"China","emp":"Tianqi Lithium","opera":"Austrália, Chile"},{"bandeira":"🇦🇺","pais":"Austrália","emp":"Pilbara Minerals","opera":"Austrália"}],
+      "refino":[{"bandeira":"🇨🇳","pais":"China","emp":"Ganfeng Lithium","opera":"China"},{"bandeira":"🇨🇳","pais":"China","emp":"Tianqi Lithium","opera":"China"},{"bandeira":"🇺🇸","pais":"EUA","emp":"Albemarle","opera":"EUA"},{"bandeira":"🇨🇱","pais":"Chile","emp":"SQM","opera":"Chile"},{"bandeira":"🇩🇪","pais":"Alemanha/Holanda","emp":"AMG","opera":"Brasil, Alemanha"}],
+      "manufatura":[{"bandeira":"🇨🇳","pais":"China","emp":"CATL","opera":"Baterias"},{"bandeira":"🇨🇳","pais":"China","emp":"BYD","opera":"Baterias e VEs"},{"bandeira":"🇺🇸","pais":"EUA","emp":"Tesla","opera":"Baterias e VEs"},{"bandeira":"🇰🇷","pais":"Coreia do Sul","emp":"LG Energy Solution","opera":"Baterias"},{"bandeira":"🇯🇵","pais":"Japão","emp":"Panasonic","opera":"Baterias"},{"bandeira":"🇩🇪","pais":"Alemanha","emp":"Volkswagen Group","opera":"VEs"}],
+      "analise":"<strong>Internacional:</strong> Produção dividida (Austrália, Chile), China domina processamento (~65%).<br><br><strong>Brasil:</strong> Produção em rocha dura no Vale do Jequitinhonha. Concentrado exportado para China.<br><br><strong>Gargalo:</strong> Capacidade de refino limitada, exportação sem valor agregado.<br><strong>Vantagem:</strong> Rocha dura de alta qualidade e matriz energética limpa."
+    }
+  },
+  {
+    "nome":"Urânio","simbolo":"U","slug":"uranio",
+    "visaoGeral":{
+      "usos":"Combustível para usinas nucleares, fonte de baixo carbono e alta densidade energética.",
+      "destaque":"<strong>Projeto Santa Quitéria (INB/Galvani) — CE:</strong> Jazida de Itataia para urânio (~2.400t) e fosfato (~220.000t). Licenciamento em impasse.",
+      "posicaoBR":{"reserva":"8º lugar*","producao":"Fora Top 10*"},
+      "estadosRes":"PA, CE, BA","estadosProd":"BA",
+      "gapProd":{"br":0,"leader":39,"leaderName":"Cazaquistão"},
+      "gapRes":{"br":3,"leader":28,"leaderName":"Austrália"},
+      "gapTransf":{"br":0,"leader":44,"leaderName":"Rússia"}
+    },
+    "numerosMundiais":{
+      "pieProd":[{"label":"Cazaquistão","val":39,"color":"#1565C0"},{"label":"Canadá","val":24,"color":"#D32F2F"},{"label":"Namíbia","val":12,"color":"#F57F17"},{"label":"Austrália","val":7,"color":"#2E7D32"},{"label":"Outros","val":18,"color":"#BDBDBD"}],
+      "pieRes":[{"label":"Austrália","val":28,"color":"#2E7D32"},{"label":"Cazaquistão","val":14,"color":"#1565C0"},{"label":"Canadá","val":10,"color":"#D32F2F"},{"label":"Namíbia","val":8,"color":"#F57F17"},{"label":"Outros","val":40,"color":"#BDBDBD"}],
+      "barTransf":[{"label":"Rússia","val":44},{"label":"Europa*","val":29},{"label":"China","val":15},{"label":"Brasil","val":0}],
+      "quemManda":[{"etapa":"Reservas","bandeira":"🇦🇺","pais":"Austrália"},{"etapa":"Produção","bandeira":"🇰🇿","pais":"Cazaquistão"},{"etapa":"Enriquecimento","bandeira":"🇷🇺","pais":"Rússia"}]
+    },
+    "cadeiaGlobal":{
+      "extracao":[{"bandeira":"🇰🇿","pais":"Cazaquistão","emp":"Kazatomprom","opera":"Cazaquistão"},{"bandeira":"🇨🇦","pais":"Canadá","emp":"Cameco","opera":"Canadá, Cazaquistão"},{"bandeira":"🇫🇷","pais":"França","emp":"Orano","opera":"Canadá, Níger"},{"bandeira":"🇷🇺","pais":"Rússia","emp":"Rosatom","opera":"Cazaquistão"},{"bandeira":"🇨🇳","pais":"China","emp":"CGN","opera":"China, Namíbia"},{"bandeira":"🇦🇺","pais":"Austrália","emp":"BHP","opera":"Austrália"}],
+      "refino":[{"bandeira":"🇷🇺","pais":"Rússia","emp":"Rosatom","opera":"Rússia"},{"bandeira":"🇫🇷","pais":"França","emp":"Orano","opera":"França"},{"bandeira":"🇨🇦","pais":"Canadá","emp":"Cameco","opera":"Canadá"},{"bandeira":"🇨🇳","pais":"China","emp":"CNNC","opera":"China"}],
+      "manufatura":[{"bandeira":"🇷🇺","pais":"Rússia","emp":"Rosatom","opera":"Rússia"},{"bandeira":"🇪🇺","pais":"UE","emp":"Urenco","opera":"UK, Holanda, Alemanha, EUA"},{"bandeira":"🇫🇷","pais":"França","emp":"Orano","opera":"França"},{"bandeira":"🇨🇳","pais":"China","emp":"CNNC","opera":"China"}],
+      "analise":"<strong>Internacional:</strong> Rússia (Rosatom) controla conversão e enriquecimento.<br><br><strong>Brasil:</strong> INB produz em Caetité (~60t vs 400t necessárias). Conversão e enriquecimento no exterior.<br><br><strong>Gargalo:</strong> Baixa capacidade da INB e ausência de conversão.<br><strong>Vantagem:</strong> Reservas, estabilidade e domínio do ciclo do combustível."
+    }
+  },
+  {
+    "nome":"Níquel","simbolo":"Ni","slug":"niquel",
+    "visaoGeral":{
+      "usos":"Componente catódico crucial para baterias de alta densidade energética e fabricação de aço inoxidável.",
+      "destaque":"<strong>Projeto Jaguar (Centaurus Metals) — PA:</strong> 138,2 Mt a 0,87% Ni. Um dos maiores depósitos de Ni sulfetado do mundo, vital para baterias.",
+      "posicaoBR":{"reserva":"3º lugar","producao":"6º lugar"},
+      "estadosRes":"GO, PA, BA, PI","estadosProd":"BA, GO, PA, PI",
+      "gapProd":{"br":2,"leader":67,"leaderName":"Indonésia"},
+      "gapRes":{"br":11,"leader":45,"leaderName":"Indonésia"},
+      "gapTransf":{"br":2,"leader":43,"leaderName":"Indonésia"}
+    },
+    "numerosMundiais":{
+      "pieProd":[{"label":"Indonésia","val":67,"color":"#D32F2F"},{"label":"Filipinas","val":7,"color":"#1565C0"},{"label":"Rússia","val":5,"color":"#6A1B9A"},{"label":"Canadá","val":4,"color":"#2E7D32"},{"label":"Outros","val":17,"color":"#BDBDBD"}],
+      "pieRes":[{"label":"Indonésia","val":45,"color":"#D32F2F"},{"label":"Austrália","val":20,"color":"#2E7D32"},{"label":"Brasil","val":11,"color":"#E8920D"},{"label":"Rússia","val":5,"color":"#6A1B9A"},{"label":"Outros","val":19,"color":"#BDBDBD"}],
+      "barTransf":[{"label":"Indonésia","val":43},{"label":"China","val":31},{"label":"Japão","val":3},{"label":"Brasil","val":2}],
+      "quemManda":[{"etapa":"Reservas","bandeira":"🇮🇩","pais":"Indonésia"},{"etapa":"Produção","bandeira":"🇮🇩","pais":"Indonésia"},{"etapa":"Transformação","bandeira":"🇮🇩","pais":"Indonésia"}]
+    },
+    "cadeiaGlobal":{
+      "extracao":[{"bandeira":"🇨🇳","pais":"China","emp":"Tsingshan Holding","opera":"Indonésia"},{"bandeira":"🇷🇺","pais":"Rússia","emp":"Norilsk Nickel","opera":"Rússia"},{"bandeira":"🇧🇷","pais":"Brasil","emp":"Vale","opera":"Canadá, Indonésia, Brasil"},{"bandeira":"🇨🇳","pais":"China","emp":"Jinchuan Group","opera":"China"},{"bandeira":"🇨🇭","pais":"Suíça","emp":"Glencore","opera":"Canadá, Austrália"},{"bandeira":"🇦🇺","pais":"Austrália","emp":"BHP","opera":"Austrália"}],
+      "refino":[{"bandeira":"🇨🇳","pais":"China","emp":"Tsingshan Holdings","opera":"Refino"},{"bandeira":"🇷🇺","pais":"Rússia","emp":"Norilsk Nickel","opera":"Rússia"},{"bandeira":"🇨🇳","pais":"China","emp":"Jinchuan Group","opera":"China"},{"bandeira":"🇯🇵","pais":"Japão","emp":"Sumitomo Metal Mining","opera":"Refino"},{"bandeira":"🇧🇷","pais":"Brasil","emp":"Vale S.A.","opera":"Indonésia e Brasil"}],
+      "manufatura":[{"bandeira":"🇨🇳","pais":"China","emp":"CATL","opera":"Baterias"},{"bandeira":"🇰🇷","pais":"Coreia do Sul","emp":"LG Energy Solution","opera":"Baterias"},{"bandeira":"🇯🇵","pais":"Japão","emp":"Panasonic","opera":"Baterias"},{"bandeira":"🇨🇳","pais":"China","emp":"China Baowu Steel","opera":"Aço Inox"},{"bandeira":"🇱🇺","pais":"Luxemburgo","emp":"ArcelorMittal","opera":"Aço Inox"}],
+      "analise":"<strong>Internacional:</strong> Indonésia domina extração (>50%). Eixo China-Indonésia controla ~90% do refino.<br><br><strong>Brasil:</strong> 8º produtor. Atlantic Nickel produz Ni sulfetado para baterias.<br><br><strong>Gargalo:</strong> Domínio sino-indonésio de baixo custo inviabiliza projetos.<br><strong>Vantagem:</strong> Reservas de Ni sulfetado ideal para baterias."
+    }
+  },
+  {
+    "nome":"Grafita","simbolo":"C","slug":"grafita",
+    "visaoGeral":{
+      "usos":"Componente essencial do ânodo em baterias de íon-lítio, pilar para a fabricação de VEs.",
+      "destaque":"<strong>Projeto Graphcoa (Appian Capital) — BA:</strong> Investimento R$ 350 mi, capacidade 5,5 mil t/ano. Expansão prevê 65 mil t/ano (R$ 1,5 bi).",
+      "posicaoBR":{"reserva":"2º lugar","producao":"4º lugar"},
+      "estadosRes":"MG, BA","estadosProd":"MG, BA",
+      "gapProd":{"br":4,"leader":80,"leaderName":"China"},
+      "gapRes":{"br":25,"leader":34,"leaderName":"China"},
+      "gapTransf":{"br":0,"leader":96,"leaderName":"China"}
+    },
+    "numerosMundiais":{
+      "pieProd":[{"label":"China","val":80,"color":"#D32F2F"},{"label":"Brasil","val":4,"color":"#E8920D"},{"label":"Tanzânia","val":4,"color":"#2E7D32"},{"label":"Madagascar","val":4,"color":"#6A1B9A"},{"label":"Outros","val":8,"color":"#BDBDBD"}],
+      "pieRes":[{"label":"China","val":34,"color":"#D32F2F"},{"label":"Brasil","val":25,"color":"#E8920D"},{"label":"Madagascar","val":8,"color":"#6A1B9A"},{"label":"Moçambique","val":5,"color":"#1565C0"},{"label":"Outros","val":28,"color":"#BDBDBD"}],
+      "barTransf":[{"label":"China","val":96},{"label":"Japão","val":2},{"label":"EUA","val":0},{"label":"Brasil","val":0}],
+      "quemManda":[{"etapa":"Reservas","bandeira":"🇨🇳","pais":"China"},{"etapa":"Produção","bandeira":"🇨🇳","pais":"China"},{"etapa":"Transformação","bandeira":"🇨🇳","pais":"China"}]
+    },
+    "cadeiaGlobal":{
+      "extracao":[{"bandeira":"🇦🇺","pais":"Austrália","emp":"Syrah Resources","opera":"Moçambique"},{"bandeira":"🇨🇳","pais":"China","emp":"Minmetals Corp","opera":"China"},{"bandeira":"🇧🇷","pais":"Brasil","emp":"Nacional de Grafite","opera":"Brasil"},{"bandeira":"🇨🇳","pais":"China","emp":"Qingdao","opera":"China"},{"bandeira":"🇨🇦","pais":"Canadá","emp":"Northern Graphite","opera":"Canadá, Namíbia"},{"bandeira":"🇨🇦","pais":"Canadá","emp":"NextSource Materials","opera":"Madagascar"}],
+      "refino":[{"bandeira":"🇨🇳","pais":"China","emp":"BTR, Shangtai","opera":"China"},{"bandeira":"🇦🇺","pais":"Austrália","emp":"Syrah Resources","opera":"EUA"},{"bandeira":"🇨🇦","pais":"Canadá","emp":"Nouveau Monde (NMG)","opera":"Canadá"},{"bandeira":"🇦🇺","pais":"Austrália/Suécia","emp":"Talga Group","opera":"Suécia"}],
+      "manufatura":[{"bandeira":"🇨🇳","pais":"China","emp":"CATL","opera":"Baterias"},{"bandeira":"🇨🇳","pais":"China","emp":"BYD","opera":"Baterias e VEs"},{"bandeira":"🇰🇷","pais":"Coreia do Sul","emp":"LG Energy Solution","opera":"Baterias"},{"bandeira":"🇯🇵","pais":"Japão","emp":"Panasonic","opera":"Baterias"},{"bandeira":"🇺🇸","pais":"EUA","emp":"Tesla","opera":"Baterias e VEs"},{"bandeira":"🇰🇷","pais":"Coreia do Sul","emp":"SK On","opera":"Baterias"}],
+      "analise":"<strong>Internacional:</strong> China domina produção e refino (>90%), dependência crítica.<br><br><strong>Brasil:</strong> Maiores reservas de grafita lamelar do mundo (alta qualidade para baterias). Exporta bruto.<br><br><strong>Gargalo:</strong> Ausência de refino para grafita esférica purificada.<br><strong>Vantagem:</strong> Maior reserva de grafita lamelar — tipo geológico mais estratégico."
+    }
+  },
+  {
+    "nome":"Cobalto","simbolo":"Co","slug":"cobalto",
+    "visaoGeral":{
+      "usos":"Confere estabilidade e densidade de energia às baterias de íon-lítio, chave para VEs e armazenamento.",
+      "destaque":"<strong>Projeto Piauí Níquel (Brazilian Nickel) — PI:</strong> Financiamento US$ 550 mi do gov. americano. Previsão de produção de cobalto no 2º semestre de 2029.",
+      "posicaoBR":{"reserva":"9º lugar","producao":"Fora Top 10"},
+      "estadosRes":"PA, PI, CE","estadosProd":"Sem produção",
+      "gapProd":{"br":0,"leader":73,"leaderName":"RDC"},
+      "gapRes":{"br":3,"leader":52,"leaderName":"RDC"},
+      "gapTransf":{"br":0,"leader":79,"leaderName":"China"}
+    },
+    "numerosMundiais":{
+      "pieProd":[{"label":"R.D. Congo","val":73,"color":"#1565C0"},{"label":"Indonésia","val":14,"color":"#D32F2F"},{"label":"Rússia","val":3,"color":"#6A1B9A"},{"label":"Outros","val":10,"color":"#BDBDBD"}],
+      "pieRes":[{"label":"R.D. Congo","val":52,"color":"#1565C0"},{"label":"Austrália","val":15,"color":"#2E7D32"},{"label":"Indonésia","val":7,"color":"#D32F2F"},{"label":"Rússia","val":5,"color":"#6A1B9A"},{"label":"Outros","val":21,"color":"#BDBDBD"}],
+      "barTransf":[{"label":"China","val":79},{"label":"Finlândia","val":8},{"label":"Japão","val":2},{"label":"Brasil","val":0}],
+      "quemManda":[{"etapa":"Reservas","bandeira":"🇨🇩","pais":"RDC"},{"etapa":"Produção","bandeira":"🇨🇩","pais":"RDC"},{"etapa":"Transformação","bandeira":"🇨🇳","pais":"China"}]
+    },
+    "cadeiaGlobal":{
+      "extracao":[{"bandeira":"🇨🇳","pais":"China","emp":"CMOC","opera":"RDC"},{"bandeira":"🇨🇭","pais":"Anglo-Suíça","emp":"Glencore","opera":"RDC, Canadá"},{"bandeira":"🇱🇺","pais":"Luxemburgo","emp":"ERG","opera":"RDC"},{"bandeira":"🇨🇳","pais":"China","emp":"CNMC","opera":"RDC"},{"bandeira":"🇷🇺","pais":"Rússia","emp":"Norilsk","opera":"Rússia"},{"bandeira":"🇧🇷","pais":"Brasil","emp":"Vale","opera":"Canadá"}],
+      "refino":[{"bandeira":"🇨🇳","pais":"China","emp":"Huayou","opera":"China"},{"bandeira":"🇨🇳","pais":"China","emp":"CNGM","opera":"China"},{"bandeira":"🇨🇳","pais":"China","emp":"GEM Co.","opera":"China"},{"bandeira":"🇧🇪","pais":"Bélgica","emp":"Umicore","opera":"Finlândia, Bélgica"},{"bandeira":"🇨🇭","pais":"Anglo-Suíça","emp":"Glencore","opera":"Noruega"}],
+      "manufatura":[{"bandeira":"🇨🇳","pais":"China","emp":"BYD","opera":"Baterias e VEs"},{"bandeira":"🇨🇳","pais":"China","emp":"CATL","opera":"Baterias"},{"bandeira":"🇰🇷","pais":"Coreia do Sul","emp":"LG Chem","opera":"Baterias"},{"bandeira":"🇰🇷","pais":"Coreia do Sul","emp":"POSCO Future M.","opera":"Mat. p/ Baterias"},{"bandeira":"🇯🇵","pais":"Japão","emp":"Panasonic","opera":"Baterias"}],
+      "analise":"<strong>Internacional:</strong> Extração na RDC (+75%) e refino na China (~70%). Alto risco geopolítico.<br><br><strong>Brasil:</strong> Produção nula, potencial em depósitos Ni-Co (GO) e Co-Mn (CE). Alternativa estável.<br><br><strong>Gargalo:</strong> Teores inferiores à RDC, produção depende do níquel.<br><strong>Vantagem:</strong> Estabilidade institucional, fonte rastreável e segura."
+    }
+  },
+  {
+    "nome":"Nióbio","simbolo":"Nb","slug":"niobio",
+    "visaoGeral":{
+      "usos":"Aços de alta resistência para oleodutos, automóveis e construção; superligas (aeroespacial) e baterias de recarga rápida.",
+      "destaque":"<strong>CBMM — Araxá, MG:</strong> Explorando grandes reservas de pirocloro. CBMM responde por ~75% da produção mundial de nióbio.",
+      "posicaoBR":{"reserva":"1º lugar","producao":"1º lugar"},
+      "estadosRes":"GO, MG","estadosProd":"GO, MG",
+      "gapProd":{"br":93,"leader":5,"leaderName":"Canadá"},
+      "gapRes":{"br":66,"leader":30,"leaderName":"China"},
+      "gapTransf":{"br":90,"leader":10,"leaderName":"Canadá"}
+    },
+    "numerosMundiais":{
+      "pieProd":[{"label":"Brasil","val":93,"color":"#E8920D"},{"label":"Canadá","val":5,"color":"#D32F2F"},{"label":"R.D. Congo","val":1,"color":"#6A1B9A"},{"label":"Outros","val":1,"color":"#BDBDBD"}],
+      "pieRes":[{"label":"Brasil","val":66,"color":"#E8920D"},{"label":"China","val":30,"color":"#D32F2F"},{"label":"Canadá","val":3,"color":"#1565C0"},{"label":"Outros","val":1,"color":"#BDBDBD"}],
+      "barTransf":[{"label":"Brasil","val":90},{"label":"Canadá","val":10}],
+      "quemManda":[{"etapa":"Reservas","bandeira":"🇧🇷","pais":"Brasil"},{"etapa":"Produção","bandeira":"🇧🇷","pais":"Brasil"},{"etapa":"Transformação","bandeira":"🇧🇷","pais":"Brasil"}]
+    },
+    "cadeiaGlobal":{
+      "extracao":[{"bandeira":"🇧🇷","pais":"Brasil","emp":"CBMM","opera":"Brasil"},{"bandeira":"🇨🇳","pais":"China","emp":"CMOC","opera":"Brasil"},{"bandeira":"🇨🇦","pais":"Canadá","emp":"Magris Performance","opera":"Canadá"}],
+      "refino":[{"bandeira":"🇧🇷","pais":"Brasil","emp":"CBMM","opera":"Brasil"},{"bandeira":"🇨🇳","pais":"China","emp":"CMOC","opera":"Brasil"},{"bandeira":"🇨🇦","pais":"Canadá","emp":"Magris","opera":"Canadá"}],
+      "manufatura":[{"bandeira":"🇱🇺","pais":"Luxemburgo","emp":"ArcelorMittal","opera":"Aços"},{"bandeira":"🇨🇳","pais":"China","emp":"Baosteel","opera":"Aços"},{"bandeira":"🇺🇸","pais":"EUA/RU","emp":"GE, Rolls-Royce","opera":"Superligas"},{"bandeira":"🇺🇸","pais":"EUA/Alemanha","emp":"Bruker","opera":"Supercondutores"},{"bandeira":"🇬🇧","pais":"Reino Unido","emp":"Echion Technologies","opera":"Baterias"}],
+      "analise":"<strong>Internacional:</strong> Mercado não-commodity; preços em contratos de longo prazo. Brasil com 'monopólio' natural (>90%).<br><br><strong>Brasil:</strong> Duopólio CBMM + CMOC controla. Geologia única, custo imbatível. Verticalizado até ferro-nióbio.<br><br><strong>Gargalo:</strong> Baixa participação em manufatura de maior valor (superligas, baterias).<br><strong>Vantagem:</strong> 'Monopólio geológico' de reservas de alta qualidade."
+    }
+  }
+];
+
+/* ════════════════════════════════════════════════════════════════════
+   🔧 RENDER ENGINE
+   ════════════════════════════════════════════════════════════════════ */
+let H = [], cM = 0, cS = 0;
+const SN = CONFIG.slidesPerMineral;
+
+const flag = (emoji) => `<span class="c-flag">${emoji}</span>`;
+const totalSlides = () => MINERAL_DATA.length * SN;
+const globalIndex = () => cM * SN + cS;
+
+function buildHeader(m, slideTitle){
+  return `<div class="slide-header">
+    <div class="header-left">
+      <div class="header-symbol">${m.simbolo}</div>
+      <div>
+        <div class="header-title">${slideTitle}</div>
+        <div class="header-subtitle">${m.nome}</div>
+      </div>
+    </div>
+    <div class="header-logo">Ministério de<br>Minas e Energia<br><span class="gov">Governo Federal</span></div>
+  </div>`;
+}
+function buildFooter(source){
+  return `<div class="slide-footer">
+    <div>Fonte: ${source || 'USGS 2024-2025 / WNA / SNGM'}</div>
+    <div>SNGM</div>
+  </div>`;
+}
+
+function buildPie(data){
+  let stops = [], acc = 0;
+  data.forEach(x => { stops.push(`${x.color} ${acc}% ${acc + x.val}%`); acc += x.val });
+  const legend = data.map(x =>
+    `<div class="pie-legend-row">
+      <div style="display:flex;align-items:center;min-width:0"><span class="pie-dot" style="background:${x.color}"></span>${x.label}</div>
+      <span>${x.val}%</span>
+    </div>`
+  ).join('');
+  return `<div class="pie-wrapper">
+    <div class="pie-container" style="background:conic-gradient(${stops.join(',')})"></div>
+    <div class="pie-legend-box">${legend}</div>
+  </div>`;
+}
+
+function buildBar(data){
+  return '<div class="bar-chart-area">' + data.map(x => {
+    const isBR = x.label === "Brasil";
+    const cls = isBR ? 'is-br' : 'is-other';
+    const w = Math.max(x.val, 1.5);
+    return `<div class="transf-bar-row">
+      <div class="transf-label" style="${isBR ? 'color:var(--orange)' : ''}">${x.label}</div>
+      <div class="transf-bar-bg">
+        <div class="transf-bar-fill ${cls}" style="width:${w}%">${x.val > 3 ? x.val + '%' : ''}</div>
+      </div>
+      ${x.val <= 3 ? `<span style="font-size:var(--fs-sm);font-weight:700;width:32px;${isBR ? 'color:var(--orange)' : ''}">${x.val}%</span>` : ''}
+    </div>`;
+  }).join('') + '</div>';
+}
+
+function listHTML(arr){
+  return '<ul class="company-list">' + arr.map(i =>
+    `<li>
+      <div class="c-title">${flag(i.bandeira)}${i.pais}: ${i.emp}</div>
+      <div class="c-meta">Opera: ${i.opera}</div>
+    </li>`
+  ).join('') + '</ul>';
+}
+
+function assetUrl(slug, tema){
+  if(!CONFIG.imagesEnabled) return null;
+  return `${CONFIG.imagePath}${slug}_${tema}.${CONFIG.imageExt}`;
+}
+
+function gapRow(label, val, isBR){
+  const cls = isBR ? 'br-fill' : 'leader-fill';
+  const color = isBR ? 'color:var(--orange)' : '';
+  return `<div class="gap-chart">
+    <div class="gap-label" style="${color}">${label}</div>
+    <div class="gap-bar-bg"><div class="gap-bar-fill ${cls}" style="width:${Math.max(val, .5)}%"></div></div>
+    <div class="gap-val" style="${color}">${val}%</div>
+  </div>`;
+}
+
+function buildImageSlide(m, slideTitle, tema, icon, label){
+  const url = assetUrl(m.slug, tema);
+  const fallbackHtml = `<div><span class="icon">${icon}</span><div class="title">${label} — ${m.nome}</div><div class="hint">Imagem esperada: ${m.slug}_${tema}.${CONFIG.imageExt}</div></div>`;
+  // imagem sem onerror inline — o fallback é encodado em data-fallback
+  // e aplicado por JS depois (evita problemas de escape de aspas)
+  const content = url
+    ? `<img src="${url}" alt="${label} — ${m.nome}" data-fallback="${encodeURIComponent(fallbackHtml)}" data-fallback-mode="outer">`
+    : fallbackHtml;
+  return `<div class="slide">${buildHeader(m, slideTitle)}
+    <div class="slide-content">
+      <div class="img-placeholder">${content}</div>
+    </div>
+    ${buildFooter()}
+  </div>`;
+}
+
+function generateSlides(m){
+  const S = [];
+  const v = m.visaoGeral, n = m.numerosMundiais, c = m.cadeiaGlobal;
+
+  // ─── 1. CAPA ───
+  const photoUrl = assetUrl(m.slug, 'capa');
+  const placeholderHtml = `<div class="capa-photo-placeholder"><div><span class="icon">🪨</span>FOTO DO MINERAL<br><span style="font-size:var(--fs-sm);opacity:.7">${m.nome}</span></div></div>`;
+  const capaPhoto = photoUrl
+    ? `<img class="capa-photo-img" src="${photoUrl}" alt="${m.nome}" data-fallback="${encodeURIComponent(placeholderHtml)}" data-fallback-mode="parent">`
+    : placeholderHtml;
+
+  S.push(`<div class="slide slide-capa">
+    <div class="capa-photo-wrapper">${capaPhoto}</div>
+    <div class="capa-glass">
+      <div class="capa-symbol-tag">${m.simbolo}</div>
+      <h1>${m.nome}</h1>
+      <p class="sub">Análise Estratégica, Cadeia de Valor e Geopolítica</p>
+    </div>
+    <div class="capa-footer-bar"></div>
+  </div>`);
+
+  // ─── 2. VISÃO GERAL ───
+  const empUrl = assetUrl(m.slug, 'empreendimento');
+  const empFallback = `<div class="emp-photo-fallback">Foto: ${m.slug}_empreendimento.${CONFIG.imageExt}</div>`;
+  const empHtml = empUrl
+    ? `<img class="emp-photo" src="${empUrl}" alt="Empreendimento — ${m.nome}" data-fallback="${encodeURIComponent(empFallback)}" data-fallback-mode="outer">`
+    : empFallback;
+
+  S.push(`<div class="slide">${buildHeader(m, "Visão Geral e Posição Nacional")}
+    <div class="slide-content s2-layout">
+      <div class="s2-col">
+        <div class="card">
+          <div class="card-badge">Principais Usos</div>
+          <div class="text-body">${v.usos}</div>
+        </div>
+        <div class="card" style="flex:1">
+          <div class="card-badge">Posição do Brasil</div>
+          <div class="pos-grid">
+            <div class="pos-item"><div class="pos-label">Reserva</div><div class="pos-val">${v.posicaoBR.reserva}</div></div>
+            <div class="pos-item"><div class="pos-label">Produção</div><div class="pos-val">${v.posicaoBR.producao}</div></div>
+          </div>
+          <div class="text-body" style="font-size:var(--fs-sm);margin-top:9px">
+            <strong>Reservas:</strong> ${v.estadosRes}<br>
+            <strong>Produção:</strong> ${v.estadosProd}
+          </div>
+          <div class="gap-area">
+            <div class="gap-section-label">Produção Mundial (%)</div>
+            ${gapRow('Brasil', v.gapProd.br, true)}
+            ${gapRow(v.gapProd.leaderName, v.gapProd.leader, false)}
+            <div class="gap-section-label">Reservas Mundiais (%)</div>
+            ${gapRow('Brasil', v.gapRes.br, true)}
+            ${gapRow(v.gapRes.leaderName, v.gapRes.leader, false)}
+            <div class="gap-section-label">Transformação (%)</div>
+            ${gapRow('Brasil', v.gapTransf.br, true)}
+            ${gapRow(v.gapTransf.leaderName, v.gapTransf.leader, false)}
+          </div>
+        </div>
+      </div>
+      <div class="s2-col">
+        <div class="card" style="flex:1">
+          <div class="card-badge">Empreendimento de Destaque</div>
+          ${empHtml}
+          <div class="text-body">${v.destaque}</div>
+        </div>
+      </div>
+    </div>
+    ${buildFooter('USGS 2024')}
+  </div>`);
+
+  // ─── 3. NÚMEROS MUNDIAIS ───
+  const flags = n.quemManda.map(q =>
+    `<div class="flag-box">
+      <div class="flag-emoji">${q.bandeira}</div>
+      <div class="flag-label">${q.etapa}</div>
+      <div class="flag-country">${q.pais}</div>
+    </div>`
+  ).join('');
+  S.push(`<div class="slide">${buildHeader(m, "Números Mundiais")}
+    <div class="slide-content grid-pizza">
+      <div class="s2-col" style="gap:var(--gap-cards)">
+        <div class="card" style="flex:1"><div class="card-badge">Produção Mundial</div>${buildPie(n.pieProd)}</div>
+        <div class="card" style="flex:1"><div class="card-badge">Reservas Mundiais</div>${buildPie(n.pieRes)}</div>
+      </div>
+      <div class="s2-col" style="gap:var(--gap-cards)">
+        <div class="card"><div class="card-badge">Transformação / Refino</div><div style="margin-top:8px">${buildBar(n.barTransf)}</div></div>
+        <div class="card" style="flex:1"><div class="card-badge">Líderes por Etapa</div><div class="flags-grid">${flags}</div></div>
+      </div>
+    </div>
+    ${buildFooter('USGS 2025')}
+  </div>`);
+
+  // ─── 4. CADEIA DE VALOR ───
+  S.push(buildImageSlide(m, "Cadeia de Valor no Brasil", "cadeia", "⛓️", "Cadeia de Valor"));
+
+  // ─── 5. CADEIA GLOBAL ───
+  S.push(`<div class="slide">${buildHeader(m, "Cadeia Global e Geopolítica")}
+    <div class="slide-content grid-4">
+      <div class="card"><div class="card-badge">Extração</div>${listHTML(c.extracao)}</div>
+      <div class="card"><div class="card-badge">Refino / Midstream</div>${listHTML(c.refino)}</div>
+      <div class="card"><div class="card-badge">Manufatura / Downstream</div>${listHTML(c.manufatura)}</div>
+      <div class="card-highlight"><div class="card-badge">Análise Estratégica</div><div class="text-body" style="font-size:var(--fs-sm)">${c.analise}</div></div>
+    </div>
+    ${buildFooter()}
+  </div>`);
+
+  // ─── 6. FLUXOGRAMA ───
+  S.push(buildImageSlide(m, "Fluxograma de Transformação", "fluxo", "🔀", "Fluxograma"));
+
+  // ─── 7. MAPA ───
+  S.push(buildImageSlide(m, "Mapa de Ocorrências", "mapa", "🗺️", "Mapa"));
+
+  return S;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   🎨 BACKGROUND DE CONTORNOS
+   ════════════════════════════════════════════════════════════════════ */
+const CONTOUR_BG = (() => {
+  const cache = {};
+  const perm = new Uint8Array(512);
+  const grad3 = [[1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0],[1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1],[0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1]];
+  (function seed(s){let r=s||42;const p=new Uint8Array(256);for(let i=0;i<256;i++)p[i]=i;for(let i=255;i>0;i--){r=(r*1664525+1013904223)>>>0;const j=r%(i+1);[p[i],p[j]]=[p[j],p[i]]}for(let i=0;i<512;i++)perm[i]=p[i&255]})(42);
+  function fade(t){return t*t*t*(t*(t*6-15)+10)}
+  function lerp(a,b,t){return a+(b-a)*t}
+  function dot2(g,x,y){return g[0]*x+g[1]*y}
+  function noise2(x,y){const X=Math.floor(x)&255,Y=Math.floor(y)&255;x-=Math.floor(x);y-=Math.floor(y);const u=fade(x),v=fade(y);const a=perm[X]+Y,b=perm[X+1]+Y;return lerp(lerp(dot2(grad3[perm[a]%12],x,y),dot2(grad3[perm[b]%12],x-1,y),u),lerp(dot2(grad3[perm[a+1]%12],x,y-1),dot2(grad3[perm[b+1]%12],x-1,y-1),u),v)}
+  function fbm(x,y){let v=0,amp=1,freq=1,max=0;for(let i=0;i<5;i++){v+=noise2(x*freq,y*freq)*amp;max+=amp;amp*=0.52;freq*=2}return v/max}
+  function lerp01(x1,y1,x2,y2,v1,v2,t){if(Math.abs(v2-v1)<1e-9)return[(x1+x2)/2,(y1+y2)/2];const r2=(t-v1)/(v2-v1);return[x1+(x2-x1)*r2,y1+(y2-y1)*r2]}
+  function generate(w,h){
+    const key=w+'x'+h;if(cache[key])return cache[key];
+    const cv=document.createElement('canvas');cv.width=w;cv.height=h;
+    const ctx=cv.getContext('2d');
+    ctx.fillStyle='#F0EFEC';ctx.fillRect(0,0,w,h);
+    const sc=0.0022;
+    const GW=Math.ceil(w/8)+2,GH=Math.ceil(h/8)+2;
+    const cW=w/(GW-1),cH=h/(GH-1);
+    const grid=[];
+    for(let r=0;r<GH;r++){const row=[];for(let c=0;c<GW;c++){row.push(fbm((c*cW)*sc,(r*cH)*sc))}grid.push(row)}
+    let mn=Infinity,mx=-Infinity;
+    for(let r=0;r<GH;r++)for(let c=0;c<GW;c++){if(grid[r][c]<mn)mn=grid[r][c];if(grid[r][c]>mx)mx=grid[r][c]}
+    const N=24;
+    for(let l=1;l<N;l++){
+      const frac=l/N;const threshold=mn+(mx-mn)*frac;
+      const isAccent=(l%5===0);
+      const base=Math.round(170+frac*30);
+      const alpha=isAccent?0.45:0.22;
+      ctx.strokeStyle=`rgba(${base-20},${base-10},${base-25},${alpha})`;
+      ctx.lineWidth=isAccent?1.2:0.5;
+      ctx.lineJoin='round';ctx.lineCap='round';
+      const segs=[];
+      for(let row=0;row<GH-1;row++){for(let col=0;col<GW-1;col++){
+        const tl=grid[row][col],tr=grid[row][col+1],bl=grid[row+1][col],br=grid[row+1][col+1];
+        const idx=(tl>=threshold?8:0)|(tr>=threshold?4:0)|(br>=threshold?2:0)|(bl>=threshold?1:0);
+        if(idx===0||idx===15)continue;
+        const top=lerp01(col,row,col+1,row,tl,tr,threshold);
+        const right=lerp01(col+1,row,col+1,row+1,tr,br,threshold);
+        const bot=lerp01(col+1,row+1,col,row+1,br,bl,threshold);
+        const left=lerp01(col,row+1,col,row,bl,tl,threshold);
+        const cases={1:[left,bot],2:[bot,right],3:[left,right],4:[top,right],5:[top,right,left,bot],6:[top,bot],7:[top,left],8:[top,left],9:[top,bot],10:[top,left,bot,right],11:[top,right],12:[left,right],13:[bot,right],14:[left,bot]};
+        const pts=cases[idx];if(!pts)continue;
+        for(let i=0;i<pts.length;i+=2)segs.push({x1:pts[i][0],y1:pts[i][1],x2:pts[i+1][0],y2:pts[i+1][1]});
+      }}
+      ctx.beginPath();
+      for(const s of segs){ctx.moveTo(s.x1*cW,s.y1*cH);ctx.lineTo(s.x2*cW,s.y2*cH)}
+      ctx.stroke();
+    }
+    return cache[key] = cv.toDataURL('image/jpg');
+  }
+  return { generate };
+})();
+
+let bgCache = null, bgPrintCache = null;
+function injectBg(){
+  if(!bgCache){
+    const w = Math.min(window.innerWidth, 1920);
+    const h = Math.min(window.innerHeight, 1080);
+    bgCache = CONTOUR_BG.generate(w, h);
+  }
+  document.querySelectorAll('#sc .slide:not(.slide-capa)').forEach(sl => {
+    if(!sl.querySelector('.slide-bg')){
+      const bg = document.createElement('div');
+      bg.className = 'slide-bg';
+      bg.style.backgroundImage = `url(${bgCache})`;
+      bg.style.backgroundSize = 'cover';
+      bg.style.backgroundPosition = 'center';
+      sl.prepend(bg);
+    }
+  });
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   🎮 NAVEGAÇÃO
+   ════════════════════════════════════════════════════════════════════ */
+function init(){
+  H = [];
+  MINERAL_DATA.forEach(m => H.push(...generateSlides(m)));
+}
+
+function render(){
+  const i = globalIndex();
+  document.getElementById('sc').innerHTML = H[i];
+  document.getElementById('cn').textContent = `${i + 1} / ${totalSlides()}`;
+  document.querySelectorAll('.mineral-item').forEach((t, j) => t.classList.toggle('active', j === cM));
+  injectBg();
+  attachImageFallbacks();
+  const v = document.getElementById('sc');
+  if(v) v.scrollTop = 0;
+}
+
+// Configura fallbacks de imagens via data-fallback (evita onerror inline com escape problemático)
+function attachImageFallbacks(){
+  document.querySelectorAll('#sc img[data-fallback]').forEach(img => {
+    if(img.dataset.fbBound) return;
+    img.dataset.fbBound = '1';
+    const apply = () => {
+      const html = decodeURIComponent(img.dataset.fallback);
+      const mode = img.dataset.fallbackMode;
+      if(mode === 'parent' && img.parentNode){
+        img.parentNode.innerHTML = html;
+      } else {
+        img.outerHTML = html;
+      }
+    };
+    img.addEventListener('error', apply);
+    // se a imagem já falhou antes do listener (cached error), aplica agora
+    if(img.complete && img.naturalWidth === 0) apply();
+  });
+}
+function next(){ if(globalIndex() < totalSlides() - 1){ cS++; if(cS >= SN){ cM++; cS = 0 } render() } }
+function prev(){ if(globalIndex() > 0){ cS--; if(cS < 0){ cM--; cS = SN - 1 } render() } }
+function goTo(i){ cM = i; cS = 0; render(); closeSidebar() }
+
+function openSidebar(){
+  document.getElementById('sb').classList.add('open');
+  document.getElementById('so').classList.add('active');
+  document.getElementById('hb').classList.add('active');
+}
+function closeSidebar(){
+  document.getElementById('sb').classList.remove('open');
+  document.getElementById('so').classList.remove('active');
+  document.getElementById('hb').classList.remove('active');
+}
+function toggleSidebar(){
+  document.getElementById('sb').classList.contains('open') ? closeSidebar() : openSidebar();
+}
+
+function printPDF(){
+  const pc = document.getElementById('pc');
+  pc.innerHTML = H.join('');
+  if(!bgPrintCache) bgPrintCache = CONTOUR_BG.generate(1400, 990);
+  pc.querySelectorAll('.slide:not(.slide-capa)').forEach(sl => {
+    if(!sl.querySelector('.slide-bg')){
+      const bg = document.createElement('div');
+      bg.className = 'slide-bg';
+      bg.style.backgroundImage = `url(${bgPrintCache})`;
+      bg.style.backgroundSize = 'cover';
+      bg.style.backgroundPosition = 'center';
+      sl.prepend(bg);
+    }
+  });
+  // mesmo handler de fallback para imagens no container de print
+  pc.querySelectorAll('img[data-fallback]').forEach(img => {
+    const apply = () => {
+      const html = decodeURIComponent(img.dataset.fallback);
+      const mode = img.dataset.fallbackMode;
+      if(mode === 'parent' && img.parentNode){
+        img.parentNode.innerHTML = html;
+      } else {
+        img.outerHTML = html;
+      }
+    };
+    img.addEventListener('error', apply);
+    if(img.complete && img.naturalWidth === 0) apply();
+  });
+  setTimeout(() => window.print(), 600);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   🎯 INTERAÇÃO — diferencia tap (avança) de scroll/swipe (rola)
+   ════════════════════════════════════════════════════════════════════ */
+window.onload = () => {
+  init();
+  document.getElementById('mt').innerHTML = MINERAL_DATA.map((m, i) =>
+    `<button class="mineral-item${i === 0 ? ' active' : ''}" onclick="goTo(${i})">
+      <span class="mineral-symbol">${m.simbolo}</span>${m.nome}
+    </button>`
+  ).join('');
+  render();
+
+  document.getElementById('hb').addEventListener('click', e => { e.stopPropagation(); toggleSidebar() });
+  document.getElementById('so').addEventListener('click', closeSidebar);
+
+  const sc = document.getElementById('sc');
+
+  // ─── DESKTOP only: click pra avançar (>900px). Mobile usa só swipe + botões. ───
+  let pressStart = null;
+  sc.addEventListener('mousedown', e => {
+    pressStart = { x: e.clientX, y: e.clientY, t: Date.now(), scrollTop: sc.scrollTop };
+  });
+  sc.addEventListener('mouseup', e => {
+    if(!pressStart) return;
+    const dx = Math.abs(e.clientX - pressStart.x);
+    const dy = Math.abs(e.clientY - pressStart.y);
+    const dt = Date.now() - pressStart.t;
+    const dScroll = Math.abs(sc.scrollTop - pressStart.scrollTop);
+    pressStart = null;
+    // só desktop: nem cursor nem scroll se mexeram, e tela é grande
+    if(dx < 8 && dy < 8 && dScroll < 5 && dt < 400 && window.innerWidth > 900) next();
+  });
+
+  // ─── MOBILE: só swipe horizontal troca slide. Vertical = scroll natural. ───
+  // Tap não avança mais (no mobile usuário usa botões ◀ ▶ ou menu lateral)
+  let tStart = null;
+  let isHSwipe = false;
+
+  sc.addEventListener('touchstart', e => {
+    if(e.touches.length > 1){ tStart = null; return; }
+    const t = e.touches[0];
+    tStart = { x: t.screenX, y: t.screenY, scrollTop: sc.scrollTop };
+    isHSwipe = false;
+  }, { passive: true });
+
+  sc.addEventListener('touchmove', e => {
+    if(!tStart || e.touches.length > 1) return;
+    const t = e.touches[0];
+    const dx = t.screenX - tStart.x;
+    const dy = t.screenY - tStart.y;
+    if(!isHSwipe && Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy) * 1.8){
+      isHSwipe = true;
+    }
+  }, { passive: true });
+
+  sc.addEventListener('touchend', e => {
+    if(!tStart) return;
+    const t = e.changedTouches[0];
+    const dx = t.screenX - tStart.x;
+    const ady = Math.abs(t.screenY - tStart.y);
+    const adx = Math.abs(dx);
+    const dScroll = Math.abs(sc.scrollTop - tStart.scrollTop);
+    const wasHSwipe = isHSwipe;
+    tStart = null;
+
+    // só swipe horizontal claro muda slide; vertical já scrolou normal
+    if(wasHSwipe && adx > 60 && adx > ady * 2 && dScroll < 10){
+      dx < 0 ? next() : prev();
+    }
+  }, { passive: true });
+
+  // ─── Resize: regenera bg só se a largura mudou bastante ───
+  let rt, lastW = window.innerWidth;
+  window.addEventListener('resize', () => {
+    clearTimeout(rt);
+    rt = setTimeout(() => {
+      const dw = Math.abs(window.innerWidth - lastW);
+      if(dw > 200){
+        bgCache = null;
+        lastW = window.innerWidth;
+        injectBg();
+      }
+    }, 400);
+  });
+};
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'ArrowRight' || e.key === ' '){ e.preventDefault(); next() }
+  if(e.key === 'ArrowLeft') prev();
+  if(e.key === 'Escape') closeSidebar();
+});
+</script>
+</body>
+</html>
