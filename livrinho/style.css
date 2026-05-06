@@ -122,6 +122,49 @@ body{
 }
 .mineral-item.active .mineral-symbol{background:rgba(0,0,0,.28)}
 
+/* ─── ACCORDION (mineral expande os 7 sub-itens) ─── */
+.mineral-group{margin-bottom:3px}
+.mineral-chevron{
+  margin-left:auto;font-size:11px;opacity:.5;
+  transition:transform .25s;
+}
+.mineral-group.open .mineral-chevron{transform:rotate(180deg);opacity:1}
+.mineral-subs{
+  max-height:0;overflow:hidden;
+  transition:max-height .3s ease, padding .3s ease;
+  display:flex;flex-direction:column;gap:1px;
+  padding:0 6px 0 14px;
+}
+.mineral-group.open .mineral-subs{
+  max-height:500px;
+  padding-top:5px;padding-bottom:8px;
+}
+.mineral-sub-item{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 12px 8px 14px;border-radius:6px;
+  background:none;border:none;cursor:pointer;
+  font-family:var(--font-main);font-size:var(--fs-sm);font-weight:500;
+  color:rgba(255,255,255,.55);text-align:left;width:100%;
+  transition:.15s;
+  border-left:2px solid rgba(255,255,255,.08);
+}
+.mineral-sub-item:hover{
+  color:#fff;background:rgba(255,255,255,.04);
+  border-left-color:rgba(255,255,255,.3);
+}
+.mineral-sub-item.active{
+  color:var(--orange);background:rgba(232,146,13,.10);
+  border-left-color:var(--orange);font-weight:700;
+}
+.sub-num{
+  font-family:var(--font-display);font-weight:700;font-size:11px;
+  width:18px;height:18px;border-radius:4px;
+  background:rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;letter-spacing:0;
+}
+.mineral-sub-item.active .sub-num{background:var(--orange);color:#fff}
+
 .sidebar-footer{
   padding:16px 20px;border-top:1px solid rgba(255,255,255,.08);
   display:flex;flex-direction:column;gap:8px;
@@ -387,6 +430,38 @@ body{
 .img-placeholder .title{font-family:var(--font-display);font-size:var(--fs-xl);color:var(--gray);margin-bottom:6px}
 .img-placeholder .hint{font-size:var(--fs-sm);font-weight:400;color:#aaa}
 
+/* ════════════════════════════════════════════════════════════════════
+   📍 STEPPER — abas dos 7 temas, dentro do slide
+   ════════════════════════════════════════════════════════════════════ */
+.slide-stepper{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  padding:8px var(--pad-slide-x) 8px 76px;
+  background:rgba(255,255,255,.65);
+  border-top:1px solid #E5E3DF;
+  flex-shrink:0;flex-wrap:wrap;
+  cursor:default;
+}
+.step-item{
+  display:flex;align-items:center;gap:7px;
+  padding:6px 11px;border-radius:7px;
+  background:transparent;border:1px solid transparent;
+  font-family:var(--font-main);font-size:var(--fs-xs);font-weight:600;
+  color:var(--light);cursor:pointer;transition:.18s;
+  white-space:nowrap;line-height:1;
+}
+.step-item:hover{background:#fff;color:var(--dark);border-color:#E5E3DF}
+.step-item.active{
+  background:var(--orange-fill);color:var(--orange);
+  border-color:var(--orange);
+}
+.step-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#C9C7C2;flex-shrink:0;transition:.18s;
+}
+.step-item:hover .step-dot{background:var(--gray)}
+.step-item.active .step-dot{background:var(--orange)}
+.step-label{font-size:var(--fs-xs)}
+
 .slide-footer{
   padding:9px var(--pad-slide-x) 9px 76px;
   display:flex;justify-content:space-between;
@@ -440,6 +515,26 @@ body{
   .header-logo{display:none}
   .header-title{font-size:var(--fs-xl)}
   .header-subtitle{font-size:var(--fs-xs)}
+
+  /* Stepper vira só dots no mobile */
+  .slide-stepper{
+    padding:9px 14px 8px;
+    gap:4px;
+    background:rgba(255,255,255,.7);
+  }
+  .step-label{display:none}
+  .step-item{
+    padding:5px;border-radius:50%;
+    border-color:transparent !important;
+    background:transparent !important;
+  }
+  .step-dot{width:9px;height:9px;background:#BFBDB9}
+  .step-item:hover .step-dot{background:var(--gray)}
+  .step-item.active .step-dot{
+    width:11px;height:11px;
+    background:var(--orange);
+    box-shadow:0 0 0 3px var(--orange-fill);
+  }
 
   /* Capa em mobile: foto no topo + glass card sobreposto descendo
      IMPORTANTE: .slide-capa não vira flex porque ele já é position:relative
@@ -522,6 +617,7 @@ body{
 
   .slide-header{padding:12px 14px 9px 64px;gap:10px}
   .slide-footer{padding:8px 14px 8px 64px;font-size:11px}
+  .slide-stepper{padding:8px 12px 7px}
   .header-symbol{padding:5px 11px;font-size:var(--fs-sm)}
   .header-title{font-size:var(--fs-md);line-height:1.15}
   .header-subtitle{font-size:11px}
@@ -562,7 +658,7 @@ body{
 /* ─── PRINT ─── */
 @media print{
   *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
-  .hamburger,.sidebar,.sidebar-overlay,.nav-controls{display:none!important}
+  .hamburger,.sidebar,.sidebar-overlay,.nav-controls,.slide-stepper{display:none!important}
   body,html{overflow:visible!important;height:auto!important}
   .viewer{position:relative!important;display:block!important;cursor:auto!important;overflow:visible!important}
   #sc{display:none!important}
