@@ -1,0 +1,523 @@
+[
+  {
+    "nome": "Elementos de Terras Raras",
+    "simbolo": "ETR",
+    "slug": "etr",
+    "visaoGeral": {
+      "usos": "Essenciais para ímãs permanentes de alto desempenho usados em motores de veículos elétricos e turbinas eólicas, sendo estratégicos para a tecnologia de ponta.",
+      "destaque": "<strong>Projeto Serra Verde — GO:</strong> Já em produção, é a única produtora em escala, fora da Ásia, dos quatro elementos críticos para ímãs (Nd, Pr, Tb, Dy), posicionando o Brasil como parceiro estratégico para diversificar a cadeia global.",
+      "posicaoBR": { "reserva": "2º lugar", "producao": "Muito baixa" },
+      "estadosRes": "GO, MG, AM, BA",
+      "estadosProd": "GO",
+      "gapProd": { "br": 1, "leader": 69, "leaderName": "China" },
+      "gapRes": { "br": 25, "leader": 52, "leaderName": "China" },
+      "gapTransf": { "br": 0, "leader": 91, "leaderName": "China" }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "China", "val": 69 },
+        { "label": "EUA", "val": 13 },
+        { "label": "Austrália", "val": 7 },
+        { "label": "Myanmar", "val": 6 },
+        { "label": "Outros", "val": 5 }
+      ],
+      "pieRes": [
+        { "label": "China", "val": 52 },
+        { "label": "Brasil", "val": 25 },
+        { "label": "Austrália", "val": 10 },
+        { "label": "Rússia", "val": 5 },
+        { "label": "Outros", "val": 8 }
+      ],
+      "barTransf": [
+        { "label": "China", "val": 91 },
+        { "label": "Malásia", "val": 5 },
+        { "label": "EUA", "val": 1 },
+        { "label": "Brasil", "val": 0 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+      ]
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Northern RE", "opera": "China, Myanmar" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Rare Earth Group", "opera": "China" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "MP Materials", "opera": "EUA" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Lynas Rare Earth", "opera": "Austrália" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Serra Verde", "opera": "Brasil*" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Northern RE", "opera": "China" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Shenghe Resources", "opera": "China" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Lynas", "opera": "Canadá, Malásia" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Neo Performance", "opera": "Estônia" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "MP Materials", "opera": "Refino" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Northern RE", "opera": "Ímãs" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Shin-Etsu Chemical", "opera": "Ímãs" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Proterial (ex-Hitachi)", "opera": "Ímãs" },
+        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "VACUUMSCHMELZE", "opera": "Ímãs" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "MP Materials", "opera": "Ímãs" }
+      ],
+      "analise": "<strong>Internacional:</strong> China controla o refino (>90%). Dependência crítica do Ocidente, que busca criar suas próprias cadeias de defino.<br><br><strong>Brasil:</strong> 2ª maior reserva mundial, mas com produção incipiente. Iniciativa MagBras busca iniciar cadeia de ímãs.<br><br><strong>Gargalo:</strong> Ausência de capacidade de refino e manufatura.<br><strong>Vantagem:</strong> 2ª maior reserva global, incluindo argilas iônicas, de baixo custo de exploração."
+    }
+  },
+  {
+    "nome": "Cobre",
+    "simbolo": "Cu",
+    "slug": "cobre",
+    "visaoGeral": {
+      "usos": "Metal-chave da descarbonização, indispensável para eletrificação (VEs, carregadores, turbinas eólicas), construção civil e ligas metálicas.",
+      "destaque": "<strong>Mina Salobo (Vale) — PA:</strong> Maior jazida de cobre do Brasil. Expansão contínua (Salobo 3). Vale investe US$ 290 mi no Projeto Bacaba.",
+      "posicaoBR": { "reserva": "Fora Top 10", "producao": "Fora Top 10" },
+      "estadosRes": "PA, GO, BA, MT, AL",
+      "estadosProd": "PA, GO, BA, AL, MT",
+      "gapProd": { "br": 3, "leader": 30, "leaderName": "China" },
+      "gapRes": { "br": 3, "leader": 18, "leaderName": "Chile" },
+      "gapTransf": { "br": 1, "leader": 44, "leaderName": "China" }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "China", "val": 30 },
+        { "label": "Chile", "val": 13 },
+        { "label": "R.D. Congo", "val": 12 },
+        { "label": "Peru", "val": 6 },
+        { "label": "Outros", "val": 39 }
+      ],
+      "pieRes": [
+        { "label": "Chile", "val": 18 },
+        { "label": "Austrália", "val": 10 },
+        { "label": "Peru", "val": 8 },
+        { "label": "R.D. Congo", "val": 7 },
+        { "label": "Outros", "val": 57 }
+      ],
+      "barTransf": [
+        { "label": "China", "val": 44 },
+        { "label": "RDC", "val": 11 },
+        { "label": "Chile", "val": 7 },
+        { "label": "Brasil", "val": 1 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇨🇱", "pais": "Chile" },
+        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+      ]
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Freeport-McMoRan", "opera": "Indonésia, Peru, EUA" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP", "opera": "Chile, Peru, Austrália" },
+        { "bandeira": "🇨🇱", "pais": "Chile", "emp": "Codelco", "opera": "Chile" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Zijin Mining", "opera": "Congo, Sérvia" },
+        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Congo, Austrália, Chile" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Empresas Estatais", "opera": "China" },
+        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Aurubis AG", "opera": "Alemanha" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Freeport-McMoRan", "opera": "EUA" },
+        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Global" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇮🇹", "pais": "Itália", "emp": "Prysmian", "opera": "Cabos" },
+        { "bandeira": "🇫🇷", "pais": "França", "emp": "Nexans", "opera": "Cabos" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Southwire", "opera": "Cabos" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Sumitomo Electric", "opera": "Manufatura" },
+        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "KME Germany", "opera": "Manufatura" }
+      ],
+      "analise": "<strong>Internacional:</strong> Extração no Chile e RDC; China domina >45% do refino mundial.<br><br><strong>Brasil:</strong> Extração relevante (Vale, EroBrasil), gargalo no refino com apenas Paranapanema processando Cu primário.<br><br><strong>Gargalo:</strong> Capacidade de refino concentrada em uma empresa.<br><strong>Vantagem:</strong> Geologia favorável — minério de Cu + Au + ETR."
+    }
+  },
+  {
+    "nome": "Lítio",
+    "simbolo": "Li",
+    "slug": "litio",
+    "visaoGeral": {
+      "usos": "Matéria-prima central para veículos elétricos: bloco de construção fundamental das baterias de íon-lítio.",
+      "destaque": "<strong>Sigma Lithium (Grota do Cirilo) — MG:</strong> Capital canadense, explora o Vale do Jequitinhonha com lítio 'verde' de alta pureza e processos sustentáveis.",
+      "posicaoBR": { "reserva": "6º lugar", "producao": "6º lugar" },
+      "estadosRes": "MG, CE, PE, RN",
+      "estadosProd": "MG",
+      "gapProd": { "br": 4, "leader": 32, "leaderName": "Austrália" },
+      "gapRes": { "br": 1.5, "leader": 25, "leaderName": "Chile" },
+      "gapTransf": { "br": 0, "leader": 70, "leaderName": "China" }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "Austrália", "val": 32 },
+        { "label": "China", "val": 22 },
+        { "label": "Chile", "val": 19 },
+        { "label": "Zimbábue", "val": 10 },
+        { "label": "Outros", "val": 17 }
+      ],
+      "pieRes": [
+        { "label": "Chile", "val": 25 },
+        { "label": "Austrália", "val": 22 },
+        { "label": "China", "val": 13 },
+        { "label": "Argentina", "val": 13 },
+        { "label": "Outros", "val": 27 }
+      ],
+      "barTransf": [
+        { "label": "China", "val": 70 },
+        { "label": "Chile", "val": 20 },
+        { "label": "Argentina", "val": 6 },
+        { "label": "Brasil", "val": 0 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇨🇱", "pais": "Chile" },
+        { "etapa": "Produção", "bandeira": "🇦🇺", "pais": "Austrália" },
+        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+      ]
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Albemarle", "opera": "EUA, Chile, Austrália" },
+        { "bandeira": "🇨🇱", "pais": "Chile", "emp": "SQM", "opera": "Chile, Austrália" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Ganfeng Lithium", "opera": "China, Argentina" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tianqi Lithium", "opera": "Austrália, Chile" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Pilbara Minerals", "opera": "Austrália" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Ganfeng Lithium", "opera": "China" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tianqi Lithium", "opera": "China" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Albemarle", "opera": "EUA" },
+        { "bandeira": "🇨🇱", "pais": "Chile", "emp": "SQM", "opera": "Chile" },
+        { "bandeira": "🇩🇪", "pais": "Alemanha/Holanda", "emp": "AMG", "opera": "Brasil, Alemanha" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias e VEs" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Tesla", "opera": "Baterias e VEs" },
+        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "LG Energy Solution", "opera": "Baterias" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Panasonic", "opera": "Baterias" },
+        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Volkswagen Group", "opera": "VEs" }
+      ],
+      "analise": "<strong>Internacional:</strong> Produção dividida (Austrália, Chile), China domina processamento (~65%).<br><br><strong>Brasil:</strong> Produção em rocha dura no Vale do Jequitinhonha. Concentrado exportado para China.<br><br><strong>Gargalo:</strong> Capacidade de refino limitada, exportação sem valor agregado.<br><strong>Vantagem:</strong> Rocha dura de alta qualidade e matriz energética limpa."
+    }
+  },
+  {
+    "nome": "Urânio",
+    "simbolo": "U",
+    "slug": "uranio",
+    "visaoGeral": {
+      "usos": "Combustível para usinas nucleares, fonte de baixo carbono e alta densidade energética.",
+      "destaque": "<strong>Projeto Santa Quitéria (INB/Galvani) — CE:</strong> Jazida de Itataia para urânio (~2.400t) e fosfato (~220.000t). Licenciamento em impasse.",
+      "posicaoBR": { "reserva": "8º lugar*", "producao": "Fora Top 10*" },
+      "estadosRes": "PA, CE, BA",
+      "estadosProd": "BA",
+      "gapProd": { "br": 0, "leader": 39, "leaderName": "Cazaquistão" },
+      "gapRes": { "br": 3, "leader": 28, "leaderName": "Austrália" },
+      "gapTransf": { "br": 0, "leader": 44, "leaderName": "Rússia" }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "Cazaquistão", "val": 39 },
+        { "label": "Canadá", "val": 24 },
+        { "label": "Namíbia", "val": 12 },
+        { "label": "Austrália", "val": 7 },
+        { "label": "Outros", "val": 18 }
+      ],
+      "pieRes": [
+        { "label": "Austrália", "val": 28 },
+        { "label": "Cazaquistão", "val": 14 },
+        { "label": "Canadá", "val": 10 },
+        { "label": "Namíbia", "val": 8 },
+        { "label": "Outros", "val": 40 }
+      ],
+      "barTransf": [
+        { "label": "Rússia", "val": 44 },
+        { "label": "Europa*", "val": 29 },
+        { "label": "China", "val": 15 },
+        { "label": "Brasil", "val": 0 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇦🇺", "pais": "Austrália" },
+        { "etapa": "Produção", "bandeira": "🇰🇿", "pais": "Cazaquistão" },
+        { "etapa": "Enriquecimento", "bandeira": "🇷🇺", "pais": "Rússia" }
+      ]
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇰🇿", "pais": "Cazaquistão", "emp": "Kazatomprom", "opera": "Cazaquistão" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Cameco", "opera": "Canadá, Cazaquistão" },
+        { "bandeira": "🇫🇷", "pais": "França", "emp": "Orano", "opera": "Canadá, Níger" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Rosatom", "opera": "Cazaquistão" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CGN", "opera": "China, Namíbia" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP", "opera": "Austrália" }
+      ],
+      "refino": [
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Rosatom", "opera": "Rússia" },
+        { "bandeira": "🇫🇷", "pais": "França", "emp": "Orano", "opera": "França" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Cameco", "opera": "Canadá" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNNC", "opera": "China" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Rosatom", "opera": "Rússia" },
+        { "bandeira": "🇪🇺", "pais": "UE", "emp": "Urenco", "opera": "UK, Holanda, Alemanha, EUA" },
+        { "bandeira": "🇫🇷", "pais": "França", "emp": "Orano", "opera": "França" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNNC", "opera": "China" }
+      ],
+      "analise": "<strong>Internacional:</strong> Rússia (Rosatom) controla conversão e enriquecimento.<br><br><strong>Brasil:</strong> INB produz em Caetité (~60t vs 400t necessárias). Conversão e enriquecimento no exterior.<br><br><strong>Gargalo:</strong> Baixa capacidade da INB e ausência de conversão.<br><strong>Vantagem:</strong> Reservas, estabilidade e domínio do ciclo do combustível."
+    }
+  },
+  {
+    "nome": "Níquel",
+    "simbolo": "Ni",
+    "slug": "niquel",
+    "visaoGeral": {
+      "usos": "Componente catódico crucial para baterias de alta densidade energética e fabricação de aço inoxidável.",
+      "destaque": "<strong>Projeto Jaguar (Centaurus Metals) — PA:</strong> 138,2 Mt a 0,87% Ni. Um dos maiores depósitos de Ni sulfetado do mundo, vital para baterias.",
+      "posicaoBR": { "reserva": "3º lugar", "producao": "6º lugar" },
+      "estadosRes": "GO, PA, BA, PI",
+      "estadosProd": "BA, GO, PA, PI",
+      "gapProd": { "br": 2, "leader": 67, "leaderName": "Indonésia" },
+      "gapRes": { "br": 11, "leader": 45, "leaderName": "Indonésia" },
+      "gapTransf": { "br": 2, "leader": 43, "leaderName": "Indonésia" }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "Indonésia", "val": 67 },
+        { "label": "Filipinas", "val": 7 },
+        { "label": "Rússia", "val": 5 },
+        { "label": "Canadá", "val": 4 },
+        { "label": "Outros", "val": 17 }
+      ],
+      "pieRes": [
+        { "label": "Indonésia", "val": 45 },
+        { "label": "Austrália", "val": 20 },
+        { "label": "Brasil", "val": 11 },
+        { "label": "Rússia", "val": 5 },
+        { "label": "Outros", "val": 19 }
+      ],
+      "barTransf": [
+        { "label": "Indonésia", "val": 43 },
+        { "label": "China", "val": 31 },
+        { "label": "Japão", "val": 3 },
+        { "label": "Brasil", "val": 2 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇮🇩", "pais": "Indonésia" },
+        { "etapa": "Produção", "bandeira": "🇮🇩", "pais": "Indonésia" },
+        { "etapa": "Transformação", "bandeira": "🇮🇩", "pais": "Indonésia" }
+      ]
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tsingshan Holding", "opera": "Indonésia" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Norilsk Nickel", "opera": "Rússia" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Vale", "opera": "Canadá, Indonésia, Brasil" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Jinchuan Group", "opera": "China" },
+        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Canadá, Austrália" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP", "opera": "Austrália" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tsingshan Holdings", "opera": "Refino" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Norilsk Nickel", "opera": "Rússia" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Jinchuan Group", "opera": "China" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Sumitomo Metal Mining", "opera": "Refino" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Vale S.A.", "opera": "Indonésia e Brasil" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias" },
+        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "LG Energy Solution", "opera": "Baterias" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Panasonic", "opera": "Baterias" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Baowu Steel", "opera": "Aço Inox" },
+        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ArcelorMittal", "opera": "Aço Inox" }
+      ],
+      "analise": "<strong>Internacional:</strong> Indonésia domina extração (>50%). Eixo China-Indonésia controla ~90% do refino.<br><br><strong>Brasil:</strong> 8º produtor. Atlantic Nickel produz Ni sulfetado para baterias.<br><br><strong>Gargalo:</strong> Domínio sino-indonésio de baixo custo inviabiliza projetos.<br><strong>Vantagem:</strong> Reservas de Ni sulfetado ideal para baterias."
+    }
+  },
+  {
+    "nome": "Grafita",
+    "simbolo": "C",
+    "slug": "grafita",
+    "visaoGeral": {
+      "usos": "Componente essencial do ânodo em baterias de íon-lítio, pilar para a fabricação de VEs.",
+      "destaque": "<strong>Projeto Graphcoa (Appian Capital) — BA:</strong> Investimento R$ 350 mi, capacidade 5,5 mil t/ano. Expansão prevê 65 mil t/ano (R$ 1,5 bi).",
+      "posicaoBR": { "reserva": "2º lugar", "producao": "4º lugar" },
+      "estadosRes": "MG, BA",
+      "estadosProd": "MG, BA",
+      "gapProd": { "br": 4, "leader": 80, "leaderName": "China" },
+      "gapRes": { "br": 25, "leader": 34, "leaderName": "China" },
+      "gapTransf": { "br": 0, "leader": 96, "leaderName": "China" }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "China", "val": 80 },
+        { "label": "Brasil", "val": 4 },
+        { "label": "Tanzânia", "val": 4 },
+        { "label": "Madagascar", "val": 4 },
+        { "label": "Outros", "val": 8 }
+      ],
+      "pieRes": [
+        { "label": "China", "val": 34 },
+        { "label": "Brasil", "val": 25 },
+        { "label": "Madagascar", "val": 8 },
+        { "label": "Moçambique", "val": 5 },
+        { "label": "Outros", "val": 28 }
+      ],
+      "barTransf": [
+        { "label": "China", "val": 96 },
+        { "label": "Japão", "val": 2 },
+        { "label": "EUA", "val": 0 },
+        { "label": "Brasil", "val": 0 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+      ]
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Syrah Resources", "opera": "Moçambique" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Minmetals Corp", "opera": "China" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Nacional de Grafite", "opera": "Brasil" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Qingdao", "opera": "China" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Northern Graphite", "opera": "Canadá, Namíbia" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "NextSource Materials", "opera": "Madagascar" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "BTR, Shangtai", "opera": "China" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Syrah Resources", "opera": "EUA" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nouveau Monde (NMG)", "opera": "Canadá" },
+        { "bandeira": "🇦🇺", "pais": "Austrália/Suécia", "emp": "Talga Group", "opera": "Suécia" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias e VEs" },
+        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "LG Energy Solution", "opera": "Baterias" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Panasonic", "opera": "Baterias" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Tesla", "opera": "Baterias e VEs" },
+        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "SK On", "opera": "Baterias" }
+      ],
+      "analise": "<strong>Internacional:</strong> China domina produção e refino (>90%), dependência crítica.<br><br><strong>Brasil:</strong> Maiores reservas de grafita lamelar do mundo (alta qualidade para baterias). Exporta bruto.<br><br><strong>Gargalo:</strong> Ausência de refino para grafita esférica purificada.<br><strong>Vantagem:</strong> Maior reserva de grafita lamelar — tipo geológico mais estratégico."
+    }
+  },
+  {
+    "nome": "Cobalto",
+    "simbolo": "Co",
+    "slug": "cobalto",
+    "visaoGeral": {
+      "usos": "Confere estabilidade e densidade de energia às baterias de íon-lítio, chave para VEs e armazenamento.",
+      "destaque": "<strong>Projeto Piauí Níquel (Brazilian Nickel) — PI:</strong> Financiamento US$ 550 mi do gov. americano. Previsão de produção de cobalto no 2º semestre de 2029.",
+      "posicaoBR": { "reserva": "9º lugar", "producao": "Fora Top 10" },
+      "estadosRes": "PA, PI, CE",
+      "estadosProd": "Sem produção",
+      "gapProd": { "br": 0, "leader": 73, "leaderName": "RDC" },
+      "gapRes": { "br": 3, "leader": 52, "leaderName": "RDC" },
+      "gapTransf": { "br": 0, "leader": 79, "leaderName": "China" }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "R.D. Congo", "val": 73 },
+        { "label": "Indonésia", "val": 14 },
+        { "label": "Rússia", "val": 3 },
+        { "label": "Outros", "val": 10 }
+      ],
+      "pieRes": [
+        { "label": "R.D. Congo", "val": 52 },
+        { "label": "Austrália", "val": 15 },
+        { "label": "Indonésia", "val": 7 },
+        { "label": "Rússia", "val": 5 },
+        { "label": "Outros", "val": 21 }
+      ],
+      "barTransf": [
+        { "label": "China", "val": 79 },
+        { "label": "Finlândia", "val": 8 },
+        { "label": "Japão", "val": 2 },
+        { "label": "Brasil", "val": 0 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇨🇩", "pais": "RDC" },
+        { "etapa": "Produção", "bandeira": "🇨🇩", "pais": "RDC" },
+        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+      ]
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CMOC", "opera": "RDC" },
+        { "bandeira": "🇨🇭", "pais": "Anglo-Suíça", "emp": "Glencore", "opera": "RDC, Canadá" },
+        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ERG", "opera": "RDC" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNMC", "opera": "RDC" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Norilsk", "opera": "Rússia" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Vale", "opera": "Canadá" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Huayou", "opera": "China" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNGM", "opera": "China" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "GEM Co.", "opera": "China" },
+        { "bandeira": "🇧🇪", "pais": "Bélgica", "emp": "Umicore", "opera": "Finlândia, Bélgica" },
+        { "bandeira": "🇨🇭", "pais": "Anglo-Suíça", "emp": "Glencore", "opera": "Noruega" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias e VEs" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias" },
+        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "LG Chem", "opera": "Baterias" },
+        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "POSCO Future M.", "opera": "Mat. p/ Baterias" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Panasonic", "opera": "Baterias" }
+      ],
+      "analise": "<strong>Internacional:</strong> Extração na RDC (+75%) e refino na China (~70%). Alto risco geopolítico.<br><br><strong>Brasil:</strong> Produção nula, potencial em depósitos Ni-Co (GO) e Co-Mn (CE). Alternativa estável.<br><br><strong>Gargalo:</strong> Teores inferiores à RDC, produção depende do níquel.<br><strong>Vantagem:</strong> Estabilidade institucional, fonte rastreável e segura."
+    }
+  },
+  {
+    "nome": "Nióbio",
+    "simbolo": "Nb",
+    "slug": "niobio",
+    "visaoGeral": {
+      "usos": "Aços de alta resistência para oleodutos, automóveis e construção; superligas (aeroespacial) e baterias de recarga rápida.",
+      "destaque": "<strong>CBMM — Araxá, MG:</strong> Explorando grandes reservas de pirocloro. CBMM responde por ~75% da produção mundial de nióbio.",
+      "posicaoBR": { "reserva": "1º lugar", "producao": "1º lugar" },
+      "estadosRes": "GO, MG",
+      "estadosProd": "GO, MG",
+      "gapProd": { "br": 93, "leader": 5, "leaderName": "Canadá" },
+      "gapRes": { "br": 66, "leader": 30, "leaderName": "China" },
+      "gapTransf": { "br": 90, "leader": 10, "leaderName": "Canadá" }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "Brasil", "val": 93 },
+        { "label": "Canadá", "val": 5 },
+        { "label": "R.D. Congo", "val": 1 },
+        { "label": "Outros", "val": 1 }
+      ],
+      "pieRes": [
+        { "label": "Brasil", "val": 66 },
+        { "label": "China", "val": 30 },
+        { "label": "Canadá", "val": 3 },
+        { "label": "Outros", "val": 1 }
+      ],
+      "barTransf": [
+        { "label": "Brasil", "val": 90 },
+        { "label": "Canadá", "val": 10 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇧🇷", "pais": "Brasil" },
+        { "etapa": "Produção", "bandeira": "🇧🇷", "pais": "Brasil" },
+        { "etapa": "Transformação", "bandeira": "🇧🇷", "pais": "Brasil" }
+      ]
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "CBMM", "opera": "Brasil" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CMOC", "opera": "Brasil" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Magris Performance", "opera": "Canadá" }
+      ],
+      "refino": [
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "CBMM", "opera": "Brasil" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CMOC", "opera": "Brasil" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Magris", "opera": "Canadá" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ArcelorMittal", "opera": "Aços" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Baosteel", "opera": "Aços" },
+        { "bandeira": "🇺🇸", "pais": "EUA/RU", "emp": "GE, Rolls-Royce", "opera": "Superligas" },
+        { "bandeira": "🇺🇸", "pais": "EUA/Alemanha", "emp": "Bruker", "opera": "Supercondutores" },
+        { "bandeira": "🇬🇧", "pais": "Reino Unido", "emp": "Echion Technologies", "opera": "Baterias" }
+      ],
+      "analise": "<strong>Internacional:</strong> Mercado não-commodity; preços em contratos de longo prazo. Brasil com 'monopólio' natural (>90%).<br><br><strong>Brasil:</strong> Duopólio CBMM + CMOC controla. Geologia única, custo imbatível. Verticalizado até ferro-nióbio.<br><br><strong>Gargalo:</strong> Baixa participação em manufatura de maior valor (superligas, baterias).<br><strong>Vantagem:</strong> 'Monopólio geológico' de reservas de alta qualidade."
+    }
+  }
+]
