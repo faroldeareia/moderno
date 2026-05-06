@@ -401,22 +401,20 @@ async function init(){
 }
 
 // Minerais expandidos manualmente pelo usuário (via chevron).
-// O mineral ATIVO sempre fica aberto automaticamente, independente disso.
+// O accordion abre/fecha SOMENTE por clique no chevron — o mineral ativo
+// não abre mais automaticamente.
 const expandedMinerals = new Set();
 
 function toggleMineralExpand(idx, ev){
   if(ev){ ev.stopPropagation(); ev.preventDefault(); }
-  // Mineral ativo: chevron só dispara o accordion via toggle do estado manual.
-  // A regra "ativo = aberto" continua valendo, então pra "fechar" o ativo
-  // a gente precisa permitir tirar o ativo do set também.
   if(expandedMinerals.has(idx)) expandedMinerals.delete(idx);
   else expandedMinerals.add(idx);
   renderSidebarMenu();
 }
 
 function isGroupOpen(idx){
-  // Aberto se: é o mineral atual OU foi expandido manualmente
-  return idx === cM || expandedMinerals.has(idx);
+  // Aberto somente se o usuário expandiu manualmente (clicou no chevron).
+  return expandedMinerals.has(idx);
 }
 
 function renderSidebarMenu(){
@@ -448,6 +446,13 @@ function render(){
   const i = globalIndex();
   document.getElementById('sc').innerHTML = H[i];
   document.getElementById('cn').textContent = `${i + 1} / ${totalSlides()}`;
+
+  // O HTML dos slides é gerado uma única vez no buildSlides(), com o stepper
+  // "fotografado" em cS=0. Aqui sincronizamos a classe .active com cS atual.
+  document.querySelectorAll('#sc .step-item').forEach((btn, idx) => {
+    btn.classList.toggle('active', idx === cS);
+  });
+
   renderSidebarMenu();
   injectBg();
   attachImageFallbacks();
