@@ -5,15 +5,15 @@
   --font-main: "Twemoji Country Flags", 'DM Sans', system-ui, sans-serif;
   --font-display: "Twemoji Country Flags", 'Outfit', system-ui, sans-serif;
 
-  --fs-xs:    12px;
-  --fs-sm:    13px;
-  --fs-base:  14px;
-  --fs-md:    15px;
-  --fs-lg:    17px;
-  --fs-xl:    20px;
-  --fs-2xl:   24px;
-  --fs-3xl:   30px;
-  --fs-hero:  56px;
+  --fs-xs:    13px;
+  --fs-sm:    14px;
+  --fs-base:  15px;
+  --fs-md:    16px;
+  --fs-lg:    18px;
+  --fs-xl:    21px;
+  --fs-2xl:   25px;
+  --fs-3xl:   31px;
+  --fs-hero:  57px;
 
   --orange:        #E8920D;
   --orange-fill:   #FFF3DB;
