@@ -6,7 +6,7 @@ const CONFIG = {
   slideNames: ["Capa","Visão Geral","Números Mundiais","Cadeia de Valor","Cadeia Global","Fluxograma","Mapa"],
   imagePath:    "img/",
   imageExt:     "jpg",
-  imagesEnabled: true,
+  imagesEnabled: true,A
   dataUrl:      "minerais.json"
 };
 
