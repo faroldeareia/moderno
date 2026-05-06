@@ -400,20 +400,45 @@ async function init(){
   return true;
 }
 
+// Minerais expandidos manualmente pelo usuário (via chevron).
+// O mineral ATIVO sempre fica aberto automaticamente, independente disso.
+const expandedMinerals = new Set();
+
+function toggleMineralExpand(idx, ev){
+  if(ev){ ev.stopPropagation(); ev.preventDefault(); }
+  // Mineral ativo: chevron só dispara o accordion via toggle do estado manual.
+  // A regra "ativo = aberto" continua valendo, então pra "fechar" o ativo
+  // a gente precisa permitir tirar o ativo do set também.
+  if(expandedMinerals.has(idx)) expandedMinerals.delete(idx);
+  else expandedMinerals.add(idx);
+  renderSidebarMenu();
+}
+
+function isGroupOpen(idx){
+  // Aberto se: é o mineral atual OU foi expandido manualmente
+  return idx === cM || expandedMinerals.has(idx);
+}
+
 function renderSidebarMenu(){
   document.getElementById('mt').innerHTML = MINERAL_DATA.map((m, i) => {
     const isActive = i === cM;
+    const isOpen = isGroupOpen(i);
     const subItems = CONFIG.slideNames.map((name, j) => {
       const subActive = (isActive && j === cS) ? ' active' : '';
       return `<button class="mineral-sub-item${subActive}" onclick="goToSlide(${i}, ${j}); closeSidebar()">
         <span class="sub-num">${j + 1}</span>${name}
       </button>`;
     }).join('');
-    return `<div class="mineral-group${isActive ? ' open' : ''}">
-      <button class="mineral-item${isActive ? ' active' : ''}" onclick="goTo(${i})">
-        <span class="mineral-symbol">${m.simbolo}</span>${m.nome}
-        <span class="mineral-chevron">▾</span>
-      </button>
+    return `<div class="mineral-group${isOpen ? ' open' : ''}">
+      <div class="mineral-row">
+        <button class="mineral-item${isActive ? ' active' : ''}" onclick="goTo(${i})">
+          <span class="mineral-symbol">${m.simbolo}</span>
+          <span class="mineral-name">${m.nome}</span>
+        </button>
+        <button class="mineral-chevron-btn" onclick="toggleMineralExpand(${i}, event)" aria-label="Expandir temas de ${m.nome}" title="Mostrar 7 temas">
+          <span class="mineral-chevron">▾</span>
+        </button>
+      </div>
       <div class="mineral-subs">${subItems}</div>
     </div>`;
   }).join('');
