@@ -84,8 +84,20 @@ function buildHeader(m, slideTitle){
     <div class="header-logo">Ministério de<br>Minas e Energia<br><span class="gov">Governo Federal</span></div>
   </div>`;
 }
+
+function buildStepper(){
+  const items = CONFIG.slideNames.map((name, i) => {
+    const active = i === cS ? ' active' : '';
+    return `<button class="step-item${active}" onclick="goToSlide(${cM}, ${i})" title="${name}">
+      <span class="step-dot"></span>
+      <span class="step-label">${i + 1}. ${name}</span>
+    </button>`;
+  }).join('');
+  return `<div class="slide-stepper" onclick="event.stopPropagation()">${items}</div>`;
+}
+
 function buildFooter(source){
-  return `<div class="slide-footer">
+  return `${buildStepper()}<div class="slide-footer">
     <div>Fonte: ${source || 'USGS 2024-2025 / WNA / SNGM'}</div>
     <div>SNGM</div>
   </div>`;
@@ -388,11 +400,30 @@ async function init(){
   return true;
 }
 
+function renderSidebarMenu(){
+  document.getElementById('mt').innerHTML = MINERAL_DATA.map((m, i) => {
+    const isActive = i === cM;
+    const subItems = CONFIG.slideNames.map((name, j) => {
+      const subActive = (isActive && j === cS) ? ' active' : '';
+      return `<button class="mineral-sub-item${subActive}" onclick="goToSlide(${i}, ${j}); closeSidebar()">
+        <span class="sub-num">${j + 1}</span>${name}
+      </button>`;
+    }).join('');
+    return `<div class="mineral-group${isActive ? ' open' : ''}">
+      <button class="mineral-item${isActive ? ' active' : ''}" onclick="goTo(${i})">
+        <span class="mineral-symbol">${m.simbolo}</span>${m.nome}
+        <span class="mineral-chevron">▾</span>
+      </button>
+      <div class="mineral-subs">${subItems}</div>
+    </div>`;
+  }).join('');
+}
+
 function render(){
   const i = globalIndex();
   document.getElementById('sc').innerHTML = H[i];
   document.getElementById('cn').textContent = `${i + 1} / ${totalSlides()}`;
-  document.querySelectorAll('.mineral-item').forEach((t, j) => t.classList.toggle('active', j === cM));
+  renderSidebarMenu();
   injectBg();
   attachImageFallbacks();
   const v = document.getElementById('sc');
@@ -418,7 +449,13 @@ function attachImageFallbacks(){
 }
 function next(){ if(globalIndex() < totalSlides() - 1){ cS++; if(cS >= SN){ cM++; cS = 0 } render() } }
 function prev(){ if(globalIndex() > 0){ cS--; if(cS < 0){ cM--; cS = SN - 1 } render() } }
-function goTo(i){ cM = i; cS = 0; render(); closeSidebar() }
+
+function goToSlide(mineralIdx, slideIdx){
+  cM = mineralIdx;
+  cS = Math.max(0, Math.min(slideIdx, SN - 1));
+  render();
+}
+function goTo(i){ goToSlide(i, 0); closeSidebar() }
 
 function openSidebar(){
   document.getElementById('sb').classList.add('open');
@@ -472,12 +509,7 @@ window.onload = async () => {
   if(!ok) return;
 
   buildSlides();
-
-  document.getElementById('mt').innerHTML = MINERAL_DATA.map((m, i) =>
-    `<button class="mineral-item${i === 0 ? ' active' : ''}" onclick="goTo(${i})">
-      <span class="mineral-symbol">${m.simbolo}</span>${m.nome}
-    </button>`
-  ).join('');
+  renderSidebarMenu();
   render();
 
   document.getElementById('hb').addEventListener('click', e => { e.stopPropagation(); toggleSidebar() });
@@ -488,10 +520,14 @@ window.onload = async () => {
   // ─── DESKTOP: click pra avançar (>900px) ───
   let pressStart = null;
   sc.addEventListener('mousedown', e => {
+    // Não inicia "press" se foi no stepper ou em controles internos
+    if(e.target.closest('.slide-stepper, .step-item')) { pressStart = null; return; }
     pressStart = { x: e.clientX, y: e.clientY, t: Date.now(), scrollTop: sc.scrollTop };
   });
   sc.addEventListener('mouseup', e => {
     if(!pressStart) return;
+    // Se o mouseup foi sobre o stepper, ignora também
+    if(e.target.closest('.slide-stepper, .step-item')) { pressStart = null; return; }
     const dx = Math.abs(e.clientX - pressStart.x);
     const dy = Math.abs(e.clientY - pressStart.y);
     const dt = Date.now() - pressStart.t;
@@ -506,6 +542,8 @@ window.onload = async () => {
 
   sc.addEventListener('touchstart', e => {
     if(e.touches.length > 1){ tStart = null; return; }
+    // Não captura swipe se o toque começou no stepper
+    if(e.target.closest('.slide-stepper, .step-item')){ tStart = null; return; }
     const t = e.touches[0];
     tStart = { x: t.screenX, y: t.screenY, scrollTop: sc.scrollTop };
     isHSwipe = false;
