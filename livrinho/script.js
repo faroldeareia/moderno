@@ -98,7 +98,7 @@ function buildStepper(){
 
 function buildFooter(source){
   return `${buildStepper()}<div class="slide-footer">
-    <div>Fonte: ${source || 'USGS 2024-2025 / WNA / SNGM'}</div>
+    <div>Fonte: ${source || 'USGS 2026 / WNA / SNGM'}</div>
     <div>SNGM</div>
   </div>`;
 }
@@ -238,7 +238,7 @@ function generateSlides(m){
         </div>
       </div>
     </div>
-    ${buildFooter('USGS 2024')}
+    ${buildFooter('USGS 2026')}
   </div>`);
 
   // ─── 3. NÚMEROS MUNDIAIS ───
@@ -260,7 +260,7 @@ function generateSlides(m){
         <div class="card" style="flex:1"><div class="card-badge">Líderes por Etapa</div><div class="flags-grid">${flags}</div></div>
       </div>
     </div>
-    ${buildFooter('USGS 2025')}
+    ${buildFooter('USGS 2026')}
   </div>`);
 
   // ─── 4. CADEIA DE VALOR ───
