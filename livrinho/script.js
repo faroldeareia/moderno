@@ -3,7 +3,7 @@
    ════════════════════════════════════════════════════════════════════ */
 const CONFIG = {
   slidesPerMineral: 7,
-  slideNames: ["Capa","Visão Geral","Números Mundiais","Cadeia de Valor","Cadeia Global","Fluxograma","Mapa"],
+  slideNames: ["Capa","Visão Geral","Números Mundiais","Cadeia no Brasil","Atores Globais","Cadeia Mineral","Depósitos"],
   imagePath:    "img/",
   imageExt:     "jpg",
   imagesEnabled: true,
@@ -188,7 +188,7 @@ function generateSlides(m){
     <div class="capa-glass">
       <div class="capa-symbol-tag">${m.simbolo}</div>
       <h1>${m.nome}</h1>
-      <p class="sub">Análise Estratégica, Cadeia de Valor e Geopolítica</p>
+      <p class="sub">Visão geológica e geoconômica</p>
     </div>
     <div class="capa-footer-bar"></div>
   </div>`);
