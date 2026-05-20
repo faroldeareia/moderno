@@ -705,5 +705,32 @@ body{
   .grid-4{grid-template-columns:1fr 1fr 1fr 1.4fr!important}
   .capa-photo-wrapper{position:absolute!important;inset:0!important;height:auto!important}
   .capa-glass{position:absolute!important;left:7%!important;top:50%!important;transform:translateY(-50%)!important;width:46%!important;margin:0!important}
-  @page{size:A4 landscape;margin:0}
+
+   /* ─── FIX só do slide "Visão Geral" no PDF ─── */
+  /* Reduz levemente espaçamentos e a foto do empreendimento
+     apenas neste slide, para caber nos 210mm. Não afeta a tela. */
+  .slide:has(.s2-layout) .slide-content{
+    padding-top:10px!important;
+    padding-bottom:10px!important;
+    gap:10px!important;
+  }
+  .slide:has(.s2-layout) .emp-photo,
+  .slide:has(.s2-layout) .emp-photo-fallback{
+    height:200px!important;       /* era 320px */
+  }
+  .slide:has(.s2-layout) .card,
+  .slide:has(.s2-layout) .card-highlight{
+    padding:12px!important;
+  }
+  .slide:has(.s2-layout) .gap-area{
+    gap:3px!important;
+  }
+  .slide:has(.s2-layout) .gap-section-label{
+    margin-top:4px!important;
+  }
+  .slide:has(.s2-layout) .gap-bar-bg{
+    height:18px!important;
+  }
+   
+   @page{size:A4 landscape;margin:0}
 }
