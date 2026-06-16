@@ -1,7 +1,5 @@
 /* =====================================================================
    Lighthouse of Sand — script.js (versão reescrita e robusta)
-   Princípio central: a TROCA DE ABAS é independente do carregamento
-   dos dados. Se o JSON falhar, as abas continuam funcionando.
    ===================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
