@@ -1,5 +1,5 @@
 /* =====================================================================
-   Lighthouse of Sand — script.js (versão reescrita e robusta)!
+   Lighthouse of Sand — script.js (versão reescrita e robusta)
    ===================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
