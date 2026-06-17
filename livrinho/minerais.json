@@ -463,6 +463,74 @@
     }
   },
   {
+  "nome": "Estanho",
+  "simbolo": "Sn",
+  "slug": "estanho",
+  "visaoGeral": {
+    "usos": "Principal uso é a solda eletrônica (placas de circuito), incluindo a interconexão de células fotovoltaicas; também folhas de flandres (embalagens), ligas e produtos químicos.",
+    "destaque": "<strong>Mina Pitinga (Mineração Taboca / Minsur) — AM:</strong> Maior mina de estanho do Brasil e um dos maiores depósitos do mundo. Produz Sn, Nb e Ta de forma associada e é verticalizada até o estanho metálico refinado.",
+    "posicaoBR": { "reserva": "3º lugar", "producao": "4º lugar" },
+    "estadosRes": "AM, RO, MG",
+    "estadosProd": "AM, RO",
+    "gapProd": { "br": 10, "leader": 24, "leaderName": "China" },
+    "gapRes": { "br": 12, "leader": 23, "leaderName": "Indonésia" },
+    "gapTransf": { "br": 5, "leader": 50, "leaderName": "China" }
+  },
+  "numerosMundiais": {
+    "pieProd": [
+      { "label": "China", "val": 24 },
+      { "label": "Indonésia", "val": 21 },
+      { "label": "Peru", "val": 11 },
+      { "label": "Brasil", "val": 10 },
+      { "label": "R.D. Congo", "val": 9 },
+      { "label": "Outros", "val": 25 }
+    ],
+    "pieRes": [
+      { "label": "Indonésia", "val": 23 },
+      { "label": "China", "val": 20 },
+      { "label": "Brasil", "val": 12 },
+      { "label": "Myanmar", "val": 12 },
+      { "label": "Austrália", "val": 10 },
+      { "label": "Outros", "val": 23 }
+    ],
+    "barTransf": [
+      { "label": "China", "val": 50 },
+      { "label": "Indonésia", "val": 17 },
+      { "label": "Malásia", "val": 6 },
+      { "label": "Brasil", "val": 5 }
+    ],
+    "quemManda": [
+      { "etapa": "Reservas", "bandeira": "🇮🇩", "pais": "Indonésia" },
+      { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
+      { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+    ]
+  },
+  "cadeiaGlobal": {
+    "extracao": [
+      { "bandeira": "🇨🇳", "pais": "China", "emp": "Yunnan Tin", "opera": "China" },
+      { "bandeira": "🇮🇩", "pais": "Indonésia", "emp": "PT Timah", "opera": "Indonésia" },
+      { "bandeira": "🇵🇪", "pais": "Peru", "emp": "Minsur", "opera": "Peru, Brasil" },
+      { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca", "opera": "Brasil" },
+      { "bandeira": "🇨🇩", "pais": "RDC", "emp": "Alphamin Resources", "opera": "RDC (Bisie)" }
+    ],
+    "refino": [
+      { "bandeira": "🇨🇳", "pais": "China", "emp": "Yunnan Tin", "opera": "China" },
+      { "bandeira": "🇮🇩", "pais": "Indonésia", "emp": "PT Timah", "opera": "Indonésia" },
+      { "bandeira": "🇲🇾", "pais": "Malásia", "emp": "Malaysia Smelting Corp", "opera": "Malásia" },
+      { "bandeira": "🇵🇪", "pais": "Peru", "emp": "Minsur (Funsur)", "opera": "Peru" },
+      { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca", "opera": "Brasil" }
+    ],
+    "manufatura": [
+      { "bandeira": "🇺🇸", "pais": "EUA", "emp": "MacDermid Alpha", "opera": "Solda eletrônica" },
+      { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Indium Corporation", "opera": "Solda" },
+      { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Senju Metal", "opera": "Solda" },
+      { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Nihon Superior", "opera": "Solda" },
+      { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "Indústria de eletrônicos", "opera": "Montagem PCB" }
+    ],
+    "analise": "<strong>Internacional:</strong> China lidera a mineração e domina o refino (~50%). Eixo asiático (China, Indonésia, Mianmar) somado a Peru e Bolívia. A solda eletrônica responde por cerca de metade da demanda mundial.<br><br><strong>Brasil:</strong> 4º produtor e 3ª reserva mundial. A Pitinga (AM) é verticalizada até o estanho metálico — caso raro de cadeia completa (mina → metal) no país.<br><br><strong>Gargalo:</strong> Indústria interna de solda e eletrônica de maior valor agregado pouco desenvolvida; depósitos aluvionares em esgotamento.<br><strong>Vantagem:</strong> Cadeia verticalizada, depósito polimetálico (Sn + Nb + Ta) e origem rastreável frente ao 'estanho de conflito' da RDC e de Mianmar."
+  }
+},
+  {
     "nome": "Nióbio",
     "simbolo": "Nb",
     "slug": "niobio",
