@@ -587,5 +587,387 @@
       ],
       "analise": "<strong>Internacional:</strong> Mercado não-commodity; preços em contratos de longo prazo. Brasil com 'monopólio' natural (>90%).<br><br><strong>Brasil:</strong> Duopólio CBMM + CMOC controla. Geologia única, custo imbatível. Verticalizado até ferro-nióbio.<br><br><strong>Gargalo:</strong> Baixa participação em manufatura de maior valor (superligas, baterias).<br><strong>Vantagem:</strong> 'Monopólio geológico' de reservas de alta qualidade."
     }
+  },
+  {
+  "nome": "Manganês",
+  "simbolo": "Mn",
+  "slug": "manganes",
+  "visaoGeral": {
+    "usos": "Insumo essencial da siderurgia (ligas de aço — ferro e silício-manganês, ~90% da demanda) e, de forma crescente e estratégica, catodo de baterias na forma de sulfato de manganês grau bateria (químicas NMC e LMFP).",
+    "destaque": "<strong>Mina do Azul (Vale) — Carajás, PA:</strong> Maior produtora de manganês do Brasil. Somada à jazida de Urucum (MS), sustenta a 4ª maior reserva mundial e abre espaço para o país entrar na cadeia de catodos.",
+    "posicaoBR": { "reserva": "4º lugar", "producao": "7º lugar" },
+    "estadosRes": "PA, MS, MG, BA",
+    "estadosProd": "PA, MS, MG",
+    "gapProd": { "br": 3, "leader": 37, "leaderName": "África do Sul" },
+    "gapRes": { "br": 16, "leader": 33, "leaderName": "África do Sul" },
+    "gapTransf": { "br": 0, "leader": 90, "leaderName": "China" }
+  },
+  "numerosMundiais": {
+    "pieProd": [
+      { "label": "África do Sul", "val": 37 },
+      { "label": "Gabão", "val": 23 },
+      { "label": "Austrália", "val": 14 },
+      { "label": "Brasil", "val": 3 },
+      { "label": "Outros", "val": 23 }
+    ],
+    "pieRes": [
+      { "label": "África do Sul", "val": 33 },
+      { "label": "Austrália", "val": 29 },
+      { "label": "China", "val": 16 },
+      { "label": "Brasil", "val": 16 },
+      { "label": "Outros", "val": 6 }
+    ],
+    "barTransf": [
+      { "label": "China", "val": 90 },
+      { "label": "África do Sul", "val": 4 },
+      { "label": "Bélgica", "val": 2 },
+      { "label": "Brasil", "val": 0 }
+    ],
+    "quemManda": [
+      { "etapa": "Reservas", "bandeira": "🇿🇦", "pais": "África do Sul" },
+      { "etapa": "Produção", "bandeira": "🇿🇦", "pais": "África do Sul" },
+      { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+    ]
+  },
+  "cadeiaGlobal": {
+    "extracao": [
+      { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "South32 (Hotazel)", "opera": "África do Sul, Austrália" },
+      { "bandeira": "🇫🇷", "pais": "França", "emp": "Eramet (Comilog)", "opera": "Gabão" },
+      { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Vale", "opera": "Brasil" },
+      { "bandeira": "🇨🇳", "pais": "China", "emp": "Estatais diversas", "opera": "China" },
+      { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "South32 (GEMCO)", "opera": "Austrália" }
+    ],
+    "refino": [
+      { "bandeira": "🇨🇳", "pais": "China", "emp": "Produtores de sulfato de Mn", "opera": "Grau bateria" },
+      { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Manganese Metal Company", "opera": "Mn eletrolítico/sulfato" },
+      { "bandeira": "🇫🇷", "pais": "França", "emp": "Eramet", "opera": "Ligas e sulfato" },
+      { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Eramet Norway", "opera": "Ferroligas" }
+    ],
+    "manufatura": [
+      { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ArcelorMittal", "opera": "Aço" },
+      { "bandeira": "🇨🇳", "pais": "China", "emp": "China Baowu Steel", "opera": "Aço" },
+      { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias (catodo)" },
+      { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "POSCO Future M", "opera": "Material catódico" },
+      { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "thyssenkrupp", "opera": "Aço" }
+    ],
+    "analise": "<strong>Internacional:</strong> África do Sul e Gabão dominam a mineração; a China controla a transformação, sobretudo o sulfato de manganês grau bateria (>90%).<br><br><strong>Brasil:</strong> 4ª reserva mundial e 7º produtor (Vale/Azul-PA, Urucum-MS). Exporta minério e ligas, sem produção de grau bateria.<br><br><strong>Gargalo:</strong> ausência de purificação para grau bateria (HPMSM); demanda atrelada ao ciclo do aço.<br><strong>Vantagem:</strong> reservas grandes e de boa qualidade e janela para catodos LMFP/NMC com energia limpa."
   }
+},
+  {
+  "nome": "Tântalo",
+  "simbolo": "Ta",
+  "slug": "tantalo",
+  "visaoGeral": {
+    "usos": "Capacitores de alta performance em eletrônicos (celulares, computadores, eletrônica automotiva), superligas para aeroespacial e turbinas, e carbonetos para ferramentas de corte.",
+    "destaque": "<strong>Mina Mibra (AMG Brasil) — Nazareno, MG:</strong> Uma das maiores produtoras de tântalo do Ocidente. Somada à Pitinga (AM, com Sn-Nb-Ta associados), faz do Brasil fonte rastreável fora do eixo de conflito africano.",
+    "posicaoBR": { "reserva": "3º lugar*", "producao": "4º lugar" },
+    "estadosRes": "MG, AM, RN, PB",
+    "estadosProd": "MG, AM",
+    "gapProd": { "br": 8, "leader": 52, "leaderName": "RDC" },
+    "gapRes": { "br": 10, "leader": 60, "leaderName": "China" },
+    "gapTransf": { "br": 2, "leader": 47, "leaderName": "China" }
+  },
+  "numerosMundiais": {
+    "pieProd": [
+      { "label": "RDC", "val": 52 },
+      { "label": "Ruanda", "val": 16 },
+      { "label": "Nigéria", "val": 16 },
+      { "label": "Brasil", "val": 8 },
+      { "label": "Outros", "val": 8 }
+    ],
+    "pieRes": [
+      { "label": "China", "val": 60 },
+      { "label": "Austrália", "val": 30 },
+      { "label": "Brasil", "val": 10 }
+    ],
+    "barTransf": [
+      { "label": "China", "val": 47 },
+      { "label": "Alemanha", "val": 25 },
+      { "label": "Cazaquistão", "val": 16 },
+      { "label": "Brasil", "val": 2 }
+    ],
+    "quemManda": [
+      { "etapa": "Reservas", "bandeira": "🇨🇳", "pais": "China*" },
+      { "etapa": "Produção", "bandeira": "🇨🇩", "pais": "RDC" },
+      { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+    ]
+  },
+  "cadeiaGlobal": {
+    "extracao": [
+      { "bandeira": "🇨🇩", "pais": "RDC", "emp": "Mineração diversa/artesanal", "opera": "RDC" },
+      { "bandeira": "🇷🇼", "pais": "Ruanda", "emp": "Mineradoras diversas", "opera": "Ruanda" },
+      { "bandeira": "🇳🇬", "pais": "Nigéria", "emp": "Mineradoras diversas", "opera": "Nigéria" },
+      { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "AMG Brasil (Mibra)", "opera": "Brasil" },
+      { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca", "opera": "Brasil (Pitinga)" }
+    ],
+    "refino": [
+      { "bandeira": "🇨🇳", "pais": "China", "emp": "Processadores de Ta", "opera": "China" },
+      { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Taniobis (ex-H.C. Starck)", "opera": "Alemanha" },
+      { "bandeira": "🇰🇿", "pais": "Cazaquistão", "emp": "Ulba Metallurgical", "opera": "Cazaquistão" },
+      { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Global Advanced Metals", "opera": "EUA" }
+    ],
+    "manufatura": [
+      { "bandeira": "🇯🇵", "pais": "Japão", "emp": "KEMET e outros", "opera": "Capacitores" },
+      { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Vishay", "opera": "Capacitores" },
+      { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Taniobis", "opera": "Pós metálicos" },
+      { "bandeira": "🇺🇸", "pais": "EUA", "emp": "GE / Rolls-Royce", "opera": "Superligas" }
+    ],
+    "analise": "<strong>Internacional:</strong> Extração concentrada na África (RDC, Ruanda, Nigéria, ~85%) com forte ligação a 'minerais de conflito'; processamento dominado por China, Alemanha e Cazaquistão.<br><br><strong>Brasil:</strong> 4º produtor e entre as maiores reservas reportadas (Mibra-MG e Pitinga-AM). Fonte estável e rastreável.<br><br><strong>Gargalo:</strong> Pouca verticalização em capacitores e pós de alto valor.<br><strong>Vantagem:</strong> Origem responsável (não-conflito) e depósito polimetálico Sn-Nb-Ta. <em>*RDC, Ruanda e Nigéria não reportam reservas ao USGS; o % é sobre as reservas reportadas (China, Austrália, Brasil).</em>"
+  }
+},
+  {
+  "nome": "Zinco",
+  "simbolo": "Zn",
+  "slug": "zinco",
+  "visaoGeral": {
+    "usos": "Galvanização do aço (proteção anticorrosiva, principal uso), ligas (latão e bronze), fundição sob pressão e químicos; presente na infraestrutura de energia limpa por meio de estruturas galvanizadas.",
+    "destaque": "<strong>Complexo Aripuanã (Nexa) — MT:</strong> Novo polo polimetálico (Zn-Pb-Cu) do Brasil. Somado à mina de Vazante (MG) e aos refinos de Três Marias e Juiz de Fora, dá ao país uma cadeia integrada mina-metal.",
+    "posicaoBR": { "reserva": "Fora Top 10*", "producao": "Fora Top 10*" },
+    "estadosRes": "MG, MT, PA, RO",
+    "estadosProd": "MG, MT",
+    "gapProd": { "br": 2, "leader": 33, "leaderName": "China" },
+    "gapRes": { "br": 1, "leader": 28, "leaderName": "Austrália" },
+    "gapTransf": { "br": 2, "leader": 50, "leaderName": "China" }
+  },
+  "numerosMundiais": {
+    "pieProd": [
+      { "label": "China", "val": 33 },
+      { "label": "Peru", "val": 11 },
+      { "label": "Austrália", "val": 9 },
+      { "label": "Índia", "val": 7 },
+      { "label": "México", "val": 6 },
+      { "label": "Outros", "val": 34 }
+    ],
+    "pieRes": [
+      { "label": "Austrália", "val": 28 },
+      { "label": "China", "val": 20 },
+      { "label": "Rússia", "val": 13 },
+      { "label": "Peru", "val": 9 },
+      { "label": "Outros", "val": 30 }
+    ],
+    "barTransf": [
+      { "label": "China", "val": 50 },
+      { "label": "Coreia do Sul", "val": 8 },
+      { "label": "Índia", "val": 6 },
+      { "label": "Brasil", "val": 2 }
+    ],
+    "quemManda": [
+      { "etapa": "Reservas", "bandeira": "🇦🇺", "pais": "Austrália" },
+      { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
+      { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+    ]
+  },
+  "cadeiaGlobal": {
+    "extracao": [
+      { "bandeira": "🇨🇳", "pais": "China", "emp": "Estatais diversas", "opera": "China" },
+      { "bandeira": "🇵🇪", "pais": "Peru", "emp": "Nexa / Volcan / Antamina", "opera": "Peru" },
+      { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Glencore / South32", "opera": "Austrália" },
+      { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Nexa Resources", "opera": "Brasil, Peru" },
+      { "bandeira": "🇮🇳", "pais": "Índia", "emp": "Hindustan Zinc (Vedanta)", "opera": "Índia" }
+    ],
+    "refino": [
+      { "bandeira": "🇨🇳", "pais": "China", "emp": "Fundições diversas", "opera": "China" },
+      { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "Korea Zinc", "opera": "Coreia do Sul" },
+      { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Nexa (Três Marias, Juiz de Fora)", "opera": "Brasil" },
+      { "bandeira": "🇮🇳", "pais": "Índia", "emp": "Hindustan Zinc", "opera": "Índia" }
+    ],
+    "manufatura": [
+      { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ArcelorMittal", "opera": "Aço galvanizado" },
+      { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Nippon Steel", "opera": "Aço galvanizado" },
+      { "bandeira": "🇨🇳", "pais": "China", "emp": "China Baowu Steel", "opera": "Galvanizados" },
+      { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Indústria de galvanização", "opera": "Galvanização" }
+    ],
+    "analise": "<strong>Internacional:</strong> China lidera mineração e domina o refino (~50%); Austrália detém as maiores reservas. Uso preso à galvanização do aço.<br><br><strong>Brasil:</strong> Mineração modesta (Vazante-MG, Aripuanã-MT, via Nexa), mas com refino próprio (Três Marias e Juiz de Fora) — raro caso de cadeia mina-metal completa.<br><br><strong>Gargalo:</strong> base de reservas limitada e dependência de concentrado; vínculo emergente fraco com baterias.<br><strong>Vantagem:</strong> verticalização (mina→metal) e protagonismo regional via Nexa. <em>*O Brasil aparece em 'Outros países' nas tabelas do USGS de mineração e reservas.</em>"
+  }
+},
+  {
+  "nome": "Titânio",
+  "simbolo": "Ti",
+  "slug": "titanio",
+  "visaoGeral": {
+    "usos": "Dióxido de titânio (TiO₂) é o principal pigmento branco (tintas, papel, plásticos, ~90% da demanda); o titânio metálico é vital para aeroespacial, próteses médicas e dessalinização, pela alta resistência e leveza.",
+    "destaque": "<strong>Complexos de anatásio (Tapira, Catalão, Salitre) — MG/GO:</strong> O Brasil detém alguns dos maiores recursos de anatásio (TiO₂) do mundo, associados a carbonatitos, hoje subaproveitados — potencial estratégico ainda não convertido em reserva/produção.",
+    "posicaoBR": { "reserva": "Grandes recursos*", "producao": "Fora Top 10*" },
+    "estadosRes": "MG, GO, RJ, PB",
+    "estadosProd": "MG, RJ",
+    "gapProd": { "br": 1, "leader": 33, "leaderName": "China" },
+    "gapRes": { "br": 1, "leader": 38, "leaderName": "Austrália" },
+    "gapTransf": { "br": 1, "leader": 69, "leaderName": "China" }
+  },
+  "numerosMundiais": {
+    "pieProd": [
+      { "label": "China", "val": 33 },
+      { "label": "Moçambique", "val": 19 },
+      { "label": "África do Sul", "val": 14 },
+      { "label": "Austrália", "val": 10 },
+      { "label": "Outros", "val": 24 }
+    ],
+    "pieRes": [
+      { "label": "Austrália", "val": 38 },
+      { "label": "China", "val": 20 },
+      { "label": "Canadá", "val": 9 },
+      { "label": "Noruega", "val": 7 },
+      { "label": "Outros", "val": 26 }
+    ],
+    "barTransf": [
+      { "label": "China", "val": 69 },
+      { "label": "Japão", "val": 8 },
+      { "label": "Rússia", "val": 6 },
+      { "label": "Brasil", "val": 1 }
+    ],
+    "quemManda": [
+      { "etapa": "Reservas", "bandeira": "🇦🇺", "pais": "Austrália" },
+      { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
+      { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+    ]
+  },
+  "cadeiaGlobal": {
+    "extracao": [
+      { "bandeira": "🇨🇳", "pais": "China", "emp": "Produtores diversos", "opera": "China" },
+      { "bandeira": "🇲🇿", "pais": "Moçambique", "emp": "Kenmare Resources", "opera": "Moçambique" },
+      { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Tronox", "opera": "África do Sul" },
+      { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Iluka Resources", "opera": "Austrália" },
+      { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Produtores de anatásio/ilmenita", "opera": "Brasil" }
+    ],
+    "refino": [
+      { "bandeira": "🇨🇳", "pais": "China", "emp": "Lomon Billions", "opera": "Pigmento TiO₂" },
+      { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Tronox / Chemours", "opera": "Pigmento TiO₂" },
+      { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Osaka Titanium / Toho", "opera": "Esponja de Ti" },
+      { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "VSMPO-AVISMA", "opera": "Esponja/metal de Ti" }
+    ],
+    "manufatura": [
+      { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Boeing", "opera": "Aeroespacial" },
+      { "bandeira": "🇫🇷", "pais": "França", "emp": "Airbus / Safran", "opera": "Aeroespacial" },
+      { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "VSMPO-AVISMA", "opera": "Ligas de Ti" },
+      { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Chemours", "opera": "Pigmentos" }
+    ],
+    "analise": "<strong>Internacional:</strong> China lidera mineração e processamento (~69% do midstream); Austrália detém as maiores reservas. Rússia e Japão concentram a esponja de titânio metálico.<br><br><strong>Brasil:</strong> não ranqueado pelo USGS em reservas/produção, mas detém enormes recursos de anatásio (Tapira, Catalão, Salitre-MG/GO) associados a carbonatitos.<br><br><strong>Gargalo:</strong> anatásio de difícil beneficiamento; sem produção de pigmento ou metal em escala.<br><strong>Vantagem:</strong> base de recursos gigantesca à espera de rota tecnológica viável. <em>*O Brasil consta em 'Outros países'; recursos ≠ reservas econômicas.</em>"
+  }
+},
+  {
+  "nome": "Platinídeos (PGM)",
+  "simbolo": "PGM",
+  "slug": "platinideos",
+  "visaoGeral": {
+    "usos": "Catalisadores automotivos (conversores), eletrólise e células a combustível para hidrogênio (platina e irídio), eletrônica, fabricação de vidro, joalheria e catálise química/refino.",
+    "destaque": "<strong>Sem produção comercial no Brasil.</strong> O potencial está associado a complexos máfico-ultramáficos e a subprodutos de Ni-Cu/cromita (GO, PA). O país importa praticamente 100% dos PGM que consome — o maior gap de toda a lista.",
+    "posicaoBR": { "reserva": "Sem expressão*", "producao": "Sem produção" },
+    "estadosRes": "GO, PA, MG",
+    "estadosProd": "Sem produção",
+    "gapProd": { "br": 0, "leader": 53, "leaderName": "África do Sul" },
+    "gapRes": { "br": 0, "leader": 83, "leaderName": "África do Sul" },
+    "gapTransf": { "br": 0, "leader": 55, "leaderName": "África do Sul" }
+  },
+  "numerosMundiais": {
+    "pieProd": [
+      { "label": "África do Sul", "val": 53 },
+      { "label": "Rússia", "val": 29 },
+      { "label": "Zimbábue", "val": 9 },
+      { "label": "Canadá", "val": 6 },
+      { "label": "Outros", "val": 3 }
+    ],
+    "pieRes": [
+      { "label": "África do Sul", "val": 83 },
+      { "label": "Rússia", "val": 14 },
+      { "label": "Zimbábue", "val": 2 },
+      { "label": "Outros", "val": 1 }
+    ],
+    "barTransf": [
+      { "label": "África do Sul", "val": 55 },
+      { "label": "Rússia", "val": 28 },
+      { "label": "China", "val": 8 },
+      { "label": "Brasil", "val": 0 }
+    ],
+    "quemManda": [
+      { "etapa": "Reservas", "bandeira": "🇿🇦", "pais": "África do Sul" },
+      { "etapa": "Produção", "bandeira": "🇿🇦", "pais": "África do Sul" },
+      { "etapa": "Transformação", "bandeira": "🇿🇦", "pais": "África do Sul" }
+    ]
+  },
+  "cadeiaGlobal": {
+    "extracao": [
+      { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Anglo American (Valterra)", "opera": "África do Sul" },
+      { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Impala Platinum", "opera": "África do Sul, Zimbábue" },
+      { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Nornickel", "opera": "Rússia" },
+      { "bandeira": "🇿🇼", "pais": "Zimbábue", "emp": "Zimplats", "opera": "Zimbábue" },
+      { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Vale / Sibanye", "opera": "Canadá" }
+    ],
+    "refino": [
+      { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Anglo / Impala / Sibanye", "opera": "África do Sul" },
+      { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Nornickel", "opera": "Rússia" },
+      { "bandeira": "🇬🇧", "pais": "Reino Unido", "emp": "Johnson Matthey", "opera": "Refino e catálise" },
+      { "bandeira": "🇧🇪", "pais": "Bélgica", "emp": "Umicore", "opera": "Refino e reciclagem" }
+    ],
+    "manufatura": [
+      { "bandeira": "🇬🇧", "pais": "Reino Unido", "emp": "Johnson Matthey", "opera": "Catalisadores" },
+      { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "BASF", "opera": "Catalisadores" },
+      { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Heraeus", "opera": "Catálise/eletrônica" },
+      { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Tanaka", "opera": "Eletrônica / hidrogênio" }
+    ],
+    "analise": "<strong>Internacional:</strong> oligopólio extremo — África do Sul (Bushveld) e Rússia respondem por quase toda a produção e reserva; o refino é igualmente concentrado.<br><br><strong>Brasil:</strong> sem produção comercial. Potencial geológico modesto em complexos máfico-ultramáficos e como subproduto de Ni-Cu/cromita (GO).<br><br><strong>Gargalo:</strong> dependência de importação próxima de 100%; teores baixos e ausência de projetos.<br><strong>Vantagem:</strong> praticamente nenhuma no curto prazo — é o caso de maior vulnerabilidade da lista. <em>*O Brasil não é ranqueado pelo USGS em produção ou reservas.</em>"
+  }
+},
+  {
+  "nome": "Platinídeos (PGM)",
+  "simbolo": "PGM",
+  "slug": "platinideos",
+  "visaoGeral": {
+    "usos": "Catalisadores automotivos (conversores), eletrólise e células a combustível para hidrogênio (platina e irídio), eletrônica, fabricação de vidro, joalheria e catálise química/refino.",
+    "destaque": "<strong>Sem produção comercial no Brasil.</strong> O potencial está associado a complexos máfico-ultramáficos e a subprodutos de Ni-Cu/cromita (GO, PA). O país importa praticamente 100% dos PGM que consome — o maior gap de toda a lista.",
+    "posicaoBR": { "reserva": "Sem expressão*", "producao": "Sem produção" },
+    "estadosRes": "GO, PA, MG",
+    "estadosProd": "Sem produção",
+    "gapProd": { "br": 0, "leader": 53, "leaderName": "África do Sul" },
+    "gapRes": { "br": 0, "leader": 83, "leaderName": "África do Sul" },
+    "gapTransf": { "br": 0, "leader": 55, "leaderName": "África do Sul" }
+  },
+  "numerosMundiais": {
+    "pieProd": [
+      { "label": "África do Sul", "val": 53 },
+      { "label": "Rússia", "val": 29 },
+      { "label": "Zimbábue", "val": 9 },
+      { "label": "Canadá", "val": 6 },
+      { "label": "Outros", "val": 3 }
+    ],
+    "pieRes": [
+      { "label": "África do Sul", "val": 83 },
+      { "label": "Rússia", "val": 14 },
+      { "label": "Zimbábue", "val": 2 },
+      { "label": "Outros", "val": 1 }
+    ],
+    "barTransf": [
+      { "label": "África do Sul", "val": 55 },
+      { "label": "Rússia", "val": 28 },
+      { "label": "China", "val": 8 },
+      { "label": "Brasil", "val": 0 }
+    ],
+    "quemManda": [
+      { "etapa": "Reservas", "bandeira": "🇿🇦", "pais": "África do Sul" },
+      { "etapa": "Produção", "bandeira": "🇿🇦", "pais": "África do Sul" },
+      { "etapa": "Transformação", "bandeira": "🇿🇦", "pais": "África do Sul" }
+    ]
+  },
+  "cadeiaGlobal": {
+    "extracao": [
+      { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Anglo American (Valterra)", "opera": "África do Sul" },
+      { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Impala Platinum", "opera": "África do Sul, Zimbábue" },
+      { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Nornickel", "opera": "Rússia" },
+      { "bandeira": "🇿🇼", "pais": "Zimbábue", "emp": "Zimplats", "opera": "Zimbábue" },
+      { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Vale / Sibanye", "opera": "Canadá" }
+    ],
+    "refino": [
+      { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Anglo / Impala / Sibanye", "opera": "África do Sul" },
+      { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Nornickel", "opera": "Rússia" },
+      { "bandeira": "🇬🇧", "pais": "Reino Unido", "emp": "Johnson Matthey", "opera": "Refino e catálise" },
+      { "bandeira": "🇧🇪", "pais": "Bélgica", "emp": "Umicore", "opera": "Refino e reciclagem" }
+    ],
+    "manufatura": [
+      { "bandeira": "🇬🇧", "pais": "Reino Unido", "emp": "Johnson Matthey", "opera": "Catalisadores" },
+      { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "BASF", "opera": "Catalisadores" },
+      { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Heraeus", "opera": "Catálise/eletrônica" },
+      { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Tanaka", "opera": "Eletrônica / hidrogênio" }
+    ],
+    "analise": "<strong>Internacional:</strong> oligopólio extremo — África do Sul (Bushveld) e Rússia respondem por quase toda a produção e reserva; o refino é igualmente concentrado.<br><br><strong>Brasil:</strong> sem produção comercial. Potencial geológico modesto em complexos máfico-ultramáficos e como subproduto de Ni-Cu/cromita (GO).<br><br><strong>Gargalo:</strong> dependência de importação próxima de 100%; teores baixos e ausência de projetos.<br><strong>Vantagem:</strong> praticamente nenhuma no curto prazo — é o caso de maior vulnerabilidade da lista. <em>*O Brasil não é ranqueado pelo USGS em produção ou reservas.</em>"
+  }
+},
 ]
