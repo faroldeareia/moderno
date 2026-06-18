@@ -115,7 +115,8 @@
         { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Congo, Austrália, Chile" }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Empresas Estatais", "opera": "China" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Jiangxi Copper", "opera": "China" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tongling Nonferrous", "opera": "China" },
         { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Aurubis AG", "opera": "Alemanha" },
         { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Freeport-McMoRan", "opera": "EUA" },
         { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Global" }
@@ -184,7 +185,7 @@
         { "bandeira": "🇨🇳", "pais": "China", "emp": "Tianqi Lithium", "opera": "China" },
         { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Albemarle", "opera": "EUA" },
         { "bandeira": "🇨🇱", "pais": "Chile", "emp": "SQM", "opera": "Chile" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha/Holanda", "emp": "AMG", "opera": "Brasil, Alemanha" }
+        { "bandeira": "🇬🇧", "pais": "Reino Unido/Austrália", "emp": "Rio Tinto (Arcadium)", "opera": "Argentina, EUA, China" }
       ],
       "manufatura": [
         { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias" },
@@ -468,7 +469,7 @@
     "slug": "estanho",
     "visaoGeral": {
       "usos": "Principal uso é a solda eletrônica (placas de circuito), incluindo a interconexão de células fotovoltaicas; também folhas de flandres (embalagens), ligas e produtos químicos.",
-      "destaque": "<strong>Mina Pitinga (Mineração Taboca / Minsur) — AM:</strong> Maior mina de estanho do Brasil e um dos maiores depósitos do mundo. Produz Sn, Nb e Ta de forma associada e é verticalizada até o estanho metálico refinado.",
+      "destaque": "<strong>Mina Pitinga (Mineração Taboca) — AM:</strong> Maior mina de estanho do Brasil e um dos maiores depósitos do mundo (Sn, Nb e Ta associados), verticalizada até o estanho metálico. Em 2025 passou ao controle da estatal chinesa CNMC, que comprou a Taboca da peruana Minsur por US$ 340 mi.",
       "posicaoBR": { "reserva": "3º lugar", "producao": "4º lugar" },
       "estadosRes": "AM, RO, MG",
       "estadosProd": "AM, RO",
@@ -509,8 +510,8 @@
       "extracao": [
         { "bandeira": "🇨🇳", "pais": "China", "emp": "Yunnan Tin", "opera": "China" },
         { "bandeira": "🇮🇩", "pais": "Indonésia", "emp": "PT Timah", "opera": "Indonésia" },
-        { "bandeira": "🇵🇪", "pais": "Peru", "emp": "Minsur", "opera": "Peru, Brasil" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca", "opera": "Brasil" },
+        { "bandeira": "🇵🇪", "pais": "Peru", "emp": "Minsur (grupo Breca)", "opera": "Peru" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca (CNMC/China)", "opera": "Brasil (Pitinga)" },
         { "bandeira": "🇨🇩", "pais": "RDC", "emp": "Alphamin Resources", "opera": "RDC (Bisie)" }
       ],
       "refino": [
@@ -518,7 +519,7 @@
         { "bandeira": "🇮🇩", "pais": "Indonésia", "emp": "PT Timah", "opera": "Indonésia" },
         { "bandeira": "🇲🇾", "pais": "Malásia", "emp": "Malaysia Smelting Corp", "opera": "Malásia" },
         { "bandeira": "🇵🇪", "pais": "Peru", "emp": "Minsur (Funsur)", "opera": "Peru" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca", "opera": "Brasil" }
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca (CNMC/China)", "opera": "Brasil" }
       ],
       "manufatura": [
         { "bandeira": "🇺🇸", "pais": "EUA", "emp": "MacDermid Alpha", "opera": "Solda eletrônica" },
