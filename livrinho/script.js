@@ -11,6 +11,33 @@ const CONFIG = {
 };
 
 /* ════════════════════════════════════════════════════════════════════
+   📚 FONTES POR MINERAL — exibidas no rodapé dos slides de dados
+   - pr = fonte de Produção / Reservas
+   - tr = fonte de Transformação / Refino
+   ════════════════════════════════════════════════════════════════════ */
+const FONTES = {
+  etr:        { pr: "USGS MCS 2026", tr: "IEA Global Critical Minerals Outlook 2025" },
+  cobre:      { pr: "USGS MCS 2026", tr: "IEA Global Critical Minerals Outlook 2025" },
+  litio:      { pr: "USGS MCS 2026", tr: "IEA Global Critical Minerals Outlook 2025" },
+  uranio:     { pr: "WNA / USGS",    tr: "WNA / Euratom (enriquecimento)" },
+  niquel:     { pr: "USGS MCS 2026", tr: "IEA Global Critical Minerals Outlook 2025" },
+  grafita:    { pr: "USGS MCS 2026", tr: "IEA Global Critical Minerals Outlook 2025" },
+  cobalto:    { pr: "USGS MCS 2026", tr: "IEA Global Critical Minerals Outlook 2025" },
+  estanho:    { pr: "USGS MCS 2026", tr: "USGS FS 2025-3038" },
+  niobio:     { pr: "USGS MCS 2026", tr: "USGS / CBMM" },
+  manganes:   { pr: "USGS MCS 2025", tr: "Estimativa setorial — sulfato grau bateria" },
+  tantalo:    { pr: "USGS MCS 2026", tr: "USGS (proxy de fontes de importação)" },
+  zinco:      { pr: "USGS MCS 2025", tr: "USGS FS 2025-3038" },
+  titanio:    { pr: "USGS MCS 2026", tr: "USGS FS 2025-3038" },
+  platinideos:{ pr: "USGS MCS 2026", tr: "USGS FS 2025-3038 (Pt)" }
+};
+const fonteDe = (m) => FONTES[m.slug] || { pr: "USGS 2026", tr: "USGS 2026" };
+const fonteRodape = (m) => {
+  const f = fonteDe(m);
+  return `Prod./Reservas: ${f.pr} · Transformação: ${f.tr}`;
+};
+
+/* ════════════════════════════════════════════════════════════════════
    🎨 PALETA DE CORES — atribuída automaticamente
    - Países recorrentes têm cor fixa (consistência entre slides)
    - Brasil sempre laranja (cor da identidade)
@@ -238,7 +265,7 @@ function generateSlides(m){
         </div>
       </div>
     </div>
-    ${buildFooter('USGS 2026')}
+    ${buildFooter(fonteRodape(m))}
   </div>`);
 
   // ─── 3. NÚMEROS MUNDIAIS ───
@@ -260,7 +287,7 @@ function generateSlides(m){
         <div class="card" style="flex:1"><div class="card-badge">Líderes por Etapa</div><div class="flags-grid">${flags}</div></div>
       </div>
     </div>
-    ${buildFooter('USGS 2026')}
+    ${buildFooter(fonteRodape(m))}
   </div>`);
 
   // ─── 4. CADEIA DE VALOR ───
