@@ -62,7 +62,7 @@
         { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "VACUUMSCHMELZE", "opera": "Ímãs" },
         { "bandeira": "🇺🇸", "pais": "EUA", "emp": "MP Materials", "opera": "Ímãs" }
       ],
-      "analise": "<strong>Internacional:</strong> China controla o refino (>90%). Dependência crítica do Ocidente, que busca criar suas próprias cadeias de defino.<br><br><strong>Brasil:</strong> 2ª maior reserva mundial, mas com produção incipiente. Iniciativa MagBras busca iniciar cadeia de ímãs.<br><br><strong>Gargalo:</strong> Ausência de capacidade de refino e manufatura.<br><strong>Vantagem:</strong> 2ª maior reserva global, incluindo argilas iônicas, de baixo custo de exploração."
+      "analise": "<strong>Internacional:</strong> China controla o refino (>90%). Dependência crítica do Ocidente, que busca criar suas próprias cadeias de refino.<br><br><strong>Brasil:</strong> 2ª maior reserva mundial, mas com produção incipiente. Iniciativa MagBras busca iniciar cadeia de ímãs.<br><br><strong>Gargalo:</strong> Ausência de capacidade de refino e manufatura.<br><strong>Vantagem:</strong> 2ª maior reserva global, incluindo argilas iônicas, de baixo custo de exploração."
     }
   },
   {
@@ -495,8 +495,8 @@
       ],
       "barTransf": [
         { "label": "China", "val": 50 },
-        { "label": "Indonésia", "val": 17 },
-        { "label": "Malásia", "val": 6 },
+        { "label": "Indonésia", "val": 19 },
+        { "label": "Malásia", "val": 5 },
         { "label": "Brasil", "val": 5 }
       ],
       "quemManda": [
@@ -727,7 +727,7 @@
       "estadosProd": "MG, MT",
       "gapProd": { "br": 2, "leader": 33, "leaderName": "China" },
       "gapRes": { "br": 1, "leader": 28, "leaderName": "Austrália" },
-      "gapTransf": { "br": 2, "leader": 50, "leaderName": "China" }
+      "gapTransf": { "br": 2, "leader": 48, "leaderName": "China" }
     },
     "numerosMundiais": {
       "pieProd": [
@@ -746,8 +746,8 @@
         { "label": "Outros", "val": 30 }
       ],
       "barTransf": [
-        { "label": "China", "val": 50 },
-        { "label": "Coreia do Sul", "val": 8 },
+        { "label": "China", "val": 48 },
+        { "label": "Coreia do Sul", "val": 7 },
         { "label": "Índia", "val": 6 },
         { "label": "Brasil", "val": 2 }
       ],
@@ -777,7 +777,7 @@
         { "bandeira": "🇨🇳", "pais": "China", "emp": "China Baowu Steel", "opera": "Galvanizados" },
         { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Indústria de galvanização", "opera": "Galvanização" }
       ],
-      "analise": "<strong>Internacional:</strong> China lidera mineração e domina o refino (~50%); Austrália detém as maiores reservas. Uso preso à galvanização do aço.<br><br><strong>Brasil:</strong> Mineração modesta (Vazante-MG, Aripuanã-MT, via Nexa), mas com refino próprio (Três Marias e Juiz de Fora) — raro caso de cadeia mina-metal completa.<br><br><strong>Gargalo:</strong> base de reservas limitada e dependência de concentrado; vínculo emergente fraco com baterias.<br><strong>Vantagem:</strong> verticalização (mina→metal) e protagonismo regional via Nexa. <em>*O Brasil aparece em 'Outros países' nas tabelas do USGS de mineração e reservas.</em>"
+      "analise": "<strong>Internacional:</strong> China lidera mineração e domina o refino (~48%); Austrália detém as maiores reservas. Uso preso à galvanização do aço.<br><br><strong>Brasil:</strong> Mineração modesta (Vazante-MG, Aripuanã-MT, via Nexa), mas com refino próprio (Três Marias e Juiz de Fora) — raro caso de cadeia mina-metal completa.<br><br><strong>Gargalo:</strong> base de reservas limitada e dependência de concentrado; vínculo emergente fraco com baterias.<br><strong>Vantagem:</strong> verticalização (mina→metal) e protagonismo regional via Nexa. <em>*O Brasil aparece em 'Outros países' nas tabelas do USGS de mineração e reservas.</em>"
     }
   },
   {
@@ -856,7 +856,7 @@
       "estadosProd": "Sem produção",
       "gapProd": { "br": 0, "leader": 53, "leaderName": "África do Sul" },
       "gapRes": { "br": 0, "leader": 83, "leaderName": "África do Sul" },
-      "gapTransf": { "br": 0, "leader": 55, "leaderName": "África do Sul" }
+      "gapTransf": { "br": 0, "leader": 48, "leaderName": "África do Sul" }
     },
     "numerosMundiais": {
       "pieProd": [
@@ -873,7 +873,7 @@
         { "label": "Outros", "val": 1 }
       ],
       "barTransf": [
-        { "label": "África do Sul", "val": 55 },
+        { "label": "África do Sul", "val": 48 },
         { "label": "Rússia", "val": 28 },
         { "label": "China", "val": 8 },
         { "label": "Brasil", "val": 0 }
