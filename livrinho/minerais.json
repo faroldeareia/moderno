@@ -594,7 +594,7 @@
     "slug": "manganes",
     "visaoGeral": {
       "usos": "Insumo essencial da siderurgia (ligas de aço — ferro e silício-manganês, ~90% da demanda) e, de forma crescente e estratégica, catodo de baterias na forma de sulfato de manganês grau bateria (químicas NMC e LMFP).",
-      "destaque": "<strong>Mina do Azul (Vale) — Carajás, PA:</strong> Maior produtora de manganês do Brasil. Somada à jazida de Urucum (MS), sustenta a 4ª maior reserva mundial e abre espaço para o país entrar na cadeia de catodos.",
+      "destaque": "<strong>Reservas de Carajás (PA) e Urucum (MS):</strong> O Brasil tem a 4ª maior reserva mundial, mas a produção encolheu após a saída da Vale do manganês (2022). Hoje a LHG Mining (J&F) e produtores menores operam, abrindo janela para o sulfato grau bateria (LMFP/NMC).",
       "posicaoBR": { "reserva": "4º lugar", "producao": "7º lugar" },
       "estadosRes": "PA, MS, MG, BA",
       "estadosProd": "PA, MS, MG",
@@ -631,14 +631,14 @@
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "South32 (Hotazel)", "opera": "África do Sul, Austrália" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "South32 (GEMCO/Hotazel)", "opera": "Austrália, África do Sul" },
         { "bandeira": "🇫🇷", "pais": "França", "emp": "Eramet (Comilog)", "opera": "Gabão" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Vale", "opera": "Brasil" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Estatais diversas", "opera": "China" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "South32 (GEMCO)", "opera": "Austrália" }
+        { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Assmang (Assore)", "opera": "África do Sul" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Jupiter Mines (Tshipi)", "opera": "África do Sul" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Minmetals", "opera": "China" }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Produtores de sulfato de Mn", "opera": "Grau bateria" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Ningxia Tianyuan", "opera": "Sulfato grau bateria" },
         { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Manganese Metal Company", "opera": "Mn eletrolítico/sulfato" },
         { "bandeira": "🇫🇷", "pais": "França", "emp": "Eramet", "opera": "Ligas e sulfato" },
         { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Eramet Norway", "opera": "Ferroligas" }
@@ -650,7 +650,7 @@
         { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "POSCO Future M", "opera": "Material catódico" },
         { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "thyssenkrupp", "opera": "Aço" }
       ],
-      "analise": "<strong>Internacional:</strong> África do Sul e Gabão dominam a mineração; a China controla a transformação, sobretudo o sulfato de manganês grau bateria (>90%).<br><br><strong>Brasil:</strong> 4ª reserva mundial e 7º produtor (Vale/Azul-PA, Urucum-MS). Exporta minério e ligas, sem produção de grau bateria.<br><br><strong>Gargalo:</strong> ausência de purificação para grau bateria (HPMSM); demanda atrelada ao ciclo do aço.<br><strong>Vantagem:</strong> reservas grandes e de boa qualidade e janela para catodos LMFP/NMC com energia limpa."
+      "analise": "<strong>Internacional:</strong> África do Sul e Gabão dominam a mineração; a China controla a transformação, sobretudo o sulfato de manganês grau bateria (>90%).<br><br><strong>Brasil:</strong> 4ª reserva mundial, mas produção em declínio após a saída da Vale (hoje LHG Mining-MS e operadores menores no Pará). Exporta minério e ligas, sem produção de grau bateria.<br><br><strong>Gargalo:</strong> ausência de purificação para grau bateria (HPMSM); demanda atrelada ao ciclo do aço.<br><strong>Vantagem:</strong> reservas grandes e de boa qualidade e janela para catodos LMFP/NMC com energia limpa."
     }
   },
   {
@@ -759,11 +759,11 @@
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Estatais diversas", "opera": "China" },
-        { "bandeira": "🇵🇪", "pais": "Peru", "emp": "Nexa / Volcan / Antamina", "opera": "Peru" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Glencore / South32", "opera": "Austrália" },
+        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Austrália, Peru, Cazaquistão" },
+        { "bandeira": "🇮🇳", "pais": "Índia", "emp": "Hindustan Zinc (Vedanta)", "opera": "Índia" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Teck Resources", "opera": "Canadá, EUA (Red Dog)" },
         { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Nexa Resources", "opera": "Brasil, Peru" },
-        { "bandeira": "🇮🇳", "pais": "Índia", "emp": "Hindustan Zinc (Vedanta)", "opera": "Índia" }
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Zijin Mining", "opera": "China" }
       ],
       "refino": [
         { "bandeira": "🇨🇳", "pais": "China", "emp": "Fundições diversas", "opera": "China" },
@@ -823,11 +823,11 @@
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Produtores diversos", "opera": "China" },
-        { "bandeira": "🇲🇿", "pais": "Moçambique", "emp": "Kenmare Resources", "opera": "Moçambique" },
-        { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Tronox", "opera": "África do Sul" },
+        { "bandeira": "🇬🇧", "pais": "Reino Unido/Austrália", "emp": "Rio Tinto (RTIT)", "opera": "África do Sul, Canadá, Madagascar" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Tronox", "opera": "África do Sul, Austrália, EUA" },
         { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Iluka Resources", "opera": "Austrália" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Produtores de anatásio/ilmenita", "opera": "Brasil" }
+        { "bandeira": "🇮🇪", "pais": "Irlanda", "emp": "Kenmare Resources", "opera": "Moçambique" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Pangang Group", "opera": "China" }
       ],
       "refino": [
         { "bandeira": "🇨🇳", "pais": "China", "emp": "Lomon Billions", "opera": "Pigmento TiO₂" },
@@ -888,9 +888,9 @@
       "extracao": [
         { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Anglo American (Valterra)", "opera": "África do Sul" },
         { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Impala Platinum", "opera": "África do Sul, Zimbábue" },
+        { "bandeira": "🇿🇦", "pais": "África do Sul/EUA", "emp": "Sibanye-Stillwater", "opera": "África do Sul, EUA" },
         { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Nornickel", "opera": "Rússia" },
-        { "bandeira": "🇿🇼", "pais": "Zimbábue", "emp": "Zimplats", "opera": "Zimbábue" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Vale / Sibanye", "opera": "Canadá" }
+        { "bandeira": "🇿🇼", "pais": "Zimbábue", "emp": "Zimplats", "opera": "Zimbábue" }
       ],
       "refino": [
         { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Anglo / Impala / Sibanye", "opera": "África do Sul" },
