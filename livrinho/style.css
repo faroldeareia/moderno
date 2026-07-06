@@ -706,31 +706,54 @@ body{
   .capa-photo-wrapper{position:absolute!important;inset:0!important;height:auto!important}
   .capa-glass{position:absolute!important;left:7%!important;top:50%!important;transform:translateY(-50%)!important;width:46%!important;margin:0!important}
 
-   /* ─── FIX só do slide "Visão Geral" no PDF ─── */
-  /* Reduz levemente espaçamentos e a foto do empreendimento
-     apenas neste slide, para caber nos 210mm. Não afeta a tela. */
-  .slide:has(.s2-layout) .slide-content{
-    padding-top:10px!important;
-    padding-bottom:10px!important;
-    gap:10px!important;
-  }
-  .slide:has(.s2-layout) .emp-photo,
-  .slide:has(.s2-layout) .emp-photo-fallback{
-    height:200px!important;       /* era 320px */
-  }
-  .slide:has(.s2-layout) .card,
-  .slide:has(.s2-layout) .card-highlight{
-    padding:12px!important;
-  }
-  .slide:has(.s2-layout) .gap-area{
-    gap:3px!important;
-  }
-  .slide:has(.s2-layout) .gap-section-label{
-    margin-top:4px!important;
-  }
-  .slide:has(.s2-layout) .gap-bar-bg{
-    height:18px!important;
-  }
+/* ─── FIX slide "Visão Geral" no PDF ─── */
+.slide:has(.s2-layout) .slide-header{
+  padding-top:10px!important;
+  padding-bottom:8px!important;
+}
+.slide:has(.s2-layout) .header-title{font-size:20px!important}
+
+.slide:has(.s2-layout) .slide-content{
+  padding-top:8px!important;
+  padding-bottom:8px!important;
+  gap:10px!important;
+  overflow:hidden!important;
+}
+.slide:has(.s2-layout) .s2-col{gap:10px!important}
+
+.slide:has(.s2-layout) .card,
+.slide:has(.s2-layout) .card-highlight{
+  padding:10px 12px!important;
+}
+.slide:has(.s2-layout) .card-badge{
+  font-size:12px!important;
+  margin-bottom:6px!important;
+  padding-bottom:4px!important;
+}
+.slide:has(.s2-layout) .text-body{
+  font-size:13px!important;
+  line-height:1.35!important;
+}
+
+/* Foto do empreendimento bem menor no papel */
+.slide:has(.s2-layout) .emp-photo,
+.slide:has(.s2-layout) .emp-photo-fallback{
+  height:140px!important;
+  margin-bottom:8px!important;
+}
+
+/* Bloco "Posição do Brasil" mais compacto */
+.slide:has(.s2-layout) .pos-item{padding:8px 6px!important}
+.slide:has(.s2-layout) .pos-val{font-size:17px!important}
+.slide:has(.s2-layout) .pos-label{font-size:10px!important}
+
+/* Barras de gap — a parte que mais estoura */
+.slide:has(.s2-layout) .gap-area{gap:2px!important;margin-top:5px!important}
+.slide:has(.s2-layout) .gap-section-label{margin-top:3px!important;font-size:10px!important}
+.slide:has(.s2-layout) .gap-chart{gap:8px!important}
+.slide:has(.s2-layout) .gap-bar-bg{height:12px!important}
+.slide:has(.s2-layout) .gap-label{font-size:11px!important;width:75px!important}
+.slide:has(.s2-layout) .gap-val{font-size:11px!important;width:42px!important}
    
    @page{size:A4 landscape;margin:0}
 }
