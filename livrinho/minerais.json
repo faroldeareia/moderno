@@ -10,7 +10,7 @@
       "estadosRes": "GO, MG, AM, BA",
       "estadosProd": "GO",
       "gapProd": { "br": 1, "leader": 69, "leaderName": "China" },
-      "gapRes": { "br": 25, "leader": 52, "leaderName": "China" },
+      "gapRes": { "br": 23, "leader": 48, "leaderName": "China" },
       "gapTransf": { "br": 0, "leader": 91, "leaderName": "China" }
     },
     "numerosMundiais": {
@@ -22,11 +22,11 @@
         { "label": "Outros", "val": 5 }
       ],
       "pieRes": [
-        { "label": "China", "val": 52 },
-        { "label": "Brasil", "val": 25 },
-        { "label": "Austrália", "val": 10 },
-        { "label": "Rússia", "val": 5 },
-        { "label": "Outros", "val": 8 }
+        { "label": "China", "val": 48 },
+        { "label": "Brasil", "val": 23 },
+        { "label": "Índia", "val": 8 },
+        { "label": "Austrália", "val": 6 },
+        { "label": "Outros", "val": 15 }
       ],
       "barTransf": [
         { "label": "China", "val": 91 },
@@ -75,17 +75,17 @@
       "posicaoBR": { "reserva": "Fora Top 10", "producao": "Fora Top 10" },
       "estadosRes": "PA, GO, BA, MT, AL",
       "estadosProd": "PA, GO, BA, AL, MT",
-      "gapProd": { "br": 3, "leader": 30, "leaderName": "China" },
+      "gapProd": { "br": 2, "leader": 23, "leaderName": "Chile" },
       "gapRes": { "br": 3, "leader": 18, "leaderName": "Chile" },
       "gapTransf": { "br": 1, "leader": 44, "leaderName": "China" }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "China", "val": 30 },
-        { "label": "Chile", "val": 13 },
-        { "label": "R.D. Congo", "val": 12 },
-        { "label": "Peru", "val": 6 },
-        { "label": "Outros", "val": 39 }
+        { "label": "Chile", "val": 23 },
+        { "label": "R.D. Congo", "val": 14 },
+        { "label": "Peru", "val": 12 },
+        { "label": "China", "val": 8 },
+        { "label": "Outros", "val": 43 }
       ],
       "pieRes": [
         { "label": "Chile", "val": 18 },
@@ -102,7 +102,7 @@
       ],
       "quemManda": [
         { "etapa": "Reservas", "bandeira": "🇨🇱", "pais": "Chile" },
-        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Produção", "bandeira": "🇨🇱", "pais": "Chile" },
         { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
       ]
     },
@@ -128,7 +128,7 @@
         { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Sumitomo Electric", "opera": "Manufatura" },
         { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "KME Germany", "opera": "Manufatura" }
       ],
-      "analise": "<strong>Internacional:</strong> Extração no Chile e RDC; China domina >45% do refino mundial.<br><br><strong>Brasil:</strong> Extração relevante (Vale, EroBrasil), gargalo no refino com apenas Paranapanema processando Cu primário.<br><br><strong>Gargalo:</strong> Capacidade de refino concentrada em uma empresa.<br><strong>Vantagem:</strong> Geologia favorável — minério de Cu + Au + ETR."
+      "analise": "<strong>Internacional:</strong> Extração liderada por Chile, RDC e Peru; China domina >40% do refino mundial.<br><br><strong>Brasil:</strong> Extração relevante (Vale, EroBrasil), gargalo no refino com apenas Paranapanema processando Cu primário.<br><br><strong>Gargalo:</strong> Capacidade de refino concentrada em uma empresa.<br><strong>Vantagem:</strong> Geologia favorável — minério de Cu + Au + ETR."
     }
   },
   {
@@ -150,8 +150,8 @@
         { "label": "Austrália", "val": 32 },
         { "label": "China", "val": 22 },
         { "label": "Chile", "val": 19 },
-        { "label": "Zimbábue", "val": 10 },
-        { "label": "Outros", "val": 17 }
+        { "label": "Zimbábue", "val": 7 },
+        { "label": "Outros", "val": 20 }
       ],
       "pieRes": [
         { "label": "Chile", "val": 25 },
@@ -273,17 +273,17 @@
       "posicaoBR": { "reserva": "3º lugar", "producao": "6º lugar" },
       "estadosRes": "GO, PA, BA, PI",
       "estadosProd": "BA, GO, PA, PI",
-      "gapProd": { "br": 2, "leader": 67, "leaderName": "Indonésia" },
+      "gapProd": { "br": 2, "leader": 62, "leaderName": "Indonésia" },
       "gapRes": { "br": 11, "leader": 45, "leaderName": "Indonésia" },
       "gapTransf": { "br": 2, "leader": 43, "leaderName": "Indonésia" }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "Indonésia", "val": 67 },
-        { "label": "Filipinas", "val": 7 },
+        { "label": "Indonésia", "val": 62 },
+        { "label": "Filipinas", "val": 5 },
         { "label": "Rússia", "val": 5 },
         { "label": "Canadá", "val": 4 },
-        { "label": "Outros", "val": 17 }
+        { "label": "Outros", "val": 24 }
       ],
       "pieRes": [
         { "label": "Indonésia", "val": 45 },
@@ -327,7 +327,7 @@
         { "bandeira": "🇨🇳", "pais": "China", "emp": "China Baowu Steel", "opera": "Aço Inox" },
         { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ArcelorMittal", "opera": "Aço Inox" }
       ],
-      "analise": "<strong>Internacional:</strong> Indonésia domina extração (>50%). Eixo China-Indonésia controla ~90% do refino.<br><br><strong>Brasil:</strong> 8º produtor. Atlantic Nickel produz Ni sulfetado para baterias.<br><br><strong>Gargalo:</strong> Domínio sino-indonésio de baixo custo inviabiliza projetos.<br><strong>Vantagem:</strong> Reservas de Ni sulfetado ideal para baterias."
+      "analise": "<strong>Internacional:</strong> Indonésia domina extração (>60%) e segue crescendo, enquanto Austrália e Filipinas cortam produção por preços baixos. Eixo China-Indonésia controla ~90% do refino.<br><br><strong>Brasil:</strong> 6º produtor. Atlantic Nickel produz Ni sulfetado para baterias.<br><br><strong>Gargalo:</strong> Domínio sino-indonésio de baixo custo inviabiliza projetos.<br><strong>Vantagem:</strong> Reservas de Ni sulfetado ideal para baterias."
     }
   },
   {
@@ -407,14 +407,14 @@
       "posicaoBR": { "reserva": "9º lugar", "producao": "Fora Top 10" },
       "estadosRes": "PA, PI, CE",
       "estadosProd": "Sem produção",
-      "gapProd": { "br": 0, "leader": 73, "leaderName": "RDC" },
+      "gapProd": { "br": 0, "leader": 70, "leaderName": "RDC" },
       "gapRes": { "br": 3, "leader": 52, "leaderName": "RDC" },
       "gapTransf": { "br": 0, "leader": 79, "leaderName": "China" }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "R.D. Congo", "val": 73 },
-        { "label": "Indonésia", "val": 14 },
+        { "label": "R.D. Congo", "val": 70 },
+        { "label": "Indonésia", "val": 17 },
         { "label": "Rússia", "val": 3 },
         { "label": "Outros", "val": 10 }
       ],
@@ -460,7 +460,7 @@
         { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "POSCO Future M.", "opera": "Mat. p/ Baterias" },
         { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Panasonic", "opera": "Baterias" }
       ],
-      "analise": "<strong>Internacional:</strong> Extração na RDC (+75%) e refino na China (~70%). Alto risco geopolítico.<br><br><strong>Brasil:</strong> Produção nula, potencial em depósitos Ni-Co (GO) e Co-Mn (CE). Alternativa estável.<br><br><strong>Gargalo:</strong> Teores inferiores à RDC, produção depende do níquel.<br><strong>Vantagem:</strong> Estabilidade institucional, fonte rastreável e segura."
+      "analise": "<strong>Internacional:</strong> Extração na RDC (~70%, sob quotas de exportação desde 2025) com a Indonésia crescendo rápido (~17%); refino na China (~80%). Alto risco geopolítico.<br><br><strong>Brasil:</strong> Produção nula, potencial em depósitos Ni-Co (GO) e Co-Mn (CE). Alternativa estável.<br><br><strong>Gargalo:</strong> Teores inferiores à RDC, produção depende do níquel.<br><strong>Vantagem:</strong> Estabilidade institucional, fonte rastreável e segura."
     }
   },
   {
@@ -906,6 +906,144 @@
         { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Tanaka", "opera": "Eletrônica / hidrogênio" }
       ],
       "analise": "<strong>Internacional:</strong> oligopólio extremo — África do Sul (Bushveld) e Rússia respondem por quase toda a produção e reserva; o refino é igualmente concentrado.<br><br><strong>Brasil:</strong> sem produção comercial. Potencial geológico modesto em complexos máfico-ultramáficos e como subproduto de Ni-Cu/cromita (GO).<br><br><strong>Gargalo:</strong> dependência de importação próxima de 100%; teores baixos e ausência de projetos.<br><strong>Vantagem:</strong> praticamente nenhuma no curto prazo — é o caso de maior vulnerabilidade da lista. <em>*O Brasil não é ranqueado pelo USGS em produção ou reservas.</em>"
+    }
+  },
+  {
+    "nome": "Potássio",
+    "simbolo": "K",
+    "slug": "potassio",
+    "visaoGeral": {
+      "usos": "Nutriente essencial e insubstituível das plantas: ~95% vira fertilizante (cloreto de potássio/KCl), pilar da produção de soja, milho e cana. Segurança alimentar em estado puro.",
+      "destaque": "<strong>Projeto Autazes (Potássio do Brasil) — AM:</strong> Maior projeto de potássio do país, na bacia do Amazonas, com capacidade prevista de ~2,4 Mt/ano de KCl (~20% da demanda nacional). Hoje, a única mina em operação é Taquari-Vassouras (Mosaic) — SE.",
+      "posicaoBR": { "reserva": "Fora Top 10", "producao": "Fora Top 10" },
+      "estadosRes": "SE, AM",
+      "estadosProd": "SE",
+      "gapProd": { "br": 1, "leader": 31, "leaderName": "Canadá" },
+      "gapRes": { "br": 0, "leader": 34, "leaderName": "Rússia" },
+      "gapTransf": { "br": 0, "leader": 39, "leaderName": "Canadá" }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "Canadá", "val": 31 },
+        { "label": "Rússia", "val": 20 },
+        { "label": "China", "val": 13 },
+        { "label": "Belarus", "val": 12 },
+        { "label": "Alemanha", "val": 6 },
+        { "label": "Outros", "val": 18 }
+      ],
+      "pieRes": [
+        { "label": "Rússia", "val": 34 },
+        { "label": "Canadá", "val": 19 },
+        { "label": "Laos", "val": 17 },
+        { "label": "Belarus", "val": 13 },
+        { "label": "Outros", "val": 17 }
+      ],
+      "barTransf": [
+        { "label": "Canadá", "val": 39 },
+        { "label": "Rússia", "val": 21 },
+        { "label": "Belarus", "val": 17 },
+        { "label": "Brasil", "val": 0 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇷🇺", "pais": "Rússia" },
+        { "etapa": "Produção", "bandeira": "🇨🇦", "pais": "Canadá" },
+        { "etapa": "Exportação", "bandeira": "🇨🇦", "pais": "Canadá" }
+      ]
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "Canadá (Saskatchewan)" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Uralkali", "opera": "Rússia" },
+        { "bandeira": "🇧🇾", "pais": "Belarus", "emp": "Belaruskali", "opera": "Belarus" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "Canadá, EUA, Brasil (SE)" },
+        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "K+S", "opera": "Alemanha, Canadá" },
+        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "Israel (Mar Morto), Espanha" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "MOP granulado" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "MOP/K-Mag" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Uralkali", "opera": "MOP" },
+        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "MOP/SOP" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP (Jansen)", "opera": "Canadá (início 2027)" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Yara", "opera": "NPK / distribuição" },
+        { "bandeira": "🇨🇭", "pais": "Suíça/Rússia", "emp": "EuroChem", "opera": "NPK / distribuição" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "Varejo agrícola" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic Fertilizantes", "opera": "Misturas (Brasil)" },
+        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "Especialidades" }
+      ],
+      "analise": "<strong>Internacional:</strong> Oligopólio Canadá–Rússia–Belarus (~2/3 da oferta). A guerra na Ucrânia e as sanções a Belarus expuseram a fragilidade da cadeia; novas capacidades vêm de Laos e Rússia, e a mina de Jansen (BHP) entra em 2027.<br><br><strong>Brasil:</strong> Maior importador mundial de potássio — dependência externa superior a 95% do consumo, com uma única mina (Taquari-Vassouras, SE). O projeto Autazes (AM) pode cobrir ~20% da demanda.<br><br><strong>Gargalo:</strong> dependência quase total de importação de um insumo sem substituto — risco direto à segurança alimentar; licenciamento de Autazes envolve terras indígenas Mura.<br><strong>Vantagem:</strong> demanda doméstica gigante e garantida (agro), depósitos na bacia do Amazonas e Plano Nacional de Fertilizantes 2050 como vetor político. <em>*Barras de 'exportação' usam participação nas exportações globais (Canadá ~39%); Rússia e Belarus aproximados.</em>"
+    }
+  },
+  {
+    "nome": "Fosfato",
+    "simbolo": "P",
+    "slug": "fosfato",
+    "visaoGeral": {
+      "usos": "Base dos fertilizantes fosfatados (MAP, DAP, SSP — ~90% da demanda) e da ração animal; sem substituto na agricultura. Uso emergente e estratégico em baterias LFP (fosfato de ferro-lítio), a química que domina os VEs chineses.",
+      "destaque": "<strong>Complexo Serra do Salitre (EuroChem) — MG:</strong> Maior investimento greenfield recente do setor (~US$ 1 bi, inaugurado em 2024), verticalizado da mina ao fertilizante. Sinergia estratégica com Santa Quitéria (CE), onde fosfato e urânio ocorrem juntos.",
+      "posicaoBR": { "reserva": "7º lugar", "producao": "8º lugar" },
+      "estadosRes": "MG, GO, SP, TO, BA",
+      "estadosProd": "MG, GO, SP, TO, BA",
+      "gapProd": { "br": 2, "leader": 44, "leaderName": "China" },
+      "gapRes": { "br": 2, "leader": 68, "leaderName": "Marrocos" },
+      "gapTransf": { "br": 2, "leader": 47, "leaderName": "China" }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "China", "val": 44 },
+        { "label": "Marrocos", "val": 14 },
+        { "label": "EUA", "val": 8 },
+        { "label": "Rússia", "val": 6 },
+        { "label": "Jordânia", "val": 5 },
+        { "label": "Outros", "val": 23 }
+      ],
+      "pieRes": [
+        { "label": "Marrocos", "val": 68 },
+        { "label": "China", "val": 5 },
+        { "label": "Egito", "val": 4 },
+        { "label": "Tunísia", "val": 3 },
+        { "label": "Brasil", "val": 2 },
+        { "label": "Outros", "val": 18 }
+      ],
+      "barTransf": [
+        { "label": "China", "val": 47 },
+        { "label": "Marrocos", "val": 12 },
+        { "label": "EUA", "val": 9 },
+        { "label": "Brasil", "val": 2 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇲🇦", "pais": "Marrocos" },
+        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+      ]
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇲🇦", "pais": "Marrocos", "emp": "OCP Group", "opera": "Marrocos, Saara Ocidental" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "EUA (Flórida), Brasil, Peru" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "PhosAgro", "opera": "Rússia" },
+        { "bandeira": "🇸🇦", "pais": "Arábia Saudita", "emp": "Ma'aden", "opera": "Arábia Saudita" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yunnan Phosphate (YPH)", "opera": "China" },
+        { "bandeira": "🇯🇴", "pais": "Jordânia", "emp": "JPMC", "opera": "Jordânia" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yuntianhua", "opera": "Ácido fosfórico/DAP" },
+        { "bandeira": "🇲🇦", "pais": "Marrocos", "emp": "OCP Group", "opera": "Ácido fosfórico/MAP/DAP" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "MAP/DAP (EUA, Brasil)" },
+        { "bandeira": "🇸🇦", "pais": "Arábia Saudita", "emp": "Ma'aden", "opera": "DAP" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "PhosAgro", "opera": "MAP/NPK" },
+        { "bandeira": "🇧🇪", "pais": "Bélgica", "emp": "Prayon", "opera": "Ácido fosfórico purificado" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Yara", "opera": "NPK" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "Fertilizantes" },
+        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "Especialidades / LFP" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias LFP" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias LFP e VEs" }
+      ],
+      "analise": "<strong>Internacional:</strong> Marrocos (OCP) detém ~68% das reservas mundiais — a 'Arábia Saudita do fósforo' —, mas a China lidera a mineração (~44%) e a transformação, e restringe exportações de fosfatados para priorizar o mercado interno e as baterias LFP.<br><br><strong>Brasil:</strong> 8º produtor e 7ª reserva (depósitos ígneos de carbonatito: Tapira, Catalão, Araxá, Salitre), mas importa ~70% dos fosfatados que consome. Mosaic, EuroChem, Itafos e Galvani operam a cadeia mina-fertilizante.<br><br><strong>Gargalo:</strong> teores mais baixos e mineralogia complexa dos carbonatitos frente às rochas sedimentares do Norte da África; dependência externa alta apesar das reservas.<br><strong>Vantagem:</strong> cadeia parcialmente verticalizada, demanda agro cativa e sinergias únicas — fosfato + urânio (Santa Quitéria) e fosfato + nióbio/ETR nos mesmos carbonatitos. <em>*Transformação = participação aproximada no processamento de ácido fosfórico/fertilizantes fosfatados.</em>"
     }
   }
 ]
