@@ -29,7 +29,9 @@ const FONTES = {
   tantalo:    { pr: "USGS MCS 2026", tr: "USGS (proxy de fontes de importação)" },
   zinco:      { pr: "USGS MCS 2025", tr: "USGS FS 2025-3038" },
   titanio:    { pr: "USGS MCS 2026", tr: "USGS FS 2025-3038" },
-  platinideos:{ pr: "USGS MCS 2026", tr: "USGS FS 2025-3038 (Pt)" }
+  platinideos:{ pr: "USGS MCS 2026", tr: "USGS FS 2025-3038 (Pt)" },
+  potassio:   { pr: "USGS MCS 2026", tr: "NRCan 2024 (exportações globais)" },
+  fosfato:    { pr: "USGS MCS 2026", tr: "IFA / estimativa setorial (ácido fosfórico)" }
 };
 const fonteDe = (m) => FONTES[m.slug] || { pr: "USGS 2026", tr: "USGS 2026" };
 const fonteRodape = (m) => {
@@ -69,6 +71,13 @@ const COUNTRY_COLORS = {
   "Finlândia":      "#1565C0",
   "Japão":          "#2E7D32",
   "Europa*":        "#6A1B9A",
+  "Belarus":        "#2E7D32",
+  "Laos":           "#F57F17",
+  "Alemanha":       "#00838F",
+  "Marrocos":       "#6A1B9A",
+  "Egito":          "#F57F17",
+  "Tunísia":        "#00838F",
+  "Jordânia":       "#2E7D32",
   "Outros":         "#BDBDBD"
 };
 // Paleta de fallback (caso apareça país novo não mapeado)
@@ -128,6 +137,13 @@ function buildFooter(source){
     <div>Fonte: ${source || 'USGS 2026 / WNA / SNGM'}</div>
     <div>SNGM</div>
   </div>`;
+}
+
+/* Nota de rodapé opcional (campo notaRodape em cadeiaGlobal) —
+   estilizada inline para não exigir mudança no CSS */
+function buildChainNote(nota){
+  if(!nota) return '';
+  return `<div class="chain-note" style="padding:0 var(--pad-slide-x) 8px 76px;font-size:var(--fs-xs);color:var(--light);font-style:italic;line-height:1.4;flex-shrink:0">* ${nota}</div>`;
 }
 
 function buildPie(rawData){
@@ -203,6 +219,15 @@ function generateSlides(m){
   const S = [];
   const v = m.visaoGeral, n = m.numerosMundiais, c = m.cadeiaGlobal;
 
+  /* Rótulos dinâmicos por mineral (campos opcionais no JSON):
+     - n.labelTransf → título da barra de transformação (slide 3)
+       e da seção de gap (slide 2). Ex.: "Exportações" (potássio),
+       "Ácido Fosfórico" (fosfato), "Enriquecimento" (urânio).
+     - c.etapasLabels → títulos das 3 colunas da cadeia global (slide 5).
+     Minerais sem os campos caem no padrão (|| fallback). */
+  const tLabel = n.labelTransf || null;
+  const labels = c.etapasLabels || {};
+
   // ─── 1. CAPA ───
   const photoUrl = assetUrl(m.slug, 'capa');
   const placeholderHtml = `<div class="capa-photo-placeholder"><div><span class="icon">🪨</span>FOTO DO MINERAL<br><span style="font-size:var(--fs-sm);opacity:.7">${m.nome}</span></div></div>`;
@@ -251,7 +276,7 @@ function generateSlides(m){
             <div class="gap-section-label">Reservas Mundiais (%)</div>
             ${gapRow('Brasil', v.gapRes.br, true)}
             ${gapRow(v.gapRes.leaderName, v.gapRes.leader, false)}
-            <div class="gap-section-label">Transformação (%)</div>
+            <div class="gap-section-label">${tLabel || 'Transformação'} (%)</div>
             ${gapRow('Brasil', v.gapTransf.br, true)}
             ${gapRow(v.gapTransf.leaderName, v.gapTransf.leader, false)}
           </div>
@@ -283,7 +308,7 @@ function generateSlides(m){
         <div class="card" style="flex:1"><div class="card-badge">Reservas Mundiais</div>${buildPie(n.pieRes)}</div>
       </div>
       <div class="s2-col" style="gap:var(--gap-cards)">
-        <div class="card"><div class="card-badge">Transformação / Refino</div><div style="margin-top:8px">${buildBar(n.barTransf)}</div></div>
+        <div class="card"><div class="card-badge">${tLabel || 'Transformação / Refino'}</div><div style="margin-top:8px">${buildBar(n.barTransf)}</div></div>
         <div class="card" style="flex:1"><div class="card-badge">Líderes por Etapa</div><div class="flags-grid">${flags}</div></div>
       </div>
     </div>
@@ -296,21 +321,136 @@ function generateSlides(m){
   // ─── 5. CADEIA GLOBAL ───
   S.push(`<div class="slide">${buildHeader(m, "Cadeia Global e Geopolítica")}
     <div class="slide-content grid-4">
-      <div class="card"><div class="card-badge">Extração</div>${listHTML(c.extracao)}</div>
-      <div class="card"><div class="card-badge">Refino / Midstream</div>${listHTML(c.refino)}</div>
-      <div class="card"><div class="card-badge">Manufatura / Downstream</div>${listHTML(c.manufatura)}</div>
+      <div class="card"><div class="card-badge">${labels.extracao || 'Extração'}</div>${listHTML(c.extracao)}</div>
+      <div class="card"><div class="card-badge">${labels.refino || 'Refino / Midstream'}</div>${listHTML(c.refino)}</div>
+      <div class="card"><div class="card-badge">${labels.manufatura || 'Manufatura / Downstream'}</div>${listHTML(c.manufatura)}</div>
       <div class="card-highlight"><div class="card-badge">Análise Estratégica</div><div class="text-body" style="font-size:var(--fs-sm)">${c.analise}</div></div>
     </div>
+    ${buildChainNote(c.notaRodape)}
     ${buildFooter()}
   </div>`);
 
   // ─── 6. FLUXOGRAMA ───
-  S.push(buildImageSlide(m, "Fluxograma de Transformação", "fluxo", "🔀", "Fluxograma"));
+  // Se o mineral tiver o campo "fluxograma" no JSON, desenha via Mermaid;
+  // caso contrário, mantém o slide de imagem (img/<slug>_fluxo.jpg).
+  if(m.fluxograma && m.fluxograma.def){
+    const fx = m.fluxograma;
+    const legenda = (fx.legenda || []).map(l =>
+      `<span style="display:inline-flex;align-items:center;gap:6px;margin-right:14px;white-space:nowrap"><span style="width:12px;height:12px;border-radius:3px;background:${l.cor};border:1px ${l.tracejado ? 'dashed' : 'solid'} rgba(0,0,0,.4);display:inline-block"></span>${l.label}</span>`
+    ).join('');
+    S.push(`<div class="slide">${buildHeader(m, "Fluxograma de Transformação")}
+      <div class="slide-content">
+        <div class="card" style="flex:1;min-height:0">
+          <div class="card-badge">Rotas de Transformação — ${m.nome}</div>
+          <div class="mermaid-flux" data-def="${encodeURIComponent(fx.def)}"${fx.notas ? ` data-notas="${encodeURIComponent(JSON.stringify(fx.notas))}"` : ''} style="flex:1;min-height:340px;display:flex;align-items:center;justify-content:center;overflow:auto;cursor:default"></div>
+          ${legenda || fx.notas ? `<div style="font-size:var(--fs-xs);color:var(--gray);font-weight:600;margin-top:8px;flex-shrink:0;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${legenda}${fx.notas ? '<span style="white-space:nowrap">💡 Clique nas caixas para detalhes</span>' : ''}</div>` : ''}
+        </div>
+      </div>
+      ${buildFooter(fx.fonte || undefined)}
+    </div>`);
+  } else {
+    S.push(buildImageSlide(m, "Fluxograma de Transformação", "fluxo", "🔀", "Fluxograma"));
+  }
 
   // ─── 7. MAPA ───
   S.push(buildImageSlide(m, "Mapa de Ocorrências", "mapa", "🗺️", "Mapa"));
 
   return S;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   🔀 FLUXOGRAMAS — Mermaid.js carregado sob demanda (CDN)
+   - Minerais com campo "fluxograma" no JSON são desenhados por código
+   - "notas" (opcional) torna as caixas clicáveis com explicação
+   ════════════════════════════════════════════════════════════════════ */
+let mermaidReady = null;
+function loadMermaid(){
+  if(mermaidReady) return mermaidReady;
+  mermaidReady = new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js';
+    s.onload = () => {
+      window.mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: 'loose',
+        flowchart: { htmlLabels: true, curve: 'linear' },
+        themeVariables: { fontFamily: "'DM Sans', system-ui, sans-serif", fontSize: '14px', lineColor: '#4A4A4A' }
+      });
+      resolve(window.mermaid);
+    };
+    s.onerror = () => { mermaidReady = null; reject(new Error('CDN do Mermaid indisponível')); };
+    document.head.appendChild(s);
+  });
+  return mermaidReady;
+}
+
+async function renderMermaidIn(container){
+  if(!container) return;
+  const holders = container.querySelectorAll('.mermaid-flux[data-def]');
+  if(!holders.length) return;
+  let mermaid;
+  try{ mermaid = await loadMermaid(); }
+  catch(err){
+    console.error('[SNGM] Mermaid não carregou:', err);
+    holders.forEach(el => { el.innerHTML = '<div style="color:var(--light);font-weight:600;padding:30px;text-align:center">⚠️ Fluxograma indisponível (sem acesso ao CDN)</div>'; });
+    return;
+  }
+  for(const el of holders){
+    if(el.dataset.done) continue;
+    try{
+      const def = decodeURIComponent(el.dataset.def);
+      const id = 'flux_' + Math.random().toString(36).slice(2);
+      const { svg } = await mermaid.render(id, def);
+      el.innerHTML = svg;
+      const svgEl = el.querySelector('svg');
+      if(svgEl){
+        svgEl.style.maxWidth = '100%';
+        svgEl.style.width = '100%';
+        svgEl.style.height = '100%';
+        svgEl.style.maxHeight = '100%';
+      }
+      el.dataset.done = '1';
+      bindFluxNotes(el);
+    }catch(err){
+      console.error('[SNGM] Erro ao desenhar fluxograma:', err);
+      el.innerHTML = '<div style="color:var(--light);font-weight:600;padding:30px;text-align:center">⚠️ Erro na definição do fluxograma (ver console)</div>';
+    }
+  }
+}
+
+function bindFluxNotes(holder){
+  if(!holder.dataset.notas) return;
+  let notas;
+  try{ notas = JSON.parse(decodeURIComponent(holder.dataset.notas)); }catch(e){ return; }
+  holder.querySelectorAll('.node').forEach(node => {
+    const id = node.id || '';
+    const key = Object.keys(notas).find(k => id === k || id.includes('-' + k + '-') || id.endsWith('-' + k));
+    if(!key) return;
+    node.style.cursor = 'pointer';
+    node.addEventListener('click', ev => {
+      ev.stopPropagation();
+      showFluxNote(notas[key]);
+    });
+  });
+}
+
+function showFluxNote(texto){
+  closeFluxNote();
+  const wrap = document.createElement('div');
+  wrap.id = 'fluxnote';
+  wrap.style.cssText = 'position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.45);padding:20px';
+  wrap.innerHTML = `<div style="background:#fff;border:2px solid var(--orange);border-radius:12px;max-width:460px;width:100%;padding:20px 22px;box-shadow:0 20px 60px rgba(0,0,0,.35);position:relative">
+    <button onclick="closeFluxNote()" style="position:absolute;top:10px;right:12px;border:none;background:none;font-size:18px;cursor:pointer;color:var(--light);font-weight:700" aria-label="Fechar">✕</button>
+    <div style="font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.7px;color:var(--orange);margin-bottom:8px">💡 Sobre esta etapa</div>
+    <div style="font-size:var(--fs-sm);line-height:1.55;color:var(--dark)">${texto}</div>
+  </div>`;
+  wrap.addEventListener('click', e => { if(e.target === wrap) closeFluxNote(); });
+  wrap.addEventListener('mousedown', e => e.stopPropagation());
+  document.body.appendChild(wrap);
+}
+function closeFluxNote(){
+  const el = document.getElementById('fluxnote');
+  if(el) el.remove();
 }
 
 /* ════════════════════════════════════════════════════════════════════
@@ -483,6 +623,7 @@ function render(){
   renderSidebarMenu();
   injectBg();
   attachImageFallbacks();
+  renderMermaidIn(document.getElementById('sc'));
   const v = document.getElementById('sc');
   if(v) v.scrollTop = 0;
 }
@@ -528,7 +669,7 @@ function toggleSidebar(){
   document.getElementById('sb').classList.contains('open') ? closeSidebar() : openSidebar();
 }
 
-function printPDF(){
+async function printPDF(){
   const pc = document.getElementById('pc');
   pc.innerHTML = H.join('');
   if(!bgPrintCache) bgPrintCache = CONTOUR_BG.generate(1400, 990);
@@ -555,6 +696,7 @@ function printPDF(){
     img.addEventListener('error', apply);
     if(img.complete && img.naturalWidth === 0) apply();
   });
+  await renderMermaidIn(pc);
   setTimeout(() => window.print(), 600);
 }
 
@@ -578,13 +720,13 @@ window.onload = async () => {
   let pressStart = null;
   sc.addEventListener('mousedown', e => {
     // Não inicia "press" se foi no stepper ou em controles internos
-    if(e.target.closest('.slide-stepper, .step-item')) { pressStart = null; return; }
+    if(e.target.closest('.slide-stepper, .step-item, .mermaid-flux')) { pressStart = null; return; }
     pressStart = { x: e.clientX, y: e.clientY, t: Date.now(), scrollTop: sc.scrollTop };
   });
   sc.addEventListener('mouseup', e => {
     if(!pressStart) return;
     // Se o mouseup foi sobre o stepper, ignora também
-    if(e.target.closest('.slide-stepper, .step-item')) { pressStart = null; return; }
+    if(e.target.closest('.slide-stepper, .step-item, .mermaid-flux')) { pressStart = null; return; }
     const dx = Math.abs(e.clientX - pressStart.x);
     const dy = Math.abs(e.clientY - pressStart.y);
     const dt = Date.now() - pressStart.t;
@@ -600,7 +742,7 @@ window.onload = async () => {
   sc.addEventListener('touchstart', e => {
     if(e.touches.length > 1){ tStart = null; return; }
     // Não captura swipe se o toque começou no stepper
-    if(e.target.closest('.slide-stepper, .step-item')){ tStart = null; return; }
+    if(e.target.closest('.slide-stepper, .step-item, .mermaid-flux')){ tStart = null; return; }
     const t = e.touches[0];
     tStart = { x: t.screenX, y: t.screenY, scrollTop: sc.scrollTop };
     isHSwipe = false;
@@ -649,5 +791,5 @@ window.onload = async () => {
 document.addEventListener('keydown', e => {
   if(e.key === 'ArrowRight' || e.key === ' '){ e.preventDefault(); next() }
   if(e.key === 'ArrowLeft') prev();
-  if(e.key === 'Escape') closeSidebar();
+  if(e.key === 'Escape'){ closeFluxNote(); closeSidebar(); }
 });
