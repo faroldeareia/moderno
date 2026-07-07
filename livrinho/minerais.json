@@ -237,6 +237,42 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "MONAZITA / ARGILA IÔNICA",
+          "faixa": "up",
+          "hoje": "Serra Verde (GO)",
+          "m2030": "Novos projetos: Meteoric, Brazilian Rare Earths, Aclara"
+        },
+        {
+          "elo": "CONCENTRADO MREC (CARBONATO MISTO)",
+          "faixa": "mid",
+          "hoje": "Serra Verde — única fora da Ásia p/ 4 elementos de ímãs"
+        },
+        {
+          "elo": "ÓXIDOS SEPARADOS (Nd, Pr, Dy, Tb)",
+          "faixa": "mid",
+          "m2030": "Planta de separação — estudos"
+        },
+        {
+          "elo": "METAIS E LIGAS NdFeB",
+          "faixa": "mid",
+          "pdi": "MagBras (CIT-Senai, LNNano)"
+        },
+        {
+          "elo": "ÍMÃS PERMANENTES",
+          "faixa": "down",
+          "m2030": "MagBras — planta-piloto de ímãs (MG)"
+        },
+        {
+          "elo": "RECUPERAÇÃO",
+          "faixa": "rec",
+          "pdi": "Reciclagem de ímãs — P&D"
+        }
+      ],
+      "fonte": "SNGM — elaborado no modelo IBRAM (criado, validar)"
     }
   },
   {
@@ -471,6 +507,45 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "MINÉRIO",
+          "faixa": "up",
+          "hoje": "Vale (Salobo, Sossego), Ero Brasil",
+          "pdi": "Carajás–Vale, ADIMB, Unicamp, UFMG, UFU, SGB, UnB, UFOP"
+        },
+        {
+          "elo": "CONCENTRADO DE COBRE",
+          "faixa": "up",
+          "hoje": "Vale, Ero (Caraíba)"
+        },
+        {
+          "elo": "ÓXIDOS, HIDRÓXIDOS, CLORETOS E SULFATOS",
+          "faixa": "mid",
+          "hoje": "Paranapanema (único refino primário)",
+          "pdi": "UFOP, Univasf, UFJF, UCS",
+          "m2030": "Novas minas e novas tecnologias de otimização da produção"
+        },
+        {
+          "elo": "PRODUTOS DE COBRE (FOLHAS, FIOS, CHAPAS, PEÇAS)",
+          "faixa": "down",
+          "hoje": "Paranapanema, Termomecanica"
+        },
+        {
+          "elo": "PRECURSORES DE BATERIAS",
+          "faixa": "down"
+        },
+        {
+          "elo": "RECUPERAÇÃO",
+          "faixa": "rec",
+          "hoje": "Sucata: ~40% do consumo nacional",
+          "m2030": "Bloquetes"
+        }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original — validar.",
+      "fonte": "IBRAM — Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   },
   {
@@ -716,6 +791,46 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "ESPODUMÊNIO (CONCENTRADO)",
+          "faixa": "up",
+          "hoje": "Sigma Lithium, CBL, AMG 🇧🇷"
+        },
+        {
+          "elo": "CARBONATO DE LÍTIO",
+          "faixa": "mid",
+          "hoje": "CBL (Divisa Alegre-MG) 🇧🇷",
+          "m2030": "Dobrar a capacidade de produção de carbonato",
+          "pdi": "Laboratórios CBL"
+        },
+        {
+          "elo": "HIDRÓXIDO DE LÍTIO",
+          "faixa": "mid",
+          "hoje": "AMG — conversão na Alemanha 🇩🇪",
+          "m2050": "Conversão química no Brasil"
+        },
+        {
+          "elo": "ISÓTOPOS DE LÍTIO (Li-6 E Li-7)",
+          "faixa": "mid"
+        },
+        {
+          "elo": "CÉLULAS E PRECURSORES DE BATERIAS",
+          "faixa": "down"
+        },
+        {
+          "elo": "VEÍCULO ELÉTRICO",
+          "faixa": "down"
+        },
+        {
+          "elo": "RECUPERAÇÃO",
+          "faixa": "rec"
+        }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original — validar.",
+      "fonte": "IBRAM — Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   },
   {
@@ -952,6 +1067,42 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "MINÉRIO DE URÂNIO",
+          "faixa": "up",
+          "hoje": "INB (Caetité-BA)",
+          "m2030": "Expansão Caetité + Santa Quitéria (INB/Galvani)"
+        },
+        {
+          "elo": "YELLOWCAKE (U₃O₈)",
+          "faixa": "mid",
+          "hoje": "INB"
+        },
+        {
+          "elo": "CONVERSÃO (UF₆)",
+          "faixa": "mid",
+          "m2050": "Planta nacional de conversão — ambição do setor"
+        },
+        {
+          "elo": "ENRIQUECIMENTO (U-235)",
+          "faixa": "mid",
+          "hoje": "INB Resende — parcial (ultracentrífugas nacionais)",
+          "m2030": "Ampliação das cascatas de enriquecimento"
+        },
+        {
+          "elo": "COMBUSTÍVEL (PASTILHAS E ELEMENTOS)",
+          "faixa": "down",
+          "hoje": "INB Resende — abastece Angra 1 e 2"
+        },
+        {
+          "elo": "RECUPERAÇÃO",
+          "faixa": "rec"
+        }
+      ],
+      "fonte": "SNGM — elaborado no modelo IBRAM (criado, validar)"
     }
   },
   {
@@ -1195,6 +1346,44 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "MINÉRIO",
+          "faixa": "up",
+          "hoje": "Atlantic Nickel (BA), Anglo American (GO), Vale (Onça Puma-PA)",
+          "m2030": "Expansão da mina"
+        },
+        {
+          "elo": "FERRONÍQUEL",
+          "faixa": "mid",
+          "hoje": "Anglo American, Vale",
+          "m2030": "Substituição de carvão por biomassa; escória como coproduto (BlueStone, pavimentação)"
+        },
+        {
+          "elo": "ÓXIDOS, HIDRÓXIDOS, CLORETOS E SULFATOS",
+          "faixa": "mid",
+          "hoje": "Concentrado sulfetado exportado — offtake 🇨🇦/🇬🇧",
+          "m2030": "Parcerias 🇦🇺",
+          "m2050": "Rota sulfato 🇮🇩?"
+        },
+        {
+          "elo": "PRODUTOS DE NÍQUEL (MATES, CATODOS, LIGAS, PÓS)",
+          "faixa": "down"
+        },
+        {
+          "elo": "PRECURSORES DE BATERIAS",
+          "faixa": "down"
+        },
+        {
+          "elo": "RECUPERAÇÃO",
+          "faixa": "rec",
+          "m2030": "Briquetes"
+        }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original — validar.",
+      "fonte": "IBRAM — Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   },
   {
@@ -1439,6 +1628,45 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "EXTRAÇÃO (GRAFITA NATURAL EM PÓ OU ESCAMAS)",
+          "faixa": "up",
+          "hoje": "Nacional de Grafite, Graphcoa"
+        },
+        {
+          "elo": "CONCENTRADO DE GRAFITA",
+          "faixa": "up",
+          "hoje": "Nacional de Grafite"
+        },
+        {
+          "elo": "GRAFITE DE ALTA PUREZA",
+          "faixa": "mid",
+          "hoje": "Nacional de Grafite (expansível, micronizado)"
+        },
+        {
+          "elo": "GRAFITE ESFÉRICO",
+          "faixa": "mid"
+        },
+        {
+          "elo": "GRAFENO E NANOPARTÍCULAS (GRAFITE ESFOLIADO)",
+          "faixa": "mid",
+          "pdi": "UFMG / CTNano"
+        },
+        {
+          "elo": "ELETRODOS, LUBRIFICANTES, PASTILHAS DE FREIO, PILHAS",
+          "faixa": "down",
+          "hoje": "Indústria nacional diversa"
+        },
+        {
+          "elo": "PRECURSORES DE BATERIAS",
+          "faixa": "down"
+        }
+      ],
+      "obs": "Cadeia condensada dos 13 elos do original IBRAM. Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original — validar.",
+      "fonte": "IBRAM — Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   },
   {
@@ -1678,6 +1906,40 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "MINÉRIO",
+          "faixa": "up",
+          "m2030": "Brazilian Nickel (PNP-PI) — offtake assinado 🇧🇷/🇺🇸"
+        },
+        {
+          "elo": "CONCENTRADO DE NÍQUEL-COBALTO (MHP)",
+          "faixa": "mid",
+          "m2030": "Produção de MHP prevista para 2029 (Piauí Níquel)"
+        },
+        {
+          "elo": "ÓXIDOS, HIDRÓXIDOS, CLORETOS, PÓS, MATES",
+          "faixa": "mid"
+        },
+        {
+          "elo": "CHAPAS, FOLHAS, TIRAS, FIOS E PASTILHAS DE COBALTO",
+          "faixa": "down"
+        },
+        {
+          "elo": "PRECURSORES DE BATERIAS",
+          "faixa": "down",
+          "m2050": "Ambição: precursores no Brasil"
+        },
+        {
+          "elo": "RECUPERAÇÃO",
+          "faixa": "rec",
+          "pdi": "LAREX/USP — recuperação de Co de catalisadores exauridos"
+        }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original — validar.",
+      "fonte": "IBRAM — Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   },
   {
@@ -1919,6 +2181,40 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "MINÉRIO (CASSITERITA)",
+          "faixa": "up",
+          "hoje": "Taboca (Pitinga-AM), cooperativas RO"
+        },
+        {
+          "elo": "CONCENTRADO DE CASSITERITA",
+          "faixa": "up",
+          "hoje": "Taboca"
+        },
+        {
+          "elo": "REFINO — LINGOTE",
+          "faixa": "mid",
+          "hoje": "Taboca (estanho metálico), ERSA"
+        },
+        {
+          "elo": "FERROLIGAS",
+          "faixa": "mid"
+        },
+        {
+          "elo": "PRODUTOS — FOLHA DE FLANDRES E SOLDAS",
+          "faixa": "down",
+          "hoje": "White Solder, CSN (flandres)"
+        },
+        {
+          "elo": "RECUPERAÇÃO",
+          "faixa": "rec"
+        }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original — validar.",
+      "fonte": "IBRAM — Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   },
   {
@@ -2117,6 +2413,42 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "PIROCLORO",
+          "faixa": "up",
+          "hoje": "CBMM (Araxá), CMOC (Catalão)",
+          "pdi": "Laboratórios CBMM"
+        },
+        {
+          "elo": "ÓXIDOS Nb₂O₅",
+          "faixa": "mid",
+          "hoje": "CBMM",
+          "pdi": "Laboratórios CBMM",
+          "m2030": "Anodos metálicos inertes (MOE) para aço verde"
+        },
+        {
+          "elo": "LIGA FERRO-NIÓBIO (FeNb)",
+          "faixa": "mid",
+          "hoje": "CBMM, CMOC"
+        },
+        {
+          "elo": "MATERIAIS (NANOCRISTALINOS, LIGAS ESPECIAIS)",
+          "faixa": "down",
+          "hoje": "CBMM",
+          "pdi": "Laboratórios CBMM"
+        },
+        {
+          "elo": "COMPONENTES PARA BATERIAS E VEÍCULOS",
+          "faixa": "down",
+          "m2030": "Aumento de 40% na produção de nióbio para bateria",
+          "m2050": "Aumento de 25% da receita com matérias-primas para bateria"
+        }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original — validar.",
+      "fonte": "IBRAM — Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   },
   {
@@ -2344,6 +2676,45 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "EXTRAÇÃO",
+          "faixa": "up",
+          "hoje": "LHG Mining (Urucum-MS), Buritirama (PA)",
+          "m2030": "Ramp-up para 1 milhão de toneladas"
+        },
+        {
+          "elo": "GRANULADO DE MANGANÊS",
+          "faixa": "up",
+          "hoje": "LHG Mining"
+        },
+        {
+          "elo": "CARBONATO DE MANGANÊS",
+          "faixa": "mid"
+        },
+        {
+          "elo": "FERROLIGAS (FeMn / SiMn)",
+          "faixa": "mid",
+          "hoje": "Ferroligas nacionais (MG/BA)"
+        },
+        {
+          "elo": "FERTILIZANTES",
+          "faixa": "down",
+          "hoje": "Micronutrientes — indústria nacional"
+        },
+        {
+          "elo": "PRECURSORES PARA BATERIAS (HPMSM)",
+          "faixa": "down"
+        },
+        {
+          "elo": "RECUPERAÇÃO",
+          "faixa": "rec"
+        }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original — validar.",
+      "fonte": "IBRAM — Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   },
   {
@@ -2562,6 +2933,36 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "EXTRAÇÃO — TANTALITA-COLUMBITA",
+          "faixa": "up",
+          "hoje": "AMG (Mibra-MG), Taboca (Pitinga-AM)",
+          "m2030": "Ramp-up; JV JX Nippon–AMG"
+        },
+        {
+          "elo": "QUÍMICOS E CONCENTRADOS",
+          "faixa": "mid",
+          "hoje": "AMG Brasil"
+        },
+        {
+          "elo": "METALURGIA E SIDERURGIA",
+          "faixa": "mid"
+        },
+        {
+          "elo": "PRODUTOS (CAPACITORES, PÓS, LIGAS)",
+          "faixa": "down"
+        },
+        {
+          "elo": "RECUPERAÇÃO",
+          "faixa": "rec",
+          "pdi": "Boston Metal — recuperação de metais de rejeitos (MG)"
+        }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original — validar.",
+      "fonte": "IBRAM — Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   },
   {
@@ -2787,6 +3188,42 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "MINÉRIO",
+          "faixa": "up",
+          "hoje": "Nexa (Vazante-MG, Aripuanã-MT)",
+          "m2030": "Redução de 20% das emissões em 2030 e neutralidade em 2040"
+        },
+        {
+          "elo": "SULFETOS, ÓXIDOS, CLORETOS",
+          "faixa": "mid",
+          "hoje": "Nexa"
+        },
+        {
+          "elo": "ZINCO SPECIAL HIGH GRADE (SHG)",
+          "faixa": "mid",
+          "hoje": "Nexa (Três Marias, Juiz de Fora)"
+        },
+        {
+          "elo": "LIGAS (CGG, ZAMAC)",
+          "faixa": "down",
+          "hoje": "Nexa e transformadores nacionais"
+        },
+        {
+          "elo": "PILHAS E BATERIAS",
+          "faixa": "down"
+        },
+        {
+          "elo": "RECUPERAÇÃO",
+          "faixa": "rec",
+          "hoje": "Reciclagem de pó de aciaria (Juiz de Fora)"
+        }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original — validar.",
+      "fonte": "IBRAM — Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   },
   {
@@ -3008,6 +3445,41 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "EXTRAÇÃO — ILMENITA",
+          "faixa": "up",
+          "hoje": "Largo (Maracás-BA), INB (Buena-RJ)",
+          "m2030": "Ramp-up; ampliação da produção (complexo Ti-V na BA)"
+        },
+        {
+          "elo": "AREIAS (MINERAIS PESADOS)",
+          "faixa": "up",
+          "hoje": "INB (Buena-RJ)"
+        },
+        {
+          "elo": "DIÓXIDO DE TITÂNIO (TiO₂)",
+          "faixa": "mid",
+          "hoje": "Tronox (Camaçari-BA)"
+        },
+        {
+          "elo": "METALURGIA (Ti METÁLICO)",
+          "faixa": "mid"
+        },
+        {
+          "elo": "PIGMENTOS, COSMÉTICOS, CERÂMICAS",
+          "faixa": "down",
+          "hoje": "Indústria nacional de tintas e cerâmicas"
+        },
+        {
+          "elo": "RECUPERAÇÃO",
+          "faixa": "rec"
+        }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original — validar.",
+      "fonte": "IBRAM — Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   },
   {
@@ -3225,6 +3697,34 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "EXTRAÇÃO",
+          "faixa": "up",
+          "m2030": "Ampliação de reserva; Projeto Luanga (Bravo Mining-PA) — início previsto 2027"
+        },
+        {
+          "elo": "CONCENTRADO PGM + Au + Ni",
+          "faixa": "mid"
+        },
+        {
+          "elo": "METALURGIA E REFINO",
+          "faixa": "mid"
+        },
+        {
+          "elo": "CATALISADORES AUTOMOTIVOS, ELETRODOS E OUTROS",
+          "faixa": "down"
+        },
+        {
+          "elo": "RECUPERAÇÃO",
+          "faixa": "rec",
+          "hoje": "Reciclagem de catalisadores automotivos"
+        }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original — validar.",
+      "fonte": "IBRAM — Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   },
   {
@@ -3480,6 +3980,44 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "EXTRAÇÃO (SILVINITA)",
+          "faixa": "up",
+          "hoje": "Mosaic (Taquari-Vassouras-SE)",
+          "m2030": "Autazes: suprimento de ~17% da demanda brasileira",
+          "m2050": "Aumento da produção entre 30 e 50%"
+        },
+        {
+          "elo": "CONCENTRADO",
+          "faixa": "up",
+          "hoje": "Mosaic"
+        },
+        {
+          "elo": "CLORETO DE POTÁSSIO (MOP)",
+          "faixa": "mid",
+          "hoje": "Mosaic",
+          "m2030": "Redução de 30% das emissões GEE (energia eólica)"
+        },
+        {
+          "elo": "HIDRÓXIDO, FLUORETO, CARBONATO, NITRATO DE K",
+          "faixa": "mid",
+          "m2050": "Antecipação de meta de descarbonização para 2040"
+        },
+        {
+          "elo": "FERTILIZANTES",
+          "faixa": "down",
+          "hoje": "Misturadoras nacionais (blends NPK)"
+        },
+        {
+          "elo": "RECUPERAÇÃO",
+          "faixa": "rec"
+        }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original — validar.",
+      "fonte": "IBRAM — Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   },
   {
@@ -3745,6 +4283,42 @@
         }
       ],
       "fonte": "SNGM — rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        {
+          "elo": "ROCHA FOSFÁTICA",
+          "faixa": "up",
+          "hoje": "Mosaic (Tapira, Catalão, Araxá), EuroChem (Salitre), Itafos, Galvani"
+        },
+        {
+          "elo": "CONCENTRADO (30–35% P₂O₅)",
+          "faixa": "up",
+          "hoje": "Mosaic, EuroChem"
+        },
+        {
+          "elo": "ÁCIDO FOSFÓRICO",
+          "faixa": "mid",
+          "hoje": "Mosaic (Uberaba), EuroChem",
+          "m2030": "PNF 2050: reduzir a dependência externa de fosfatados"
+        },
+        {
+          "elo": "FERTILIZANTES (MAP / DAP / SSP)",
+          "faixa": "down",
+          "hoje": "Mosaic, EuroChem, Itafos, Galvani"
+        },
+        {
+          "elo": "ÁCIDO PURIFICADO (PPA) → LFP",
+          "faixa": "mid",
+          "pdi": "Rota LFP — estudos"
+        },
+        {
+          "elo": "RECUPERAÇÃO",
+          "faixa": "rec",
+          "m2050": "Sinergia fosfato-urânio (Santa Quitéria)"
+        }
+      ],
+      "fonte": "SNGM — elaborado no modelo IBRAM (criado, validar)"
     }
   }
 ]
