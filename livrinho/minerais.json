@@ -6,63 +6,237 @@
     "visaoGeral": {
       "usos": "Essenciais para ímãs permanentes de alto desempenho usados em motores de veículos elétricos e turbinas eólicas, sendo estratégicos para a tecnologia de ponta.",
       "destaque": "<strong>Projeto Serra Verde — GO:</strong> Já em produção, é a única produtora em escala, fora da Ásia, dos quatro elementos críticos para ímãs (Nd, Pr, Tb, Dy), posicionando o Brasil como parceiro estratégico para diversificar a cadeia global.",
-      "posicaoBR": { "reserva": "2º lugar", "producao": "Muito baixa" },
+      "posicaoBR": {
+        "reserva": "2º lugar",
+        "producao": "Muito baixa"
+      },
       "estadosRes": "GO, MG, AM, BA",
       "estadosProd": "GO",
-      "gapProd": { "br": 1, "leader": 69, "leaderName": "China" },
-      "gapRes": { "br": 23, "leader": 48, "leaderName": "China" },
-      "gapTransf": { "br": 0, "leader": 91, "leaderName": "China" }
+      "gapProd": {
+        "br": 1,
+        "leader": 69,
+        "leaderName": "China"
+      },
+      "gapRes": {
+        "br": 23,
+        "leader": 48,
+        "leaderName": "China"
+      },
+      "gapTransf": {
+        "br": 0,
+        "leader": 91,
+        "leaderName": "China"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "China", "val": 69 },
-        { "label": "EUA", "val": 13 },
-        { "label": "Austrália", "val": 7 },
-        { "label": "Myanmar", "val": 6 },
-        { "label": "Outros", "val": 5 }
+        {
+          "label": "China",
+          "val": 69
+        },
+        {
+          "label": "EUA",
+          "val": 13
+        },
+        {
+          "label": "Austrália",
+          "val": 7
+        },
+        {
+          "label": "Myanmar",
+          "val": 6
+        },
+        {
+          "label": "Outros",
+          "val": 5
+        }
       ],
       "pieRes": [
-        { "label": "China", "val": 48 },
-        { "label": "Brasil", "val": 23 },
-        { "label": "Índia", "val": 8 },
-        { "label": "Austrália", "val": 6 },
-        { "label": "Outros", "val": 15 }
+        {
+          "label": "China",
+          "val": 48
+        },
+        {
+          "label": "Brasil",
+          "val": 23
+        },
+        {
+          "label": "Índia",
+          "val": 8
+        },
+        {
+          "label": "Austrália",
+          "val": 6
+        },
+        {
+          "label": "Outros",
+          "val": 15
+        }
       ],
       "barTransf": [
-        { "label": "China", "val": 91 },
-        { "label": "Malásia", "val": 5 },
-        { "label": "EUA", "val": 1 },
-        { "label": "Brasil", "val": 0 }
+        {
+          "label": "China",
+          "val": 91
+        },
+        {
+          "label": "Malásia",
+          "val": 5
+        },
+        {
+          "label": "EUA",
+          "val": 1
+        },
+        {
+          "label": "Brasil",
+          "val": 0
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        },
+        {
+          "etapa": "Transformação",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Northern RE", "opera": "China, Myanmar" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Rare Earth Group", "opera": "China" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "MP Materials", "opera": "EUA" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Lynas Rare Earth", "opera": "Austrália" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Serra Verde", "opera": "Brasil*" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "China Northern RE",
+          "opera": "China, Myanmar"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "China Rare Earth Group",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "MP Materials",
+          "opera": "EUA"
+        },
+        {
+          "bandeira": "🇦🇺",
+          "pais": "Austrália",
+          "emp": "Lynas Rare Earth",
+          "opera": "Austrália"
+        },
+        {
+          "bandeira": "🇧🇷",
+          "pais": "Brasil",
+          "emp": "Serra Verde",
+          "opera": "Brasil*"
+        }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Northern RE", "opera": "China" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Shenghe Resources", "opera": "China" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Lynas", "opera": "Canadá, Malásia" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Neo Performance", "opera": "Estônia" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "MP Materials", "opera": "Refino" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "China Northern RE",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Shenghe Resources",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇦🇺",
+          "pais": "Austrália",
+          "emp": "Lynas",
+          "opera": "Canadá, Malásia"
+        },
+        {
+          "bandeira": "🇨🇦",
+          "pais": "Canadá",
+          "emp": "Neo Performance",
+          "opera": "Estônia"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "MP Materials",
+          "opera": "Refino"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Northern RE", "opera": "Ímãs" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Shin-Etsu Chemical", "opera": "Ímãs" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Proterial (ex-Hitachi)", "opera": "Ímãs" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "VACUUMSCHMELZE", "opera": "Ímãs" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "MP Materials", "opera": "Ímãs" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "China Northern RE",
+          "opera": "Ímãs"
+        },
+        {
+          "bandeira": "🇯🇵",
+          "pais": "Japão",
+          "emp": "Shin-Etsu Chemical",
+          "opera": "Ímãs"
+        },
+        {
+          "bandeira": "🇯🇵",
+          "pais": "Japão",
+          "emp": "Proterial (ex-Hitachi)",
+          "opera": "Ímãs"
+        },
+        {
+          "bandeira": "🇩🇪",
+          "pais": "Alemanha",
+          "emp": "VACUUMSCHMELZE",
+          "opera": "Ímãs"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "MP Materials",
+          "opera": "Ímãs"
+        }
       ],
       "analise": "<strong>Internacional:</strong> China controla o refino (>90%). Dependência crítica do Ocidente, que busca criar suas próprias cadeias de refino.<br><br><strong>Brasil:</strong> 2ª maior reserva mundial, mas com produção incipiente. Iniciativa MagBras busca iniciar cadeia de ímãs.<br><br><strong>Gargalo:</strong> Ausência de capacidade de refino e manufatura.<br><strong>Vantagem:</strong> 2ª maior reserva global, incluindo argilas iônicas, de baixo custo de exploração."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  mon[\"Minério: Monazita /<br/>Bastnasita\"]:::minerio\n  benef[\"Beneficiamento<br/>Físico\"]:::comum\n  crack[\"Ataque Ácido /<br/>Cracking\"]:::transf\n  argila[\"Minério:<br/>Argila Iônica\"]:::minerio\n  lix[\"Lixiviação: Sulfato<br/>de Amônio\"]:::transf\n  mrec[\"Transformação 1:<br/>CARBONATO de ETR — MREC\"]:::transf\n  cloreto[\"Transformação 2:<br/>CLORETO de ETR Misto\"]:::transf\n  sx[\"Refinaria: Separação<br/>por Solventes — SX\"]:::transf\n  precNd[\"Precipitação:<br/>Oxalato / Hidróxido\"]:::transf\n  oxNd[\"Calcinação: ÓXIDOS<br/>Separados NdPr\"]:::ima\n  metNd[\"Eletrólise: METAIS<br/>de Terras Raras\"]:::ima\n  liga[\"Fundição:<br/>LIGAS NdFeB\"]:::ima\n  imas[\"Sinterização: ÍMÃS<br/>PERMANENTES\"]:::ima\n  precGd[\"Precipitação:<br/>Hidróxido Gd/Sm\"]:::transf\n  oxGd[\"Calcinação: ÓXIDOS<br/>Separados Gd/Sm\"]:::nuc\n  metGd[\"Metalurgia: METAIS<br/>de Alta Pureza\"]:::nuc\n  barras[\"Barras de<br/>Controle Nuclear\"]:::nuc\n  lace[\"Rota do Lantânio<br/>e Cério\"]:::comum\n  vidros[\"Óxidos para Vidros<br/>e Catalisadores\"]:::comum\n\n  mon --> benef --> crack --> mrec\n  argila --> lix --> mrec\n  mrec -->|Dissolução Ácida| cloreto --> sx\n  sx -->|Rota NdPrDyTb| precNd --> oxNd --> metNd --> liga --> imas\n  sx -->|Rota Gd/Sm| precGd --> oxGd --> metGd --> barras\n  sx -.->|Sobra La/Ce| lace -.-> vidros\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef ima fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef nuc fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "lix": "Rota das argilas iônicas — o caso da Serra Verde (GO): lixiviação direta com sulfato de amônio, sem ataque ácido agressivo. Custo e impacto ambiental menores que a rota de rocha dura (monazita/bastnasita).",
+        "mrec": "Carbonato misto de terras raras (MREC): primeiro produto químico negociável da cadeia — é o que o Brasil produz e exporta hoje, ainda sem separação dos elementos.",
+        "sx": "Separação por solventes (SX): centenas de estágios de extração líquido-líquido para isolar elementos quimicamente quase idênticos. É o gargalo tecnológico que a China domina (>90% da capacidade global).",
+        "imas": "Ímãs NdFeB sinterizados: o produto de maior valor agregado da cadeia. Um veículo elétrico usa ~1–2 kg; turbinas eólicas offshore, centenas de kg por MW. Alvo da iniciativa MagBras.",
+        "barras": "Gadolínio e samário de alta pureza têm alta seção de captura de nêutrons — aplicados em barras de controle e venenos queimáveis de reatores nucleares."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#C9C6F4",
+          "label": "Rota ímãs (downstream)"
+        },
+        {
+          "cor": "#BDEFC0",
+          "label": "Rota nuclear"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação"
     }
   },
   {
@@ -72,61 +246,205 @@
     "visaoGeral": {
       "usos": "Metal-chave da descarbonização, indispensável para eletrificação (VEs, carregadores, turbinas eólicas), construção civil e ligas metálicas.",
       "destaque": "<strong>Mina Salobo (Vale) — PA:</strong> Maior jazida de cobre do Brasil. Expansão contínua (Salobo 3). Vale investe US$ 290 mi no Projeto Bacaba.",
-      "posicaoBR": { "reserva": "Fora Top 10", "producao": "Fora Top 10" },
+      "posicaoBR": {
+        "reserva": "Fora Top 10",
+        "producao": "Fora Top 10"
+      },
       "estadosRes": "PA, GO, BA, MT, AL",
       "estadosProd": "PA, GO, BA, AL, MT",
-      "gapProd": { "br": 2, "leader": 23, "leaderName": "Chile" },
-      "gapRes": { "br": 3, "leader": 18, "leaderName": "Chile" },
-      "gapTransf": { "br": 1, "leader": 44, "leaderName": "China" }
+      "gapProd": {
+        "br": 2,
+        "leader": 23,
+        "leaderName": "Chile"
+      },
+      "gapRes": {
+        "br": 3,
+        "leader": 18,
+        "leaderName": "Chile"
+      },
+      "gapTransf": {
+        "br": 1,
+        "leader": 44,
+        "leaderName": "China"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "Chile", "val": 23 },
-        { "label": "R.D. Congo", "val": 14 },
-        { "label": "Peru", "val": 12 },
-        { "label": "China", "val": 8 },
-        { "label": "Outros", "val": 43 }
+        {
+          "label": "Chile",
+          "val": 23
+        },
+        {
+          "label": "R.D. Congo",
+          "val": 14
+        },
+        {
+          "label": "Peru",
+          "val": 12
+        },
+        {
+          "label": "China",
+          "val": 8
+        },
+        {
+          "label": "Outros",
+          "val": 43
+        }
       ],
       "pieRes": [
-        { "label": "Chile", "val": 18 },
-        { "label": "Austrália", "val": 10 },
-        { "label": "Peru", "val": 8 },
-        { "label": "R.D. Congo", "val": 7 },
-        { "label": "Outros", "val": 57 }
+        {
+          "label": "Chile",
+          "val": 18
+        },
+        {
+          "label": "Austrália",
+          "val": 10
+        },
+        {
+          "label": "Peru",
+          "val": 8
+        },
+        {
+          "label": "R.D. Congo",
+          "val": 7
+        },
+        {
+          "label": "Outros",
+          "val": 57
+        }
       ],
       "barTransf": [
-        { "label": "China", "val": 44 },
-        { "label": "RDC", "val": 11 },
-        { "label": "Chile", "val": 7 },
-        { "label": "Brasil", "val": 1 }
+        {
+          "label": "China",
+          "val": 44
+        },
+        {
+          "label": "RDC",
+          "val": 11
+        },
+        {
+          "label": "Chile",
+          "val": 7
+        },
+        {
+          "label": "Brasil",
+          "val": 1
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇨🇱", "pais": "Chile" },
-        { "etapa": "Produção", "bandeira": "🇨🇱", "pais": "Chile" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇨🇱",
+          "pais": "Chile"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇨🇱",
+          "pais": "Chile"
+        },
+        {
+          "etapa": "Transformação",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Freeport-McMoRan", "opera": "Indonésia, Peru, EUA" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP", "opera": "Chile, Peru, Austrália" },
-        { "bandeira": "🇨🇱", "pais": "Chile", "emp": "Codelco", "opera": "Chile" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Zijin Mining", "opera": "Congo, Sérvia" },
-        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Congo, Austrália, Chile" }
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Freeport-McMoRan",
+          "opera": "Indonésia, Peru, EUA"
+        },
+        {
+          "bandeira": "🇦🇺",
+          "pais": "Austrália",
+          "emp": "BHP",
+          "opera": "Chile, Peru, Austrália"
+        },
+        {
+          "bandeira": "🇨🇱",
+          "pais": "Chile",
+          "emp": "Codelco",
+          "opera": "Chile"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Zijin Mining",
+          "opera": "Congo, Sérvia"
+        },
+        {
+          "bandeira": "🇨🇭",
+          "pais": "Suíça",
+          "emp": "Glencore",
+          "opera": "Congo, Austrália, Chile"
+        }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Jiangxi Copper", "opera": "China" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tongling Nonferrous", "opera": "China" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Aurubis AG", "opera": "Alemanha" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Freeport-McMoRan", "opera": "EUA" },
-        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Global" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Jiangxi Copper",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Tongling Nonferrous",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇩🇪",
+          "pais": "Alemanha",
+          "emp": "Aurubis AG",
+          "opera": "Alemanha"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Freeport-McMoRan",
+          "opera": "EUA"
+        },
+        {
+          "bandeira": "🇨🇭",
+          "pais": "Suíça",
+          "emp": "Glencore",
+          "opera": "Global"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇮🇹", "pais": "Itália", "emp": "Prysmian", "opera": "Cabos" },
-        { "bandeira": "🇫🇷", "pais": "França", "emp": "Nexans", "opera": "Cabos" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Southwire", "opera": "Cabos" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Sumitomo Electric", "opera": "Manufatura" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "KME Germany", "opera": "Manufatura" }
+        {
+          "bandeira": "🇮🇹",
+          "pais": "Itália",
+          "emp": "Prysmian",
+          "opera": "Cabos"
+        },
+        {
+          "bandeira": "🇫🇷",
+          "pais": "França",
+          "emp": "Nexans",
+          "opera": "Cabos"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Southwire",
+          "opera": "Cabos"
+        },
+        {
+          "bandeira": "🇯🇵",
+          "pais": "Japão",
+          "emp": "Sumitomo Electric",
+          "opera": "Manufatura"
+        },
+        {
+          "bandeira": "🇩🇪",
+          "pais": "Alemanha",
+          "emp": "KME Germany",
+          "opera": "Manufatura"
+        }
       ],
       "analise": "<strong>Internacional:</strong> Extração liderada por Chile, RDC e Peru; China domina >40% do refino mundial.<br><br><strong>Brasil:</strong> Extração relevante (Vale, EroBrasil), gargalo no refino com apenas Paranapanema processando Cu primário.<br><br><strong>Gargalo:</strong> Capacidade de refino concentrada em uma empresa.<br><strong>Vantagem:</strong> Geologia favorável — minério de Cu + Au + ETR."
     }
@@ -138,62 +456,211 @@
     "visaoGeral": {
       "usos": "Matéria-prima central para veículos elétricos: bloco de construção fundamental das baterias de íon-lítio.",
       "destaque": "<strong>Sigma Lithium (Grota do Cirilo) — MG:</strong> Capital canadense, explora o Vale do Jequitinhonha com lítio 'verde' de alta pureza e processos sustentáveis.",
-      "posicaoBR": { "reserva": "6º lugar", "producao": "6º lugar" },
+      "posicaoBR": {
+        "reserva": "6º lugar",
+        "producao": "6º lugar"
+      },
       "estadosRes": "MG, CE, PE, RN",
       "estadosProd": "MG",
-      "gapProd": { "br": 4, "leader": 32, "leaderName": "Austrália" },
-      "gapRes": { "br": 1.5, "leader": 25, "leaderName": "Chile" },
-      "gapTransf": { "br": 0, "leader": 70, "leaderName": "China" }
+      "gapProd": {
+        "br": 4,
+        "leader": 32,
+        "leaderName": "Austrália"
+      },
+      "gapRes": {
+        "br": 1.5,
+        "leader": 25,
+        "leaderName": "Chile"
+      },
+      "gapTransf": {
+        "br": 0,
+        "leader": 70,
+        "leaderName": "China"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "Austrália", "val": 32 },
-        { "label": "China", "val": 22 },
-        { "label": "Chile", "val": 19 },
-        { "label": "Zimbábue", "val": 7 },
-        { "label": "Outros", "val": 20 }
+        {
+          "label": "Austrália",
+          "val": 32
+        },
+        {
+          "label": "China",
+          "val": 22
+        },
+        {
+          "label": "Chile",
+          "val": 19
+        },
+        {
+          "label": "Zimbábue",
+          "val": 7
+        },
+        {
+          "label": "Outros",
+          "val": 20
+        }
       ],
       "pieRes": [
-        { "label": "Chile", "val": 25 },
-        { "label": "Austrália", "val": 22 },
-        { "label": "China", "val": 13 },
-        { "label": "Argentina", "val": 13 },
-        { "label": "Outros", "val": 27 }
+        {
+          "label": "Chile",
+          "val": 25
+        },
+        {
+          "label": "Austrália",
+          "val": 22
+        },
+        {
+          "label": "China",
+          "val": 13
+        },
+        {
+          "label": "Argentina",
+          "val": 13
+        },
+        {
+          "label": "Outros",
+          "val": 27
+        }
       ],
       "barTransf": [
-        { "label": "China", "val": 70 },
-        { "label": "Chile", "val": 20 },
-        { "label": "Argentina", "val": 6 },
-        { "label": "Brasil", "val": 0 }
+        {
+          "label": "China",
+          "val": 70
+        },
+        {
+          "label": "Chile",
+          "val": 20
+        },
+        {
+          "label": "Argentina",
+          "val": 6
+        },
+        {
+          "label": "Brasil",
+          "val": 0
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇨🇱", "pais": "Chile" },
-        { "etapa": "Produção", "bandeira": "🇦🇺", "pais": "Austrália" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇨🇱",
+          "pais": "Chile"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇦🇺",
+          "pais": "Austrália"
+        },
+        {
+          "etapa": "Transformação",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Albemarle", "opera": "EUA, Chile, Austrália" },
-        { "bandeira": "🇨🇱", "pais": "Chile", "emp": "SQM", "opera": "Chile, Austrália" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Ganfeng Lithium", "opera": "China, Argentina" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tianqi Lithium", "opera": "Austrália, Chile" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Pilbara Minerals", "opera": "Austrália" }
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Albemarle",
+          "opera": "EUA, Chile, Austrália"
+        },
+        {
+          "bandeira": "🇨🇱",
+          "pais": "Chile",
+          "emp": "SQM",
+          "opera": "Chile, Austrália"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Ganfeng Lithium",
+          "opera": "China, Argentina"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Tianqi Lithium",
+          "opera": "Austrália, Chile"
+        },
+        {
+          "bandeira": "🇦🇺",
+          "pais": "Austrália",
+          "emp": "Pilbara Minerals",
+          "opera": "Austrália"
+        }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Ganfeng Lithium", "opera": "China" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tianqi Lithium", "opera": "China" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Albemarle", "opera": "EUA" },
-        { "bandeira": "🇨🇱", "pais": "Chile", "emp": "SQM", "opera": "Chile" },
-        { "bandeira": "🇬🇧", "pais": "Reino Unido/Austrália", "emp": "Rio Tinto (Arcadium)", "opera": "Argentina, EUA, China" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Ganfeng Lithium",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Tianqi Lithium",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Albemarle",
+          "opera": "EUA"
+        },
+        {
+          "bandeira": "🇨🇱",
+          "pais": "Chile",
+          "emp": "SQM",
+          "opera": "Chile"
+        },
+        {
+          "bandeira": "🇬🇧",
+          "pais": "Reino Unido/Austrália",
+          "emp": "Rio Tinto (Arcadium)",
+          "opera": "Argentina, EUA, China"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias e VEs" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Tesla", "opera": "Baterias e VEs" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "LG Energy Solution", "opera": "Baterias" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Panasonic", "opera": "Baterias" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Volkswagen Group", "opera": "VEs" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "CATL",
+          "opera": "Baterias"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "BYD",
+          "opera": "Baterias e VEs"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Tesla",
+          "opera": "Baterias e VEs"
+        },
+        {
+          "bandeira": "🇰🇷",
+          "pais": "Coreia do Sul",
+          "emp": "LG Energy Solution",
+          "opera": "Baterias"
+        },
+        {
+          "bandeira": "🇯🇵",
+          "pais": "Japão",
+          "emp": "Panasonic",
+          "opera": "Baterias"
+        },
+        {
+          "bandeira": "🇩🇪",
+          "pais": "Alemanha",
+          "emp": "Volkswagen Group",
+          "opera": "VEs"
+        }
       ],
       "analise": "<strong>Internacional:</strong> Produção dividida (Austrália, Chile), China domina processamento (~65%).<br><br><strong>Brasil:</strong> Produção em rocha dura no Vale do Jequitinhonha. Concentrado exportado para China.<br><br><strong>Gargalo:</strong> Capacidade de refino limitada, exportação sem valor agregado.<br><strong>Vantagem:</strong> Rocha dura de alta qualidade e matriz energética limpa."
     }
@@ -205,62 +672,208 @@
     "visaoGeral": {
       "usos": "Combustível para usinas nucleares, fonte de baixo carbono e alta densidade energética.",
       "destaque": "<strong>Projeto Santa Quitéria (INB/Galvani) — CE:</strong> Jazida de Itataia para urânio (~2.400t) e fosfato (~220.000t). Licenciamento em impasse.",
-      "posicaoBR": { "reserva": "8º lugar*", "producao": "Fora Top 10*" },
+      "posicaoBR": {
+        "reserva": "8º lugar*",
+        "producao": "Fora Top 10*"
+      },
       "estadosRes": "PA, CE, BA",
       "estadosProd": "BA",
-      "gapProd": { "br": 0, "leader": 39, "leaderName": "Cazaquistão" },
-      "gapRes": { "br": 3, "leader": 28, "leaderName": "Austrália" },
-      "gapTransf": { "br": 0, "leader": 44, "leaderName": "Rússia" }
+      "gapProd": {
+        "br": 0,
+        "leader": 39,
+        "leaderName": "Cazaquistão"
+      },
+      "gapRes": {
+        "br": 3,
+        "leader": 28,
+        "leaderName": "Austrália"
+      },
+      "gapTransf": {
+        "br": 0,
+        "leader": 44,
+        "leaderName": "Rússia"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "Cazaquistão", "val": 39 },
-        { "label": "Canadá", "val": 24 },
-        { "label": "Namíbia", "val": 12 },
-        { "label": "Austrália", "val": 7 },
-        { "label": "Outros", "val": 18 }
+        {
+          "label": "Cazaquistão",
+          "val": 39
+        },
+        {
+          "label": "Canadá",
+          "val": 24
+        },
+        {
+          "label": "Namíbia",
+          "val": 12
+        },
+        {
+          "label": "Austrália",
+          "val": 7
+        },
+        {
+          "label": "Outros",
+          "val": 18
+        }
       ],
       "pieRes": [
-        { "label": "Austrália", "val": 28 },
-        { "label": "Cazaquistão", "val": 14 },
-        { "label": "Canadá", "val": 10 },
-        { "label": "Namíbia", "val": 8 },
-        { "label": "Outros", "val": 40 }
+        {
+          "label": "Austrália",
+          "val": 28
+        },
+        {
+          "label": "Cazaquistão",
+          "val": 14
+        },
+        {
+          "label": "Canadá",
+          "val": 10
+        },
+        {
+          "label": "Namíbia",
+          "val": 8
+        },
+        {
+          "label": "Outros",
+          "val": 40
+        }
       ],
       "barTransf": [
-        { "label": "Rússia", "val": 44 },
-        { "label": "Europa*", "val": 29 },
-        { "label": "China", "val": 15 },
-        { "label": "Brasil", "val": 0 }
+        {
+          "label": "Rússia",
+          "val": 44
+        },
+        {
+          "label": "Europa*",
+          "val": 29
+        },
+        {
+          "label": "China",
+          "val": 15
+        },
+        {
+          "label": "Brasil",
+          "val": 0
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇦🇺", "pais": "Austrália" },
-        { "etapa": "Produção", "bandeira": "🇰🇿", "pais": "Cazaquistão" },
-        { "etapa": "Enriquecimento", "bandeira": "🇷🇺", "pais": "Rússia" }
-      ]
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇦🇺",
+          "pais": "Austrália"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇰🇿",
+          "pais": "Cazaquistão"
+        },
+        {
+          "etapa": "Enriquecimento",
+          "bandeira": "🇷🇺",
+          "pais": "Rússia"
+        }
+      ],
+      "labelTransf": "Enriquecimento"
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇰🇿", "pais": "Cazaquistão", "emp": "Kazatomprom", "opera": "Cazaquistão" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Cameco", "opera": "Canadá, Cazaquistão" },
-        { "bandeira": "🇫🇷", "pais": "França", "emp": "Orano", "opera": "Canadá, Níger" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Rosatom", "opera": "Cazaquistão" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CGN", "opera": "China, Namíbia" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP", "opera": "Austrália" }
+        {
+          "bandeira": "🇰🇿",
+          "pais": "Cazaquistão",
+          "emp": "Kazatomprom",
+          "opera": "Cazaquistão"
+        },
+        {
+          "bandeira": "🇨🇦",
+          "pais": "Canadá",
+          "emp": "Cameco",
+          "opera": "Canadá, Cazaquistão"
+        },
+        {
+          "bandeira": "🇫🇷",
+          "pais": "França",
+          "emp": "Orano",
+          "opera": "Canadá, Níger"
+        },
+        {
+          "bandeira": "🇷🇺",
+          "pais": "Rússia",
+          "emp": "Rosatom",
+          "opera": "Cazaquistão"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "CGN",
+          "opera": "China, Namíbia"
+        },
+        {
+          "bandeira": "🇦🇺",
+          "pais": "Austrália",
+          "emp": "BHP",
+          "opera": "Austrália"
+        }
       ],
       "refino": [
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Rosatom", "opera": "Rússia" },
-        { "bandeira": "🇫🇷", "pais": "França", "emp": "Orano", "opera": "França" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Cameco", "opera": "Canadá" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNNC", "opera": "China" }
+        {
+          "bandeira": "🇷🇺",
+          "pais": "Rússia",
+          "emp": "Rosatom",
+          "opera": "Rússia"
+        },
+        {
+          "bandeira": "🇫🇷",
+          "pais": "França",
+          "emp": "Orano",
+          "opera": "França"
+        },
+        {
+          "bandeira": "🇨🇦",
+          "pais": "Canadá",
+          "emp": "Cameco",
+          "opera": "Canadá"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "CNNC",
+          "opera": "China"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Rosatom", "opera": "Rússia" },
-        { "bandeira": "🇪🇺", "pais": "UE", "emp": "Urenco", "opera": "UK, Holanda, Alemanha, EUA" },
-        { "bandeira": "🇫🇷", "pais": "França", "emp": "Orano", "opera": "França" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNNC", "opera": "China" }
+        {
+          "bandeira": "🇷🇺",
+          "pais": "Rússia",
+          "emp": "Rosatom",
+          "opera": "Rússia"
+        },
+        {
+          "bandeira": "🇪🇺",
+          "pais": "UE",
+          "emp": "Urenco",
+          "opera": "UK, Holanda, Alemanha, EUA"
+        },
+        {
+          "bandeira": "🇫🇷",
+          "pais": "França",
+          "emp": "Orano",
+          "opera": "França"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "CNNC",
+          "opera": "China"
+        }
       ],
-      "analise": "<strong>Internacional:</strong> Rússia (Rosatom) controla conversão e enriquecimento.<br><br><strong>Brasil:</strong> INB produz em Caetité (~60t vs 400t necessárias). Conversão e enriquecimento no exterior.<br><br><strong>Gargalo:</strong> Baixa capacidade da INB e ausência de conversão.<br><strong>Vantagem:</strong> Reservas, estabilidade e domínio do ciclo do combustível."
+      "analise": "<strong>Internacional:</strong> Rússia (Rosatom) controla conversão e enriquecimento.<br><br><strong>Brasil:</strong> INB produz em Caetité (~60t vs 400t necessárias). Conversão e enriquecimento no exterior.<br><br><strong>Gargalo:</strong> Baixa capacidade da INB e ausência de conversão.<br><strong>Vantagem:</strong> Reservas, estabilidade e domínio do ciclo do combustível.",
+      "etapasLabels": {
+        "extracao": "Extração",
+        "refino": "Conversão",
+        "manufatura": "Enriquecimento / Combustível"
+      },
+      "notaRodape": "No urânio, o midstream é a conversão em UF₆ e o downstream é o enriquecimento isotópico e a fabricação do combustível — etapas licenciadas e altamente concentradas (Rosatom ~44% da capacidade de enriquecimento)."
     }
   },
   {
@@ -270,62 +883,211 @@
     "visaoGeral": {
       "usos": "Componente catódico crucial para baterias de alta densidade energética e fabricação de aço inoxidável.",
       "destaque": "<strong>Projeto Jaguar (Centaurus Metals) — PA:</strong> 138,2 Mt a 0,87% Ni. Um dos maiores depósitos de Ni sulfetado do mundo, vital para baterias.",
-      "posicaoBR": { "reserva": "3º lugar", "producao": "6º lugar" },
+      "posicaoBR": {
+        "reserva": "3º lugar",
+        "producao": "6º lugar"
+      },
       "estadosRes": "GO, PA, BA, PI",
       "estadosProd": "BA, GO, PA, PI",
-      "gapProd": { "br": 2, "leader": 62, "leaderName": "Indonésia" },
-      "gapRes": { "br": 11, "leader": 45, "leaderName": "Indonésia" },
-      "gapTransf": { "br": 2, "leader": 43, "leaderName": "Indonésia" }
+      "gapProd": {
+        "br": 2,
+        "leader": 62,
+        "leaderName": "Indonésia"
+      },
+      "gapRes": {
+        "br": 11,
+        "leader": 45,
+        "leaderName": "Indonésia"
+      },
+      "gapTransf": {
+        "br": 2,
+        "leader": 43,
+        "leaderName": "Indonésia"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "Indonésia", "val": 62 },
-        { "label": "Filipinas", "val": 5 },
-        { "label": "Rússia", "val": 5 },
-        { "label": "Canadá", "val": 4 },
-        { "label": "Outros", "val": 24 }
+        {
+          "label": "Indonésia",
+          "val": 62
+        },
+        {
+          "label": "Filipinas",
+          "val": 5
+        },
+        {
+          "label": "Rússia",
+          "val": 5
+        },
+        {
+          "label": "Canadá",
+          "val": 4
+        },
+        {
+          "label": "Outros",
+          "val": 24
+        }
       ],
       "pieRes": [
-        { "label": "Indonésia", "val": 45 },
-        { "label": "Austrália", "val": 20 },
-        { "label": "Brasil", "val": 11 },
-        { "label": "Rússia", "val": 5 },
-        { "label": "Outros", "val": 19 }
+        {
+          "label": "Indonésia",
+          "val": 45
+        },
+        {
+          "label": "Austrália",
+          "val": 20
+        },
+        {
+          "label": "Brasil",
+          "val": 11
+        },
+        {
+          "label": "Rússia",
+          "val": 5
+        },
+        {
+          "label": "Outros",
+          "val": 19
+        }
       ],
       "barTransf": [
-        { "label": "Indonésia", "val": 43 },
-        { "label": "China", "val": 31 },
-        { "label": "Japão", "val": 3 },
-        { "label": "Brasil", "val": 2 }
+        {
+          "label": "Indonésia",
+          "val": 43
+        },
+        {
+          "label": "China",
+          "val": 31
+        },
+        {
+          "label": "Japão",
+          "val": 3
+        },
+        {
+          "label": "Brasil",
+          "val": 2
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇮🇩", "pais": "Indonésia" },
-        { "etapa": "Produção", "bandeira": "🇮🇩", "pais": "Indonésia" },
-        { "etapa": "Transformação", "bandeira": "🇮🇩", "pais": "Indonésia" }
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇮🇩",
+          "pais": "Indonésia"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇮🇩",
+          "pais": "Indonésia"
+        },
+        {
+          "etapa": "Transformação",
+          "bandeira": "🇮🇩",
+          "pais": "Indonésia"
+        }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tsingshan Holding", "opera": "Indonésia" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Norilsk Nickel", "opera": "Rússia" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Vale", "opera": "Canadá, Indonésia, Brasil" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Jinchuan Group", "opera": "China" },
-        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Canadá, Austrália" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP", "opera": "Austrália" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Tsingshan Holding",
+          "opera": "Indonésia"
+        },
+        {
+          "bandeira": "🇷🇺",
+          "pais": "Rússia",
+          "emp": "Norilsk Nickel",
+          "opera": "Rússia"
+        },
+        {
+          "bandeira": "🇧🇷",
+          "pais": "Brasil",
+          "emp": "Vale",
+          "opera": "Canadá, Indonésia, Brasil"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Jinchuan Group",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇨🇭",
+          "pais": "Suíça",
+          "emp": "Glencore",
+          "opera": "Canadá, Austrália"
+        },
+        {
+          "bandeira": "🇦🇺",
+          "pais": "Austrália",
+          "emp": "BHP",
+          "opera": "Austrália"
+        }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tsingshan Holdings", "opera": "Refino" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Norilsk Nickel", "opera": "Rússia" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Jinchuan Group", "opera": "China" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Sumitomo Metal Mining", "opera": "Refino" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Vale S.A.", "opera": "Indonésia e Brasil" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Tsingshan Holdings",
+          "opera": "Refino"
+        },
+        {
+          "bandeira": "🇷🇺",
+          "pais": "Rússia",
+          "emp": "Norilsk Nickel",
+          "opera": "Rússia"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Jinchuan Group",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇯🇵",
+          "pais": "Japão",
+          "emp": "Sumitomo Metal Mining",
+          "opera": "Refino"
+        },
+        {
+          "bandeira": "🇧🇷",
+          "pais": "Brasil",
+          "emp": "Vale S.A.",
+          "opera": "Indonésia e Brasil"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "LG Energy Solution", "opera": "Baterias" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Panasonic", "opera": "Baterias" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Baowu Steel", "opera": "Aço Inox" },
-        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ArcelorMittal", "opera": "Aço Inox" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "CATL",
+          "opera": "Baterias"
+        },
+        {
+          "bandeira": "🇰🇷",
+          "pais": "Coreia do Sul",
+          "emp": "LG Energy Solution",
+          "opera": "Baterias"
+        },
+        {
+          "bandeira": "🇯🇵",
+          "pais": "Japão",
+          "emp": "Panasonic",
+          "opera": "Baterias"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "China Baowu Steel",
+          "opera": "Aço Inox"
+        },
+        {
+          "bandeira": "🇱🇺",
+          "pais": "Luxemburgo",
+          "emp": "ArcelorMittal",
+          "opera": "Aço Inox"
+        }
       ],
       "analise": "<strong>Internacional:</strong> Indonésia domina extração (>60%) e segue crescendo, enquanto Austrália e Filipinas cortam produção por preços baixos. Eixo China-Indonésia controla ~90% do refino.<br><br><strong>Brasil:</strong> 6º produtor. Atlantic Nickel produz Ni sulfetado para baterias.<br><br><strong>Gargalo:</strong> Domínio sino-indonésio de baixo custo inviabiliza projetos.<br><strong>Vantagem:</strong> Reservas de Ni sulfetado ideal para baterias."
     }
@@ -337,62 +1099,211 @@
     "visaoGeral": {
       "usos": "Componente essencial do ânodo em baterias de íon-lítio, pilar para a fabricação de VEs.",
       "destaque": "<strong>Projeto Graphcoa (Appian Capital) — BA:</strong> Investimento R$ 350 mi, capacidade 5,5 mil t/ano. Expansão prevê 65 mil t/ano (R$ 1,5 bi).",
-      "posicaoBR": { "reserva": "2º lugar", "producao": "4º lugar" },
+      "posicaoBR": {
+        "reserva": "2º lugar",
+        "producao": "4º lugar"
+      },
       "estadosRes": "MG, BA",
       "estadosProd": "MG, BA",
-      "gapProd": { "br": 4, "leader": 80, "leaderName": "China" },
-      "gapRes": { "br": 25, "leader": 34, "leaderName": "China" },
-      "gapTransf": { "br": 0, "leader": 96, "leaderName": "China" }
+      "gapProd": {
+        "br": 4,
+        "leader": 80,
+        "leaderName": "China"
+      },
+      "gapRes": {
+        "br": 25,
+        "leader": 34,
+        "leaderName": "China"
+      },
+      "gapTransf": {
+        "br": 0,
+        "leader": 96,
+        "leaderName": "China"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "China", "val": 80 },
-        { "label": "Brasil", "val": 4 },
-        { "label": "Tanzânia", "val": 4 },
-        { "label": "Madagascar", "val": 4 },
-        { "label": "Outros", "val": 8 }
+        {
+          "label": "China",
+          "val": 80
+        },
+        {
+          "label": "Brasil",
+          "val": 4
+        },
+        {
+          "label": "Tanzânia",
+          "val": 4
+        },
+        {
+          "label": "Madagascar",
+          "val": 4
+        },
+        {
+          "label": "Outros",
+          "val": 8
+        }
       ],
       "pieRes": [
-        { "label": "China", "val": 34 },
-        { "label": "Brasil", "val": 25 },
-        { "label": "Madagascar", "val": 8 },
-        { "label": "Moçambique", "val": 5 },
-        { "label": "Outros", "val": 28 }
+        {
+          "label": "China",
+          "val": 34
+        },
+        {
+          "label": "Brasil",
+          "val": 25
+        },
+        {
+          "label": "Madagascar",
+          "val": 8
+        },
+        {
+          "label": "Moçambique",
+          "val": 5
+        },
+        {
+          "label": "Outros",
+          "val": 28
+        }
       ],
       "barTransf": [
-        { "label": "China", "val": 96 },
-        { "label": "Japão", "val": 2 },
-        { "label": "EUA", "val": 0 },
-        { "label": "Brasil", "val": 0 }
+        {
+          "label": "China",
+          "val": 96
+        },
+        {
+          "label": "Japão",
+          "val": 2
+        },
+        {
+          "label": "EUA",
+          "val": 0
+        },
+        {
+          "label": "Brasil",
+          "val": 0
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        },
+        {
+          "etapa": "Transformação",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Syrah Resources", "opera": "Moçambique" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Minmetals Corp", "opera": "China" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Nacional de Grafite", "opera": "Brasil" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Qingdao", "opera": "China" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Northern Graphite", "opera": "Canadá, Namíbia" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "NextSource Materials", "opera": "Madagascar" }
+        {
+          "bandeira": "🇦🇺",
+          "pais": "Austrália",
+          "emp": "Syrah Resources",
+          "opera": "Moçambique"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Minmetals Corp",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇧🇷",
+          "pais": "Brasil",
+          "emp": "Nacional de Grafite",
+          "opera": "Brasil"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Qingdao",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇨🇦",
+          "pais": "Canadá",
+          "emp": "Northern Graphite",
+          "opera": "Canadá, Namíbia"
+        },
+        {
+          "bandeira": "🇨🇦",
+          "pais": "Canadá",
+          "emp": "NextSource Materials",
+          "opera": "Madagascar"
+        }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "BTR, Shangtai", "opera": "China" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Syrah Resources", "opera": "EUA" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nouveau Monde (NMG)", "opera": "Canadá" },
-        { "bandeira": "🇦🇺", "pais": "Austrália/Suécia", "emp": "Talga Group", "opera": "Suécia" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "BTR, Shangtai",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇦🇺",
+          "pais": "Austrália",
+          "emp": "Syrah Resources",
+          "opera": "EUA"
+        },
+        {
+          "bandeira": "🇨🇦",
+          "pais": "Canadá",
+          "emp": "Nouveau Monde (NMG)",
+          "opera": "Canadá"
+        },
+        {
+          "bandeira": "🇦🇺",
+          "pais": "Austrália/Suécia",
+          "emp": "Talga Group",
+          "opera": "Suécia"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias e VEs" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "LG Energy Solution", "opera": "Baterias" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Panasonic", "opera": "Baterias" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Tesla", "opera": "Baterias e VEs" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "SK On", "opera": "Baterias" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "CATL",
+          "opera": "Baterias"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "BYD",
+          "opera": "Baterias e VEs"
+        },
+        {
+          "bandeira": "🇰🇷",
+          "pais": "Coreia do Sul",
+          "emp": "LG Energy Solution",
+          "opera": "Baterias"
+        },
+        {
+          "bandeira": "🇯🇵",
+          "pais": "Japão",
+          "emp": "Panasonic",
+          "opera": "Baterias"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Tesla",
+          "opera": "Baterias e VEs"
+        },
+        {
+          "bandeira": "🇰🇷",
+          "pais": "Coreia do Sul",
+          "emp": "SK On",
+          "opera": "Baterias"
+        }
       ],
       "analise": "<strong>Internacional:</strong> China domina produção e refino (>90%), dependência crítica.<br><br><strong>Brasil:</strong> Maiores reservas de grafita lamelar do mundo (alta qualidade para baterias). Exporta bruto.<br><br><strong>Gargalo:</strong> Ausência de refino para grafita esférica purificada.<br><strong>Vantagem:</strong> Maior reserva de grafita lamelar — tipo geológico mais estratégico."
     }
@@ -404,61 +1315,207 @@
     "visaoGeral": {
       "usos": "Confere estabilidade e densidade de energia às baterias de íon-lítio, chave para VEs e armazenamento.",
       "destaque": "<strong>Projeto Piauí Níquel (Brazilian Nickel) — PI:</strong> Financiamento US$ 550 mi do gov. americano. Previsão de produção de cobalto no 2º semestre de 2029.",
-      "posicaoBR": { "reserva": "9º lugar", "producao": "Fora Top 10" },
+      "posicaoBR": {
+        "reserva": "9º lugar",
+        "producao": "Fora Top 10"
+      },
       "estadosRes": "PA, PI, CE",
       "estadosProd": "Sem produção",
-      "gapProd": { "br": 0, "leader": 70, "leaderName": "RDC" },
-      "gapRes": { "br": 3, "leader": 52, "leaderName": "RDC" },
-      "gapTransf": { "br": 0, "leader": 79, "leaderName": "China" }
+      "gapProd": {
+        "br": 0,
+        "leader": 70,
+        "leaderName": "RDC"
+      },
+      "gapRes": {
+        "br": 3,
+        "leader": 52,
+        "leaderName": "RDC"
+      },
+      "gapTransf": {
+        "br": 0,
+        "leader": 79,
+        "leaderName": "China"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "R.D. Congo", "val": 70 },
-        { "label": "Indonésia", "val": 17 },
-        { "label": "Rússia", "val": 3 },
-        { "label": "Outros", "val": 10 }
+        {
+          "label": "R.D. Congo",
+          "val": 70
+        },
+        {
+          "label": "Indonésia",
+          "val": 17
+        },
+        {
+          "label": "Rússia",
+          "val": 3
+        },
+        {
+          "label": "Outros",
+          "val": 10
+        }
       ],
       "pieRes": [
-        { "label": "R.D. Congo", "val": 52 },
-        { "label": "Austrália", "val": 15 },
-        { "label": "Indonésia", "val": 7 },
-        { "label": "Rússia", "val": 5 },
-        { "label": "Outros", "val": 21 }
+        {
+          "label": "R.D. Congo",
+          "val": 52
+        },
+        {
+          "label": "Austrália",
+          "val": 15
+        },
+        {
+          "label": "Indonésia",
+          "val": 7
+        },
+        {
+          "label": "Rússia",
+          "val": 5
+        },
+        {
+          "label": "Outros",
+          "val": 21
+        }
       ],
       "barTransf": [
-        { "label": "China", "val": 79 },
-        { "label": "Finlândia", "val": 8 },
-        { "label": "Japão", "val": 2 },
-        { "label": "Brasil", "val": 0 }
+        {
+          "label": "China",
+          "val": 79
+        },
+        {
+          "label": "Finlândia",
+          "val": 8
+        },
+        {
+          "label": "Japão",
+          "val": 2
+        },
+        {
+          "label": "Brasil",
+          "val": 0
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇨🇩", "pais": "RDC" },
-        { "etapa": "Produção", "bandeira": "🇨🇩", "pais": "RDC" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇨🇩",
+          "pais": "RDC"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇨🇩",
+          "pais": "RDC"
+        },
+        {
+          "etapa": "Transformação",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CMOC", "opera": "RDC" },
-        { "bandeira": "🇨🇭", "pais": "Anglo-Suíça", "emp": "Glencore", "opera": "RDC, Canadá" },
-        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ERG", "opera": "RDC" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNMC", "opera": "RDC" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Norilsk", "opera": "Rússia" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Vale", "opera": "Canadá" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "CMOC",
+          "opera": "RDC"
+        },
+        {
+          "bandeira": "🇨🇭",
+          "pais": "Anglo-Suíça",
+          "emp": "Glencore",
+          "opera": "RDC, Canadá"
+        },
+        {
+          "bandeira": "🇱🇺",
+          "pais": "Luxemburgo",
+          "emp": "ERG",
+          "opera": "RDC"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "CNMC",
+          "opera": "RDC"
+        },
+        {
+          "bandeira": "🇷🇺",
+          "pais": "Rússia",
+          "emp": "Norilsk",
+          "opera": "Rússia"
+        },
+        {
+          "bandeira": "🇧🇷",
+          "pais": "Brasil",
+          "emp": "Vale",
+          "opera": "Canadá"
+        }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Huayou", "opera": "China" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNGM", "opera": "China" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "GEM Co.", "opera": "China" },
-        { "bandeira": "🇧🇪", "pais": "Bélgica", "emp": "Umicore", "opera": "Finlândia, Bélgica" },
-        { "bandeira": "🇨🇭", "pais": "Anglo-Suíça", "emp": "Glencore", "opera": "Noruega" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Huayou",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "CNGM",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "GEM Co.",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇧🇪",
+          "pais": "Bélgica",
+          "emp": "Umicore",
+          "opera": "Finlândia, Bélgica"
+        },
+        {
+          "bandeira": "🇨🇭",
+          "pais": "Anglo-Suíça",
+          "emp": "Glencore",
+          "opera": "Noruega"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias e VEs" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "LG Chem", "opera": "Baterias" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "POSCO Future M.", "opera": "Mat. p/ Baterias" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Panasonic", "opera": "Baterias" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "BYD",
+          "opera": "Baterias e VEs"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "CATL",
+          "opera": "Baterias"
+        },
+        {
+          "bandeira": "🇰🇷",
+          "pais": "Coreia do Sul",
+          "emp": "LG Chem",
+          "opera": "Baterias"
+        },
+        {
+          "bandeira": "🇰🇷",
+          "pais": "Coreia do Sul",
+          "emp": "POSCO Future M.",
+          "opera": "Mat. p/ Baterias"
+        },
+        {
+          "bandeira": "🇯🇵",
+          "pais": "Japão",
+          "emp": "Panasonic",
+          "opera": "Baterias"
+        }
       ],
       "analise": "<strong>Internacional:</strong> Extração na RDC (~70%, sob quotas de exportação desde 2025) com a Indonésia crescendo rápido (~17%); refino na China (~80%). Alto risco geopolítico.<br><br><strong>Brasil:</strong> Produção nula, potencial em depósitos Ni-Co (GO) e Co-Mn (CE). Alternativa estável.<br><br><strong>Gargalo:</strong> Teores inferiores à RDC, produção depende do níquel.<br><strong>Vantagem:</strong> Estabilidade institucional, fonte rastreável e segura."
     }
@@ -470,63 +1527,213 @@
     "visaoGeral": {
       "usos": "Principal uso é a solda eletrônica (placas de circuito), incluindo a interconexão de células fotovoltaicas; também folhas de flandres (embalagens), ligas e produtos químicos.",
       "destaque": "<strong>Mina Pitinga (Mineração Taboca) — AM:</strong> Maior mina de estanho do Brasil e um dos maiores depósitos do mundo (Sn, Nb e Ta associados), verticalizada até o estanho metálico. Em 2025 passou ao controle da estatal chinesa CNMC, que comprou a Taboca da peruana Minsur por US$ 340 mi.",
-      "posicaoBR": { "reserva": "3º lugar", "producao": "4º lugar" },
+      "posicaoBR": {
+        "reserva": "3º lugar",
+        "producao": "4º lugar"
+      },
       "estadosRes": "AM, RO, MG",
       "estadosProd": "AM, RO",
-      "gapProd": { "br": 10, "leader": 24, "leaderName": "China" },
-      "gapRes": { "br": 12, "leader": 23, "leaderName": "Indonésia" },
-      "gapTransf": { "br": 5, "leader": 50, "leaderName": "China" }
+      "gapProd": {
+        "br": 10,
+        "leader": 24,
+        "leaderName": "China"
+      },
+      "gapRes": {
+        "br": 12,
+        "leader": 23,
+        "leaderName": "Indonésia"
+      },
+      "gapTransf": {
+        "br": 5,
+        "leader": 50,
+        "leaderName": "China"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "China", "val": 24 },
-        { "label": "Indonésia", "val": 21 },
-        { "label": "Peru", "val": 11 },
-        { "label": "Brasil", "val": 10 },
-        { "label": "R.D. Congo", "val": 9 },
-        { "label": "Outros", "val": 25 }
+        {
+          "label": "China",
+          "val": 24
+        },
+        {
+          "label": "Indonésia",
+          "val": 21
+        },
+        {
+          "label": "Peru",
+          "val": 11
+        },
+        {
+          "label": "Brasil",
+          "val": 10
+        },
+        {
+          "label": "R.D. Congo",
+          "val": 9
+        },
+        {
+          "label": "Outros",
+          "val": 25
+        }
       ],
       "pieRes": [
-        { "label": "Indonésia", "val": 23 },
-        { "label": "China", "val": 20 },
-        { "label": "Brasil", "val": 12 },
-        { "label": "Myanmar", "val": 12 },
-        { "label": "Austrália", "val": 10 },
-        { "label": "Outros", "val": 23 }
+        {
+          "label": "Indonésia",
+          "val": 23
+        },
+        {
+          "label": "China",
+          "val": 20
+        },
+        {
+          "label": "Brasil",
+          "val": 12
+        },
+        {
+          "label": "Myanmar",
+          "val": 12
+        },
+        {
+          "label": "Austrália",
+          "val": 10
+        },
+        {
+          "label": "Outros",
+          "val": 23
+        }
       ],
       "barTransf": [
-        { "label": "China", "val": 50 },
-        { "label": "Indonésia", "val": 19 },
-        { "label": "Malásia", "val": 5 },
-        { "label": "Brasil", "val": 5 }
+        {
+          "label": "China",
+          "val": 50
+        },
+        {
+          "label": "Indonésia",
+          "val": 19
+        },
+        {
+          "label": "Malásia",
+          "val": 5
+        },
+        {
+          "label": "Brasil",
+          "val": 5
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇮🇩", "pais": "Indonésia" },
-        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇮🇩",
+          "pais": "Indonésia"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        },
+        {
+          "etapa": "Transformação",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yunnan Tin", "opera": "China" },
-        { "bandeira": "🇮🇩", "pais": "Indonésia", "emp": "PT Timah", "opera": "Indonésia" },
-        { "bandeira": "🇵🇪", "pais": "Peru", "emp": "Minsur (grupo Breca)", "opera": "Peru" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca (CNMC/China)", "opera": "Brasil (Pitinga)" },
-        { "bandeira": "🇨🇩", "pais": "RDC", "emp": "Alphamin Resources", "opera": "RDC (Bisie)" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Yunnan Tin",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇮🇩",
+          "pais": "Indonésia",
+          "emp": "PT Timah",
+          "opera": "Indonésia"
+        },
+        {
+          "bandeira": "🇵🇪",
+          "pais": "Peru",
+          "emp": "Minsur (grupo Breca)",
+          "opera": "Peru"
+        },
+        {
+          "bandeira": "🇧🇷",
+          "pais": "Brasil",
+          "emp": "Mineração Taboca (CNMC/China)",
+          "opera": "Brasil (Pitinga)"
+        },
+        {
+          "bandeira": "🇨🇩",
+          "pais": "RDC",
+          "emp": "Alphamin Resources",
+          "opera": "RDC (Bisie)"
+        }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yunnan Tin", "opera": "China" },
-        { "bandeira": "🇮🇩", "pais": "Indonésia", "emp": "PT Timah", "opera": "Indonésia" },
-        { "bandeira": "🇲🇾", "pais": "Malásia", "emp": "Malaysia Smelting Corp", "opera": "Malásia" },
-        { "bandeira": "🇵🇪", "pais": "Peru", "emp": "Minsur (Funsur)", "opera": "Peru" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca (CNMC/China)", "opera": "Brasil" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Yunnan Tin",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇮🇩",
+          "pais": "Indonésia",
+          "emp": "PT Timah",
+          "opera": "Indonésia"
+        },
+        {
+          "bandeira": "🇲🇾",
+          "pais": "Malásia",
+          "emp": "Malaysia Smelting Corp",
+          "opera": "Malásia"
+        },
+        {
+          "bandeira": "🇵🇪",
+          "pais": "Peru",
+          "emp": "Minsur (Funsur)",
+          "opera": "Peru"
+        },
+        {
+          "bandeira": "🇧🇷",
+          "pais": "Brasil",
+          "emp": "Mineração Taboca (CNMC/China)",
+          "opera": "Brasil"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "MacDermid Alpha", "opera": "Solda eletrônica" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Indium Corporation", "opera": "Solda" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Senju Metal", "opera": "Solda" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Nihon Superior", "opera": "Solda" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "Indústria de eletrônicos", "opera": "Montagem PCB" }
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "MacDermid Alpha",
+          "opera": "Solda eletrônica"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Indium Corporation",
+          "opera": "Solda"
+        },
+        {
+          "bandeira": "🇯🇵",
+          "pais": "Japão",
+          "emp": "Senju Metal",
+          "opera": "Solda"
+        },
+        {
+          "bandeira": "🇯🇵",
+          "pais": "Japão",
+          "emp": "Nihon Superior",
+          "opera": "Solda"
+        },
+        {
+          "bandeira": "🇰🇷",
+          "pais": "Coreia do Sul",
+          "emp": "Indústria de eletrônicos",
+          "opera": "Montagem PCB"
+        }
       ],
       "analise": "<strong>Internacional:</strong> China lidera a mineração e domina o refino (~50%). Eixo asiático (China, Indonésia, Mianmar) somado a Peru e Bolívia. A solda eletrônica responde por cerca de metade da demanda mundial.<br><br><strong>Brasil:</strong> 4º produtor e 3ª reserva mundial. A Pitinga (AM) é verticalizada até o estanho metálico — caso raro de cadeia completa (mina → metal) no país.<br><br><strong>Gargalo:</strong> Indústria interna de solda e eletrônica de maior valor agregado pouco desenvolvida; depósitos aluvionares em esgotamento.<br><strong>Vantagem:</strong> Cadeia verticalizada, depósito polimetálico (Sn + Nb + Ta) e origem rastreável frente ao 'estanho de conflito' da RDC e de Mianmar."
     }
@@ -538,53 +1745,165 @@
     "visaoGeral": {
       "usos": "Aços de alta resistência para oleodutos, automóveis e construção; superligas (aeroespacial) e baterias de recarga rápida.",
       "destaque": "<strong>CBMM — Araxá, MG:</strong> Explorando grandes reservas de pirocloro. CBMM responde por ~75% da produção mundial de nióbio.",
-      "posicaoBR": { "reserva": "1º lugar", "producao": "1º lugar" },
+      "posicaoBR": {
+        "reserva": "1º lugar",
+        "producao": "1º lugar"
+      },
       "estadosRes": "GO, MG",
       "estadosProd": "GO, MG",
-      "gapProd": { "br": 93, "leader": 5, "leaderName": "Canadá" },
-      "gapRes": { "br": 66, "leader": 30, "leaderName": "China" },
-      "gapTransf": { "br": 90, "leader": 10, "leaderName": "Canadá" }
+      "gapProd": {
+        "br": 93,
+        "leader": 5,
+        "leaderName": "Canadá"
+      },
+      "gapRes": {
+        "br": 66,
+        "leader": 30,
+        "leaderName": "China"
+      },
+      "gapTransf": {
+        "br": 90,
+        "leader": 10,
+        "leaderName": "Canadá"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "Brasil", "val": 93 },
-        { "label": "Canadá", "val": 5 },
-        { "label": "R.D. Congo", "val": 1 },
-        { "label": "Outros", "val": 1 }
+        {
+          "label": "Brasil",
+          "val": 93
+        },
+        {
+          "label": "Canadá",
+          "val": 5
+        },
+        {
+          "label": "R.D. Congo",
+          "val": 1
+        },
+        {
+          "label": "Outros",
+          "val": 1
+        }
       ],
       "pieRes": [
-        { "label": "Brasil", "val": 66 },
-        { "label": "China", "val": 30 },
-        { "label": "Canadá", "val": 3 },
-        { "label": "Outros", "val": 1 }
+        {
+          "label": "Brasil",
+          "val": 66
+        },
+        {
+          "label": "China",
+          "val": 30
+        },
+        {
+          "label": "Canadá",
+          "val": 3
+        },
+        {
+          "label": "Outros",
+          "val": 1
+        }
       ],
       "barTransf": [
-        { "label": "Brasil", "val": 90 },
-        { "label": "Canadá", "val": 10 }
+        {
+          "label": "Brasil",
+          "val": 90
+        },
+        {
+          "label": "Canadá",
+          "val": 10
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇧🇷", "pais": "Brasil" },
-        { "etapa": "Produção", "bandeira": "🇧🇷", "pais": "Brasil" },
-        { "etapa": "Transformação", "bandeira": "🇧🇷", "pais": "Brasil" }
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇧🇷",
+          "pais": "Brasil"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇧🇷",
+          "pais": "Brasil"
+        },
+        {
+          "etapa": "Transformação",
+          "bandeira": "🇧🇷",
+          "pais": "Brasil"
+        }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "CBMM", "opera": "Brasil" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CMOC", "opera": "Brasil" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Magris Performance", "opera": "Canadá" }
+        {
+          "bandeira": "🇧🇷",
+          "pais": "Brasil",
+          "emp": "CBMM",
+          "opera": "Brasil"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "CMOC",
+          "opera": "Brasil"
+        },
+        {
+          "bandeira": "🇨🇦",
+          "pais": "Canadá",
+          "emp": "Magris Performance",
+          "opera": "Canadá"
+        }
       ],
       "refino": [
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "CBMM", "opera": "Brasil" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CMOC", "opera": "Brasil" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Magris", "opera": "Canadá" }
+        {
+          "bandeira": "🇧🇷",
+          "pais": "Brasil",
+          "emp": "CBMM",
+          "opera": "Brasil"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "CMOC",
+          "opera": "Brasil"
+        },
+        {
+          "bandeira": "🇨🇦",
+          "pais": "Canadá",
+          "emp": "Magris",
+          "opera": "Canadá"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ArcelorMittal", "opera": "Aços" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Baosteel", "opera": "Aços" },
-        { "bandeira": "🇺🇸", "pais": "EUA/RU", "emp": "GE, Rolls-Royce", "opera": "Superligas" },
-        { "bandeira": "🇺🇸", "pais": "EUA/Alemanha", "emp": "Bruker", "opera": "Supercondutores" },
-        { "bandeira": "🇬🇧", "pais": "Reino Unido", "emp": "Echion Technologies", "opera": "Baterias" }
+        {
+          "bandeira": "🇱🇺",
+          "pais": "Luxemburgo",
+          "emp": "ArcelorMittal",
+          "opera": "Aços"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Baosteel",
+          "opera": "Aços"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA/RU",
+          "emp": "GE, Rolls-Royce",
+          "opera": "Superligas"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA/Alemanha",
+          "emp": "Bruker",
+          "opera": "Supercondutores"
+        },
+        {
+          "bandeira": "🇬🇧",
+          "pais": "Reino Unido",
+          "emp": "Echion Technologies",
+          "opera": "Baterias"
+        }
       ],
       "analise": "<strong>Internacional:</strong> Mercado não-commodity; preços em contratos de longo prazo. Brasil com 'monopólio' natural (>90%).<br><br><strong>Brasil:</strong> Duopólio CBMM + CMOC controla. Geologia única, custo imbatível. Verticalizado até ferro-nióbio.<br><br><strong>Gargalo:</strong> Baixa participação em manufatura de maior valor (superligas, baterias).<br><strong>Vantagem:</strong> 'Monopólio geológico' de reservas de alta qualidade."
     }
@@ -596,60 +1915,199 @@
     "visaoGeral": {
       "usos": "Insumo essencial da siderurgia (ligas de aço — ferro e silício-manganês, ~90% da demanda) e, de forma crescente e estratégica, catodo de baterias na forma de sulfato de manganês grau bateria (químicas NMC e LMFP).",
       "destaque": "<strong>Reservas de Carajás (PA) e Urucum (MS):</strong> O Brasil tem a 4ª maior reserva mundial, mas a produção encolheu após a saída da Vale do manganês (2022). Hoje a LHG Mining (J&F) e produtores menores operam, abrindo janela para o sulfato grau bateria (LMFP/NMC).",
-      "posicaoBR": { "reserva": "4º lugar", "producao": "7º lugar" },
+      "posicaoBR": {
+        "reserva": "4º lugar",
+        "producao": "7º lugar"
+      },
       "estadosRes": "PA, MS, MG, BA",
       "estadosProd": "PA, MS, MG",
-      "gapProd": { "br": 3, "leader": 37, "leaderName": "África do Sul" },
-      "gapRes": { "br": 16, "leader": 33, "leaderName": "África do Sul" },
-      "gapTransf": { "br": 0, "leader": 90, "leaderName": "China" }
+      "gapProd": {
+        "br": 3,
+        "leader": 37,
+        "leaderName": "África do Sul"
+      },
+      "gapRes": {
+        "br": 16,
+        "leader": 33,
+        "leaderName": "África do Sul"
+      },
+      "gapTransf": {
+        "br": 0,
+        "leader": 90,
+        "leaderName": "China"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "África do Sul", "val": 37 },
-        { "label": "Gabão", "val": 23 },
-        { "label": "Austrália", "val": 14 },
-        { "label": "Brasil", "val": 3 },
-        { "label": "Outros", "val": 23 }
+        {
+          "label": "África do Sul",
+          "val": 37
+        },
+        {
+          "label": "Gabão",
+          "val": 23
+        },
+        {
+          "label": "Austrália",
+          "val": 14
+        },
+        {
+          "label": "Brasil",
+          "val": 3
+        },
+        {
+          "label": "Outros",
+          "val": 23
+        }
       ],
       "pieRes": [
-        { "label": "África do Sul", "val": 33 },
-        { "label": "Austrália", "val": 29 },
-        { "label": "China", "val": 16 },
-        { "label": "Brasil", "val": 16 },
-        { "label": "Outros", "val": 6 }
+        {
+          "label": "África do Sul",
+          "val": 33
+        },
+        {
+          "label": "Austrália",
+          "val": 29
+        },
+        {
+          "label": "China",
+          "val": 16
+        },
+        {
+          "label": "Brasil",
+          "val": 16
+        },
+        {
+          "label": "Outros",
+          "val": 6
+        }
       ],
       "barTransf": [
-        { "label": "China", "val": 90 },
-        { "label": "África do Sul", "val": 4 },
-        { "label": "Bélgica", "val": 2 },
-        { "label": "Brasil", "val": 0 }
+        {
+          "label": "China",
+          "val": 90
+        },
+        {
+          "label": "África do Sul",
+          "val": 4
+        },
+        {
+          "label": "Bélgica",
+          "val": 2
+        },
+        {
+          "label": "Brasil",
+          "val": 0
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇿🇦", "pais": "África do Sul" },
-        { "etapa": "Produção", "bandeira": "🇿🇦", "pais": "África do Sul" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇿🇦",
+          "pais": "África do Sul"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇿🇦",
+          "pais": "África do Sul"
+        },
+        {
+          "etapa": "Transformação",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "South32 (GEMCO/Hotazel)", "opera": "Austrália, África do Sul" },
-        { "bandeira": "🇫🇷", "pais": "França", "emp": "Eramet (Comilog)", "opera": "Gabão" },
-        { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Assmang (Assore)", "opera": "África do Sul" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Jupiter Mines (Tshipi)", "opera": "África do Sul" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Minmetals", "opera": "China" }
+        {
+          "bandeira": "🇦🇺",
+          "pais": "Austrália",
+          "emp": "South32 (GEMCO/Hotazel)",
+          "opera": "Austrália, África do Sul"
+        },
+        {
+          "bandeira": "🇫🇷",
+          "pais": "França",
+          "emp": "Eramet (Comilog)",
+          "opera": "Gabão"
+        },
+        {
+          "bandeira": "🇿🇦",
+          "pais": "África do Sul",
+          "emp": "Assmang (Assore)",
+          "opera": "África do Sul"
+        },
+        {
+          "bandeira": "🇦🇺",
+          "pais": "Austrália",
+          "emp": "Jupiter Mines (Tshipi)",
+          "opera": "África do Sul"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "China Minmetals",
+          "opera": "China"
+        }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Ningxia Tianyuan", "opera": "Sulfato grau bateria" },
-        { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Manganese Metal Company", "opera": "Mn eletrolítico/sulfato" },
-        { "bandeira": "🇫🇷", "pais": "França", "emp": "Eramet", "opera": "Ligas e sulfato" },
-        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Eramet Norway", "opera": "Ferroligas" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Ningxia Tianyuan",
+          "opera": "Sulfato grau bateria"
+        },
+        {
+          "bandeira": "🇿🇦",
+          "pais": "África do Sul",
+          "emp": "Manganese Metal Company",
+          "opera": "Mn eletrolítico/sulfato"
+        },
+        {
+          "bandeira": "🇫🇷",
+          "pais": "França",
+          "emp": "Eramet",
+          "opera": "Ligas e sulfato"
+        },
+        {
+          "bandeira": "🇳🇴",
+          "pais": "Noruega",
+          "emp": "Eramet Norway",
+          "opera": "Ferroligas"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ArcelorMittal", "opera": "Aço" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Baowu Steel", "opera": "Aço" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias (catodo)" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "POSCO Future M", "opera": "Material catódico" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "thyssenkrupp", "opera": "Aço" }
+        {
+          "bandeira": "🇱🇺",
+          "pais": "Luxemburgo",
+          "emp": "ArcelorMittal",
+          "opera": "Aço"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "China Baowu Steel",
+          "opera": "Aço"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "CATL",
+          "opera": "Baterias (catodo)"
+        },
+        {
+          "bandeira": "🇰🇷",
+          "pais": "Coreia do Sul",
+          "emp": "POSCO Future M",
+          "opera": "Material catódico"
+        },
+        {
+          "bandeira": "🇩🇪",
+          "pais": "Alemanha",
+          "emp": "thyssenkrupp",
+          "opera": "Aço"
+        }
       ],
       "analise": "<strong>Internacional:</strong> África do Sul e Gabão dominam a mineração; a China controla a transformação, sobretudo o sulfato de manganês grau bateria (>90%).<br><br><strong>Brasil:</strong> 4ª reserva mundial, mas produção em declínio após a saída da Vale (hoje LHG Mining-MS e operadores menores no Pará). Exporta minério e ligas, sem produção de grau bateria.<br><br><strong>Gargalo:</strong> ausência de purificação para grau bateria (HPMSM); demanda atrelada ao ciclo do aço.<br><strong>Vantagem:</strong> reservas grandes e de boa qualidade e janela para catodos LMFP/NMC com energia limpa."
     }
@@ -661,57 +2119,185 @@
     "visaoGeral": {
       "usos": "Capacitores de alta performance em eletrônicos (celulares, computadores, eletrônica automotiva), superligas para aeroespacial e turbinas, e carbonetos para ferramentas de corte.",
       "destaque": "<strong>Mina Mibra (AMG Brasil) — Nazareno, MG:</strong> Uma das maiores produtoras de tântalo do Ocidente. Somada à Pitinga (AM, com Sn-Nb-Ta associados), faz do Brasil fonte rastreável fora do eixo de conflito africano.",
-      "posicaoBR": { "reserva": "3º lugar*", "producao": "4º lugar" },
+      "posicaoBR": {
+        "reserva": "3º lugar*",
+        "producao": "4º lugar"
+      },
       "estadosRes": "MG, AM, RN, PB",
       "estadosProd": "MG, AM",
-      "gapProd": { "br": 8, "leader": 52, "leaderName": "RDC" },
-      "gapRes": { "br": 10, "leader": 60, "leaderName": "China" },
-      "gapTransf": { "br": 2, "leader": 47, "leaderName": "China" }
+      "gapProd": {
+        "br": 8,
+        "leader": 52,
+        "leaderName": "RDC"
+      },
+      "gapRes": {
+        "br": 10,
+        "leader": 60,
+        "leaderName": "China"
+      },
+      "gapTransf": {
+        "br": 2,
+        "leader": 47,
+        "leaderName": "China"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "RDC", "val": 52 },
-        { "label": "Ruanda", "val": 16 },
-        { "label": "Nigéria", "val": 16 },
-        { "label": "Brasil", "val": 8 },
-        { "label": "Outros", "val": 8 }
+        {
+          "label": "RDC",
+          "val": 52
+        },
+        {
+          "label": "Ruanda",
+          "val": 16
+        },
+        {
+          "label": "Nigéria",
+          "val": 16
+        },
+        {
+          "label": "Brasil",
+          "val": 8
+        },
+        {
+          "label": "Outros",
+          "val": 8
+        }
       ],
       "pieRes": [
-        { "label": "China", "val": 60 },
-        { "label": "Austrália", "val": 30 },
-        { "label": "Brasil", "val": 10 }
+        {
+          "label": "China",
+          "val": 60
+        },
+        {
+          "label": "Austrália",
+          "val": 30
+        },
+        {
+          "label": "Brasil",
+          "val": 10
+        }
       ],
       "barTransf": [
-        { "label": "China", "val": 47 },
-        { "label": "Alemanha", "val": 25 },
-        { "label": "Cazaquistão", "val": 16 },
-        { "label": "Brasil", "val": 2 }
+        {
+          "label": "China",
+          "val": 47
+        },
+        {
+          "label": "Alemanha",
+          "val": 25
+        },
+        {
+          "label": "Cazaquistão",
+          "val": 16
+        },
+        {
+          "label": "Brasil",
+          "val": 2
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇨🇳", "pais": "China*" },
-        { "etapa": "Produção", "bandeira": "🇨🇩", "pais": "RDC" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇨🇳",
+          "pais": "China*"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇨🇩",
+          "pais": "RDC"
+        },
+        {
+          "etapa": "Transformação",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇨🇩", "pais": "RDC", "emp": "Mineração diversa/artesanal", "opera": "RDC" },
-        { "bandeira": "🇷🇼", "pais": "Ruanda", "emp": "Mineradoras diversas", "opera": "Ruanda" },
-        { "bandeira": "🇳🇬", "pais": "Nigéria", "emp": "Mineradoras diversas", "opera": "Nigéria" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "AMG Brasil (Mibra)", "opera": "Brasil" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca", "opera": "Brasil (Pitinga)" }
+        {
+          "bandeira": "🇨🇩",
+          "pais": "RDC",
+          "emp": "Mineração diversa/artesanal",
+          "opera": "RDC"
+        },
+        {
+          "bandeira": "🇷🇼",
+          "pais": "Ruanda",
+          "emp": "Mineradoras diversas",
+          "opera": "Ruanda"
+        },
+        {
+          "bandeira": "🇳🇬",
+          "pais": "Nigéria",
+          "emp": "Mineradoras diversas",
+          "opera": "Nigéria"
+        },
+        {
+          "bandeira": "🇧🇷",
+          "pais": "Brasil",
+          "emp": "AMG Brasil (Mibra)",
+          "opera": "Brasil"
+        },
+        {
+          "bandeira": "🇧🇷",
+          "pais": "Brasil",
+          "emp": "Mineração Taboca",
+          "opera": "Brasil (Pitinga)"
+        }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Processadores de Ta", "opera": "China" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Taniobis (ex-H.C. Starck)", "opera": "Alemanha" },
-        { "bandeira": "🇰🇿", "pais": "Cazaquistão", "emp": "Ulba Metallurgical", "opera": "Cazaquistão" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Global Advanced Metals", "opera": "EUA" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Processadores de Ta",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇩🇪",
+          "pais": "Alemanha",
+          "emp": "Taniobis (ex-H.C. Starck)",
+          "opera": "Alemanha"
+        },
+        {
+          "bandeira": "🇰🇿",
+          "pais": "Cazaquistão",
+          "emp": "Ulba Metallurgical",
+          "opera": "Cazaquistão"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Global Advanced Metals",
+          "opera": "EUA"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "KEMET e outros", "opera": "Capacitores" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Vishay", "opera": "Capacitores" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Taniobis", "opera": "Pós metálicos" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "GE / Rolls-Royce", "opera": "Superligas" }
+        {
+          "bandeira": "🇯🇵",
+          "pais": "Japão",
+          "emp": "KEMET e outros",
+          "opera": "Capacitores"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Vishay",
+          "opera": "Capacitores"
+        },
+        {
+          "bandeira": "🇩🇪",
+          "pais": "Alemanha",
+          "emp": "Taniobis",
+          "opera": "Pós metálicos"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "GE / Rolls-Royce",
+          "opera": "Superligas"
+        }
       ],
       "analise": "<strong>Internacional:</strong> Extração concentrada na África (RDC, Ruanda, Nigéria, ~85%) com forte ligação a 'minerais de conflito'; processamento dominado por China, Alemanha e Cazaquistão.<br><br><strong>Brasil:</strong> 4º produtor e entre as maiores reservas reportadas (Mibra-MG e Pitinga-AM). Fonte estável e rastreável.<br><br><strong>Gargalo:</strong> Pouca verticalização em capacitores e pós de alto valor.<br><strong>Vantagem:</strong> Origem responsável (não-conflito) e depósito polimetálico Sn-Nb-Ta. <em>*RDC, Ruanda e Nigéria não reportam reservas ao USGS; o % é sobre as reservas reportadas (China, Austrália, Brasil).</em>"
     }
@@ -723,60 +2309,197 @@
     "visaoGeral": {
       "usos": "Galvanização do aço (proteção anticorrosiva, principal uso), ligas (latão e bronze), fundição sob pressão e químicos; presente na infraestrutura de energia limpa por meio de estruturas galvanizadas.",
       "destaque": "<strong>Complexo Aripuanã (Nexa) — MT:</strong> Novo polo polimetálico (Zn-Pb-Cu) do Brasil. Somado à mina de Vazante (MG) e aos refinos de Três Marias e Juiz de Fora, dá ao país uma cadeia integrada mina-metal.",
-      "posicaoBR": { "reserva": "Fora Top 10*", "producao": "Fora Top 10*" },
+      "posicaoBR": {
+        "reserva": "Fora Top 10*",
+        "producao": "Fora Top 10*"
+      },
       "estadosRes": "MG, MT, PA, RO",
       "estadosProd": "MG, MT",
-      "gapProd": { "br": 2, "leader": 33, "leaderName": "China" },
-      "gapRes": { "br": 1, "leader": 28, "leaderName": "Austrália" },
-      "gapTransf": { "br": 2, "leader": 48, "leaderName": "China" }
+      "gapProd": {
+        "br": 2,
+        "leader": 33,
+        "leaderName": "China"
+      },
+      "gapRes": {
+        "br": 1,
+        "leader": 28,
+        "leaderName": "Austrália"
+      },
+      "gapTransf": {
+        "br": 2,
+        "leader": 48,
+        "leaderName": "China"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "China", "val": 33 },
-        { "label": "Peru", "val": 11 },
-        { "label": "Austrália", "val": 9 },
-        { "label": "Índia", "val": 7 },
-        { "label": "México", "val": 6 },
-        { "label": "Outros", "val": 34 }
+        {
+          "label": "China",
+          "val": 33
+        },
+        {
+          "label": "Peru",
+          "val": 11
+        },
+        {
+          "label": "Austrália",
+          "val": 9
+        },
+        {
+          "label": "Índia",
+          "val": 7
+        },
+        {
+          "label": "México",
+          "val": 6
+        },
+        {
+          "label": "Outros",
+          "val": 34
+        }
       ],
       "pieRes": [
-        { "label": "Austrália", "val": 28 },
-        { "label": "China", "val": 20 },
-        { "label": "Rússia", "val": 13 },
-        { "label": "Peru", "val": 9 },
-        { "label": "Outros", "val": 30 }
+        {
+          "label": "Austrália",
+          "val": 28
+        },
+        {
+          "label": "China",
+          "val": 20
+        },
+        {
+          "label": "Rússia",
+          "val": 13
+        },
+        {
+          "label": "Peru",
+          "val": 9
+        },
+        {
+          "label": "Outros",
+          "val": 30
+        }
       ],
       "barTransf": [
-        { "label": "China", "val": 48 },
-        { "label": "Coreia do Sul", "val": 7 },
-        { "label": "Índia", "val": 6 },
-        { "label": "Brasil", "val": 2 }
+        {
+          "label": "China",
+          "val": 48
+        },
+        {
+          "label": "Coreia do Sul",
+          "val": 7
+        },
+        {
+          "label": "Índia",
+          "val": 6
+        },
+        {
+          "label": "Brasil",
+          "val": 2
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇦🇺", "pais": "Austrália" },
-        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇦🇺",
+          "pais": "Austrália"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        },
+        {
+          "etapa": "Transformação",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Austrália, Peru, Cazaquistão" },
-        { "bandeira": "🇮🇳", "pais": "Índia", "emp": "Hindustan Zinc (Vedanta)", "opera": "Índia" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Teck Resources", "opera": "Canadá, EUA (Red Dog)" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Nexa Resources", "opera": "Brasil, Peru" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Zijin Mining", "opera": "China" }
+        {
+          "bandeira": "🇨🇭",
+          "pais": "Suíça",
+          "emp": "Glencore",
+          "opera": "Austrália, Peru, Cazaquistão"
+        },
+        {
+          "bandeira": "🇮🇳",
+          "pais": "Índia",
+          "emp": "Hindustan Zinc (Vedanta)",
+          "opera": "Índia"
+        },
+        {
+          "bandeira": "🇨🇦",
+          "pais": "Canadá",
+          "emp": "Teck Resources",
+          "opera": "Canadá, EUA (Red Dog)"
+        },
+        {
+          "bandeira": "🇧🇷",
+          "pais": "Brasil",
+          "emp": "Nexa Resources",
+          "opera": "Brasil, Peru"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Zijin Mining",
+          "opera": "China"
+        }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Fundições diversas", "opera": "China" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "Korea Zinc", "opera": "Coreia do Sul" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Nexa (Três Marias, Juiz de Fora)", "opera": "Brasil" },
-        { "bandeira": "🇮🇳", "pais": "Índia", "emp": "Hindustan Zinc", "opera": "Índia" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Fundições diversas",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇰🇷",
+          "pais": "Coreia do Sul",
+          "emp": "Korea Zinc",
+          "opera": "Coreia do Sul"
+        },
+        {
+          "bandeira": "🇧🇷",
+          "pais": "Brasil",
+          "emp": "Nexa (Três Marias, Juiz de Fora)",
+          "opera": "Brasil"
+        },
+        {
+          "bandeira": "🇮🇳",
+          "pais": "Índia",
+          "emp": "Hindustan Zinc",
+          "opera": "Índia"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ArcelorMittal", "opera": "Aço galvanizado" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Nippon Steel", "opera": "Aço galvanizado" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Baowu Steel", "opera": "Galvanizados" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Indústria de galvanização", "opera": "Galvanização" }
+        {
+          "bandeira": "🇱🇺",
+          "pais": "Luxemburgo",
+          "emp": "ArcelorMittal",
+          "opera": "Aço galvanizado"
+        },
+        {
+          "bandeira": "🇯🇵",
+          "pais": "Japão",
+          "emp": "Nippon Steel",
+          "opera": "Aço galvanizado"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "China Baowu Steel",
+          "opera": "Galvanizados"
+        },
+        {
+          "bandeira": "🇧🇷",
+          "pais": "Brasil",
+          "emp": "Indústria de galvanização",
+          "opera": "Galvanização"
+        }
       ],
       "analise": "<strong>Internacional:</strong> China lidera mineração e domina o refino (~48%); Austrália detém as maiores reservas. Uso preso à galvanização do aço.<br><br><strong>Brasil:</strong> Mineração modesta (Vazante-MG, Aripuanã-MT, via Nexa), mas com refino próprio (Três Marias e Juiz de Fora) — raro caso de cadeia mina-metal completa.<br><br><strong>Gargalo:</strong> base de reservas limitada e dependência de concentrado; vínculo emergente fraco com baterias.<br><strong>Vantagem:</strong> verticalização (mina→metal) e protagonismo regional via Nexa. <em>*O Brasil aparece em 'Outros países' nas tabelas do USGS de mineração e reservas.</em>"
     }
@@ -788,59 +2511,193 @@
     "visaoGeral": {
       "usos": "Dióxido de titânio (TiO₂) é o principal pigmento branco (tintas, papel, plásticos, ~90% da demanda); o titânio metálico é vital para aeroespacial, próteses médicas e dessalinização, pela alta resistência e leveza.",
       "destaque": "<strong>Complexos de anatásio (Tapira, Catalão, Salitre) — MG/GO:</strong> O Brasil detém alguns dos maiores recursos de anatásio (TiO₂) do mundo, associados a carbonatitos, hoje subaproveitados — potencial estratégico ainda não convertido em reserva/produção.",
-      "posicaoBR": { "reserva": "Grandes recursos*", "producao": "Fora Top 10*" },
+      "posicaoBR": {
+        "reserva": "Grandes recursos*",
+        "producao": "Fora Top 10*"
+      },
       "estadosRes": "MG, GO, RJ, PB",
       "estadosProd": "MG, RJ",
-      "gapProd": { "br": 1, "leader": 33, "leaderName": "China" },
-      "gapRes": { "br": 1, "leader": 38, "leaderName": "Austrália" },
-      "gapTransf": { "br": 1, "leader": 69, "leaderName": "China" }
+      "gapProd": {
+        "br": 1,
+        "leader": 33,
+        "leaderName": "China"
+      },
+      "gapRes": {
+        "br": 1,
+        "leader": 38,
+        "leaderName": "Austrália"
+      },
+      "gapTransf": {
+        "br": 1,
+        "leader": 69,
+        "leaderName": "China"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "China", "val": 33 },
-        { "label": "Moçambique", "val": 19 },
-        { "label": "África do Sul", "val": 14 },
-        { "label": "Austrália", "val": 10 },
-        { "label": "Outros", "val": 24 }
+        {
+          "label": "China",
+          "val": 33
+        },
+        {
+          "label": "Moçambique",
+          "val": 19
+        },
+        {
+          "label": "África do Sul",
+          "val": 14
+        },
+        {
+          "label": "Austrália",
+          "val": 10
+        },
+        {
+          "label": "Outros",
+          "val": 24
+        }
       ],
       "pieRes": [
-        { "label": "Austrália", "val": 38 },
-        { "label": "China", "val": 20 },
-        { "label": "Canadá", "val": 9 },
-        { "label": "Noruega", "val": 7 },
-        { "label": "Outros", "val": 26 }
+        {
+          "label": "Austrália",
+          "val": 38
+        },
+        {
+          "label": "China",
+          "val": 20
+        },
+        {
+          "label": "Canadá",
+          "val": 9
+        },
+        {
+          "label": "Noruega",
+          "val": 7
+        },
+        {
+          "label": "Outros",
+          "val": 26
+        }
       ],
       "barTransf": [
-        { "label": "China", "val": 69 },
-        { "label": "Japão", "val": 8 },
-        { "label": "Rússia", "val": 6 },
-        { "label": "Brasil", "val": 1 }
+        {
+          "label": "China",
+          "val": 69
+        },
+        {
+          "label": "Japão",
+          "val": 8
+        },
+        {
+          "label": "Rússia",
+          "val": 6
+        },
+        {
+          "label": "Brasil",
+          "val": 1
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇦🇺", "pais": "Austrália" },
-        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇦🇺",
+          "pais": "Austrália"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        },
+        {
+          "etapa": "Transformação",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇬🇧", "pais": "Reino Unido/Austrália", "emp": "Rio Tinto (RTIT)", "opera": "África do Sul, Canadá, Madagascar" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Tronox", "opera": "África do Sul, Austrália, EUA" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Iluka Resources", "opera": "Austrália" },
-        { "bandeira": "🇮🇪", "pais": "Irlanda", "emp": "Kenmare Resources", "opera": "Moçambique" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Pangang Group", "opera": "China" }
+        {
+          "bandeira": "🇬🇧",
+          "pais": "Reino Unido/Austrália",
+          "emp": "Rio Tinto (RTIT)",
+          "opera": "África do Sul, Canadá, Madagascar"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Tronox",
+          "opera": "África do Sul, Austrália, EUA"
+        },
+        {
+          "bandeira": "🇦🇺",
+          "pais": "Austrália",
+          "emp": "Iluka Resources",
+          "opera": "Austrália"
+        },
+        {
+          "bandeira": "🇮🇪",
+          "pais": "Irlanda",
+          "emp": "Kenmare Resources",
+          "opera": "Moçambique"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Pangang Group",
+          "opera": "China"
+        }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Lomon Billions", "opera": "Pigmento TiO₂" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Tronox / Chemours", "opera": "Pigmento TiO₂" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Osaka Titanium / Toho", "opera": "Esponja de Ti" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "VSMPO-AVISMA", "opera": "Esponja/metal de Ti" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Lomon Billions",
+          "opera": "Pigmento TiO₂"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Tronox / Chemours",
+          "opera": "Pigmento TiO₂"
+        },
+        {
+          "bandeira": "🇯🇵",
+          "pais": "Japão",
+          "emp": "Osaka Titanium / Toho",
+          "opera": "Esponja de Ti"
+        },
+        {
+          "bandeira": "🇷🇺",
+          "pais": "Rússia",
+          "emp": "VSMPO-AVISMA",
+          "opera": "Esponja/metal de Ti"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Boeing", "opera": "Aeroespacial" },
-        { "bandeira": "🇫🇷", "pais": "França", "emp": "Airbus / Safran", "opera": "Aeroespacial" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "VSMPO-AVISMA", "opera": "Ligas de Ti" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Chemours", "opera": "Pigmentos" }
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Boeing",
+          "opera": "Aeroespacial"
+        },
+        {
+          "bandeira": "🇫🇷",
+          "pais": "França",
+          "emp": "Airbus / Safran",
+          "opera": "Aeroespacial"
+        },
+        {
+          "bandeira": "🇷🇺",
+          "pais": "Rússia",
+          "emp": "VSMPO-AVISMA",
+          "opera": "Ligas de Ti"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Chemours",
+          "opera": "Pigmentos"
+        }
       ],
       "analise": "<strong>Internacional:</strong> China lidera mineração e processamento (~69% do midstream); Austrália detém as maiores reservas. Rússia e Japão concentram a esponja de titânio metálico.<br><br><strong>Brasil:</strong> não ranqueado pelo USGS em reservas/produção, mas detém enormes recursos de anatásio (Tapira, Catalão, Salitre-MG/GO) associados a carbonatitos.<br><br><strong>Gargalo:</strong> anatásio de difícil beneficiamento; sem produção de pigmento ou metal em escala.<br><strong>Vantagem:</strong> base de recursos gigantesca à espera de rota tecnológica viável. <em>*O Brasil consta em 'Outros países'; recursos ≠ reservas econômicas.</em>"
     }
@@ -852,58 +2709,189 @@
     "visaoGeral": {
       "usos": "Catalisadores automotivos (conversores), eletrólise e células a combustível para hidrogênio (platina e irídio), eletrônica, fabricação de vidro, joalheria e catálise química/refino.",
       "destaque": "<strong>Sem produção comercial no Brasil.</strong> O potencial está associado a complexos máfico-ultramáficos e a subprodutos de Ni-Cu/cromita (GO, PA). O país importa praticamente 100% dos PGM que consome — o maior gap de toda a lista.",
-      "posicaoBR": { "reserva": "Sem expressão*", "producao": "Sem produção" },
+      "posicaoBR": {
+        "reserva": "Sem expressão*",
+        "producao": "Sem produção"
+      },
       "estadosRes": "GO, PA, MG",
       "estadosProd": "Sem produção",
-      "gapProd": { "br": 0, "leader": 53, "leaderName": "África do Sul" },
-      "gapRes": { "br": 0, "leader": 83, "leaderName": "África do Sul" },
-      "gapTransf": { "br": 0, "leader": 48, "leaderName": "África do Sul" }
+      "gapProd": {
+        "br": 0,
+        "leader": 53,
+        "leaderName": "África do Sul"
+      },
+      "gapRes": {
+        "br": 0,
+        "leader": 83,
+        "leaderName": "África do Sul"
+      },
+      "gapTransf": {
+        "br": 0,
+        "leader": 48,
+        "leaderName": "África do Sul"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "África do Sul", "val": 53 },
-        { "label": "Rússia", "val": 29 },
-        { "label": "Zimbábue", "val": 9 },
-        { "label": "Canadá", "val": 6 },
-        { "label": "Outros", "val": 3 }
+        {
+          "label": "África do Sul",
+          "val": 53
+        },
+        {
+          "label": "Rússia",
+          "val": 29
+        },
+        {
+          "label": "Zimbábue",
+          "val": 9
+        },
+        {
+          "label": "Canadá",
+          "val": 6
+        },
+        {
+          "label": "Outros",
+          "val": 3
+        }
       ],
       "pieRes": [
-        { "label": "África do Sul", "val": 83 },
-        { "label": "Rússia", "val": 14 },
-        { "label": "Zimbábue", "val": 2 },
-        { "label": "Outros", "val": 1 }
+        {
+          "label": "África do Sul",
+          "val": 83
+        },
+        {
+          "label": "Rússia",
+          "val": 14
+        },
+        {
+          "label": "Zimbábue",
+          "val": 2
+        },
+        {
+          "label": "Outros",
+          "val": 1
+        }
       ],
       "barTransf": [
-        { "label": "África do Sul", "val": 48 },
-        { "label": "Rússia", "val": 28 },
-        { "label": "China", "val": 8 },
-        { "label": "Brasil", "val": 0 }
+        {
+          "label": "África do Sul",
+          "val": 48
+        },
+        {
+          "label": "Rússia",
+          "val": 28
+        },
+        {
+          "label": "China",
+          "val": 8
+        },
+        {
+          "label": "Brasil",
+          "val": 0
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇿🇦", "pais": "África do Sul" },
-        { "etapa": "Produção", "bandeira": "🇿🇦", "pais": "África do Sul" },
-        { "etapa": "Transformação", "bandeira": "🇿🇦", "pais": "África do Sul" }
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇿🇦",
+          "pais": "África do Sul"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇿🇦",
+          "pais": "África do Sul"
+        },
+        {
+          "etapa": "Transformação",
+          "bandeira": "🇿🇦",
+          "pais": "África do Sul"
+        }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Anglo American (Valterra)", "opera": "África do Sul" },
-        { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Impala Platinum", "opera": "África do Sul, Zimbábue" },
-        { "bandeira": "🇿🇦", "pais": "África do Sul/EUA", "emp": "Sibanye-Stillwater", "opera": "África do Sul, EUA" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Nornickel", "opera": "Rússia" },
-        { "bandeira": "🇿🇼", "pais": "Zimbábue", "emp": "Zimplats", "opera": "Zimbábue" }
+        {
+          "bandeira": "🇿🇦",
+          "pais": "África do Sul",
+          "emp": "Anglo American (Valterra)",
+          "opera": "África do Sul"
+        },
+        {
+          "bandeira": "🇿🇦",
+          "pais": "África do Sul",
+          "emp": "Impala Platinum",
+          "opera": "África do Sul, Zimbábue"
+        },
+        {
+          "bandeira": "🇿🇦",
+          "pais": "África do Sul/EUA",
+          "emp": "Sibanye-Stillwater",
+          "opera": "África do Sul, EUA"
+        },
+        {
+          "bandeira": "🇷🇺",
+          "pais": "Rússia",
+          "emp": "Nornickel",
+          "opera": "Rússia"
+        },
+        {
+          "bandeira": "🇿🇼",
+          "pais": "Zimbábue",
+          "emp": "Zimplats",
+          "opera": "Zimbábue"
+        }
       ],
       "refino": [
-        { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "Anglo / Impala / Sibanye", "opera": "África do Sul" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Nornickel", "opera": "Rússia" },
-        { "bandeira": "🇬🇧", "pais": "Reino Unido", "emp": "Johnson Matthey", "opera": "Refino e catálise" },
-        { "bandeira": "🇧🇪", "pais": "Bélgica", "emp": "Umicore", "opera": "Refino e reciclagem" }
+        {
+          "bandeira": "🇿🇦",
+          "pais": "África do Sul",
+          "emp": "Anglo / Impala / Sibanye",
+          "opera": "África do Sul"
+        },
+        {
+          "bandeira": "🇷🇺",
+          "pais": "Rússia",
+          "emp": "Nornickel",
+          "opera": "Rússia"
+        },
+        {
+          "bandeira": "🇬🇧",
+          "pais": "Reino Unido",
+          "emp": "Johnson Matthey",
+          "opera": "Refino e catálise"
+        },
+        {
+          "bandeira": "🇧🇪",
+          "pais": "Bélgica",
+          "emp": "Umicore",
+          "opera": "Refino e reciclagem"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇬🇧", "pais": "Reino Unido", "emp": "Johnson Matthey", "opera": "Catalisadores" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "BASF", "opera": "Catalisadores" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Heraeus", "opera": "Catálise/eletrônica" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Tanaka", "opera": "Eletrônica / hidrogênio" }
+        {
+          "bandeira": "🇬🇧",
+          "pais": "Reino Unido",
+          "emp": "Johnson Matthey",
+          "opera": "Catalisadores"
+        },
+        {
+          "bandeira": "🇩🇪",
+          "pais": "Alemanha",
+          "emp": "BASF",
+          "opera": "Catalisadores"
+        },
+        {
+          "bandeira": "🇩🇪",
+          "pais": "Alemanha",
+          "emp": "Heraeus",
+          "opera": "Catálise/eletrônica"
+        },
+        {
+          "bandeira": "🇯🇵",
+          "pais": "Japão",
+          "emp": "Tanaka",
+          "opera": "Eletrônica / hidrogênio"
+        }
       ],
       "analise": "<strong>Internacional:</strong> oligopólio extremo — África do Sul (Bushveld) e Rússia respondem por quase toda a produção e reserva; o refino é igualmente concentrado.<br><br><strong>Brasil:</strong> sem produção comercial. Potencial geológico modesto em complexos máfico-ultramáficos e como subproduto de Ni-Cu/cromita (GO).<br><br><strong>Gargalo:</strong> dependência de importação próxima de 100%; teores baixos e ausência de projetos.<br><strong>Vantagem:</strong> praticamente nenhuma no curto prazo — é o caso de maior vulnerabilidade da lista. <em>*O Brasil não é ranqueado pelo USGS em produção ou reservas.</em>"
     }
@@ -915,65 +2903,224 @@
     "visaoGeral": {
       "usos": "Nutriente essencial e insubstituível das plantas: ~95% vira fertilizante (cloreto de potássio/KCl), pilar da produção de soja, milho e cana. Segurança alimentar em estado puro.",
       "destaque": "<strong>Projeto Autazes (Potássio do Brasil) — AM:</strong> Maior projeto de potássio do país, na bacia do Amazonas, com capacidade prevista de ~2,4 Mt/ano de KCl (~20% da demanda nacional). Hoje, a única mina em operação é Taquari-Vassouras (Mosaic) — SE.",
-      "posicaoBR": { "reserva": "Fora Top 10", "producao": "Fora Top 10" },
+      "posicaoBR": {
+        "reserva": "Fora Top 10",
+        "producao": "Fora Top 10"
+      },
       "estadosRes": "SE, AM",
       "estadosProd": "SE",
-      "gapProd": { "br": 1, "leader": 31, "leaderName": "Canadá" },
-      "gapRes": { "br": 0, "leader": 34, "leaderName": "Rússia" },
-      "gapTransf": { "br": 0, "leader": 39, "leaderName": "Canadá" }
+      "gapProd": {
+        "br": 1,
+        "leader": 31,
+        "leaderName": "Canadá"
+      },
+      "gapRes": {
+        "br": 0,
+        "leader": 34,
+        "leaderName": "Rússia"
+      },
+      "gapTransf": {
+        "br": 0,
+        "leader": 39,
+        "leaderName": "Canadá"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "Canadá", "val": 31 },
-        { "label": "Rússia", "val": 20 },
-        { "label": "China", "val": 13 },
-        { "label": "Belarus", "val": 12 },
-        { "label": "Alemanha", "val": 6 },
-        { "label": "Outros", "val": 18 }
+        {
+          "label": "Canadá",
+          "val": 31
+        },
+        {
+          "label": "Rússia",
+          "val": 20
+        },
+        {
+          "label": "China",
+          "val": 13
+        },
+        {
+          "label": "Belarus",
+          "val": 12
+        },
+        {
+          "label": "Alemanha",
+          "val": 6
+        },
+        {
+          "label": "Outros",
+          "val": 18
+        }
       ],
       "pieRes": [
-        { "label": "Rússia", "val": 34 },
-        { "label": "Canadá", "val": 19 },
-        { "label": "Laos", "val": 17 },
-        { "label": "Belarus", "val": 13 },
-        { "label": "Outros", "val": 17 }
+        {
+          "label": "Rússia",
+          "val": 34
+        },
+        {
+          "label": "Canadá",
+          "val": 19
+        },
+        {
+          "label": "Laos",
+          "val": 17
+        },
+        {
+          "label": "Belarus",
+          "val": 13
+        },
+        {
+          "label": "Outros",
+          "val": 17
+        }
       ],
       "barTransf": [
-        { "label": "Canadá", "val": 39 },
-        { "label": "Rússia", "val": 21 },
-        { "label": "Belarus", "val": 17 },
-        { "label": "Brasil", "val": 0 }
+        {
+          "label": "Canadá",
+          "val": 39
+        },
+        {
+          "label": "Rússia",
+          "val": 21
+        },
+        {
+          "label": "Belarus",
+          "val": 17
+        },
+        {
+          "label": "Brasil",
+          "val": 0
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇷🇺", "pais": "Rússia" },
-        { "etapa": "Produção", "bandeira": "🇨🇦", "pais": "Canadá" },
-        { "etapa": "Exportação", "bandeira": "🇨🇦", "pais": "Canadá" }
-      ]
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇷🇺",
+          "pais": "Rússia"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇨🇦",
+          "pais": "Canadá"
+        },
+        {
+          "etapa": "Exportação",
+          "bandeira": "🇨🇦",
+          "pais": "Canadá"
+        }
+      ],
+      "labelTransf": "Exportações"
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "Canadá (Saskatchewan)" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Uralkali", "opera": "Rússia" },
-        { "bandeira": "🇧🇾", "pais": "Belarus", "emp": "Belaruskali", "opera": "Belarus" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "Canadá, EUA, Brasil (SE)" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "K+S", "opera": "Alemanha, Canadá" },
-        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "Israel (Mar Morto), Espanha" }
+        {
+          "bandeira": "🇨🇦",
+          "pais": "Canadá",
+          "emp": "Nutrien",
+          "opera": "Canadá (Saskatchewan)"
+        },
+        {
+          "bandeira": "🇷🇺",
+          "pais": "Rússia",
+          "emp": "Uralkali",
+          "opera": "Rússia"
+        },
+        {
+          "bandeira": "🇧🇾",
+          "pais": "Belarus",
+          "emp": "Belaruskali",
+          "opera": "Belarus"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Mosaic",
+          "opera": "Canadá, EUA, Brasil (SE)"
+        },
+        {
+          "bandeira": "🇩🇪",
+          "pais": "Alemanha",
+          "emp": "K+S",
+          "opera": "Alemanha, Canadá"
+        },
+        {
+          "bandeira": "🇮🇱",
+          "pais": "Israel",
+          "emp": "ICL",
+          "opera": "Israel (Mar Morto), Espanha"
+        }
       ],
       "refino": [
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "MOP granulado" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "MOP/K-Mag" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Uralkali", "opera": "MOP" },
-        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "MOP/SOP" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP (Jansen)", "opera": "Canadá (início 2027)" }
+        {
+          "bandeira": "🇨🇦",
+          "pais": "Canadá",
+          "emp": "Nutrien",
+          "opera": "MOP granulado"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Mosaic",
+          "opera": "MOP/K-Mag"
+        },
+        {
+          "bandeira": "🇷🇺",
+          "pais": "Rússia",
+          "emp": "Uralkali",
+          "opera": "MOP"
+        },
+        {
+          "bandeira": "🇮🇱",
+          "pais": "Israel",
+          "emp": "ICL",
+          "opera": "MOP/SOP"
+        },
+        {
+          "bandeira": "🇦🇺",
+          "pais": "Austrália",
+          "emp": "BHP (Jansen)",
+          "opera": "Canadá (início 2027)"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Yara", "opera": "NPK / distribuição" },
-        { "bandeira": "🇨🇭", "pais": "Suíça/Rússia", "emp": "EuroChem", "opera": "NPK / distribuição" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "Varejo agrícola" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic Fertilizantes", "opera": "Misturas (Brasil)" },
-        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "Especialidades" }
+        {
+          "bandeira": "🇳🇴",
+          "pais": "Noruega",
+          "emp": "Yara",
+          "opera": "NPK / distribuição"
+        },
+        {
+          "bandeira": "🇨🇭",
+          "pais": "Suíça/Rússia",
+          "emp": "EuroChem",
+          "opera": "NPK / distribuição"
+        },
+        {
+          "bandeira": "🇨🇦",
+          "pais": "Canadá",
+          "emp": "Nutrien",
+          "opera": "Varejo agrícola"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Mosaic Fertilizantes",
+          "opera": "Misturas (Brasil)"
+        },
+        {
+          "bandeira": "🇮🇱",
+          "pais": "Israel",
+          "emp": "ICL",
+          "opera": "Especialidades"
+        }
       ],
-      "analise": "<strong>Internacional:</strong> Oligopólio Canadá–Rússia–Belarus (~2/3 da oferta). A guerra na Ucrânia e as sanções a Belarus expuseram a fragilidade da cadeia; novas capacidades vêm de Laos e Rússia, e a mina de Jansen (BHP) entra em 2027.<br><br><strong>Brasil:</strong> Maior importador mundial de potássio — dependência externa superior a 95% do consumo, com uma única mina (Taquari-Vassouras, SE). O projeto Autazes (AM) pode cobrir ~20% da demanda.<br><br><strong>Gargalo:</strong> dependência quase total de importação de um insumo sem substituto — risco direto à segurança alimentar; licenciamento de Autazes envolve terras indígenas Mura.<br><strong>Vantagem:</strong> demanda doméstica gigante e garantida (agro), depósitos na bacia do Amazonas e Plano Nacional de Fertilizantes 2050 como vetor político. <em>*Barras de 'exportação' usam participação nas exportações globais (Canadá ~39%); Rússia e Belarus aproximados.</em>"
+      "analise": "<strong>Internacional:</strong> Oligopólio Canadá–Rússia–Belarus (~2/3 da oferta). A guerra na Ucrânia e as sanções a Belarus expuseram a fragilidade da cadeia; novas capacidades vêm de Laos e Rússia, e a mina de Jansen (BHP) entra em 2027.<br><br><strong>Brasil:</strong> Maior importador mundial de potássio — dependência externa superior a 95% do consumo, com uma única mina (Taquari-Vassouras, SE). O projeto Autazes (AM) pode cobrir ~20% da demanda.<br><br><strong>Gargalo:</strong> dependência quase total de importação de um insumo sem substituto — risco direto à segurança alimentar; licenciamento de Autazes envolve terras indígenas Mura.<br><strong>Vantagem:</strong> demanda doméstica gigante e garantida (agro), depósitos na bacia do Amazonas e Plano Nacional de Fertilizantes 2050 como vetor político.",
+      "etapasLabels": {
+        "extracao": "Extração (silvinita)",
+        "refino": "Beneficiamento (MOP)",
+        "manufatura": "Fertilizantes / Distribuição"
+      },
+      "notaRodape": "No potássio não há refino químico: o KCl (MOP) sai pronto da mina, com beneficiamento físico na própria planta. A 3ª barra usa participação nas exportações globais (Canadá ~39%, NRCan 2024; Rússia e Belarus aproximados) — o verdadeiro choke point desta cadeia é logístico-comercial, não industrial."
     }
   },
   {
@@ -983,67 +3130,234 @@
     "visaoGeral": {
       "usos": "Base dos fertilizantes fosfatados (MAP, DAP, SSP — ~90% da demanda) e da ração animal; sem substituto na agricultura. Uso emergente e estratégico em baterias LFP (fosfato de ferro-lítio), a química que domina os VEs chineses.",
       "destaque": "<strong>Complexo Serra do Salitre (EuroChem) — MG:</strong> Maior investimento greenfield recente do setor (~US$ 1 bi, inaugurado em 2024), verticalizado da mina ao fertilizante. Sinergia estratégica com Santa Quitéria (CE), onde fosfato e urânio ocorrem juntos.",
-      "posicaoBR": { "reserva": "7º lugar", "producao": "8º lugar" },
+      "posicaoBR": {
+        "reserva": "7º lugar",
+        "producao": "8º lugar"
+      },
       "estadosRes": "MG, GO, SP, TO, BA",
       "estadosProd": "MG, GO, SP, TO, BA",
-      "gapProd": { "br": 2, "leader": 44, "leaderName": "China" },
-      "gapRes": { "br": 2, "leader": 68, "leaderName": "Marrocos" },
-      "gapTransf": { "br": 2, "leader": 47, "leaderName": "China" }
+      "gapProd": {
+        "br": 2,
+        "leader": 44,
+        "leaderName": "China"
+      },
+      "gapRes": {
+        "br": 2,
+        "leader": 68,
+        "leaderName": "Marrocos"
+      },
+      "gapTransf": {
+        "br": 2,
+        "leader": 47,
+        "leaderName": "China"
+      }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "China", "val": 44 },
-        { "label": "Marrocos", "val": 14 },
-        { "label": "EUA", "val": 8 },
-        { "label": "Rússia", "val": 6 },
-        { "label": "Jordânia", "val": 5 },
-        { "label": "Outros", "val": 23 }
+        {
+          "label": "China",
+          "val": 44
+        },
+        {
+          "label": "Marrocos",
+          "val": 14
+        },
+        {
+          "label": "EUA",
+          "val": 8
+        },
+        {
+          "label": "Rússia",
+          "val": 6
+        },
+        {
+          "label": "Jordânia",
+          "val": 5
+        },
+        {
+          "label": "Outros",
+          "val": 23
+        }
       ],
       "pieRes": [
-        { "label": "Marrocos", "val": 68 },
-        { "label": "China", "val": 5 },
-        { "label": "Egito", "val": 4 },
-        { "label": "Tunísia", "val": 3 },
-        { "label": "Brasil", "val": 2 },
-        { "label": "Outros", "val": 18 }
+        {
+          "label": "Marrocos",
+          "val": 68
+        },
+        {
+          "label": "China",
+          "val": 5
+        },
+        {
+          "label": "Egito",
+          "val": 4
+        },
+        {
+          "label": "Tunísia",
+          "val": 3
+        },
+        {
+          "label": "Brasil",
+          "val": 2
+        },
+        {
+          "label": "Outros",
+          "val": 18
+        }
       ],
       "barTransf": [
-        { "label": "China", "val": 47 },
-        { "label": "Marrocos", "val": 12 },
-        { "label": "EUA", "val": 9 },
-        { "label": "Brasil", "val": 2 }
+        {
+          "label": "China",
+          "val": 47
+        },
+        {
+          "label": "Marrocos",
+          "val": 12
+        },
+        {
+          "label": "EUA",
+          "val": 9
+        },
+        {
+          "label": "Brasil",
+          "val": 2
+        }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇲🇦", "pais": "Marrocos" },
-        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
-      ]
+        {
+          "etapa": "Reservas",
+          "bandeira": "🇲🇦",
+          "pais": "Marrocos"
+        },
+        {
+          "etapa": "Produção",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        },
+        {
+          "etapa": "Transformação",
+          "bandeira": "🇨🇳",
+          "pais": "China"
+        }
+      ],
+      "labelTransf": "Ácido Fosfórico"
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇲🇦", "pais": "Marrocos", "emp": "OCP Group", "opera": "Marrocos, Saara Ocidental" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "EUA (Flórida), Brasil, Peru" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "PhosAgro", "opera": "Rússia" },
-        { "bandeira": "🇸🇦", "pais": "Arábia Saudita", "emp": "Ma'aden", "opera": "Arábia Saudita" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yunnan Phosphate (YPH)", "opera": "China" },
-        { "bandeira": "🇯🇴", "pais": "Jordânia", "emp": "JPMC", "opera": "Jordânia" }
+        {
+          "bandeira": "🇲🇦",
+          "pais": "Marrocos",
+          "emp": "OCP Group",
+          "opera": "Marrocos, Saara Ocidental"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Mosaic",
+          "opera": "EUA (Flórida), Brasil, Peru"
+        },
+        {
+          "bandeira": "🇷🇺",
+          "pais": "Rússia",
+          "emp": "PhosAgro",
+          "opera": "Rússia"
+        },
+        {
+          "bandeira": "🇸🇦",
+          "pais": "Arábia Saudita",
+          "emp": "Ma'aden",
+          "opera": "Arábia Saudita"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Yunnan Phosphate (YPH)",
+          "opera": "China"
+        },
+        {
+          "bandeira": "🇯🇴",
+          "pais": "Jordânia",
+          "emp": "JPMC",
+          "opera": "Jordânia"
+        }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yuntianhua", "opera": "Ácido fosfórico/DAP" },
-        { "bandeira": "🇲🇦", "pais": "Marrocos", "emp": "OCP Group", "opera": "Ácido fosfórico/MAP/DAP" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "MAP/DAP (EUA, Brasil)" },
-        { "bandeira": "🇸🇦", "pais": "Arábia Saudita", "emp": "Ma'aden", "opera": "DAP" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "PhosAgro", "opera": "MAP/NPK" },
-        { "bandeira": "🇧🇪", "pais": "Bélgica", "emp": "Prayon", "opera": "Ácido fosfórico purificado" }
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "Yuntianhua",
+          "opera": "Ácido fosfórico/DAP"
+        },
+        {
+          "bandeira": "🇲🇦",
+          "pais": "Marrocos",
+          "emp": "OCP Group",
+          "opera": "Ácido fosfórico/MAP/DAP"
+        },
+        {
+          "bandeira": "🇺🇸",
+          "pais": "EUA",
+          "emp": "Mosaic",
+          "opera": "MAP/DAP (EUA, Brasil)"
+        },
+        {
+          "bandeira": "🇸🇦",
+          "pais": "Arábia Saudita",
+          "emp": "Ma'aden",
+          "opera": "DAP"
+        },
+        {
+          "bandeira": "🇷🇺",
+          "pais": "Rússia",
+          "emp": "PhosAgro",
+          "opera": "MAP/NPK"
+        },
+        {
+          "bandeira": "🇧🇪",
+          "pais": "Bélgica",
+          "emp": "Prayon",
+          "opera": "Ácido fosfórico purificado"
+        }
       ],
       "manufatura": [
-        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Yara", "opera": "NPK" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "Fertilizantes" },
-        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "Especialidades / LFP" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias LFP" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias LFP e VEs" }
+        {
+          "bandeira": "🇳🇴",
+          "pais": "Noruega",
+          "emp": "Yara",
+          "opera": "NPK"
+        },
+        {
+          "bandeira": "🇨🇦",
+          "pais": "Canadá",
+          "emp": "Nutrien",
+          "opera": "Fertilizantes"
+        },
+        {
+          "bandeira": "🇮🇱",
+          "pais": "Israel",
+          "emp": "ICL",
+          "opera": "Especialidades / LFP"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "CATL",
+          "opera": "Baterias LFP"
+        },
+        {
+          "bandeira": "🇨🇳",
+          "pais": "China",
+          "emp": "BYD",
+          "opera": "Baterias LFP e VEs"
+        }
       ],
-      "analise": "<strong>Internacional:</strong> Marrocos (OCP) detém ~68% das reservas mundiais — a 'Arábia Saudita do fósforo' —, mas a China lidera a mineração (~44%) e a transformação, e restringe exportações de fosfatados para priorizar o mercado interno e as baterias LFP.<br><br><strong>Brasil:</strong> 8º produtor e 7ª reserva (depósitos ígneos de carbonatito: Tapira, Catalão, Araxá, Salitre), mas importa ~70% dos fosfatados que consome. Mosaic, EuroChem, Itafos e Galvani operam a cadeia mina-fertilizante.<br><br><strong>Gargalo:</strong> teores mais baixos e mineralogia complexa dos carbonatitos frente às rochas sedimentares do Norte da África; dependência externa alta apesar das reservas.<br><strong>Vantagem:</strong> cadeia parcialmente verticalizada, demanda agro cativa e sinergias únicas — fosfato + urânio (Santa Quitéria) e fosfato + nióbio/ETR nos mesmos carbonatitos. <em>*Transformação = participação aproximada no processamento de ácido fosfórico/fertilizantes fosfatados.</em>"
+      "analise": "<strong>Internacional:</strong> Marrocos (OCP) detém ~68% das reservas mundiais — a 'Arábia Saudita do fósforo' —, mas a China lidera a mineração (~44%) e a transformação, e restringe exportações de fosfatados para priorizar o mercado interno e as baterias LFP.<br><br><strong>Brasil:</strong> 8º produtor e 7ª reserva (depósitos ígneos de carbonatito: Tapira, Catalão, Araxá, Salitre), mas importa ~70% dos fosfatados que consome. Mosaic, EuroChem, Itafos e Galvani operam a cadeia mina-fertilizante.<br><br><strong>Gargalo:</strong> teores mais baixos e mineralogia complexa dos carbonatitos frente às rochas sedimentares do Norte da África; dependência externa alta apesar das reservas.<br><strong>Vantagem:</strong> cadeia parcialmente verticalizada, demanda agro cativa e sinergias únicas — fosfato + urânio (Santa Quitéria) e fosfato + nióbio/ETR nos mesmos carbonatitos.",
+      "etapasLabels": {
+        "extracao": "Extração (rocha fosfática)",
+        "refino": "Ácido Fosfórico (midstream)",
+        "manufatura": "Fertilizantes & Baterias LFP"
+      },
+      "notaRodape": "O midstream do fosfato é a conversão química da rocha em ácido fosfórico (H₃PO₄) — gargalo estratégico equivalente ao refino dos metais, do qual derivam MAP/DAP e o ácido purificado das baterias LFP. Percentuais de transformação aproximados (IFA/setor)."
     }
   }
 ]
