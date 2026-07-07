@@ -447,6 +447,30 @@
         }
       ],
       "analise": "<strong>Internacional:</strong> Extração liderada por Chile, RDC e Peru; China domina >40% do refino mundial.<br><br><strong>Brasil:</strong> Extração relevante (Vale, EroBrasil), gargalo no refino com apenas Paranapanema processando Cu primário.<br><br><strong>Gargalo:</strong> Capacidade de refino concentrada em uma empresa.<br><strong>Vantagem:</strong> Geologia favorável — minério de Cu + Au + ETR."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério de Cobre\"]:::minerio\n  conc[\"Beneficiamento:<br/>Concentrado de Cobre\"]:::comum\n  fund[\"Transformação 1: Fundição /<br/>Blister / Anodo\"]:::transf\n  eletro[\"Refino<br/>Eletrolítico\"]:::transf\n  sxew[\"Transformação 1:<br/>Lixiviação e SX-EW\"]:::transf\n  catodo[\"Cátodo de Cobre<br/>Grau A — 99,99%\"]:::transf\n  verg[\"Vergalhões<br/>e Trefilaria\"]:::comum\n  fios[\"Fios e Cabos —<br/>Construção e Energia\"]:::comum\n  elecdep[\"Transformação 2: Eletrodeposição<br/>de Alta Precisão\"]:::transf\n  folha[\"Folha de Cobre / Elecfoil —<br/>abaixo de 15 μm\"]:::bat\n  colet[\"Coletores de Corrente —<br/>Anodos de Bateria\"]:::bat\n\n  min -->|Rota Sulfeto - Rocha Dura| conc -->|Via Pirometalurgia| fund --> eletro --> catodo\n  min -->|Rota Óxido| sxew --> catodo\n  catodo -->|Rota Comum| verg --> fios\n  catodo -->|Rota Bateria| elecdep --> folha --> colet\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "catodo": "Cátodo LME Grau A (99,99%): a commodity global do cobre. No Brasil, apenas a Paranapanema (Dias d'Ávila-BA) refina cobre primário — o gargalo nacional.",
+        "sxew": "Rota hidrometalúrgica para minérios oxidados: lixiviação ácida + extração por solventes + eletro-obtenção (SX-EW). Dispensa fundição — menor custo e emissões.",
+        "folha": "Elecfoil: folha eletrodepositada com menos de 15 μm, usada como coletor de corrente do anodo. Mercado dominado por Coreia do Sul, China e Japão."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#C9C6F4",
+          "label": "Rota bateria (downstream)"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação"
     }
   },
   {
@@ -663,6 +687,35 @@
         }
       ],
       "analise": "<strong>Internacional:</strong> Produção dividida (Austrália, Chile), China domina processamento (~65%).<br><br><strong>Brasil:</strong> Produção em rocha dura no Vale do Jequitinhonha. Concentrado exportado para China.<br><br><strong>Gargalo:</strong> Capacidade de refino limitada, exportação sem valor agregado.<br><strong>Vantagem:</strong> Rocha dura de alta qualidade e matriz energética limpa."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério:<br/>Pegmatito\"]:::minerio\n  conc[\"Beneficiamento: Concentrado de<br/>Espodumênio — 5,5% Li₂O\"]:::comum\n  sulf[\"Transformação Química:<br/>Sulfato de Lítio\"]:::transf\n  ref[\"Refino: Carbonato ou<br/>Hidróxido de Lítio\"]:::transf\n  tec[\"Grau Técnico:<br/>Graxas e Cerâmicas\"]:::comum\n  bat[\"Grau Bateria: Cátodos<br/>LFP / NCM\"]:::bat\n  nuc[\"Lítio-6 e Lítio-7<br/>Nuclear\"]:::esp\n\n  min --> conc -->|Calcinação + Ácido| sulf --> ref\n  ref -->|Pureza Padrão 99%| tec\n  ref -->|Pureza Bateria 99,5%+| bat\n  ref -.->|Separação Isotópica| nuc\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "conc": "É aqui que o Brasil para hoje: o Vale do Jequitinhonha exporta concentrado de espodumênio (~5,5–6% Li₂O) para conversão química na China.",
+        "sulf": "O sulfato de lítio é intermediário instável e de difícil transporte — por isso a conversão tende a se instalar perto da mina ou do catodo, nunca no meio do caminho.",
+        "ref": "Conversão em carbonato (LFP) ou hidróxido (NCM de alto níquel) grau bateria: etapa que a China domina (~70%) e que Sigma e CBL estudam internalizar.",
+        "nuc": "Li-7 controla a química de reatores PWR; Li-6 é insumo de fusão nuclear — nicho estratégico de altíssimo valor unitário."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#C9C6F4",
+          "label": "Grau bateria (downstream)"
+        },
+        {
+          "cor": "#BDEFC0",
+          "label": "Rota nuclear"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação"
     }
   },
   {
@@ -874,6 +927,31 @@
         "manufatura": "Enriquecimento / Combustível"
       },
       "notaRodape": "No urânio, o midstream é a conversão em UF₆ e o downstream é o enriquecimento isotópico e a fabricação do combustível — etapas licenciadas e altamente concentradas (Rosatom ~44% da capacidade de enriquecimento)."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério de Urânio\"]:::minerio\n  lixi[\"Beneficiamento:<br/>Lixiviação\"]:::comum\n  yellow[\"Concentrado: Yellowcake<br/>U₃O₈\"]:::transf\n  conv[\"Conversão:<br/>UF₆ Gasoso\"]:::transf\n  enriq[\"Enriquecimento: Centrifugação<br/>U-235 de 0,7% para 3–5%\"]:::transf\n  reconv[\"Reconversão:<br/>Pó de UO₂\"]:::transf\n  fab[\"Fabricação: Pastilhas e<br/>Elementos Combustíveis\"]:::bat\n  reator[\"Usinas Nucleares —<br/>Angra 1 e 2\"]:::bat\n  emp[\"Urânio Empobrecido<br/>— estoque\"]:::comum\n\n  min --> lixi --> yellow --> conv --> enriq --> reconv --> fab --> reator\n  enriq -.-> emp\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "yellow": "Yellowcake (U₃O₈): concentrado produzido pela INB em Caetité-BA (~60 t/ano frente a ~400 t de demanda das usinas).",
+        "conv": "Conversão para UF₆: o Brasil não possui planta comercial — etapa contratada no exterior. Só quatro países operam em escala (Rússia, França, Canadá, China).",
+        "enriq": "Enriquecimento por ultracentrifugação: tecnologia nacional (Marinha/INB, Resende-RJ) atende parte da recarga de Angra 1. A Rosatom detém ~44% da capacidade mundial.",
+        "fab": "A INB (Resende-RJ) fabrica pastilhas e monta os elementos combustíveis: o Brasil domina as duas pontas do ciclo, mas não o meio."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#C9C6F4",
+          "label": "Combustível nuclear (downstream)"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação (criado, validar)"
     }
   },
   {
@@ -1090,6 +1168,33 @@
         }
       ],
       "analise": "<strong>Internacional:</strong> Indonésia domina extração (>60%) e segue crescendo, enquanto Austrália e Filipinas cortam produção por preços baixos. Eixo China-Indonésia controla ~90% do refino.<br><br><strong>Brasil:</strong> 6º produtor. Atlantic Nickel produz Ni sulfetado para baterias.<br><br><strong>Gargalo:</strong> Domínio sino-indonésio de baixo custo inviabiliza projetos.<br><strong>Vantagem:</strong> Reservas de Ni sulfetado ideal para baterias."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Sulfeto<br/>ou Laterita\"]:::minerio\n  fenpi[\"Beneficiamento:<br/>Ferro-Níquel / NPI\"]:::comum\n  inox[\"Aço Inox: Utensílios<br/>e Construção\"]:::comum\n  matte[\"Transformação:<br/>Matte ou MHP\"]:::transf\n  sulfni[\"Transformação:<br/>Sulfato de Níquel\"]:::transf\n  class1[\"Refino: Níquel<br/>Metálico Classe 1\"]:::transf\n  batni[\"Baterias de<br/>Veículos Elétricos\"]:::bat\n  liga[\"Superligas:<br/>Nuclear e Defesa\"]:::esp\n\n  min -->|Rota Aço Inox| fenpi --> inox\n  min -->|Rota Estratégica| matte\n  matte -->|Via Química| sulfni --> batni\n  matte -->|Via Metálica| class1 --> liga\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "matte": "MHP (hidróxido misto de Ni-Co) e matte: intermediários da rota HPAL indonésia que abastecem as refinarias chinesas de sulfato.",
+        "class1": "Níquel Classe 1 (99,8%+, entregável na LME): rota natural do Ni sulfetado — onde o Brasil (Atlantic Nickel, projeto Jaguar) tem vantagem geológica."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#C9C6F4",
+          "label": "Rota bateria (downstream)"
+        },
+        {
+          "cor": "#BDEFC0",
+          "label": "Superligas"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação"
     }
   },
   {
@@ -1306,6 +1411,34 @@
         }
       ],
       "analise": "<strong>Internacional:</strong> China domina produção e refino (>90%), dependência crítica.<br><br><strong>Brasil:</strong> Maiores reservas de grafita lamelar do mundo (alta qualidade para baterias). Exporta bruto.<br><br><strong>Gargalo:</strong> Ausência de refino para grafita esférica purificada.<br><strong>Vantagem:</strong> Maior reserva de grafita lamelar — tipo geológico mais estratégico."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério de Grafita\"]:::minerio\n  flocos[\"Beneficiamento:<br/>Grafita em Flocos\"]:::comum\n  refra[\"Refratários<br/>e Fundição\"]:::comum\n  esf[\"Transf. Mecânica:<br/>Grafita Esférica\"]:::transf\n  pur[\"Transf. Química/Térmica:<br/>Purificação 99,95%+\"]:::transf\n  anodo[\"Grafita Revestida —<br/>Anodo CSPG\"]:::bat\n  nucg[\"Grafita Nuclear —<br/>Moderadores\"]:::esp\n\n  min --> flocos\n  flocos -->|Rota Comum| refra\n  flocos -->|Rota Tecnológica| esf --> pur\n  pur -->|Grau Bateria| anodo\n  pur -.->|Grau Nuclear| nucg\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "flocos": "O Brasil tem a maior reserva mundial de grafita lamelar (flake) — o tipo certo para a rota tecnológica — mas exporta sem purificar.",
+        "esf": "Micronização e esferoidização dos flocos: rendimento de ~50% e know-how concentrado na China (mais de 95% da grafita esférica mundial).",
+        "anodo": "CSPG (grafita esférica purificada e revestida): o material do anodo de praticamente toda bateria de íon-lítio."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#C9C6F4",
+          "label": "Grau bateria (downstream)"
+        },
+        {
+          "cor": "#BDEFC0",
+          "label": "Grau nuclear"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação"
     }
   },
   {
@@ -1518,6 +1651,33 @@
         }
       ],
       "analise": "<strong>Internacional:</strong> Extração na RDC (~70%, sob quotas de exportação desde 2025) com a Indonésia crescendo rápido (~17%); refino na China (~80%). Alto risco geopolítico.<br><br><strong>Brasil:</strong> Produção nula, potencial em depósitos Ni-Co (GO) e Co-Mn (CE). Alternativa estável.<br><br><strong>Gargalo:</strong> Teores inferiores à RDC, produção depende do níquel.<br><strong>Vantagem:</strong> Estabilidade institucional, fonte rastreável e segura."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Subproduto de Cu — RDC<br/>e de Ni — laterita\"]:::minerio\n  conc[\"Beneficiamento:<br/>Concentrado / Lixiviação\"]:::comum\n  hidrox[\"Intermediário: Hidróxido<br/>de Cobalto\"]:::transf\n  sulfco[\"Refino: Sulfato de Cobalto<br/>Grau Bateria\"]:::transf\n  metal[\"Refino: Cobalto<br/>Metálico\"]:::transf\n  prec[\"Precursores NMC —<br/>Catodos\"]:::bat\n  batco[\"Baterias de<br/>Veículos Elétricos\"]:::bat\n  liga[\"Superligas Aeroespaciais<br/>e Ferramentas\"]:::esp\n\n  min --> conc --> hidrox\n  hidrox -->|Via Química| sulfco --> prec --> batco\n  hidrox -->|Via Metálica| metal --> liga\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "min": "O cobalto quase nunca é minerado sozinho: é subproduto do cobre (RDC) ou do níquel laterítico (Indonésia — e o futuro Piauí Níquel).",
+        "hidrox": "Hidróxido de cobalto: intermediário exportado da RDC para refino na China (~80%) — o elo mais concentrado e arriscado da cadeia."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#C9C6F4",
+          "label": "Rota bateria (downstream)"
+        },
+        {
+          "cor": "#BDEFC0",
+          "label": "Superligas"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação (criado, validar)"
     }
   },
   {
@@ -1736,6 +1896,29 @@
         }
       ],
       "analise": "<strong>Internacional:</strong> China lidera a mineração e domina o refino (~50%). Eixo asiático (China, Indonésia, Mianmar) somado a Peru e Bolívia. A solda eletrônica responde por cerca de metade da demanda mundial.<br><br><strong>Brasil:</strong> 4º produtor e 3ª reserva mundial. A Pitinga (AM) é verticalizada até o estanho metálico — caso raro de cadeia completa (mina → metal) no país.<br><br><strong>Gargalo:</strong> Indústria interna de solda e eletrônica de maior valor agregado pouco desenvolvida; depósitos aluvionares em esgotamento.<br><strong>Vantagem:</strong> Cadeia verticalizada, depósito polimetálico (Sn + Nb + Ta) e origem rastreável frente ao 'estanho de conflito' da RDC e de Mianmar."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Cassiterita<br/>SnO₂\"]:::minerio\n  conc[\"Beneficiamento Gravimétrico:<br/>Concentrado ~70% Sn\"]:::comum\n  fund[\"Fundição / Redução:<br/>Estanho Metálico 99,9%\"]:::transf\n  solda[\"Ligas de Solda<br/>SAC — Sn-Ag-Cu\"]:::transf\n  pcb[\"Eletrônica: Placas de Circuito<br/>e Células Fotovoltaicas\"]:::bat\n  flandres[\"Folha de Flandres:<br/>Embalagens\"]:::comum\n  quim[\"Ligas e Químicos<br/>de Estanho\"]:::comum\n\n  min --> conc --> fund\n  fund -->|Rota Eletrônica ~50%| solda --> pcb\n  fund --> flandres\n  fund --> quim\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "fund": "A Pitinga (Taboca-AM) funde o próprio concentrado até estanho metálico — caso raro de cadeia mina-metal completa no Brasil.",
+        "solda": "Ligas SAC (estanho-prata-cobre), o padrão lead-free da eletrônica: a solda responde por cerca de metade da demanda mundial de estanho."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#C9C6F4",
+          "label": "Rota eletrônica (downstream)"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação (criado, validar)"
     }
   },
   {
@@ -1906,6 +2089,34 @@
         }
       ],
       "analise": "<strong>Internacional:</strong> Mercado não-commodity; preços em contratos de longo prazo. Brasil com 'monopólio' natural (>90%).<br><br><strong>Brasil:</strong> Duopólio CBMM + CMOC controla. Geologia única, custo imbatível. Verticalizado até ferro-nióbio.<br><br><strong>Gargalo:</strong> Baixa participação em manufatura de maior valor (superligas, baterias).<br><strong>Vantagem:</strong> 'Monopólio geológico' de reservas de alta qualidade."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Pirocloro\"]:::minerio\n  conc[\"Beneficiamento: Concentrado<br/>Nb₂O₅ 50%+\"]:::comum\n  refino[\"Refino e<br/>Purificação\"]:::transf\n  fenb[\"Metalurgia: Liga<br/>Ferro-Nióbio ~65%\"]:::transf\n  aco[\"Aços ARBL: Dutos,<br/>Autos e Construção\"]:::comum\n  oxido[\"Óxido de Nióbio<br/>98,5%+\"]:::transf\n  batnb[\"Baterias de Recarga<br/>Ultrarrápida — NTO\"]:::bat\n  metnb[\"Nióbio Metálico<br/>99,9%\"]:::transf\n  liga[\"Superligas e Supercondutores<br/>Nb-Ti / Nb₃Sn\"]:::esp\n\n  min --> conc --> refino\n  refino -->|Rota Siderúrgica ~90%| fenb --> aco\n  refino -->|Rota Química| oxido --> batnb\n  refino -->|Rota Metálica| metnb --> liga\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "fenb": "Ferro-nióbio: ~90% do mercado. A CBMM é verticalizada da mina à liga — o modelo de agregação de valor que o Brasil busca replicar nos demais minerais.",
+        "batnb": "Óxidos de nióbio em anodos (NTO/XNO): recarga em minutos e vida longa — aposta da CBMM com a britânica Echion e a Toshiba.",
+        "liga": "Ligas supercondutoras Nb-Ti e Nb₃Sn: ressonância magnética, aceleradores de partículas e fusão nuclear (ITER)."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#C9C6F4",
+          "label": "Rota baterias (downstream)"
+        },
+        {
+          "cor": "#BDEFC0",
+          "label": "Superligas / supercondutores"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação (criado, validar)"
     }
   },
   {
@@ -2110,6 +2321,29 @@
         }
       ],
       "analise": "<strong>Internacional:</strong> África do Sul e Gabão dominam a mineração; a China controla a transformação, sobretudo o sulfato de manganês grau bateria (>90%).<br><br><strong>Brasil:</strong> 4ª reserva mundial, mas produção em declínio após a saída da Vale (hoje LHG Mining-MS e operadores menores no Pará). Exporta minério e ligas, sem produção de grau bateria.<br><br><strong>Gargalo:</strong> ausência de purificação para grau bateria (HPMSM); demanda atrelada ao ciclo do aço.<br><strong>Vantagem:</strong> reservas grandes e de boa qualidade e janela para catodos LMFP/NMC com energia limpa."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério de Manganês\"]:::minerio\n  conc[\"Beneficiamento: Granulado /<br/>Concentrado\"]:::comum\n  ferro[\"Ferroligas:<br/>FeMn / SiMn\"]:::comum\n  aco[\"Siderurgia: Aços —<br/>~90% da demanda\"]:::comum\n  lixman[\"Lixiviação e<br/>Purificação\"]:::transf\n  hpmsm[\"Sulfato de Mn Grau<br/>Bateria — HPMSM\"]:::transf\n  catodo[\"Catodos<br/>NMC / LMFP\"]:::bat\n  batmn[\"Baterias de<br/>Veículos Elétricos\"]:::bat\n\n  min --> conc\n  conc -->|Rota Siderúrgica| ferro --> aco\n  conc -->|Rota Bateria| lixman --> hpmsm --> catodo --> batmn\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "hpmsm": "HPMSM (sulfato de manganês monoidratado de alta pureza): a China controla mais de 90% — é a janela que o Brasil pode ocupar com minério de Carajás/Urucum e energia limpa.",
+        "ferro": "As ferroligas (FeMn/SiMn) prendem o manganês ao ciclo do aço — commodity de margem baixa, sem o prêmio do grau bateria."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#C9C6F4",
+          "label": "Rota bateria (downstream)"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação (criado, validar)"
     }
   },
   {
@@ -2300,6 +2534,34 @@
         }
       ],
       "analise": "<strong>Internacional:</strong> Extração concentrada na África (RDC, Ruanda, Nigéria, ~85%) com forte ligação a 'minerais de conflito'; processamento dominado por China, Alemanha e Cazaquistão.<br><br><strong>Brasil:</strong> 4º produtor e entre as maiores reservas reportadas (Mibra-MG e Pitinga-AM). Fonte estável e rastreável.<br><br><strong>Gargalo:</strong> Pouca verticalização em capacitores e pós de alto valor.<br><strong>Vantagem:</strong> Origem responsável (não-conflito) e depósito polimetálico Sn-Nb-Ta. <em>*RDC, Ruanda e Nigéria não reportam reservas ao USGS; o % é sobre as reservas reportadas (China, Austrália, Brasil).</em>"
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Tantalita /<br/>Columbita\"]:::minerio\n  conc[\"Beneficiamento:<br/>Concentrado de Ta₂O₅\"]:::comum\n  dig[\"Digestão HF + Extração<br/>por Solventes\"]:::transf\n  sal[\"Sal K₂TaF₇ /<br/>Óxido Ta₂O₅\"]:::transf\n  po[\"Redução: Pó Metálico<br/>de Tântalo\"]:::transf\n  cap[\"Capacitores de Tântalo —<br/>Eletrônica\"]:::bat\n  liga[\"Superligas Aeroespaciais<br/>e Implantes Médicos\"]:::esp\n  carb[\"Carbonetos: Ferramentas<br/>de Corte\"]:::comum\n\n  min --> conc --> dig --> sal --> po\n  po --> cap\n  po --> liga\n  sal --> carb\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "min": "Mibra (AMG-MG) e Pitinga (AM): origem rastreável, fora do circuito de 'minerais de conflito' africano — o diferencial comercial do Brasil.",
+        "dig": "Digestão com ácido fluorídrico e extração por solventes: química perigosa dominada por pouquíssimos players (Taniobis-DE, GAM-EUA, Ulba-KZ e China).",
+        "cap": "Pós de tântalo de alta área superficial viram capacitores miniaturizados — essenciais em celulares, eletrônica automotiva e defesa."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#C9C6F4",
+          "label": "Capacitores / eletrônica"
+        },
+        {
+          "cor": "#BDEFC0",
+          "label": "Superligas"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação (criado, validar)"
     }
   },
   {
@@ -2502,6 +2764,29 @@
         }
       ],
       "analise": "<strong>Internacional:</strong> China lidera mineração e domina o refino (~48%); Austrália detém as maiores reservas. Uso preso à galvanização do aço.<br><br><strong>Brasil:</strong> Mineração modesta (Vazante-MG, Aripuanã-MT, via Nexa), mas com refino próprio (Três Marias e Juiz de Fora) — raro caso de cadeia mina-metal completa.<br><br><strong>Gargalo:</strong> base de reservas limitada e dependência de concentrado; vínculo emergente fraco com baterias.<br><strong>Vantagem:</strong> verticalização (mina→metal) e protagonismo regional via Nexa. <em>*O Brasil aparece em 'Outros países' nas tabelas do USGS de mineração e reservas.</em>"
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Esfalerita Zn-Pb<br/>e Willemita — Vazante\"]:::minerio\n  conc[\"Beneficiamento:<br/>Concentrado ~50% Zn\"]:::comum\n  ust[\"Ustulação:<br/>Calcinado / ZnO\"]:::transf\n  rle[\"Lixiviação + Eletrólise:<br/>Zinco SHG 99,995%\"]:::transf\n  galv[\"Galvanização do Aço —<br/>~60% da demanda\"]:::comum\n  ligas[\"Ligas: Latão e<br/>Fundição sob Pressão\"]:::comum\n  oxq[\"Óxidos e Químicos<br/>de Zinco\"]:::comum\n  zbat[\"Baterias de Zinco —<br/>emergente\"]:::bat\n\n  min --> conc --> ust --> rle\n  rle --> galv\n  rle --> ligas\n  rle --> oxq\n  rle -.-> zbat\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "min": "Vazante-MG: maior mina de zinco silicatado (willemita) do mundo — mineralogia rara que exige rota de beneficiamento própria.",
+        "rle": "Rota RLE (ustulação-lixiviação-eletrólise) nas refinarias da Nexa em Três Marias e Juiz de Fora: o Brasil fecha a cadeia mina-metal."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#C9C6F4",
+          "label": "Baterias (emergente)"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação (criado, validar)"
     }
   },
   {
@@ -2700,6 +2985,29 @@
         }
       ],
       "analise": "<strong>Internacional:</strong> China lidera mineração e processamento (~69% do midstream); Austrália detém as maiores reservas. Rússia e Japão concentram a esponja de titânio metálico.<br><br><strong>Brasil:</strong> não ranqueado pelo USGS em reservas/produção, mas detém enormes recursos de anatásio (Tapira, Catalão, Salitre-MG/GO) associados a carbonatitos.<br><br><strong>Gargalo:</strong> anatásio de difícil beneficiamento; sem produção de pigmento ou metal em escala.<br><strong>Vantagem:</strong> base de recursos gigantesca à espera de rota tecnológica viável. <em>*O Brasil consta em 'Outros países'; recursos ≠ reservas econômicas.</em>"
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Ilmenita / Rutilo<br/>+ Anatásio — Brasil\"]:::minerio\n  conc[\"Beneficiamento: Concentrado<br/>de Minerais Pesados\"]:::comum\n  cloro[\"Cloração:<br/>TiCl₄\"]:::transf\n  pig[\"Pigmento TiO₂ —<br/>Tintas, ~90% da demanda\"]:::comum\n  kroll[\"Processo Kroll:<br/>Esponja de Titânio\"]:::transf\n  ligati[\"Fusão e Ligas:<br/>Ti-6Al-4V\"]:::transf\n  aero[\"Aeroespacial, Médico<br/>e Defesa\"]:::esp\n\n  min --> conc --> cloro\n  cloro -->|Rota Pigmento| pig\n  cloro -->|Rota Metal| kroll --> ligati --> aero\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "min": "O anatásio dos carbonatitos de Tapira, Catalão e Salitre é um recurso gigante, mas de beneficiamento difícil — ainda sem rota comercial viável.",
+        "kroll": "Processo Kroll: redução do TiCl₄ com magnésio. Pouquíssimos países produzem esponja de titânio (Japão, Rússia, China, Cazaquistão, EUA)."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#BDEFC0",
+          "label": "Aeroespacial / médico"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação (criado, validar)"
     }
   },
   {
@@ -2894,6 +3202,29 @@
         }
       ],
       "analise": "<strong>Internacional:</strong> oligopólio extremo — África do Sul (Bushveld) e Rússia respondem por quase toda a produção e reserva; o refino é igualmente concentrado.<br><br><strong>Brasil:</strong> sem produção comercial. Potencial geológico modesto em complexos máfico-ultramáficos e como subproduto de Ni-Cu/cromita (GO).<br><br><strong>Gargalo:</strong> dependência de importação próxima de 100%; teores baixos e ausência de projetos.<br><strong>Vantagem:</strong> praticamente nenhuma no curto prazo — é o caso de maior vulnerabilidade da lista. <em>*O Brasil não é ranqueado pelo USGS em produção ou reservas.</em>"
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Reefs do Bushveld /<br/>Subproduto Ni-Cu\"]:::minerio\n  conc[\"Beneficiamento:<br/>Concentrado por Flotação\"]:::comum\n  matte[\"Fundição:<br/>Matte de PGM\"]:::transf\n  bmr[\"Refino de Metais-Base:<br/>separa Ni / Cu\"]:::transf\n  pmr[\"Refino Precioso: separa<br/>Pt, Pd, Rh, Ir, Ru\"]:::transf\n  cat[\"Catalisadores<br/>Automotivos\"]:::comum\n  h2[\"Hidrogênio: Eletrolisadores PEM<br/>e Células a Combustível\"]:::esp\n  joia[\"Joalheria, Vidro<br/>e Eletrônica\"]:::comum\n\n  min --> conc --> matte --> bmr --> pmr\n  pmr --> cat\n  pmr --> h2\n  pmr --> joia\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "pmr": "Semanas a meses de dissolução e precipitação seletiva para separar seis metais quase idênticos — know-how de raríssimos refinadores (Johnson Matthey, Heraeus, Umicore, Anglo).",
+        "h2": "Platina e irídio são insumos críticos dos eletrolisadores PEM — o gargalo material da economia do hidrogênio verde."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#BDEFC0",
+          "label": "Rota hidrogênio"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação (criado, validar)"
     }
   },
   {
@@ -3121,6 +3452,34 @@
         "manufatura": "Fertilizantes / Distribuição"
       },
       "notaRodape": "No potássio não há refino químico: o KCl (MOP) sai pronto da mina, com beneficiamento físico na própria planta. A 3ª barra usa participação nas exportações globais (Canadá ~39%, NRCan 2024; Rússia e Belarus aproximados) — o verdadeiro choke point desta cadeia é logístico-comercial, não industrial."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Silvinita<br/>KCl + NaCl\"]:::minerio\n  lavra[\"Lavra Subterrânea /<br/>por Dissolução\"]:::comum\n  benf[\"Beneficiamento: Flotação<br/>e Cristalização\"]:::transf\n  mop[\"MOP: Cloreto de Potássio<br/>60–62% K₂O\"]:::transf\n  npk[\"Fertilizantes:<br/>Blends NPK\"]:::bat\n  agro[\"Lavoura: Soja,<br/>Milho e Cana\"]:::bat\n  sop[\"Processo Mannheim:<br/>SOP — Sulfato de Potássio\"]:::esp\n  fruta[\"Cultivos Sensíveis<br/>a Cloreto\"]:::esp\n\n  min --> lavra --> benf --> mop\n  mop --> npk --> agro\n  mop -.-> sop -.-> fruta\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "benf": "Única planta do Brasil: Taquari-Vassouras (Mosaic, SE). O projeto Autazes (AM) prevê lavra por dissolução no mesmo modelo mina-produto.",
+        "mop": "O MOP sai pronto da planta da mina — não existe 'refino' de potássio. Por isso o poder de mercado está em quem exporta (Canpotex, Uralkali, Belaruskali), não em quem processa.",
+        "sop": "SOP (sulfato de potássio): nicho premium (~10% do mercado) para fruticultura e cultivos sensíveis a cloreto."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#C9C6F4",
+          "label": "Rota fertilizantes (downstream)"
+        },
+        {
+          "cor": "#BDEFC0",
+          "label": "Especialidade — SOP"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação (criado, validar)"
     }
   },
   {
@@ -3358,6 +3717,34 @@
         "manufatura": "Fertilizantes & Baterias LFP"
       },
       "notaRodape": "O midstream do fosfato é a conversão química da rocha em ácido fosfórico (H₃PO₄) — gargalo estratégico equivalente ao refino dos metais, do qual derivam MAP/DAP e o ácido purificado das baterias LFP. Percentuais de transformação aproximados (IFA/setor)."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Rocha Fosfática —<br/>carbonatitos no Brasil\"]:::minerio\n  conc[\"Beneficiamento: Concentrado<br/>30–35% P₂O₅\"]:::comum\n  acid[\"Acidulação H₂SO₄:<br/>Ácido Fosfórico\"]:::transf\n  map[\"Fertilizantes:<br/>MAP / DAP / SSP\"]:::bat\n  agro[\"Agricultura\"]:::bat\n  ppa[\"Purificação: Ácido Grau<br/>Técnico / PPA\"]:::transf\n  lfp[\"Catodos LFP: Fosfato<br/>de Ferro-Lítio\"]:::esp\n  racao[\"Fosfato Bicálcico:<br/>Ração Animal\"]:::comum\n  uran[\"Subproduto: Urânio —<br/>Santa Quitéria\"]:::esp\n\n  min --> conc --> acid\n  acid --> map --> agro\n  acid --> ppa --> lfp\n  acid -.-> racao\n  min -.-> uran\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "acid": "A conversão da rocha em ácido fosfórico (H₃PO₄) é o midstream da cadeia — gargalo químico equivalente ao refino dos metais.",
+        "lfp": "O ácido purificado (PPA) vira fosfato de ferro-lítio, a química de bateria que domina os VEs chineses — nova fronteira de demanda do fósforo.",
+        "uran": "Em Santa Quitéria (CE), fosfato e urânio ocorrem juntos na mesma jazida: a viabilidade econômica de um financia o outro."
+      },
+      "legenda": [
+        {
+          "cor": "#FFB7EC",
+          "label": "Transformação química (midstream)"
+        },
+        {
+          "cor": "#C9C6F4",
+          "label": "Fertilizantes (downstream)"
+        },
+        {
+          "cor": "#BDEFC0",
+          "label": "LFP / urânio"
+        },
+        {
+          "cor": "#F0EFEC",
+          "label": "Rota convencional",
+          "tracejado": true
+        }
+      ],
+      "fonte": "SNGM — rotas de transformação (criado, validar)"
     }
   }
 ]
