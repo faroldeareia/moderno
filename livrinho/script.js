@@ -215,6 +215,59 @@ function buildImageSlide(m, slideTitle, tema, icon, label){
   </div>`;
 }
 
+/* ════════════════════════════════════════════════════════════════════
+   ⛓️ CADEIA DE VALOR NO BRASIL — matriz elo × tempo (modelo IBRAM)
+   - Campo opcional "cadeiaValor" no JSON: elos com faixa (up/mid/down/rec),
+     presença hoje, PD&I e metas 2030/2050. Fallback: imagem <slug>_cadeia.jpg
+   ════════════════════════════════════════════════════════════════════ */
+function buildCadeiaValorSlide(m){
+  const cv = m.cadeiaValor;
+  const CORES = { up:'#1565C0', mid:'#E8920D', down:'#6E6E6E', rec:'#00838F' };
+  const ROTULOS = { up:'Upstream', mid:'Midstream', down:'Downstream', rec:'Recuperação / reciclagem' };
+  const hasPdi = cv.elos.some(e => e.pdi);
+
+  const boxMeta = t => t ? `<div style="background:#E8F5E9;border:1.5px solid #2E7D32;border-radius:6px;padding:6px 8px;font-size:var(--fs-xs);line-height:1.3;color:#1B5E20;font-weight:600">${t}</div>` : '';
+  const rows = cv.elos.map(e => {
+    const faixa = CORES[e.faixa] || '#999';
+    const hoje = e.hoje
+      ? `<div style="background:#fff;border:2px solid var(--orange);border-radius:6px;padding:6px 8px;font-weight:700;font-size:var(--fs-xs);line-height:1.3">${e.hoje}</div>`
+      : `<div style="color:#C9C7C2;font-weight:800;text-align:center;width:100%">—</div>`;
+    const pdi = e.pdi ? `<div style="background:#E3F2FD;border:1.5px solid #1565C0;border-radius:6px;padding:6px 8px;font-size:var(--fs-xs);line-height:1.3;color:#0D47A1;font-weight:600">${e.pdi}</div>` : '';
+    return `<div style="background:${faixa};border-radius:4px" title="${ROTULOS[e.faixa] || ''}"></div>
+      <div style="background:#1A1A1A;color:#fff;border-radius:6px;padding:7px 9px;font-weight:700;font-size:var(--fs-xs);display:flex;align-items:center;line-height:1.25">${e.elo}</div>
+      ${hasPdi ? `<div style="display:flex;align-items:center">${pdi}</div>` : ''}
+      <div style="display:flex;align-items:center">${hoje}</div>
+      <div style="display:flex;align-items:center">${boxMeta(e.m2030)}</div>
+      <div style="display:flex;align-items:center">${boxMeta(e.m2050)}</div>`;
+  }).join('');
+
+  const head = t => `<div style="font-family:var(--font-display);font-weight:800;font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.6px;color:var(--gray);text-align:center;padding:2px 0">${t}</div>`;
+  const cols = hasPdi ? '8px 1.5fr 1fr 1.15fr 1.15fr 1.15fr' : '8px 1.6fr 1.25fr 1.25fr 1.25fr';
+  const headers = `<div></div>${head('Elo da cadeia')}${hasPdi ? head('PD&amp;I') : ''}${head('Hoje')}${head('2030')}${head('2050')}`;
+
+  const usadas = Object.keys(CORES).filter(k => cv.elos.some(e => e.faixa === k));
+  const legenda = usadas.map(k =>
+    `<span style="display:inline-flex;align-items:center;gap:5px;margin-right:12px;white-space:nowrap"><span style="width:12px;height:12px;border-radius:3px;background:${CORES[k]}"></span>${ROTULOS[k]}</span>`
+  ).join('') + `<span style="display:inline-flex;align-items:center;gap:5px;margin-right:12px;white-space:nowrap"><span style="width:12px;height:12px;border-radius:3px;background:#E8F5E9;border:1.5px solid #2E7D32"></span>Metas anunciadas</span>`;
+
+  return `<div class="slide">${buildHeader(m, "Cadeia de Valor no Brasil")}
+    <div class="slide-content">
+      <div class="card" style="flex:1;min-height:0">
+        <div class="card-badge">Elos da Cadeia — presença atual e metas</div>
+        <div style="overflow:auto;flex:1;min-height:0">
+          <div style="display:grid;grid-template-columns:${cols};gap:6px 8px;min-width:860px;align-content:start;padding-bottom:4px">
+            ${headers}
+            ${rows}
+          </div>
+        </div>
+        <div style="font-size:var(--fs-xs);color:var(--gray);font-weight:600;margin-top:8px;flex-shrink:0;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${legenda}</div>
+        ${cv.obs ? `<div style="font-size:var(--fs-xs);color:var(--light);font-style:italic;margin-top:4px;flex-shrink:0">* ${cv.obs}</div>` : ''}
+      </div>
+    </div>
+    ${buildFooter(cv.fonte || undefined)}
+  </div>`;
+}
+
 function generateSlides(m){
   const S = [];
   const v = m.visaoGeral, n = m.numerosMundiais, c = m.cadeiaGlobal;
@@ -316,7 +369,11 @@ function generateSlides(m){
   </div>`);
 
   // ─── 4. CADEIA DE VALOR ───
-  S.push(buildImageSlide(m, "Cadeia de Valor no Brasil", "cadeia", "⛓️", "Cadeia de Valor"));
+  if(m.cadeiaValor && m.cadeiaValor.elos){
+    S.push(buildCadeiaValorSlide(m));
+  } else {
+    S.push(buildImageSlide(m, "Cadeia de Valor no Brasil", "cadeia", "⛓️", "Cadeia de Valor"));
+  }
 
   // ─── 5. CADEIA GLOBAL ───
   S.push(`<div class="slide">${buildHeader(m, "Cadeia Global e Geopolítica")}
