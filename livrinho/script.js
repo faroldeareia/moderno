@@ -398,4 +398,583 @@ function generateSlides(m){
       <div class="card"><div class="card-badge">${labels.manufatura || 'Manufatura / Downstream'}</div>${listHTML(c.manufatura)}</div>
       <div class="card-highlight"><div class="card-badge">Análise Estratégica</div><div class="text-body" style="font-size:var(--fs-sm)">${c.analise}</div></div>
     </div>
-    ${buildChain
+    ${buildChainNote(c.notaRodape)}
+    ${buildFooter()}
+  </div>`);
+
+  // ─── 6. FLUXOGRAMA ───
+  // Se o mineral tiver o campo "fluxograma" no JSON, desenha via Mermaid;
+  // caso contrário, mantém o slide de imagem (img/<slug>_fluxo.jpg).
+  if(m.fluxograma && m.fluxograma.def){
+    const fx = m.fluxograma;
+    const legenda = (fx.legenda || []).map(l =>
+      `<span style="display:inline-flex;align-items:center;gap:6px;margin-right:14px;white-space:nowrap"><span style="width:12px;height:12px;border-radius:3px;background:${l.cor};border:1px ${l.tracejado ? 'dashed' : 'solid'} rgba(0,0,0,.4);display:inline-block"></span>${l.label}</span>`
+    ).join('');
+    S.push(`<div class="slide">${buildHeader(m, "Fluxograma de Transformação")}
+      <div class="slide-content">
+        <div class="card" style="flex:1;min-height:0">
+          <div class="card-badge">Rotas de Transformação — ${m.nome}</div>
+          <div class="mermaid-flux" data-def="${encodeURIComponent(fx.def)}"${fx.notas ? ` data-notas="${encodeURIComponent(JSON.stringify(fx.notas))}"` : ''} style="flex:1;min-height:340px;display:flex;align-items:center;justify-content:center;overflow:auto;cursor:default"></div>
+          ${legenda || fx.notas ? `<div style="font-size:var(--fs-xs);color:var(--gray);font-weight:600;margin-top:8px;flex-shrink:0;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${legenda}${fx.notas ? '<span style="white-space:nowrap">💡 Clique nas caixas para detalhes</span>' : ''}</div>` : ''}
+        </div>
+      </div>
+      ${buildFooter(fx.fonte || undefined)}
+    </div>`);
+  } else {
+    S.push(buildImageSlide(m, "Fluxograma de Transformação", "fluxo", "🔀", "Fluxograma"));
+  }
+
+  // ─── 7. MAPA ───
+  S.push(buildImageSlide(m, "Mapa de Ocorrências", "mapa", "🗺️", "Mapa"));
+
+  return S;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   🔀 FLUXOGRAMAS — Mermaid.js carregado sob demanda (CDN)
+   - Minerais com campo "fluxograma" no JSON são desenhados por código
+   - "notas" (opcional) torna as caixas clicáveis com explicação
+   ════════════════════════════════════════════════════════════════════ */
+let mermaidReady = null;
+function loadMermaid(){
+  if(mermaidReady) return mermaidReady;
+  mermaidReady = new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js';
+    s.onload = () => {
+      window.mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: 'loose',
+        flowchart: { htmlLabels: true, curve: 'linear' },
+        themeVariables: { fontFamily: "'DM Sans', system-ui, sans-serif", fontSize: '14px', lineColor: '#4A4A4A' }
+      });
+      resolve(window.mermaid);
+    };
+    s.onerror = () => { mermaidReady = null; reject(new Error('CDN do Mermaid indisponível')); };
+    document.head.appendChild(s);
+  });
+  return mermaidReady;
+}
+
+async function renderMermaidIn(container){
+  if(!container) return;
+  const holders = container.querySelectorAll('.mermaid-flux[data-def]');
+  if(!holders.length) return;
+  let mermaid;
+  try{ mermaid = await loadMermaid(); }
+  catch(err){
+    console.error('[SNGM] Mermaid não carregou:', err);
+    holders.forEach(el => { el.innerHTML = '<div style="color:var(--light);font-weight:600;padding:30px;text-align:center">⚠️ Fluxograma indisponível (sem acesso ao CDN)</div>'; });
+    return;
+  }
+  for(const el of holders){
+    if(el.dataset.done) continue;
+    try{
+      const def = decodeURIComponent(el.dataset.def);
+      const id = 'flux_' + Math.random().toString(36).slice(2);
+      const { svg } = await mermaid.render(id, def);
+      el.innerHTML = svg;
+      const svgEl = el.querySelector('svg');
+      if(svgEl){
+        svgEl.style.maxWidth = '100%';
+        svgEl.style.width = '100%';
+        svgEl.style.height = '100%';
+        svgEl.style.maxHeight = '100%';
+      }
+      el.dataset.done = '1';
+      bindFluxNotes(el);
+    }catch(err){
+      console.error('[SNGM] Erro ao desenhar fluxograma:', err);
+      el.innerHTML = '<div style="color:var(--light);font-weight:600;padding:30px;text-align:center">⚠️ Erro na definição do fluxograma (ver console)</div>';
+    }
+  }
+}
+
+function bindFluxNotes(holder){
+  if(!holder.dataset.notas) return;
+  let notas;
+  try{ notas = JSON.parse(decodeURIComponent(holder.dataset.notas)); }catch(e){ return; }
+  holder.querySelectorAll('.node').forEach(node => {
+    const id = node.id || '';
+    const key = Object.keys(notas).find(k => id === k || id.includes('-' + k + '-') || id.endsWith('-' + k));
+    if(!key) return;
+    node.style.cursor = 'pointer';
+    node.addEventListener('click', ev => {
+      ev.stopPropagation();
+      showFluxNote(notas[key]);
+    });
+  });
+}
+
+function showFluxNote(texto){
+  closeFluxNote();
+  const wrap = document.createElement('div');
+  wrap.id = 'fluxnote';
+  wrap.style.cssText = 'position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.45);padding:20px';
+  wrap.innerHTML = `<div style="background:#fff;border:2px solid var(--orange);border-radius:12px;max-width:460px;width:100%;padding:20px 22px;box-shadow:0 20px 60px rgba(0,0,0,.35);position:relative">
+    <button onclick="closeFluxNote()" style="position:absolute;top:10px;right:12px;border:none;background:none;font-size:18px;cursor:pointer;color:var(--light);font-weight:700" aria-label="Fechar">✕</button>
+    <div style="font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.7px;color:var(--orange);margin-bottom:8px">💡 Sobre esta etapa</div>
+    <div style="font-size:var(--fs-sm);line-height:1.55;color:var(--dark)">${texto}</div>
+  </div>`;
+  wrap.addEventListener('click', e => { if(e.target === wrap) closeFluxNote(); });
+  wrap.addEventListener('mousedown', e => e.stopPropagation());
+  document.body.appendChild(wrap);
+}
+function closeFluxNote(){
+  const el = document.getElementById('fluxnote');
+  if(el) el.remove();
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   🎨 BACKGROUND DE CONTORNOS
+   ════════════════════════════════════════════════════════════════════ */
+const CONTOUR_BG = (() => {
+  const cache = {};
+  const perm = new Uint8Array(512);
+  const grad3 = [[1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0],[1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1],[0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1]];
+  (function seed(s){let r=s||42;const p=new Uint8Array(256);for(let i=0;i<256;i++)p[i]=i;for(let i=255;i>0;i--){r=(r*1664525+1013904223)>>>0;const j=r%(i+1);[p[i],p[j]]=[p[j],p[i]]}for(let i=0;i<512;i++)perm[i]=p[i&255]})(42);
+  function fade(t){return t*t*t*(t*(t*6-15)+10)}
+  function lerp(a,b,t){return a+(b-a)*t}
+  function dot2(g,x,y){return g[0]*x+g[1]*y}
+  function noise2(x,y){const X=Math.floor(x)&255,Y=Math.floor(y)&255;x-=Math.floor(x);y-=Math.floor(y);const u=fade(x),v=fade(y);const a=perm[X]+Y,b=perm[X+1]+Y;return lerp(lerp(dot2(grad3[perm[a]%12],x,y),dot2(grad3[perm[b]%12],x-1,y),u),lerp(dot2(grad3[perm[a+1]%12],x,y-1),dot2(grad3[perm[b+1]%12],x-1,y-1),u),v)}
+  function fbm(x,y){let v=0,amp=1,freq=1,max=0;for(let i=0;i<5;i++){v+=noise2(x*freq,y*freq)*amp;max+=amp;amp*=0.52;freq*=2}return v/max}
+  function lerp01(x1,y1,x2,y2,v1,v2,t){if(Math.abs(v2-v1)<1e-9)return[(x1+x2)/2,(y1+y2)/2];const r2=(t-v1)/(v2-v1);return[x1+(x2-x1)*r2,y1+(y2-y1)*r2]}
+  function generate(w,h){
+    const key=w+'x'+h;if(cache[key])return cache[key];
+    const cv=document.createElement('canvas');cv.width=w;cv.height=h;
+    const ctx=cv.getContext('2d');
+    ctx.fillStyle='#F0EFEC';ctx.fillRect(0,0,w,h);
+    const sc=0.0022;
+    const GW=Math.ceil(w/8)+2,GH=Math.ceil(h/8)+2;
+    const cW=w/(GW-1),cH=h/(GH-1);
+    const grid=[];
+    for(let r=0;r<GH;r++){const row=[];for(let c=0;c<GW;c++){row.push(fbm((c*cW)*sc,(r*cH)*sc))}grid.push(row)}
+    let mn=Infinity,mx=-Infinity;
+    for(let r=0;r<GH;r++)for(let c=0;c<GW;c++){if(grid[r][c]<mn)mn=grid[r][c];if(grid[r][c]>mx)mx=grid[r][c]}
+    const N=24;
+    for(let l=1;l<N;l++){
+      const frac=l/N;const threshold=mn+(mx-mn)*frac;
+      const isAccent=(l%5===0);
+      const base=Math.round(170+frac*30);
+      const alpha=isAccent?0.45:0.22;
+      ctx.strokeStyle=`rgba(${base-20},${base-10},${base-25},${alpha})`;
+      ctx.lineWidth=isAccent?1.2:0.5;
+      ctx.lineJoin='round';ctx.lineCap='round';
+      const segs=[];
+      for(let row=0;row<GH-1;row++){for(let col=0;col<GW-1;col++){
+        const tl=grid[row][col],tr=grid[row][col+1],bl=grid[row+1][col],br=grid[row+1][col+1];
+        const idx=(tl>=threshold?8:0)|(tr>=threshold?4:0)|(br>=threshold?2:0)|(bl>=threshold?1:0);
+        if(idx===0||idx===15)continue;
+        const top=lerp01(col,row,col+1,row,tl,tr,threshold);
+        const right=lerp01(col+1,row,col+1,row+1,tr,br,threshold);
+        const bot=lerp01(col+1,row+1,col,row+1,br,bl,threshold);
+        const left=lerp01(col,row+1,col,row,bl,tl,threshold);
+        const cases={1:[left,bot],2:[bot,right],3:[left,right],4:[top,right],5:[top,right,left,bot],6:[top,bot],7:[top,left],8:[top,left],9:[top,bot],10:[top,left,bot,right],11:[top,right],12:[left,right],13:[bot,right],14:[left,bot]};
+        const pts=cases[idx];if(!pts)continue;
+        for(let i=0;i<pts.length;i+=2)segs.push({x1:pts[i][0],y1:pts[i][1],x2:pts[i+1][0],y2:pts[i+1][1]});
+      }}
+      ctx.beginPath();
+      for(const s of segs){ctx.moveTo(s.x1*cW,s.y1*cH);ctx.lineTo(s.x2*cW,s.y2*cH)}
+      ctx.stroke();
+    }
+    // PNG (sem perdas) — o JPEG borrava as linhas finas do contorno
+    return cache[key] = cv.toDataURL('image/png');
+  }
+  return { generate };
+})();
+
+let bgCache = null, bgPrintCache = null;
+function injectBg(){
+  if(!bgCache){
+    const w = Math.min(window.innerWidth, 1920);
+    const h = Math.min(window.innerHeight, 1080);
+    bgCache = CONTOUR_BG.generate(w, h);
+  }
+  document.querySelectorAll('#sc .slide:not(.slide-capa)').forEach(sl => {
+    if(!sl.querySelector('.slide-bg')){
+      const bg = document.createElement('div');
+      bg.className = 'slide-bg';
+      bg.style.backgroundImage = `url(${bgCache})`;
+      bg.style.backgroundSize = 'cover';
+      bg.style.backgroundPosition = 'center';
+      sl.prepend(bg);
+    }
+  });
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   🎮 NAVEGAÇÃO
+   ════════════════════════════════════════════════════════════════════ */
+function buildSlides(){
+  H = [];
+  MINERAL_DATA.forEach(m => H.push(...generateSlides(m)));
+}
+
+function showError(msg){
+  document.getElementById('sc').innerHTML =
+    `<div style="display:flex;align-items:center;justify-content:center;width:100%;color:#fff;padding:40px;text-align:center;font-family:var(--font-display)">
+      <div style="background:rgba(0,0,0,.5);padding:32px 40px;border-radius:14px;border:1px solid rgba(255,255,255,.15);max-width:560px">
+        <div style="font-size:48px;margin-bottom:14px">⚠️</div>
+        <div style="font-size:20px;font-weight:700;margin-bottom:10px">Não foi possível carregar os dados</div>
+        <div style="font-size:14px;font-weight:400;line-height:1.5;color:rgba(255,255,255,.75)">${msg}</div>
+      </div>
+    </div>`;
+}
+
+async function init(){
+  try{
+    const res = await fetch(CONFIG.dataUrl, { cache: 'no-cache' });
+    if(!res.ok) throw new Error(`HTTP ${res.status} ao carregar ${CONFIG.dataUrl}`);
+    MINERAL_DATA = await res.json();
+    if(!Array.isArray(MINERAL_DATA) || MINERAL_DATA.length === 0)
+      throw new Error('JSON vazio ou inválido');
+  }catch(err){
+    console.error('[SNGM] Falha ao carregar dados:', err);
+    const isFile = location.protocol === 'file:';
+    const hint = isFile
+      ? 'Você abriu o arquivo direto pelo navegador (file://). Por segurança, o navegador bloqueia o fetch local. Sirva a pasta com um servidor simples — ex: <code style="background:rgba(255,255,255,.1);padding:2px 6px;border-radius:4px">python -m http.server</code> e acesse via http://localhost:8000.'
+      : `Verifique se o arquivo <code style="background:rgba(255,255,255,.1);padding:2px 6px;border-radius:4px">${CONFIG.dataUrl}</code> está na mesma pasta do HTML.<br><br><strong>Erro:</strong> ${err.message}`;
+    showError(hint);
+    return false;
+  }
+  return true;
+}
+
+// Minerais expandidos manualmente pelo usuário (via chevron).
+// O accordion abre/fecha SOMENTE por clique no chevron — o mineral ativo
+// não abre mais automaticamente.
+const expandedMinerals = new Set();
+
+function toggleMineralExpand(idx, ev){
+  if(ev){ ev.stopPropagation(); ev.preventDefault(); }
+  if(expandedMinerals.has(idx)) expandedMinerals.delete(idx);
+  else expandedMinerals.add(idx);
+  renderSidebarMenu();
+}
+
+function isGroupOpen(idx){
+  // Aberto somente se o usuário expandiu manualmente (clicou no chevron).
+  return expandedMinerals.has(idx);
+}
+
+function renderSidebarMenu(){
+  document.getElementById('mt').innerHTML = MINERAL_DATA.map((m, i) => {
+    const isActive = i === cM;
+    const isOpen = isGroupOpen(i);
+    const subItems = CONFIG.slideNames.map((name, j) => {
+      const subActive = (isActive && j === cS) ? ' active' : '';
+      return `<button class="mineral-sub-item${subActive}" onclick="goToSlide(${i}, ${j}); closeSidebar()">
+        <span class="sub-num">${j + 1}</span>${name}
+      </button>`;
+    }).join('');
+    return `<div class="mineral-group${isOpen ? ' open' : ''}">
+      <div class="mineral-row">
+        <button class="mineral-item${isActive ? ' active' : ''}" onclick="goTo(${i})">
+          <span class="mineral-symbol">${m.simbolo}</span>
+          <span class="mineral-name">${m.nome}</span>
+        </button>
+        <button class="mineral-chevron-btn" onclick="toggleMineralExpand(${i}, event)" aria-label="Expandir temas de ${m.nome}" title="Mostrar 7 temas">
+          <span class="mineral-chevron">▾</span>
+        </button>
+      </div>
+      <div class="mineral-subs">${subItems}</div>
+    </div>`;
+  }).join('');
+}
+
+function render(){
+  const i = globalIndex();
+  document.getElementById('sc').innerHTML = H[i];
+  document.getElementById('cn').textContent = `${i + 1} / ${totalSlides()}`;
+
+  // O HTML dos slides é gerado uma única vez no buildSlides(), com o stepper
+  // "fotografado" em cS=0. Aqui sincronizamos a classe .active com cS atual.
+  document.querySelectorAll('#sc .step-item').forEach((btn, idx) => {
+    btn.classList.toggle('active', idx === cS);
+  });
+
+  renderSidebarMenu();
+  injectBg();
+  attachImageFallbacks();
+  renderMermaidIn(document.getElementById('sc'));
+  const v = document.getElementById('sc');
+  if(v) v.scrollTop = 0;
+}
+
+function attachImageFallbacks(){
+  document.querySelectorAll('#sc img[data-fallback]').forEach(img => {
+    if(img.dataset.fbBound) return;
+    img.dataset.fbBound = '1';
+    const apply = () => {
+      const html = decodeURIComponent(img.dataset.fallback);
+      const mode = img.dataset.fallbackMode;
+      if(mode === 'parent' && img.parentNode){
+        img.parentNode.innerHTML = html;
+      } else {
+        img.outerHTML = html;
+      }
+    };
+    img.addEventListener('error', apply);
+    if(img.complete && img.naturalWidth === 0) apply();
+  });
+}
+function next(){ if(globalIndex() < totalSlides() - 1){ cS++; if(cS >= SN){ cM++; cS = 0 } render() } }
+function prev(){ if(globalIndex() > 0){ cS--; if(cS < 0){ cM--; cS = SN - 1 } render() } }
+
+function goToSlide(mineralIdx, slideIdx){
+  cM = mineralIdx;
+  cS = Math.max(0, Math.min(slideIdx, SN - 1));
+  render();
+}
+function goTo(i){ goToSlide(i, 0); closeSidebar() }
+
+function openSidebar(){
+  document.getElementById('sb').classList.add('open');
+  document.getElementById('so').classList.add('active');
+  document.getElementById('hb').classList.add('active');
+}
+function closeSidebar(){
+  document.getElementById('sb').classList.remove('open');
+  document.getElementById('so').classList.remove('active');
+  document.getElementById('hb').classList.remove('active');
+}
+function toggleSidebar(){
+  document.getElementById('sb').classList.contains('open') ? closeSidebar() : openSidebar();
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   🖨️ EXPORTAR PDF — com AUTO-FIT (Versão Definitiva)
+   1. Monta todos os slides no container #pc (oculto).
+   2. Aplica a classe .print-fit → o CSS posiciona #pc fora da tela
+      já nas dimensões exatas do papel (A4 paisagem ≈ 1122×794 px).
+   3. Ajusta o tamanho dos diagramas Mermaid.
+   4. Mede cada .slide-content e aplica transform:scale() para caber.
+   5. Chama window.print().
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Espera todas as <img> do container carregarem (ou falharem). */
+function pdfWaitForImages(root){
+  const imgs = Array.prototype.slice.call(root.querySelectorAll('img'));
+  return Promise.all(imgs.map(function(img){
+    if(img.complete) return Promise.resolve();
+    return new Promise(function(res){
+      img.addEventListener('load',  res, {once:true});
+      img.addEventListener('error', res, {once:true});
+    });
+  }));
+}
+
+/* Dimensiona cada SVG do Mermaid para ocupar o máximo do contêiner */
+function fitMermaidSvgs(root){
+  root.querySelectorAll('.mermaid-flux').forEach(function(holder){
+    const svg = holder.querySelector('svg');
+    if(!svg) return;
+    const vb = svg.viewBox && svg.viewBox.baseVal;
+    if(!vb || !vb.width || !vb.height) return;
+    const w = holder.clientWidth, h = holder.clientHeight;
+    if(!w || !h) return;
+    const s = Math.min(w / vb.width, h / vb.height);
+    svg.style.maxWidth  = 'none';
+    svg.style.maxHeight = 'none';
+    svg.style.width  = (vb.width  * s) + 'px';
+    svg.style.height = (vb.height * s) + 'px';
+  });
+}
+
+/* Auto-fit de um slide via transform:scale (confiável na impressão). */
+function autoFitSlide(sl){
+  const content = sl.querySelector('.slide-content');
+  if(!content) return; /* capa não tem .slide-content */
+
+  ['transform','transform-origin','width','height','margin-bottom','flex']
+    .forEach(function(p){ content.style.removeProperty(p); });
+  content.style.zoom = '';
+
+  const availW = content.clientWidth, availH = content.clientHeight;
+  if(availH < 80 || availW < 300) return; /* medição inválida — não escala */
+
+  let s = 1;
+  for(let i = 0; i < 4; i++){
+    const needW = content.scrollWidth, needH = content.scrollHeight;
+    if(needW <= content.clientWidth + 1 && needH <= content.clientHeight + 1) break;
+    s = Math.max(
+      s * Math.min(content.clientWidth / needW, content.clientHeight / needH) * 0.99,
+      0.5
+    );
+    content.style.setProperty('flex', 'none', 'important');
+    content.style.setProperty('transform-origin', '0 0', 'important');
+    content.style.setProperty('transform', 'scale(' + s + ')', 'important');
+    content.style.setProperty('width',  (availW / s) + 'px', 'important');
+    content.style.setProperty('height', (availH / s) + 'px', 'important');
+    content.style.setProperty('margin-bottom', (availH - availH / s) + 'px', 'important');
+    if(s <= 0.5) break;
+  }
+}
+
+async function printPDF(){
+  const pc = document.getElementById('pc');
+  if(!pc || typeof H === 'undefined' || !H || !H.join){
+    console.error('[PDF] container #pc ou array de slides H não encontrado.');
+    window.print();
+    return;
+  }
+
+  pc.innerHTML = H.join('');
+
+  /* Fundo de contornos nos slides internos. */
+  try{
+    if(typeof CONTOUR_BG !== 'undefined' && CONTOUR_BG && CONTOUR_BG.generate){
+      let _bg = null;
+      if(typeof bgPrintCache !== 'undefined' && bgPrintCache) _bg = bgPrintCache;
+      if(!_bg){
+        _bg = CONTOUR_BG.generate(2245, 1588);
+        bgPrintCache = _bg;
+      }
+      pc.querySelectorAll('.slide:not(.slide-capa)').forEach(function(sl){
+        let bg = sl.querySelector('.slide-bg');
+        if(!bg){
+          bg = document.createElement('div');
+          bg.className = 'slide-bg';
+          sl.prepend(bg);
+        }
+        bg.style.backgroundImage = 'url(' + _bg + ')';
+        bg.style.backgroundSize  = 'cover';
+      });
+    }
+  }catch(e){ console.warn('[PDF] fundo de contornos:', e); }
+
+  /* Imagens que falharem não podem quebrar o layout. */
+  pc.querySelectorAll('img').forEach(function(img){
+    const kill = function(){ img.style.display = 'none'; };
+    if(img.complete && img.naturalWidth === 0) kill();
+    else img.addEventListener('error', kill, {once:true});
+  });
+
+  /* 1) Posiciona no tamanho do papel ANTES de renderizar e medir. */
+  pc.classList.add('print-fit');
+
+  /* 2) Marca a grade da Cadeia de Valor para as regras cv-* do CSS */
+  pc.querySelectorAll('div[style*="min-width:860"], div[style*="min-width: 860"]')
+    .forEach(function(g){
+      g.classList.add('cv-grid');
+      if(g.parentElement) g.parentElement.classList.add('cv-scroll');
+    });
+
+  /* 3) Espera fontes e imagens carregarem. */
+  try{ await document.fonts.ready; }catch(e){}
+  await pdfWaitForImages(pc);
+
+  /* 4) Renderiza o Mermaid e maximiza os diagramas na página. */
+  try{
+    if(typeof renderMermaidIn === 'function') await renderMermaidIn(pc);
+  }catch(e){ console.warn('[PDF] mermaid:', e); }
+  await new Promise(function(r){
+    requestAnimationFrame(function(){ requestAnimationFrame(r); });
+  });
+  fitMermaidSvgs(pc);
+
+  /* 5) Auto-fit de cada slide — transform, nunca zoom. */
+  pc.querySelectorAll('.slide').forEach(autoFitSlide);
+  await new Promise(function(r){ requestAnimationFrame(r); });
+
+  window.print();
+
+  /* Limpeza: volta tudo ao estado normal. */
+  pc.classList.remove('print-fit');
+  pc.querySelectorAll('.slide-content').forEach(function(c){
+    ['transform','transform-origin','width','height','margin-bottom','flex']
+      .forEach(function(p){ c.style.removeProperty(p); });
+    c.style.zoom = '';
+  });
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   🎯 INTERAÇÃO
+   ════════════════════════════════════════════════════════════════════ */
+window.onload = async () => {
+  const ok = await init();
+  if(!ok) return;
+
+  buildSlides();
+  renderSidebarMenu();
+  render();
+
+  document.getElementById('hb').addEventListener('click', e => { e.stopPropagation(); toggleSidebar() });
+  document.getElementById('so').addEventListener('click', closeSidebar);
+
+  const sc = document.getElementById('sc');
+
+  // ─── DESKTOP: click pra avançar (>900px) ───
+  let pressStart = null;
+  sc.addEventListener('mousedown', e => {
+    if(e.target.closest('.slide-stepper, .step-item, .mermaid-flux')) { pressStart = null; return; }
+    pressStart = { x: e.clientX, y: e.clientY, t: Date.now(), scrollTop: sc.scrollTop };
+  });
+  sc.addEventListener('mouseup', e => {
+    if(!pressStart) return;
+    if(e.target.closest('.slide-stepper, .step-item, .mermaid-flux')) { pressStart = null; return; }
+    const dx = Math.abs(e.clientX - pressStart.x);
+    const dy = Math.abs(e.clientY - pressStart.y);
+    const dt = Date.now() - pressStart.t;
+    const dScroll = Math.abs(sc.scrollTop - pressStart.scrollTop);
+    pressStart = null;
+    if(dx < 8 && dy < 8 && dScroll < 5 && dt < 400 && window.innerWidth > 900) next();
+  });
+
+  // ─── MOBILE: só swipe horizontal troca slide ───
+  let tStart = null;
+  let isHSwipe = false;
+
+  sc.addEventListener('touchstart', e => {
+    if(e.touches.length > 1){ tStart = null; return; }
+    if(e.target.closest('.slide-stepper, .step-item, .mermaid-flux')){ tStart = null; return; }
+    const t = e.touches[0];
+    tStart = { x: t.screenX, y: t.screenY, scrollTop: sc.scrollTop };
+    isHSwipe = false;
+  }, { passive: true });
+
+  sc.addEventListener('touchmove', e => {
+    if(!tStart || e.touches.length > 1) return;
+    const t = e.touches[0];
+    const dx = t.screenX - tStart.x;
+    const dy = t.screenY - tStart.y;
+    if(!isHSwipe && Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy) * 1.8){
+      isHSwipe = true;
+    }
+  }, { passive: true });
+
+  sc.addEventListener('touchend', e => {
+    if(!tStart) return;
+    const t = e.changedTouches[0];
+    const dx = t.screenX - tStart.x;
+    const ady = Math.abs(t.screenY - tStart.y);
+    const adx = Math.abs(dx);
+    const dScroll = Math.abs(sc.scrollTop - tStart.scrollTop);
+    const wasHSwipe = isHSwipe;
+    tStart = null;
+
+    if(wasHSwipe && adx > 60 && adx > ady * 2 && dScroll < 10){
+      dx < 0 ? next() : prev();
+    }
+  }, { passive: true });
+
+  // ─── Resize ───
+  let rt, lastW = window.innerWidth;
+  window.addEventListener('resize', () => {
+    clearTimeout(rt);
+    rt = setTimeout(() => {
+      const dw = Math.abs(window.innerWidth - lastW);
+      if(dw > 200){
+        bgCache = null;
+        lastW = window.innerWidth;
+        injectBg();
+      }
+    }, 400);
+  });
+};
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'ArrowRight' || e.key === ' '){ e.preventDefault(); next() }
+  if(e.key === 'ArrowLeft') prev();
+  if(e.key === 'Escape'){ closeFluxNote(); closeSidebar(); }
+});
