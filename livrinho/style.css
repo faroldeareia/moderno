@@ -504,6 +504,10 @@ body{
 
 /* ════════════════════════════════════════════════════════════════════
    📱 MOBILE — slide cresce livremente, viewer rola
+   IMPORTANTE: todas as regras de slide são escopadas em #sc (a tela).
+   O container de impressão #pc NUNCA pode ser afetado por media queries
+   de largura de janela — era isso que corrompia a medição do PDF quando
+   a janela estava estreita na hora de exportar.
    ════════════════════════════════════════════════════════════════════ */
 
 @media(max-width:900px){
@@ -524,7 +528,7 @@ body{
     display:block;
   }
 
-  .slide{
+  #sc .slide{
     height:auto !important;
     min-height:100vh;min-height:100dvh;
     display:flex;
@@ -532,37 +536,37 @@ body{
   }
 
   /* ── FIX SOBREPOSIÇÃO: força altura automática em todos os containers ── */
-  .slide-content, .s2-layout, .grid-pizza, .grid-4{
+  #sc .slide-content, #sc .s2-layout, #sc .grid-pizza, #sc .grid-4{
     height:auto !important;
     min-height:auto !important;
     overflow:visible;
   }
 
-  .slide-content{
+  #sc .slide-content{
     flex-direction:column;
     flex:none;
   }
-  .slide-header{padding:14px 18px 10px 70px}
-  .slide-footer{padding:8px 18px 8px 70px}
-  .header-logo{display:none}
-  .header-title{font-size:var(--fs-xl)}
-  .header-subtitle{font-size:var(--fs-xs)}
+  #sc .slide-header{padding:14px 18px 10px 70px}
+  #sc .slide-footer{padding:8px 18px 8px 70px}
+  #sc .header-logo{display:none}
+  #sc .header-title{font-size:var(--fs-xl)}
+  #sc .header-subtitle{font-size:var(--fs-xs)}
 
   /* Stepper vira só dots no mobile */
-  .slide-stepper{
+  #sc .slide-stepper{
     padding:9px 14px 8px;
     gap:4px;
     background:rgba(255,255,255,.7);
   }
-  .step-label{display:none}
-  .step-item{
+  #sc .step-label{display:none}
+  #sc .step-item{
     padding:5px;border-radius:50%;
     border-color:transparent !important;
     background:transparent !important;
   }
-  .step-dot{width:9px;height:9px;background:#BFBDB9}
-  .step-item:hover .step-dot{background:var(--gray)}
-  .step-item.active .step-dot{
+  #sc .step-dot{width:9px;height:9px;background:#BFBDB9}
+  #sc .step-item:hover .step-dot{background:var(--gray)}
+  #sc .step-item.active .step-dot{
     width:11px;height:11px;
     background:var(--orange);
     box-shadow:0 0 0 3px var(--orange-fill);
@@ -572,18 +576,18 @@ body{
      IMPORTANTE: .slide-capa não vira flex porque ele já é position:relative
      e os filhos se posicionam por margin/relative — mantemos a estrutura
      do desktop, só trocando absolute por relative. */
-  .slide-capa{
+  #sc .slide-capa{
     height:auto !important;
     min-height:0 !important;
     display:block !important;
     background:#1a1a2e;
   }
-  .capa-photo-wrapper{
+  #sc .capa-photo-wrapper{
     position:relative;inset:auto;
     width:100%;height:38vh;height:38dvh;
     display:block;
   }
-  .capa-glass{
+  #sc .capa-glass{
     position:relative;
     left:auto;right:auto;top:auto;bottom:auto;
     transform:none;
@@ -594,28 +598,28 @@ body{
   }
 
   /* Cards / colunas */
-  .s2-layout{flex-direction:column}
-  .s2-col{flex:none}
-  .card, .card-highlight{flex:none !important}
-  .grid-pizza{grid-template-columns:1fr;gap:var(--gap-cards)}
-  .grid-4{grid-template-columns:1fr 1fr}
-  .pos-grid{gap:8px}
-  .pos-item{padding:11px 8px}
-  .pos-val{font-size:20px}
+  #sc .s2-layout{flex-direction:column}
+  #sc .s2-col{flex:none}
+  #sc .card, #sc .card-highlight{flex:none !important}
+  #sc .grid-pizza{grid-template-columns:1fr;gap:var(--gap-cards)}
+  #sc .grid-4{grid-template-columns:1fr 1fr}
+  #sc .pos-grid{gap:8px}
+  #sc .pos-item{padding:11px 8px}
+  #sc .pos-val{font-size:20px}
 
   /* Pie chart: empilha vertical */
-  .pie-wrapper{flex-direction:column;gap:14px;align-items:stretch}
-  .pie-container{width:140px;height:140px;margin:0 auto}
-  .pie-legend-box{font-size:var(--fs-sm)}
+  #sc .pie-wrapper{flex-direction:column;gap:14px;align-items:stretch}
+  #sc .pie-container{width:140px;height:140px;margin:0 auto}
+  #sc .pie-legend-box{font-size:var(--fs-sm)}
 
   /* Listas: sem scroll, mostra tudo */
-  .company-list{overflow-y:visible;max-height:none}
+  #sc .company-list{overflow-y:visible;max-height:none}
 
   /* Slides de imagem: altura mínima decente */
-  .img-placeholder{min-height:50vh;min-height:50dvh}
+  #sc .img-placeholder{min-height:50vh;min-height:50dvh}
 
   /* Empreendimento card */
-  .emp-photo, .emp-photo-fallback{height:var(--emp-photo-h)}
+  #sc .emp-photo, #sc .emp-photo-fallback{height:var(--emp-photo-h)}
 
   /* Nav controls discretos */
   .nav-controls{
@@ -642,32 +646,32 @@ body{
     --fs-xl:16px;
     --emp-photo-h:150px;
   }
-  .grid-4{grid-template-columns:1fr}
-  .flag-emoji{font-size:32px}
-  .flag-box{padding:11px 6px}
-  .flag-country{font-size:var(--fs-sm)}
+  #sc .grid-4{grid-template-columns:1fr}
+  #sc .flag-emoji{font-size:32px}
+  #sc .flag-box{padding:11px 6px}
+  #sc .flag-country{font-size:var(--fs-sm)}
 
-  .slide-header{padding:12px 14px 9px 64px;gap:10px}
-  .slide-footer{padding:8px 14px 8px 64px;font-size:11px}
-  .slide-stepper{padding:8px 12px 7px}
-  .header-symbol{padding:5px 11px;font-size:var(--fs-sm)}
-  .header-title{font-size:var(--fs-md);line-height:1.15}
-  .header-subtitle{font-size:11px}
+  #sc .slide-header{padding:12px 14px 9px 64px;gap:10px}
+  #sc .slide-footer{padding:8px 14px 8px 64px;font-size:11px}
+  #sc .slide-stepper{padding:8px 12px 7px}
+  #sc .header-symbol{padding:5px 11px;font-size:var(--fs-sm)}
+  #sc .header-title{font-size:var(--fs-md);line-height:1.15}
+  #sc .header-subtitle{font-size:11px}
 
-  .capa-photo-wrapper{height:32vh;height:32dvh}
-  .capa-glass{margin:-36px 12px 20px;padding:20px 20px}
-  .capa-symbol-tag{font-size:var(--fs-md);padding:7px 16px;margin-bottom:14px}
-  .capa-glass h1{margin-bottom:12px}
+  #sc .capa-photo-wrapper{height:32vh;height:32dvh}
+  #sc .capa-glass{margin:-36px 12px 20px;padding:20px 20px}
+  #sc .capa-symbol-tag{font-size:var(--fs-md);padding:7px 16px;margin-bottom:14px}
+  #sc .capa-glass h1{margin-bottom:12px}
 
-  .gap-label{width:62px;font-size:11px}
-  .gap-bar-bg{height:18px}
-  .gap-val{width:42px;font-size:11px}
+  #sc .gap-label{width:62px;font-size:11px}
+  #sc .gap-bar-bg{height:18px}
+  #sc .gap-val{width:42px;font-size:11px}
 
-  .transf-label{width:62px;font-size:11px}
-  .transf-bar-bg{height:22px}
-  .transf-bar-fill{font-size:11px}
+  #sc .transf-label{width:62px;font-size:11px}
+  #sc .transf-bar-bg{height:22px}
+  #sc .transf-bar-fill{font-size:11px}
 
-  .card-highlight .text-body{font-size:var(--fs-sm)}
+  #sc .card-highlight .text-body{font-size:var(--fs-sm)}
 
   .hamburger{top:12px;left:12px}
   .nav-controls{bottom:12px;right:12px}
@@ -679,12 +683,12 @@ body{
     --fs-hero:26px;
     --fs-2xl:16px;
   }
-  .slide-header{padding:10px 12px 8px 60px}
-  .header-title{font-size:14px}
-  .header-subtitle{font-size:10px}
-  .header-symbol{padding:4px 9px;font-size:11px}
-  .capa-glass h1{font-size:24px}
-  .pos-val{font-size:17px}
+  #sc .slide-header{padding:10px 12px 8px 60px}
+  #sc .header-title{font-size:14px}
+  #sc .header-subtitle{font-size:10px}
+  #sc .header-symbol{padding:4px 9px;font-size:11px}
+  #sc .capa-glass h1{font-size:24px}
+  #sc .pos-val{font-size:17px}
 }
 
 /* ─── PRINT ─── */
@@ -696,7 +700,9 @@ body{
   #sc{display:none!important}
   #pc{display:block!important}
   .slide{
-    width:297mm!important;height:210mm!important;
+    /* 209.9mm (e não 210mm): meio pixel de folga mata o vazamento da
+       barra da capa para o topo da página seguinte (arredondamento mm→px) */
+    width:297mm!important;height:209.9mm!important;
     page-break-after:always;page-break-inside:avoid;
     overflow:hidden!important;animation:none!important;
   }
@@ -714,11 +720,16 @@ body{
    🖨️ MODO IMPRESSÃO (AUTO-FIT)
    O printPDF() adiciona a classe .print-fit no #pc: o container é
    posicionado fora da tela JÁ nas dimensões do papel (A4 paisagem
-   ≈ 1122×794 px @96dpi), permitindo medir cada slide e calcular o
-   zoom necessário para o conteúdo caber. Depois da medição, o zoom
-   fica gravado inline e vale no @media print acima.
+   ≈ 1122×794 px @96dpi), permitindo medir cada slide.
+   O ajuste de escala agora é feito via transform:scale() (inline, pelo
+   JS) — o antigo `zoom` era aplicado de forma inconsistente pelo
+   Chromium na impressão (layout numa largura, pintura noutra), o que
+   estourava o conteúdo horizontalmente no PDF.
    ════════════════════════════════════════════════════════════════════ */
 @media screen{
+  /* segurança: #pc nunca aparece na tela fora do modo de medição */
+  #pc:not(.print-fit){display:none}
+
   #pc.print-fit{
     display:block!important;
     position:fixed;left:-99999px;top:0;width:1122px;
@@ -746,7 +757,7 @@ body{
 /* ════════════════════════════════════════════════════════════════════
    🖨️ COMPACTAÇÃO "Visão Geral" — escopada em #pc (só existe na
    impressão/medição, nunca afeta a tela). Reduz o slide 2 para que
-   o auto-fit raramente precise aplicar zoom.
+   o auto-fit raramente precise aplicar escala.
    ════════════════════════════════════════════════════════════════════ */
 #pc .slide:has(.s2-layout) .slide-content{padding-top:8px;padding-bottom:8px;gap:10px}
 #pc .slide:has(.s2-layout) .s2-col{gap:10px}
@@ -763,6 +774,24 @@ body{
 #pc .slide:has(.s2-layout) .gap-bar-bg{height:14px}
 #pc .slide:has(.s2-layout) .gap-label{font-size:11px;width:75px}
 #pc .slide:has(.s2-layout) .gap-val{font-size:11px;width:42px}
+
+/* ════════════════════════════════════════════════════════════════════
+   🖨️ CADEIA DE VALOR na impressão — no papel não existe rolagem:
+   a matriz precisa CABER na largura da página. Zera o min-width da
+   grade e deixa as células quebrarem linha.
+   ════════════════════════════════════════════════════════════════════ */
+#pc .cv-scroll{overflow:hidden!important}
+#pc .cv-grid{min-width:0!important}
+#pc .cv-grid > div{min-width:0}
+
+/* ════════════════════════════════════════════════════════════════════
+   🖨️ FLUXOGRAMA na impressão — maximiza a área útil do diagrama.
+   O tamanho final do SVG é fixado pelo fitMermaidSvgs() no app.js.
+   ════════════════════════════════════════════════════════════════════ */
+#pc .slide:has(.mermaid-flux) .slide-content{padding:10px 20px}
+#pc .slide:has(.mermaid-flux) .card{padding:8px 12px}
+#pc .slide:has(.mermaid-flux) .card-badge{margin-bottom:6px;padding-bottom:4px}
+#pc .mermaid-flux{min-height:0!important;overflow:hidden!important}
 
 /* Opcional: para remover a foto do empreendimento SÓ no PDF,
    descomente o bloco abaixo (ganha ~120px de altura no slide 2):
