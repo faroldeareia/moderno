@@ -146,10 +146,25 @@ function buildChainNote(nota){
   return `<div class="chain-note" style="padding:0 var(--pad-slide-x) 8px 76px;font-size:var(--fs-xs);color:var(--light);font-style:italic;line-height:1.4;flex-shrink:0">* ${nota}</div>`;
 }
 
+/* ════════════════════════════════════════════════════════════════════
+   🥧 PIZZA EM SVG — vetorial, nítida na tela e na impressão
+   (o conic-gradient anterior era rasterizado em baixa resolução no PDF)
+   ════════════════════════════════════════════════════════════════════ */
 function buildPie(rawData){
   const data = withColors(rawData);
-  let stops = [], acc = 0;
-  data.forEach(x => { stops.push(`${x.color} ${acc}% ${acc + x.val}%`); acc += x.val });
+  const C = 50, R = 50;
+  let acc = 0;
+  const slices = data.map(x => {
+    if(x.val <= 0) return '';
+    const a0 = (acc / 100) * 2 * Math.PI - Math.PI / 2;
+    acc += x.val;
+    const a1 = (acc / 100) * 2 * Math.PI - Math.PI / 2;
+    if(x.val >= 99.9) return `<circle cx="${C}" cy="${C}" r="${R}" fill="${x.color}"/>`;
+    const large = x.val > 50 ? 1 : 0;
+    const x0 = (C + R * Math.cos(a0)).toFixed(3), y0 = (C + R * Math.sin(a0)).toFixed(3);
+    const x1 = (C + R * Math.cos(a1)).toFixed(3), y1 = (C + R * Math.sin(a1)).toFixed(3);
+    return `<path d="M${C} ${C} L${x0} ${y0} A${R} ${R} 0 ${large} 1 ${x1} ${y1} Z" fill="${x.color}"/>`;
+  }).join('');
   const legend = data.map(x =>
     `<div class="pie-legend-row">
       <div style="display:flex;align-items:center;min-width:0"><span class="pie-dot" style="background:${x.color}"></span>${x.label}</div>
@@ -157,7 +172,7 @@ function buildPie(rawData){
     </div>`
   ).join('');
   return `<div class="pie-wrapper">
-    <div class="pie-container" style="background:conic-gradient(${stops.join(',')})"></div>
+    <svg class="pie-container" viewBox="0 0 100 100" aria-hidden="true">${slices}</svg>
     <div class="pie-legend-box">${legend}</div>
   </div>`;
 }
@@ -562,7 +577,8 @@ const CONTOUR_BG = (() => {
       for(const s of segs){ctx.moveTo(s.x1*cW,s.y1*cH);ctx.lineTo(s.x2*cW,s.y2*cH)}
       ctx.stroke();
     }
-    return cache[key] = cv.toDataURL('image/jpg');
+    // PNG (sem perdas) — o JPEG borrava as linhas finas do contorno
+    return cache[key] = cv.toDataURL('image/png');
   }
   return { generate };
 })();
@@ -726,10 +742,22 @@ function toggleSidebar(){
   document.getElementById('sb').classList.contains('open') ? closeSidebar() : openSidebar();
 }
 
+/* ════════════════════════════════════════════════════════════════════
+   🖨️ EXPORTAR PDF — com AUTO-FIT
+   1. Monta todos os slides no container #pc (oculto).
+   2. Aplica a classe .print-fit → o CSS posiciona #pc fora da tela
+      já nas dimensões exatas do papel (A4 paisagem ≈ 1122×794 px).
+   3. Mede cada .slide-content: se o conteúdo passar da altura,
+      aplica um zoom proporcional (iterativo, converge em 2-3 passos).
+   4. Chama window.print(). O zoom calculado permanece no PDF,
+      garantindo que TODO slide caiba — qualquer mineral, qualquer texto.
+   ════════════════════════════════════════════════════════════════════ */
 async function printPDF(){
   const pc = document.getElementById('pc');
   pc.innerHTML = H.join('');
-  if(!bgPrintCache) bgPrintCache = CONTOUR_BG.generate(1400, 990);
+
+  // Fundo em 2x para ficar nítido no papel
+  if(!bgPrintCache) bgPrintCache = CONTOUR_BG.generate(2245, 1588);
   pc.querySelectorAll('.slide:not(.slide-capa)').forEach(sl => {
     if(!sl.querySelector('.slide-bg')){
       const bg = document.createElement('div');
@@ -740,6 +768,7 @@ async function printPDF(){
       sl.prepend(bg);
     }
   });
+
   pc.querySelectorAll('img[data-fallback]').forEach(img => {
     const apply = () => {
       const html = decodeURIComponent(img.dataset.fallback);
@@ -753,8 +782,29 @@ async function printPDF(){
     img.addEventListener('error', apply);
     if(img.complete && img.naturalWidth === 0) apply();
   });
+
+  // Fluxogramas Mermaid precisam existir antes da medição
   await renderMermaidIn(pc);
-  setTimeout(() => window.print(), 600);
+
+  // ── AUTO-FIT ──
+  pc.classList.add('print-fit');
+  setTimeout(() => {
+    pc.querySelectorAll('.slide').forEach(sl => {
+      const content = sl.querySelector('.slide-content');
+      if(!content) return;
+      content.style.zoom = '';
+      // itera até caber (o zoom muda o layout, então converge em 2-3 passos)
+      for(let i = 0; i < 4; i++){
+        if(content.scrollHeight <= content.clientHeight + 1) break;
+        const z = parseFloat(content.style.zoom || 1);
+        content.style.zoom = Math.max(
+          z * (content.clientHeight / content.scrollHeight) * 0.99, 0.55
+        );
+      }
+    });
+    window.print();
+    pc.classList.remove('print-fit');
+  }, 700);
 }
 
 /* ════════════════════════════════════════════════════════════════════
