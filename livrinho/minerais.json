@@ -431,124 +431,6 @@
     }
   },
   {
-    "nome": "Fosfato",
-    "simbolo": "P",
-    "slug": "fosfato",
-    "visaoGeral": {
-      "usos": "Pilar da segurança alimentar global, o fósforo é a base insubstituível dos fertilizantes que garantem a produtividade agrícola mundial. Na frente tecnológica da transição energética, seu uso purificado desponta como matéria prima fundamental para as baterias de fosfato de ferro lítio, as mais utilizadas na mobilidade elétrica de alto volume.",
-      "destaque": "<strong>Complexo Serra do Salitre (EuroChem), MG:</strong> Maior investimento greenfield recente do setor (~US$ 1 bi, inaugurado em 2024), verticalizado da mina ao fertilizante. Sinergia estratégica com Santa Quitéria (CE), onde fosfato e urânio ocorrem juntos.",
-      "posicaoBR": {
-        "reserva": "7º lugar",
-        "producao": "8º lugar"
-      },
-      "estadosRes": "MG, GO, SP, TO, BA",
-      "estadosProd": "MG, GO, SP, TO, BA",
-      "gapProd": {
-        "br": 2,
-        "leader": 44,
-        "leaderName": "China"
-      },
-      "gapRes": {
-        "br": 2,
-        "leader": 68,
-        "leaderName": "Marrocos"
-      },
-      "gapTransf": {
-        "br": 2,
-        "leader": 47,
-        "leaderName": "China"
-      }
-    },
-    "numerosMundiais": {
-      "pieProd": [
-        { "label": "China", "val": 44 },
-        { "label": "Marrocos", "val": 14 },
-        { "label": "EUA", "val": 8 },
-        { "label": "Rússia", "val": 6 },
-        { "label": "Jordânia", "val": 5 },
-        { "label": "Outros", "val": 23 }
-      ],
-      "pieRes": [
-        { "label": "Marrocos", "val": 68 },
-        { "label": "China", "val": 5 },
-        { "label": "Egito", "val": 4 },
-        { "label": "Tunísia", "val": 3 },
-        { "label": "Brasil", "val": 2 },
-        { "label": "Outros", "val": 18 }
-      ],
-      "barTransf": [
-        { "label": "China", "val": 47 },
-        { "label": "Marrocos", "val": 12 },
-        { "label": "EUA", "val": 9 },
-        { "label": "Brasil", "val": 2 }
-      ],
-      "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇲🇦", "pais": "Marrocos" },
-        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
-      ],
-      "labelTransf": "Ácido Fosfórico"
-    },
-    "cadeiaGlobal": {
-      "extracao": [
-        { "bandeira": "🇲🇦", "pais": "Marrocos", "emp": "OCP Group", "opera": "Marrocos, Saara Ocidental" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "EUA (Flórida), Brasil, Peru" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "PhosAgro", "opera": "Rússia" },
-        { "bandeira": "🇸🇦", "pais": "Arábia Saudita", "emp": "Ma'aden", "opera": "Arábia Saudita" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yunnan Phosphate (YPH)", "opera": "China" },
-        { "bandeira": "🇯🇴", "pais": "Jordânia", "emp": "JPMC", "opera": "Jordânia" }
-      ],
-      "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yuntianhua", "opera": "Ácido fosfórico/DAP" },
-        { "bandeira": "🇲🇦", "pais": "Marrocos", "emp": "OCP Group", "opera": "Ácido fosfórico/MAP/DAP" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "MAP/DAP (EUA, Brasil)" },
-        { "bandeira": "🇸🇦", "pais": "Arábia Saudita", "emp": "Ma'aden", "opera": "DAP" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "PhosAgro", "opera": "MAP/NPK" },
-        { "bandeira": "🇧🇪", "pais": "Bélgica", "emp": "Prayon", "opera": "Ácido fosfórico purificado" }
-      ],
-      "manufatura": [
-        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Yara", "opera": "NPK" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "Fertilizantes" },
-        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "Especialidades / LFP" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias LFP" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias LFP e VEs" }
-      ],
-      "analise": "<strong>Internacional:</strong> O Marrocos é o detentor hegemônico das reservas minerais globais, assumindo o papel de liderança geopolítica do setor, enquanto a China atua como o maior produtor e processador, controlando os fluxos comerciais do nutriente e dos precursores avançados de baterias.<br><br><strong>Brasil:</strong> O país ostenta um polo agroindustrial pujante que consome volumes gigantescos do mineral, porém a produção interna consegue atender apenas uma fração da demanda, mantendo o setor primário altamente exposto e dependente das importações globais.<br><br><strong>Gargalo:</strong> O minério brasileiro ocorre predominantemente em rochas ígneas de extrema complexidade de beneficiamento, o que eleva drasticamente os desafios técnicos e custos operacionais frente aos depósitos sedimentares explorados no norte da África.<br><br><strong>Vantagem:</strong> O Brasil detém uma demanda doméstica gigantesca e cativa, aliada a reservas minerais que apresentam sinergias raras, permitindo a extração conjunta e a viabilização econômica de múltiplos elementos estratégicos ao lado do urânio e das terras raras.",
-      "etapasLabels": {
-        "extracao": "Extração (rocha fosfática)",
-        "refino": "Ácido Fosfórico (midstream)",
-        "manufatura": "Fertilizantes & Baterias LFP"
-      },
-      "notaRodape": "O midstream do fosfato é a conversão química da rocha em ácido fosfórico (H₃PO₄), gargalo estratégico equivalente ao refino dos metais, do qual derivam MAP/DAP e o ácido purificado das baterias LFP. Percentuais de transformação aproximados (IFA/setor)."
-    },
-    "fluxograma": {
-      "def": "flowchart LR\n  min[\"Minério: Rocha Fosfática,<br/>carbonatitos no Brasil\"]:::minerio\n  conc[\"Beneficiamento: Concentrado<br/>30–35% P₂O₅\"]:::comum\n  acid[\"Acidulação H₂SO₄:<br/>Ácido Fosfórico\"]:::transf\n  map[\"Fertilizantes:<br/>MAP / DAP / SSP\"]:::bat\n  agro[\"Agricultura\"]:::bat\n  ppa[\"Purificação: Ácido Grau<br/>Técnico / PPA\"]:::transf\n  lfp[\"Catodos LFP: Fosfato<br/>de Ferro-Lítio\"]:::esp\n  racao[\"Fosfato Bicálcico:<br/>Ração Animal\"]:::comum\n  uran[\"Subproduto: Urânio,<br/>Santa Quitéria\"]:::esp\n\n  min --> conc --> acid\n  acid --> map --> agro\n  acid --> ppa --> lfp\n  acid -.-> racao\n  min -.-> uran\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
-      "notas": {
-        "acid": "A conversão da rocha em ácido fosfórico (H₃PO₄) é o midstream da cadeia, gargalo químico equivalente ao refino dos metais.",
-        "lfp": "O ácido purificado (PPA) vira fosfato de ferro-lítio, a química de bateria que domina os VEs chineses, nova fronteira de demanda do fósforo.",
-        "uran": "Em Santa Quitéria (CE), fosfato e urânio ocorrem juntos na mesma jazida: a viabilidade econômica de um financia o outro."
-      },
-      "legenda": [
-        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
-        { "cor": "#C9C6F4", "label": "Fertilizantes (downstream)" },
-        { "cor": "#BDEFC0", "label": "LFP / urânio" },
-        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
-      ],
-      "fonte": "SNGM, rotas de transformação (criado, validar)"
-    },
-    "cadeiaValor": {
-      "elos": [
-        { "elo": "ROCHA FOSFÁTICA", "faixa": "up", "hoje": "Mosaic (Tapira, Catalão, Araxá), EuroChem (Salitre), Itafos, Galvani" },
-        { "elo": "CONCENTRADO (30–35% P₂O₅)", "faixa": "up", "hoje": "Mosaic, EuroChem" },
-        { "elo": "ÁCIDO FOSFÓRICO", "faixa": "mid", "hoje": "Mosaic (Uberaba), EuroChem", "m2030": "PNF 2050: reduzir a dependência externa de fosfatados" },
-        { "elo": "FERTILIZANTES (MAP / DAP / SSP)", "faixa": "down", "hoje": "Mosaic, EuroChem, Itafos, Galvani" },
-        { "elo": "ÁCIDO PURIFICADO (PPA) → LFP", "faixa": "mid", "pdi": "Rota LFP, estudos" },
-        { "elo": "RECUPERAÇÃO", "faixa": "rec", "m2050": "Sinergia fosfato-urânio (Santa Quitéria)" }
-      ],
-      "fonte": "SNGM, elaborado no modelo IBRAM (criado, validar)"
-    }
-  },
-  {
     "nome": "Grafita",
     "simbolo": "C",
     "slug": "grafita",
@@ -950,7 +832,7 @@
     "fluxograma": {
       "def": "flowchart LR\n  min[\"Minério: Pirocloro\"]:::minerio\n  conc[\"Beneficiamento: Concentrado<br/>Nb₂O₅ 50%+\"]:::comum\n  refino[\"Refino e<br/>Purificação\"]:::transf\n  fenb[\"Metalurgia: Liga<br/>Ferro-Nióbio ~65%\"]:::transf\n  aco[\"Aços ARBL: Dutos,<br/>Autos e Construção\"]:::comum\n  oxido[\"Óxido de Nióbio<br/>98,5%+\"]:::transf\n  batnb[\"Baterias de Recarga<br/>Ultrarrápida, NTO\"]:::bat\n  metnb[\"Nióbio Metálico<br/>99,9%\"]:::transf\n  liga[\"Superligas e Supercondutores<br/>Nb-Ti / Nb₃Sn\"]:::esp\n\n  min --> conc --> refino\n  refino -->|Rota Siderúrgica ~90%| fenb --> aco\n  refino -->|Rota Química| oxido --> batnb\n  refino -->|Rota Metálica| metnb --> liga\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
       "notas": {
-        "fenb": "Ferro-nióbio: ~90% do mercado. A CBMM é verticalizada da mina à liga, o modelo de agregação de valor que o Brasil busca replicar nos demais minerais.",
+        "fenb": "Ferronióbio: ~90% do mercado. A CBMM é verticalizada da mina à liga, o modelo de agregação de valor que o Brasil busca replicar nos demais minerais.",
         "batnb": "Óxidos de nióbio em anodos (NTO/XNO): recarga em minutos e vida longa, aposta da CBMM com a britânica Echion e a Toshiba.",
         "liga": "Ligas supercondutoras Nb-Ti e Nb₃Sn: ressonância magnética, aceleradores de partículas e fusão nuclear (ITER)."
       },
@@ -1185,120 +1067,108 @@
     }
   },
   {
-    "nome": "Potássio",
-    "simbolo": "K",
-    "slug": "potassio",
+    "nome": "Silício",
+    "simbolo": "Si",
+    "slug": "silicio",
     "visaoGeral": {
-      "usos": "Nutriente de caráter vital e estratégico para a agricultura, o potássio atua como regulador de crescimento e formador de defesa das plantas. Sua formulação em larga escala é a base e a garantia absoluta para a sustentação e o sucesso contínuo das colheitas que alimentam as populações globais.",
-      "destaque": "<strong>Projeto Autazes (Potássio do Brasil), AM:</strong> Maior projeto de potássio do país, na bacia do Amazonas, com capacidade prevista de ~2,4 Mt/ano de KCl (~20% da demanda nacional). Hoje, a única mina em operação é Taquari-Vassouras (Mosaic), SE.",
+      "usos": "O silício é extraído a partir de quartzitos de alta pureza. Com capacidade de manipular fluxos elétricos com extrema precisão, é insumo indispensável da indústria eletrônica, servindo para a fabricação de chips, processadores e circuitos integrados. Além disso, é central na produção de células fotovoltaicas. Também tem papel relevante na metalurgia, como elemento de liga, e na fabricação de silicones para selantes e produtos médicos.",
+      "destaque": "<strong>Potencial Latente:</strong> O país dispõe de jazidas excepcionais de quartzo de alta pureza (sílica) em Minas Gerais e Bahia (Projeto Homerun, >99,6% SiO₂), é o 2º maior produtor mundial de silício metálico e destaca-se em ferroligas — mas importa virtualmente todos os módulos solares de alto valor agregado.",
       "posicaoBR": {
-        "reserva": "Fora Top 10",
-        "producao": "Fora Top 10"
+        "reserva": "Não ranqueado (recurso abundante)",
+        "producao": "~2º em silício metálico"
       },
-      "estadosRes": "SE, AM",
-      "estadosProd": "SE",
+      "estadosRes": "MG, BA, PA, TO, GO",
+      "estadosProd": "MG, BA, TO, CE",
       "gapProd": {
-        "br": 1,
-        "leader": 31,
-        "leaderName": "Canadá"
+        "br": 4,
+        "leader": 80,
+        "leaderName": "China"
       },
       "gapRes": {
         "br": 0,
-        "leader": 34,
-        "leaderName": "Rússia"
+        "leader": 0,
+        "leaderName": "N/D"
       },
       "gapTransf": {
         "br": 0,
-        "leader": 39,
-        "leaderName": "Canadá"
+        "leader": 90,
+        "leaderName": "China"
       }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "Canadá", "val": 31 },
-        { "label": "Rússia", "val": 20 },
-        { "label": "China", "val": 13 },
-        { "label": "Belarus", "val": 12 },
-        { "label": "Alemanha", "val": 6 },
-        { "label": "Outros", "val": 18 }
+        { "label": "China", "val": 80 },
+        { "label": "Rússia", "val": 5 },
+        { "label": "Brasil", "val": 4 },
+        { "label": "Noruega", "val": 3 },
+        { "label": "Outros", "val": 8 }
       ],
       "pieRes": [
-        { "label": "Rússia", "val": 34 },
-        { "label": "Canadá", "val": 19 },
-        { "label": "Laos", "val": 17 },
-        { "label": "Belarus", "val": 13 },
-        { "label": "Outros", "val": 17 }
+        { "label": "N/D (Recurso Abundante)", "val": 100 }
       ],
       "barTransf": [
-        { "label": "Canadá", "val": 39 },
-        { "label": "Rússia", "val": 21 },
-        { "label": "Belarus", "val": 17 },
+        { "label": "China", "val": 90 },
+        { "label": "Alemanha", "val": 3 },
+        { "label": "EUA", "val": 2 },
         { "label": "Brasil", "val": 0 }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇷🇺", "pais": "Rússia" },
-        { "etapa": "Produção", "bandeira": "🇨🇦", "pais": "Canadá" },
-        { "etapa": "Exportação", "bandeira": "🇨🇦", "pais": "Canadá" }
+        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Grau Solar/Células", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Semicondutores", "bandeira": "🇹🇼", "pais": "Taiwan" }
       ],
-      "labelTransf": "Exportações"
+      "labelTransf": "Polissilício (grau solar/eletrônico)"
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "Canadá (Saskatchewan)" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Uralkali", "opera": "Rússia" },
-        { "bandeira": "🇧🇾", "pais": "Belarus", "emp": "Belaruskali", "opera": "Belarus" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "Canadá, EUA, Brasil (SE)" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "K+S", "opera": "Alemanha, Canadá" },
-        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "Israel (Mar Morto), Espanha" }
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Hoshine Silicon", "opera": "China" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Liasa, RIMA, Minas Ligas", "opera": "Brasil" },
+        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Elkem", "opera": "Global" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Ferroglobe", "opera": "Global" }
       ],
       "refino": [
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "MOP granulado" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "MOP/K-Mag" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Uralkali", "opera": "MOP" },
-        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "MOP/SOP" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP (Jansen)", "opera": "Canadá (início 2027)" }
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tongwei, GCL, Daqo", "opera": "Polissilício" },
+        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Wacker Chemie", "opera": "Polissilício" },
+        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "OCI", "opera": "Polissilício" }
       ],
       "manufatura": [
-        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Yara", "opera": "NPK / distribuição" },
-        { "bandeira": "🇨🇭", "pais": "Suíça/Rússia", "emp": "EuroChem", "opera": "NPK / distribuição" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "Varejo agrícola" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic Fertilizantes", "opera": "Misturas (Brasil)" },
-        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "Especialidades" }
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "LONGi, Jinko Solar", "opera": "Painéis Solares" },
+        { "bandeira": "🇹🇼", "pais": "Taiwan", "emp": "TSMC", "opera": "Semicondutores / Chips" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Intel, Nvidia", "opera": "Design de Chips" }
       ],
-      "analise": "<strong>Internacional:</strong> A infraestrutura de fornecimento opera em um modelo de forte oligopólio dominado pelo Canadá e pelas nações do Leste Europeu, cenário este que torna o abastecimento alimentar do planeta frequentemente refém de graves tensões diplomáticas e bloqueios comerciais.<br><br><strong>Brasil:</strong> Mesmo ocupando a posição central de superpotência agropecuária global, a nação amarga uma das vulnerabilidades estratégicas mais graves de sua economia, precisando adquirir no exterior quase a totalidade absoluta do fertilizante que irriga suas terras.<br><br><strong>Gargalo:</strong> A paralisação histórica na abertura e no licenciamento de novas minas no subsolo nacional compromete severamente a autonomia alimentar do país e onera o setor produtivo com pesados fretes internacionais e grande volatilidade cambial.<br><br><strong>Vantagem:</strong> O detalhado mapeamento de gigantescas jazidas no subsolo da bacia amazônica, alinhado à maior demanda agroindustrial em expansão contínua do mundo, compõe o cenário perfeito para justificar a implantação robusta de novas plantas extrativas no mercado interno.",
+      "analise": "<strong>Internacional:</strong> O silício é abundante, mas a produção é dominada pela China, que responde por cerca de 80% do silício metálico e ferrossilício e por ~90% do polissilício, controlando toda a esteira solar (mineração, polissilício, wafers e células). Já o design e a manufatura avançada de semicondutores de precisão (chips) é hegemonia de Taiwan (TSMC) e EUA.<br><br><strong>Brasil:</strong> O Brasil é o 2º maior produtor mundial de silício metálico, com indústrias como a RIMA operando de forma mais verde ao utilizar biomassa (carvão vegetal) como redutor em vez de carvão mineral, e ainda grande exportador de quartzo (~9% do comércio mundial).<br><br><strong>Gargalo:</strong> O Brasil não converte o silício metalúrgico (MG-Si, 98-99% de pureza) em silício grau solar (SoG-Si, >99,999%) ou eletrônico, etapas altamente intensivas em energia e capital tecnológico. Isso força o país, que possui uma das maiores irradiações solares do mundo, a importar massivamente painéis fotovoltaicos.<br><br><strong>Vantagem:</strong> O forte parque industrial eletrointensivo, associado às energias limpas brasileiras, cria um cenário perfeito (<em>powershoring</em>) para atrair fabricantes dispostos a fechar o elo tecnológico no país, produzindo as células solares diretamente da sílica nacional.",
       "etapasLabels": {
-        "extracao": "Extração (silvinita)",
-        "refino": "Beneficiamento (MOP)",
-        "manufatura": "Fertilizantes / Distribuição"
+        "extracao": "Produção (silício metálico / FeSi)",
+        "refino": "Purificação (polissilício)",
+        "manufatura": "Wafers, células e chips"
       },
-      "notaRodape": "No potássio não há refino químico: o KCl (MOP) sai pronto da mina, com beneficiamento físico na própria planta. A 3ª barra usa participação nas exportações globais (Canadá ~39%, NRCan 2024; Rússia e Belarus aproximados), o verdadeiro choke point desta cadeia é logístico-comercial, não industrial."
+      "notaRodape": "Reservas de silício não são quantificadas por país pelo USGS (recurso quartzo/sílica abundante). A posição do Brasil é dada pela produção, não por reservas."
     },
     "fluxograma": {
-      "def": "flowchart LR\n  min[\"Minério: Silvinita<br/>KCl + NaCl\"]:::minerio\n  lavra[\"Lavra Subterrânea /<br/>por Dissolução\"]:::comum\n  benf[\"Beneficiamento: Flotação<br/>e Cristalização\"]:::transf\n  mop[\"MOP: Cloreto de Potássio<br/>60–62% K₂O\"]:::transf\n  npk[\"Fertilizantes:<br/>Blends NPK\"]:::bat\n  agro[\"Lavoura: Soja,<br/>Milho e Cana\"]:::bat\n  sop[\"Processo Mannheim:<br/>SOP, Sulfato de Potássio\"]:::esp\n  fruta[\"Cultivos Sensíveis<br/>a Cloreto\"]:::esp\n\n  min --> lavra --> benf --> mop\n  mop --> npk --> agro\n  mop -.-> sop -.-> fruta\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "def": "flowchart LR\n  min[\"Minério: Quartzo / Sílica<br/>(SiO₂)\"]:::minerio\n  fesi[\"Ferrossilício<br/>(FeSi)\"]:::comum\n  aco[\"Siderurgia:<br/>Aços Elétricos e Ligas\"]:::comum\n  mgsi[\"Redução Carbotérmica:<br/>Silício Metalúrgico (MG-Si) ~99%\"]:::transf\n  silox[\"Indústria Química:<br/>Silicones e Siloxanos\"]:::comum\n  poli[\"Purificação:<br/>Polissilício / Grau Solar (99,999%+)\"]:::bat\n  wafer[\"Lingote e Fatiamento:<br/>Wafers Solares\"]:::bat\n  pv[\"Células e Painéis<br/>Fotovoltaicos\"]:::bat\n  elec[\"Grau Eletrônico:<br/>Microchips e Semicondutores\"]:::esp\n\n  min --> fesi --> aco\n  min -->|Carvão Vegetal no Brasil| mgsi\n  mgsi --> silox\n  mgsi --> poli --> wafer --> pv\n  poli --> elec\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
       "notas": {
-        "benf": "Única planta do Brasil: Taquari-Vassouras (Mosaic, SE). O projeto Autazes (AM) prevê lavra por dissolução no mesmo modelo mina-produto.",
-        "mop": "O MOP sai pronto da planta da mina, não existe 'refino' de potássio. Por isso o poder de mercado está em quem exporta (Canpotex, Uralkali, Belaruskali), não em quem processa.",
-        "sop": "SOP (sulfato de potássio): nicho premium (~10% do mercado) para fruticultura e cultivos sensíveis a cloreto."
+        "mgsi": "A redução da sílica em arco elétrico exige enormes volumes de energia. O Brasil usa hidreletricidade e carvão vegetal, tendo um 'silício verde'.",
+        "poli": "Processos complexos (Siemens ou leito fluidizado) convertem o MG-Si em triclorsilano e depois polissilício de altíssima pureza. Gargalo do país (China ~90%).",
+        "pv": "Painéis fotovoltaicos são o insumo da transição com maior taxa de crescimento, sustentando as usinas solares centralizadas e a geração distribuída."
       },
       "legenda": [
-        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
-        { "cor": "#C9C6F4", "label": "Rota fertilizantes (downstream)" },
-        { "cor": "#BDEFC0", "label": "Especialidade, SOP" },
-        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
+        { "cor": "#FFB7EC", "label": "Transformação metalúrgica primária" },
+        { "cor": "#C9C6F4", "label": "Rota de energia solar (Transição)" },
+        { "cor": "#BDEFC0", "label": "Rota microeletrônica" },
+        { "cor": "#F0EFEC", "label": "Ligas e química comum", "tracejado": true }
       ],
-      "fonte": "SNGM, rotas de transformação (criado, validar)"
+      "fonte": "SNGM, rotas de transformação"
     },
     "cadeiaValor": {
       "elos": [
-        { "elo": "EXTRAÇÃO (SILVINITA)", "faixa": "up", "hoje": "Mosaic (Taquari-Vassouras-SE)", "m2030": "Autazes: suprimento de ~17% da demanda brasileira", "m2050": "Aumento da produção entre 30 e 50%" },
-        { "elo": "CONCENTRADO", "faixa": "up", "hoje": "Mosaic" },
-        { "elo": "CLORETO DE POTÁSSIO (MOP)", "faixa": "mid", "hoje": "Mosaic", "m2030": "Redução de 30% das emissões GEE (energia eólica)" },
-        { "elo": "HIDRÓXIDO, FLUORETO, CARBONATO, NITRATO DE K", "faixa": "mid", "m2050": "Antecipação de meta de descarbonização para 2040" },
-        { "elo": "FERTILIZANTES", "faixa": "down", "hoje": "Misturadoras nacionais (blends NPK)" },
-        { "elo": "RECUPERAÇÃO", "faixa": "rec" }
+        { "elo": "QUARTZO / AREIA DE SÍLICA", "faixa": "up", "hoje": "Mineração diversificada (MG, BA, GO); Projeto Homerun (BA)" },
+        { "elo": "SILÍCIO METALÚRGICO E FERROSSILÍCIO", "faixa": "mid", "hoje": "RIMA, Liasa, Minas Ligas", "m2030": "Ampliação baseada em energias renováveis e biomassa" },
+        { "elo": "SILÍCIO GRAU SOLAR (POLISSILÍCIO)", "faixa": "mid", "pdi": "Lacuna nacional. Projetos e estudos de purificação" },
+        { "elo": "CÉLULAS E PAINÉIS FOTOVOLTAICOS", "faixa": "down", "hoje": "BYD (Campinas - pesquisa e montagem de módulos)" },
+        { "elo": "SEMICONDUTORES", "faixa": "down", "pdi": "CEITEC" }
       ],
-      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
-      "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
+      "obs": "Números mundiais pelo USGS MCS 2026: China ~80% da produção de silício (metálico + ferrossilício) e ~90% do polissilício. Correções vs. versão anterior: produção da China 80% (não 70%) e polissilício 90% (não 80%). O USGS não ranqueia reservas por país (recurso abundante) — a pieRes é um marcador; avaliar como exibir. O Brasil é ~2º em silício metálico.",
+      "fonte": "CETEM / IBRAM + USGS MCS 2026"
     }
   },
   {
@@ -1727,6 +1597,241 @@
     }
   },
   {
+    "nome": "Fosfato",
+    "simbolo": "P",
+    "slug": "fosfato",
+    "visaoGeral": {
+      "usos": "Pilar da segurança alimentar global, o fósforo é a base insubstituível dos fertilizantes que garantem a produtividade agrícola mundial. Na frente tecnológica da transição energética, seu uso purificado desponta como matéria prima fundamental para as baterias de fosfato de ferro lítio, as mais utilizadas na mobilidade elétrica de alto volume.",
+      "destaque": "<strong>Complexo Serra do Salitre (EuroChem), MG:</strong> Maior investimento greenfield recente do setor (~US$ 1 bi, inaugurado in 2024), verticalizado da mina ao fertilizante. Sinergia estratégica com Santa Quitéria (CE), onde fosfato e urânio ocorrem juntos.",
+      "posicaoBR": {
+        "reserva": "7º lugar",
+        "producao": "8º lugar"
+      },
+      "estadosRes": "MG, GO, SP, TO, BA",
+      "estadosProd": "MG, GO, SP, TO, BA",
+      "gapProd": {
+        "br": 2,
+        "leader": 44,
+        "leaderName": "China"
+      },
+      "gapRes": {
+        "br": 2,
+        "leader": 68,
+        "leaderName": "Marrocos"
+      },
+      "gapTransf": {
+        "br": 2,
+        "leader": 47,
+        "leaderName": "China"
+      }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "China", "val": 44 },
+        { "label": "Marrocos", "val": 14 },
+        { "label": "EUA", "val": 8 },
+        { "label": "Rússia", "val": 6 },
+        { "label": "Jordânia", "val": 5 },
+        { "label": "Outros", "val": 23 }
+      ],
+      "pieRes": [
+        { "label": "Marrocos", "val": 68 },
+        { "label": "China", "val": 5 },
+        { "label": "Egito", "val": 4 },
+        { "label": "Tunísia", "val": 3 },
+        { "label": "Brasil", "val": 2 },
+        { "label": "Outros", "val": 18 }
+      ],
+      "barTransf": [
+        { "label": "China", "val": 47 },
+        { "label": "Marrocos", "val": 12 },
+        { "label": "EUA", "val": 9 },
+        { "label": "Brasil", "val": 2 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇲🇦", "pais": "Marrocos" },
+        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+      ],
+      "labelTransf": "Ácido Fosfórico"
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇲🇦", "pais": "Marrocos", "emp": "OCP Group", "opera": "Marrocos, Saara Ocidental" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "EUA (Flórida), Brasil, Peru" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "PhosAgro", "opera": "Rússia" },
+        { "bandeira": "🇸🇦", "pais": "Arábia Saudita", "emp": "Ma'aden", "opera": "Arábia Saudita" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yunnan Phosphate (YPH)", "opera": "China" },
+        { "bandeira": "🇯🇴", "pais": "Jordânia", "emp": "JPMC", "opera": "Jordânia" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yuntianhua", "opera": "Ácido fosfórico/DAP" },
+        { "bandeira": "🇲🇦", "pais": "Marrocos", "emp": "OCP Group", "opera": "Ácido fosfórico/MAP/DAP" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "MAP/DAP (EUA, Brasil)" },
+        { "bandeira": "🇸🇦", "pais": "Arábia Saudita", "emp": "Ma'aden", "opera": "DAP" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "PhosAgro", "opera": "MAP/NPK" },
+        { "bandeira": "🇧🇪", "pais": "Bélgica", "emp": "Prayon", "opera": "Ácido fosfórico purificado" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Yara", "opera": "NPK" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "Fertilizantes" },
+        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "Especialidades / LFP" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias LFP" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias LFP e VEs" }
+      ],
+      "analise": "<strong>Internacional:</strong> O Marrocos é o detentor hegemônico das reservas minerais globais, assumindo o papel de liderança geopolítica do setor, enquanto a China atua como o maior produtor e processador, controlando os fluxos comerciais do nutriente e dos precursores avançados de baterias.<br><br><strong>Brasil:</strong> O país ostenta um polo agroindustrial pujante que consome volumes gigantescos do mineral, porém a produção interna consegue atender apenas uma fração da demanda, mantendo o setor primário altamente exposto e dependente das importações globais.<br><br><strong>Gargalo:</strong> O minério brasileiro ocorre predominantemente em rochas ígneas de extrema complexidade de beneficiamento, o que eleva drasticamente os desafios técnicos e custos operacionais frente aos depósitos sedimentares explorados no norte da África.<br><br><strong>Vantagem:</strong> O Brasil detém uma demanda doméstica gigantesca e cativa, aliada a reservas minerais que apresentam sinergias raras, permitindo a extração conjunta e a viabilização econômica de múltiplos elementos estratégicos ao lado do urânio e das terras raras.",
+      "etapasLabels": {
+        "extracao": "Extração (rocha fosfática)",
+        "refino": "Ácido Fosfórico (midstream)",
+        "manufatura": "Fertilizantes & Baterias LFP"
+      },
+      "notaRodape": "O midstream do fosfato é a conversão química da rocha em ácido fosfórico (H₃PO₄), gargalo estratégico equivalente ao refino dos metais, do qual derivam MAP/DAP e o ácido purificado das baterias LFP. Percentuais de transformação aproximados (IFA/setor)."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Rocha Fosfática,<br/>carbonatitos no Brasil\"]:::minerio\n  conc[\"Beneficiamento: Concentrado<br/>30–35% P₂O₅\"]:::comum\n  acid[\"Acidulação H₂SO₄:<br/>Ácido Fosfórico\"]:::transf\n  map[\"Fertilizantes:<br/>MAP / DAP / SSP\"]:::bat\n  agro[\"Agricultura\"]:::bat\n  ppa[\"Purificação: Ácido Grau<br/>Técnico / PPA\"]:::transf\n  lfp[\"Catodos LFP: Fosfato<br/>de Ferro-Lítio\"]:::esp\n  racao[\"Fosfato Bicálcico:<br/>Ração Animal\"]:::comum\n  uran[\"Subproduto: Urânio,<br/>Santa Quitéria\"]:::esp\n\n  min --> conc --> acid\n  acid --> map --> agro\n  acid --> ppa --> lfp\n  acid -.-> racao\n  min -.-> uran\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "acid": "A conversão da rocha em ácido fosfórico (H₃PO₄) é o midstream da cadeia, gargalo químico equivalente ao refino dos metais.",
+        "lfp": "O ácido purificado (PPA) vira fosfato de ferro-lítio, a química de bateria que domina os VEs chineses, nova fronteira de demanda do fósforo.",
+        "uran": "Em Santa Quitéria (CE), fosfato e urânio ocorrem juntos na mesma jazida: a viabilidade econômica de um financia o outro."
+      },
+      "legenda": [
+        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
+        { "cor": "#C9C6F4", "label": "Fertilizantes (downstream)" },
+        { "cor": "#BDEFC0", "label": "LFP / urânio" },
+        { "cor": "#F0EFEC", "label": "Rota unconventional", "tracejado": true }
+      ],
+      "fonte": "SNGM, rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        { "elo": "ROCHA FOSFÁTICA", "faixa": "up", "hoje": "Mosaic (Tapira, Catalão, Araxá), EuroChem (Salitre), Itafos, Galvani" },
+        { "elo": "CONCENTRADO (30–35% P₂O₅)", "faixa": "up", "hoje": "Mosaic, EuroChem" },
+        { "elo": "ÁCIDO FOSFÓRICO", "faixa": "mid", "hoje": "Mosaic (Uberaba), EuroChem", "m2030": "PNF 2050: reduzir a dependência externa de fosfatados" },
+        { "elo": "FERTILIZANTES (MAP / DAP / SSP)", "faixa": "down", "hoje": "Mosaic, EuroChem, Itafos, Galvani" },
+        { "elo": "ÁCIDO PURIFICADO (PPA) → LFP", "faixa": "mid", "pdi": "Rota LFP, estudos" },
+        { "elo": "RECUPERAÇÃO", "faixa": "rec", "m2050": "Sinergia fosfato-urânio (Santa Quitéria)" }
+      ],
+      "fonte": "SNGM, elaborado no modelo IBRAM (criado, validar)"
+    }
+  },
+  {
+    "nome": "Potássio",
+    "simbolo": "K",
+    "slug": "potassio",
+    "visaoGeral": {
+      "usos": "Nutriente de caráter vital e estratégico para a agricultura, o potássio atua como regulador de crescimento e formador de defesa das plantas. Sua formulação em larga escala é a base e a garantia absoluta para a sustentação e o sucesso contínuo das colheitas que alimentam as populações globais.",
+      "destaque": "<strong>Projeto Autazes (Potássio do Brasil), AM:</strong> Maior projeto de potássio do país, na bacia do Amazonas, com capacidade prevista de ~2,4 Mt/ano de KCl (~20% da demanda nacional). Hoje, a única mina em operação é Taquari-Vassouras (Mosaic), SE.",
+      "posicaoBR": {
+        "reserva": "Fora Top 10",
+        "producao": "Fora Top 10"
+      },
+      "estadosRes": "SE, AM",
+      "estadosProd": "SE",
+      "gapProd": {
+        "br": 1,
+        "leader": 31,
+        "leaderName": "Canadá"
+      },
+      "gapRes": {
+        "br": 0,
+        "leader": 34,
+        "leaderName": "Rússia"
+      },
+      "gapTransf": {
+        "br": 0,
+        "leader": 39,
+        "leaderName": "Canadá"
+      }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "Canadá", "val": 31 },
+        { "label": "Rússia", "val": 20 },
+        { "label": "China", "val": 13 },
+        { "label": "Belarus", "val": 12 },
+        { "label": "Alemanha", "val": 6 },
+        { "label": "Outros", "val": 18 }
+      ],
+      "pieRes": [
+        { "label": "Rússia", "val": 34 },
+        { "label": "Canadá", "val": 19 },
+        { "label": "Laos", "val": 17 },
+        { "label": "Belarus", "val": 13 },
+        { "label": "Outros", "val": 17 }
+      ],
+      "barTransf": [
+        { "label": "Canadá", "val": 39 },
+        { "label": "Rússia", "val": 21 },
+        { "label": "Belarus", "val": 17 },
+        { "label": "Brasil", "val": 0 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇷🇺", "pais": "Rússia" },
+        { "etapa": "Produção", "bandeira": "🇨🇦", "pais": "Canadá" },
+        { "etapa": "Exportação", "bandeira": "🇨🇦", "pais": "Canadá" }
+      ],
+      "labelTransf": "Exportações"
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "Canadá (Saskatchewan)" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Uralkali", "opera": "Rússia" },
+        { "bandeira": "🇧🇾", "pais": "Belarus", "emp": "Belaruskali", "opera": "Belarus" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "Canadá, EUA, Brasil (SE)" },
+        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "K+S", "opera": "Alemanha, Canadá" },
+        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "Israel (Mar Morto), Espanha" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "MOP granulado" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "MOP/K-Mag" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Uralkali", "opera": "MOP" },
+        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "MOP/SOP" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP (Jansen)", "opera": "Canadá (início 2027)" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Yara", "opera": "NPK / distribuição" },
+        { "bandeira": "🇨🇭", "pais": "Suíça/Rússia", "emp": "EuroChem", "opera": "NPK / distribuição" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "Varejo agrícola" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic Fertilizantes", "opera": "Misturas (Brasil)" },
+        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "Especialidades" }
+      ],
+      "analise": "<strong>Internacional:</strong> A infraestrutura de fornecimento opera em um modelo de forte oligopólio dominado pelo Canadá e pelas nações do Leste Europeu, cenário este que torna o abastecimento alimentar do planeta frequentemente refém de graves tensões diplomáticas e bloqueios comerciais.<br><br><strong>Brasil:</strong> Mesmo ocupando a posição central de superpotência agropecuária global, a nação amarga uma das vulnerabilidades estratégicas mais graves de sua economia, precisando adquirir no exterior quase a totalidade absoluta do fertilizante que irriga suas terras.<br><br><strong>Gargalo:</strong> A paralisação histórica na abertura e no licenciamento de novas minas no subsolo nacional compromete severamente a autonomia alimentar do país e onera o setor produtivo com pesados fretes internacionais e grande volatilidade cambial.<br><br><strong>Vantagem:</strong> O detalhado mapeamento de gigantescas jazidas no subsolo da bacia amazônica, alinhado à maior demanda agroindustrial em expansão contínua do mundo, compõe o cenário perfeito para justificar a implantação robusta de novas plantas extrativas no mercado interno.",
+      "etapasLabels": {
+        "extracao": "Extração (silvinita)",
+        "refino": "Beneficiamento (MOP)",
+        "manufatura": "Fertilizantes / Distribuição"
+      },
+      "notaRodape": "No potássio não há refino químico: o KCl (MOP) sai pronto da mina, com beneficiamento físico na própria planta. A 3ª barra usa participação nas exportações globais (Canadá ~39%, NRCan 2024; Rússia e Belarus aproximados), o verdadeiro choke point desta cadeia é logístico-comercial, não industrial."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Silvinita<br/>KCl + NaCl\"]:::minerio\n  lavra[\"Lavra Subterrânea /<br/>por Dissolução\"]:::comum\n  benf[\"Beneficiamento: Flotação<br/>e Cristalização\"]:::transf\n  mop[\"MOP: Cloreto de Potássio<br/>60–62% K₂O\"]:::transf\n  npk[\"Fertilizantes:<br/>Blends NPK\"]:::bat\n  agro[\"Lavoura: Soja,<br/>Milho e Cana\"]:::bat\n  sop[\"Processo Mannheim:<br/>SOP, Sulfato de Potássio\"]:::esp\n  fruta[\"Cultivos Sensíveis<br/>a Cloreto\"]:::esp\n\n  min --> lavra --> benf --> mop\n  mop --> npk --> agro\n  mop -.-> sop -.-> fruta\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "benf": "Única planta do Brasil: Taquari-Vassouras (Mosaic, SE). O projeto Autazes (AM) prevê lavra por dissolução no mesmo modelo mina-produto.",
+        "mop": "O MOP sai pronto da planta da mina, não existe 'refino' de potássio. Por isso o poder de mercado está em exporta (Canpotex, Uralkali, Belaruskali), não em quem processa.",
+        "sop": "SOP (sulfato de potássio): nicho premium (~10% do mercado) para fruticultura e cultivos sensíveis a cloreto."
+      },
+      "legenda": [
+        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
+        { "cor": "#C9C6F4", "label": "Rota fertilizantes (downstream)" },
+        { "cor": "#BDEFC0", "label": "Especialidade, SOP" },
+        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
+      ],
+      "fonte": "SNGM, rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        { "elo": "EXTRAÇÃO (SILVINITA)", "faixa": "up", "hoje": "Mosaic (Taquari-Vassouras-SE)", "m2030": "Autazes: suprimento de ~17% da demanda brasileira", "m2050": "Aumento da produção entre 30 e 50%" },
+        { "elo": "CONCENTRADO", "faixa": "up", "hoje": "Mosaic" },
+        { "elo": "CLORETO DE POTÁSSIO (MOP)", "faixa": "mid", "hoje": "Mosaic", "m2030": "Redução de 30% das emissões GEE (energia eólica)" },
+        { "elo": "HIDRÓXIDO, FLUORETO, CARBONATO, NITRATO DE K", "faixa": "mid", "m2050": "Antecipação de meta de descarbonização para 2040" },
+        { "elo": "FERTILIZANTES", "faixa": "down", "hoje": "Misturadoras nacionais (blends NPK)" },
+        { "elo": "RECUPERAÇÃO", "faixa": "rec" }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
+      "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
+    }
+  },
+  {
     "nome": "Alumínio",
     "simbolo": "Al",
     "slug": "aluminio",
@@ -1835,7 +1940,7 @@
         { "elo": "PRODUTOS (LAMINADOS, EXTRUDADOS, CABOS)", "faixa": "down", "hoje": "Novelis, CBA, Termomecanica" },
         { "elo": "RECICLAGEM SECUNDÁRIA", "faixa": "rec", "hoje": "Reciclagem de >99% das latas, Novelis, Latasa", "m2050": "Aumentar percentual do alumínio secundário em veículos" }
       ],
-      "obs": "Números mundiais atualizados pelo USGS MCS 2026: produção de bauxita — Guiné 1º (~34%), Austrália 2º, China 3º, Brasil 4º (~7,5%); reservas — Brasil ~6º (~6%). Correções vs. versão anterior: a Guiné (não a Austrália) lidera a produção; reserva do Brasil ~6% (não 9%); BHP removida da bauxita (spin-off South32, 2015). O SGB reporta reserva em 5º (9,3%) — divergência de metodologia.",
+      "obs": "Elos mundiais atualizados pelo USGS MCS 2026: produção de bauxita — Guiné 1º (~34%), Austrália 2º, China 3º, Brasil 4º (~7,5%); reservas — Brasil ~6º (~6%). Correções vs. versão anterior: a Guiné (not a Austrália) lidera a produção; reserva do Brasil ~6% (não 9%); BHP removida da bauxita (spin-off South32, 2015). O SGB reporta reserva em 5º (9,3%) — divergência de metodologia.",
       "fonte": "IBRAM / SGB + USGS MCS 2026"
     }
   },
@@ -2028,7 +2133,7 @@
         { "bandeira": "🇨🇳", "pais": "China", "emp": "Bancos e Joalheria", "opera": "China" },
         { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Setor Eletrônico (Apple, etc.)", "opera": "Global" }
       ],
-      "analise": "<strong>Internacional:</strong> A produção é pulverizada (nenhum país passa de ~12%): China, Rússia e Austrália lideram a lavra, e Austrália e Rússia dominam as reservas. O refino de alta pureza (barras de investimento) é fortemente concentrado na Suíça, por onde passa cerca de dois terços do ouro mundial, enquanto Índia e China dominam o consumo para joalheria. O preço bateu recorde em 2025 (~US$ 3.300/oz).<br><br><strong>Brasil:</strong> O país é o 13º produtor (~80 t entre minas e garimpo), com produção industrial concentrada em Minas Gerais, Goiás e Bahia (Kinross, AngloGold Ashanti, Vale/Salobo como coproduto de cobre) e forte crescimento de projetos no Cráton Amazônico.<br><br><strong>Gargalo:</strong> O Brasil sofre com a estigmatização causada pelo garimpo ilegal (Mineração Artesanal e em Pequena Escala de Ouro – MAPEO), que gera graves passivos socioambientais. É vital aplicar regulações de rastreabilidade (fim da presunção de boa-fé, notas fiscais eletrônicas). Há ainda pouco refino em padrão internacional (LBMA) no país.<br><br><strong>Vantagem:</strong> O cumprimento dos Padrões de Mineração Responsável de Ouro (World Gold Council) e a descarbonização das grandes lavras dão aos produtores industriais acesso direto aos mercados premium, num ativo imune a choques da transição. Somam-se vastas províncias subexploradas (Tapajós, Carajás) e o ouro frequente como coproduto de cobre.",
+      "analise": "<strong>Internacional:</strong> A produção é pulverizada (nenhum país passa de ~12%): China, Rússia e Austrália lideram a lavra, e Austrália e Rússia dominam as reservas. O refino de alta pureza (barras de investimento) é fortemente concentrado na Suíça, por onde passa cerca de dois terços do ouro mundial, enquanto Índia e China dominam o consumo para joalheria. O preço bateu recorde em 2025 (~US$ 3.300/oz).<br><br><strong>Brasil:</strong> O país é o 13º produtor (~80 t entre minas e garimpo), com produção industrial concentrada em Minas Gerais, Goiás e Bahia (Kinross, AngloGold Ashanti, Equinox Gold) e forte crescimento de projetos no Cráton Amazônico.<br><br><strong>Gargalo:</strong> O Brasil sofre com a estigmatização causada pelo garimpo ilegal (Mineração Artesanal e em Pequena Escala de Ouro – MAPEO), que gera graves passivos socioambientais. É vital aplicar regulações de rastreabilidade (fim da presunção de boa-fé, notas fiscais eletrônicas). Há ainda pouco refino em padrão internacional (LBMA) no país.<br><br><strong>Vantagem:</strong> O cumprimento dos Padrões de Mineração Responsável de Ouro (World Gold Council) e a descarbonização das grandes lavras dão aos produtores industriais acesso direto aos mercados premium, num ativo imune a choques da transição. Somam-se vastas províncias subexploradas (Tapajós, Carajás) e o ouro frequente como coproduto de cobre.",
       "etapasLabels": {
         "extracao": "Extração (minério e garimpo)",
         "refino": "Refino (doré → 99,99%)",
@@ -2056,113 +2161,8 @@
         { "elo": "OURO REFINADO 99,99%", "faixa": "mid", "hoje": "Refinarias Certificadas", "m2030": "Ampliar refino padrão LBMA e rastreabilidade da origem" },
         { "elo": "MANUFATURA (JOIAS, ELETRÔNICOS, LIGAS)", "faixa": "down", "hoje": "Fabricantes de eletrônicos, Casa da Moeda, Bancos" }
       ],
-      "obs": "Números mundiais pelo USGS MCS 2026: produção ~13º (~80 t, ~2,4%); reservas ~8-9º (~2,5 kt, ~3,8%). Correções vs. versão anterior: ordem da produção é China (12%) > Rússia (9%) > Austrália (8%); a barra de 'transformação' foi trocada de consumo (China/Índia) para REFINO, cujo gargalo real é a Suíça (~2/3 do ouro mundial). Produção do Brasil ~13º (não 14º).",
+      "obs": "Elos mundiais pelo USGS MCS 2026: produção ~13º (~80 t, ~2,4%); reservas ~8-9º (~2,5 kt, ~3,8%). Correções vs. versão anterior: ordem da produção é China (12%) > Rússia (9%) > Austrália (8%); a barra de 'transformação' foi trocada de consumo (China/Índia) para REFINO, cujo gargalo real é a Suíça (~2/3 do ouro mundial). Produção do Brasil ~13º (não 14º).",
       "fonte": "IBRAM / SGB + USGS MCS 2026"
-    }
-  },
-  {
-    "nome": "Silício",
-    "simbolo": "Si",
-    "slug": "silicio",
-    "visaoGeral": {
-      "usos": "O silício é extraído a partir de quartzitos de alta pureza. Com capacidade de manipular fluxos elétricos com extrema precisão, é insumo indispensável da indústria eletrônica, servindo para a fabricação de chips, processadores e circuitos integrados. Além disso, é central na produção de células fotovoltaicas. Também tem papel relevante na metalurgia, como elemento de liga, e na fabricação de silicones para selantes e produtos médicos.",
-      "destaque": "<strong>Potencial Latente:</strong> O país dispõe de jazidas excepcionais de quartzo de alta pureza (sílica) em Minas Gerais e Bahia (Projeto Homerun, >99,6% SiO₂), é o 2º maior produtor mundial de silício metálico e destaca-se em ferroligas — mas importa virtualmente todos os módulos solares de alto valor agregado.",
-      "posicaoBR": {
-        "reserva": "Não ranqueado (recurso abundante)",
-        "producao": "~2º em silício metálico"
-      },
-      "estadosRes": "MG, BA, PA, TO, GO",
-      "estadosProd": "MG, BA, TO, CE",
-      "gapProd": {
-        "br": 4,
-        "leader": 80,
-        "leaderName": "China"
-      },
-      "gapRes": {
-        "br": 0,
-        "leader": 0,
-        "leaderName": "N/D"
-      },
-      "gapTransf": {
-        "br": 0,
-        "leader": 90,
-        "leaderName": "China"
-      }
-    },
-    "numerosMundiais": {
-      "pieProd": [
-        { "label": "China", "val": 80 },
-        { "label": "Rússia", "val": 5 },
-        { "label": "Brasil", "val": 4 },
-        { "label": "Noruega", "val": 3 },
-        { "label": "Outros", "val": 8 }
-      ],
-      "pieRes": [
-        { "label": "N/D (Recurso Abundante)", "val": 100 }
-      ],
-      "barTransf": [
-        { "label": "China", "val": 90 },
-        { "label": "Alemanha", "val": 3 },
-        { "label": "EUA", "val": 2 },
-        { "label": "Brasil", "val": 0 }
-      ],
-      "quemManda": [
-        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Grau Solar/Células", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Semicondutores", "bandeira": "🇹🇼", "pais": "Taiwan" }
-      ],
-      "labelTransf": "Polissilício (grau solar/eletrônico)"
-    },
-    "cadeiaGlobal": {
-      "extracao": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Hoshine Silicon", "opera": "China" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Liasa, RIMA, Minas Ligas", "opera": "Brasil" },
-        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Elkem", "opera": "Global" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Ferroglobe", "opera": "Global" }
-      ],
-      "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tongwei, GCL, Daqo", "opera": "Polissilício" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Wacker Chemie", "opera": "Polissilício" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "OCI", "opera": "Polissilício" }
-      ],
-      "manufatura": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "LONGi, Jinko Solar", "opera": "Painéis Solares" },
-        { "bandeira": "🇹🇼", "pais": "Taiwan", "emp": "TSMC", "opera": "Semicondutores / Chips" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Intel, Nvidia", "opera": "Design de Chips" }
-      ],
-      "analise": "<strong>Internacional:</strong> O silício é abundante, mas a produção é dominada pela China, que responde por cerca de 80% do silício metálico e ferrossilício e por ~90% do polissilício, controlando toda a esteira solar (mineração, polissilício, wafers e células). Já o design e a manufatura avançada de semicondutores de precisão (chips) é hegemonia de Taiwan (TSMC) e EUA.<br><br><strong>Brasil:</strong> O Brasil é o 2º maior produtor mundial de silício metálico, com indústrias como a RIMA operando de forma mais verde ao utilizar biomassa (carvão vegetal) como redutor em vez de carvão mineral, e ainda grande exportador de quartzo (~9% do comércio mundial).<br><br><strong>Gargalo:</strong> O Brasil não converte o silício metalúrgico (MG-Si, 98-99% de pureza) em silício grau solar (SoG-Si, >99,999%) ou eletrônico, etapas altamente intensivas em energia e capital tecnológico. Isso força o país, que possui uma das maiores irradiações solares do mundo, a importar massivamente painéis fotovoltaicos.<br><br><strong>Vantagem:</strong> O forte parque industrial eletrointensivo, associado às energias limpas brasileiras, cria um cenário perfeito (<em>powershoring</em>) para atrair fabricantes dispostos a fechar o elo tecnológico no país, produzindo as células solares diretamente da sílica nacional.",
-      "etapasLabels": {
-        "extracao": "Produção (silício metálico / FeSi)",
-        "refino": "Purificação (polissilício)",
-        "manufatura": "Wafers, células e chips"
-      },
-      "notaRodape": "Reservas de silício não são quantificadas por país pelo USGS (recurso quartzo/sílica abundante). A posição do Brasil é dada pela produção, não por reservas."
-    },
-    "fluxograma": {
-      "def": "flowchart LR\n  min[\"Minério: Quartzo / Sílica<br/>(SiO₂)\"]:::minerio\n  fesi[\"Ferrossilício<br/>(FeSi)\"]:::comum\n  aco[\"Siderurgia:<br/>Aços Elétricos e Ligas\"]:::comum\n  mgsi[\"Redução Carbotérmica:<br/>Silício Metalúrgico (MG-Si) ~99%\"]:::transf\n  silox[\"Indústria Química:<br/>Silicones e Siloxanos\"]:::comum\n  poli[\"Purificação:<br/>Polissilício / Grau Solar (99,999%+)\"]:::bat\n  wafer[\"Lingote e Fatiamento:<br/>Wafers Solares\"]:::bat\n  pv[\"Células e Painéis<br/>Fotovoltaicos\"]:::bat\n  elec[\"Grau Eletrônico:<br/>Microchips e Semicondutores\"]:::esp\n\n  min --> fesi --> aco\n  min -->|Carvão Vegetal no Brasil| mgsi\n  mgsi --> silox\n  mgsi --> poli --> wafer --> pv\n  poli --> elec\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
-      "notas": {
-        "mgsi": "A redução da sílica em arco elétrico exige enormes volumes de energia. O Brasil usa hidreletricidade e carvão vegetal, tendo um 'silício verde'.",
-        "poli": "Processos complexos (Siemens ou leito fluidizado) convertem o MG-Si em triclorsilano e depois polissilício de altíssima pureza. Gargalo do país (China ~90%).",
-        "pv": "Painéis fotovoltaicos são o insumo da transição com maior taxa de crescimento, sustentando as usinas solares centralizadas e a geração distribuída."
-      },
-      "legenda": [
-        { "cor": "#FFB7EC", "label": "Transformação metalúrgica primária" },
-        { "cor": "#C9C6F4", "label": "Rota de energia solar (Transição)" },
-        { "cor": "#BDEFC0", "label": "Rota microeletrônica" },
-        { "cor": "#F0EFEC", "label": "Ligas e química comum", "tracejado": true }
-      ],
-      "fonte": "SNGM, rotas de transformação"
-    },
-    "cadeiaValor": {
-      "elos": [
-        { "elo": "QUARTZO / AREIA DE SÍLICA", "faixa": "up", "hoje": "Mineração diversificada (MG, BA, GO); Projeto Homerun (BA)" },
-        { "elo": "SILÍCIO METALÚRGICO E FERROSSILÍCIO", "faixa": "mid", "hoje": "RIMA, Liasa, Minas Ligas", "m2030": "Ampliação baseada em energias renováveis e biomassa" },
-        { "elo": "SILÍCIO GRAU SOLAR (POLISSILÍCIO)", "faixa": "mid", "pdi": "Lacuna nacional. Projetos e estudos de purificação" },
-        { "elo": "CÉLULAS E PAINÉIS FOTOVOLTAICOS", "faixa": "down", "hoje": "BYD (Campinas - pesquisa e montagem de módulos)" },
-        { "elo": "SEMICONDUTORES", "faixa": "down", "pdi": "CEITEC" }
-      ],
-      "obs": "Números mundiais pelo USGS MCS 2026: China ~80% da produção de silício (metálico + ferrossilício) e ~90% do polissilício. Correções vs. versão anterior: produção da China 80% (não 70%) e polissilício 90% (não 80%). O USGS não ranqueia reservas por país (recurso abundante) — a pieRes é um marcador; avaliar como exibir. O Brasil é ~2º em silício metálico.",
-      "fonte": "CETEM / IBRAM + USGS MCS 2026"
     }
   }
 ]
