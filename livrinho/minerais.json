@@ -1732,70 +1732,70 @@
     "slug": "aluminio",
     "visaoGeral": {
       "usos": "O alumínio é amplamente utilizado nos setores de transportes, construção civil, embalagens e transmissão de energia, destacando-se por sua leveza, alta condutividade elétrica e térmica, maleabilidade e resistência à corrosão. Na transição energética, é crucial para a fabricação de componentes de veículos elétricos, turbinas eólicas e painéis solares.",
-      "destaque": "<strong>Referência em Reciclagem:</strong> O Brasil reciclou 100% das latas de alumínio comercializadas em 2022, o que consolida o país como líder global em circularidade e sustentabilidade na etapa de recuperação (recovery) desse metal.",
+      "destaque": "<strong>Cadeia integrada + reciclagem recorde:</strong> O Brasil recicla praticamente 100% das latas de alumínio (líder global em circularidade) e abriga a Hydro Alunorte (PA), maior refinaria de alumina fora da China — combinação rara de verticalização e sustentabilidade neste metal.",
       "posicaoBR": {
-        "reserva": "5º lugar",
+        "reserva": "6º lugar",
         "producao": "4º lugar"
       },
-      "estadosRes": "PA, MG, GO",
-      "estadosProd": "PA, MG, GO",
+      "estadosRes": "PA, AM, MG, GO",
+      "estadosProd": "PA, MG, SP, SC, GO",
       "gapProd": {
         "br": 8,
-        "leader": 25,
-        "leaderName": "Austrália"
+        "leader": 34,
+        "leaderName": "Guiné"
       },
       "gapRes": {
-        "br": 9,
-        "leader": 25,
+        "br": 6,
+        "leader": 26,
         "leaderName": "Guiné"
       },
       "gapTransf": {
         "br": 2,
-        "leader": 60,
+        "leader": 59,
         "leaderName": "China"
       }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "Austrália", "val": 25 },
+        { "label": "Guiné", "val": 34 },
+        { "label": "Austrália", "val": 22 },
         { "label": "China", "val": 20 },
-        { "label": "Guiné", "val": 20 },
         { "label": "Brasil", "val": 8 },
-        { "label": "Outros", "val": 27 }
+        { "label": "Outros", "val": 16 }
       ],
       "pieRes": [
-        { "label": "Guiné", "val": 25 },
-        { "label": "Austrália", "val": 12 },
+        { "label": "Guiné", "val": 26 },
+        { "label": "Austrália", "val": 13 },
         { "label": "Vietnã", "val": 11 },
         { "label": "Indonésia", "val": 10 },
-        { "label": "Brasil", "val": 9 },
-        { "label": "Outros", "val": 33 }
+        { "label": "Brasil", "val": 6 },
+        { "label": "Outros", "val": 34 }
       ],
       "barTransf": [
-        { "label": "China", "val": 60 },
+        { "label": "China", "val": 59 },
         { "label": "Rússia", "val": 6 },
         { "label": "Índia", "val": 6 },
         { "label": "Brasil", "val": 2 }
       ],
       "quemManda": [
         { "etapa": "Reservas", "bandeira": "🇬🇳", "pais": "Guiné" },
-        { "etapa": "Produção", "bandeira": "🇦🇺", "pais": "Austrália" },
+        { "etapa": "Produção", "bandeira": "🇬🇳", "pais": "Guiné" },
         { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
       ],
       "labelTransf": "Alumínio Primário"
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Rio Tinto", "opera": "Austrália, Global" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP", "opera": "Austrália, Brasil" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Rio Tinto", "opera": "Austrália, Brasil" },
+        { "bandeira": "🇬🇳", "pais": "Guiné", "emp": "SMB Winning / CBG", "opera": "Guiné" },
         { "bandeira": "🇨🇳", "pais": "China", "emp": "Chalco", "opera": "China, Guiné" },
         { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "MRN", "opera": "Brasil" },
         { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Hydro", "opera": "Brasil, Global" }
       ],
       "refino": [
         { "bandeira": "🇨🇳", "pais": "China", "emp": "Hongqiao", "opera": "China" },
+        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Hydro (Alunorte)", "opera": "Global, Brasil" },
         { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Alcoa", "opera": "Global, Brasil" },
-        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Hydro", "opera": "Global, Brasil" },
         { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Rusal", "opera": "Rússia" },
         { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "CBA", "opera": "Brasil" }
       ],
@@ -1805,13 +1805,18 @@
         { "bandeira": "🇯🇵", "pais": "Japão", "emp": "UACJ", "opera": "Laminados" },
         { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Trimet", "opera": "Automotivo" }
       ],
-      "analise": "<strong>Internacional:</strong> A Guiné detém as maiores reservas mundiais de bauxita, mas a Austrália lidera a produção do minério. O grande destaque, no entanto, é a China, que controla mais de 60% da produção de alumina e alumínio primário, evidenciando seu domínio sobre o elo de transformação e refino (midstream).<br><br><strong>Brasil:</strong> O Brasil possui uma cadeia de valor do alumínio totalmente integrada, atuando desde a mineração da bauxita (destaque para a MRN e Hydro no Pará), passando pelo refino da alumina até a metalurgia do alumínio primário (Albras, CBA, Alcoa).<br><br><strong>Gargalo:</strong> O processo metalúrgico para a obtenção do alumínio primário é altamente energo-intensivo. Historicamente, os altos custos de energia elétrica no Brasil impactaram a competitividade da indústria, forçando até o fechamento de algumas unidades de fundição no passado.<br><br><strong>Vantagem:</strong> O Brasil beneficia-se do *powershoring*, com uma matriz elétrica essencialmente renovável (hidrelétricas e fontes alternativas). A produção nacional de alumínio primário possui uma das menores pegadas de carbono do mundo. Adicionalmente, as impressionantes taxas de reciclagem de sucata geram economia de mais de 90% na energia demandada, fortalecendo a economia circular."
+      "analise": "<strong>Internacional:</strong> A Guiné detém as maiores reservas mundiais de bauxita e também lidera a produção do minério (~150 Mt), seguida por Austrália e China. Embora a China seja apenas a 3ª na mineração, ela controla o elo de transformação: cerca de 62% da alumina e ~59% do alumínio primário mundial (midstream).<br><br><strong>Brasil:</strong> O Brasil possui uma cadeia de valor do alumínio totalmente integrada, atuando desde a mineração da bauxita (destaque para a MRN e Hydro no Pará), passando pelo refino da alumina — onde é o 3º maior do mundo (~7%) via Alunorte — até a metalurgia do alumínio primário (Albras, CBA, Alcoa).<br><br><strong>Gargalo:</strong> O processo metalúrgico para a obtenção do alumínio primário é altamente energo-intensivo. Historicamente, os altos custos de energia elétrica no Brasil impactaram a competitividade da indústria, forçando até o fechamento de algumas unidades de fundição no passado.<br><br><strong>Vantagem:</strong> O Brasil beneficia-se do <em>powershoring</em>, com uma matriz elétrica essencialmente renovável (hidrelétricas e fontes alternativas). A produção nacional de alumínio primário possui uma das menores pegadas de carbono do mundo. Adicionalmente, as impressionantes taxas de reciclagem de sucata geram economia de mais de 90% na energia demandada, fortalecendo a economia circular.",
+      "etapasLabels": {
+        "extracao": "Extração (bauxita)",
+        "refino": "Refino Bayer (alumina)",
+        "manufatura": "Produtos e laminados"
+      }
     },
     "fluxograma": {
       "def": "flowchart LR\n  min[\"Minério: Bauxita\"]:::minerio\n  benef[\"Beneficiamento:<br/>Lavagem e Britagem\"]:::comum\n  alumina[\"Refino (Bayer):<br/>Alumina (Óxido de Alumínio)\"]:::transf\n  metal[\"Eletrólise (Hall-Héroult):<br/>Alumínio Primário\"]:::transf\n  semi[\"Transformação:<br/>Tarugos, Placas e Vergalhões\"]:::comum\n  cabos[\"Fios e Cabos<br/>(Transmissão)\"]:::bat\n  auto[\"Estruturas Leves<br/>(VEs e Aeronáutica)\"]:::bat\n  embal[\"Embalagens e<br/>Construção\"]:::comum\n  sucata[\"Reciclagem:<br/>Alumínio Secundário\"]:::esp\n\n  min --> benef --> alumina --> metal --> semi\n  semi --> cabos\n  semi --> auto\n  semi --> embal\n  embal -.-> sucata --> semi\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
       "notas": {
-        "alumina": "O refino pelo processo Bayer transforma a bauxita em alumina. Cerca de 2 toneladas de bauxita geram 1 tonelada de alumina.",
-        "metal": "A fundição do alumínio primário é intensiva em energia elétrica. O Brasil destaca-se pelo uso de fontes hídricas e renováveis.",
+        "alumina": "O refino pelo processo Bayer transforma a bauxita em alumina. Regra prática (USGS): ~4 t de bauxita seca geram ~2 t de alumina, que rendem ~1 t de alumínio. A Alunorte (PA) é a maior refinaria fora da China.",
+        "metal": "A fundição do alumínio primário é intensiva em energia elétrica (~13-15 MWh/t). O Brasil destaca-se pelo uso de fontes hídricas e renováveis, gerando baixa pegada de carbono.",
         "sucata": "O alumínio reciclado consome cerca de 95% menos energia que a produção primária, o que torna o processo altamente lucrativo e sustentável no Brasil."
       },
       "legenda": [
@@ -1830,8 +1835,8 @@
         { "elo": "PRODUTOS (LAMINADOS, EXTRUDADOS, CABOS)", "faixa": "down", "hoje": "Novelis, CBA, Termomecanica" },
         { "elo": "RECICLAGEM SECUNDÁRIA", "faixa": "rec", "hoje": "Reciclagem de >99% das latas, Novelis, Latasa", "m2050": "Aumentar percentual do alumínio secundário em veículos" }
       ],
-      "obs": "Elos conforme levantamento SGB e cadeias IBRAM.",
-      "fonte": "IBRAM / SGB"
+      "obs": "Números mundiais atualizados pelo USGS MCS 2026: produção de bauxita — Guiné 1º (~34%), Austrália 2º, China 3º, Brasil 4º (~7,5%); reservas — Brasil ~6º (~6%). Correções vs. versão anterior: a Guiné (não a Austrália) lidera a produção; reserva do Brasil ~6% (não 9%); BHP removida da bauxita (spin-off South32, 2015). O SGB reporta reserva em 5º (9,3%) — divergência de metodologia.",
+      "fonte": "IBRAM / SGB + USGS MCS 2026"
     }
   },
   {
@@ -1842,19 +1847,19 @@
       "usos": "O ferro é o metal mais consumido do mundo e a espinha dorsal da indústria siderúrgica, indispensável na construção civil, infraestrutura logística, indústria naval e automobilística. No contexto da transição energética, volumes gigantescos de aço são demandados para a construção de parques eólicos (torres e fundações) e usinas solares.",
       "destaque": "<strong>Inovação em Aço Verde:</strong> A Vale desenvolveu a tecnologia de briquetes de minério de ferro com cura a frio, que reduzem as emissões de CO₂ na siderurgia em até 10%, pavimentando o caminho para a redução direta (DRI).",
       "posicaoBR": {
-        "reserva": "2º lugar",
+        "reserva": "3º lugar",
         "producao": "2º lugar"
       },
-      "estadosRes": "PA, MG",
-      "estadosProd": "PA, MG",
+      "estadosRes": "MG, PA, MS, BA",
+      "estadosProd": "MG, PA, MS",
       "gapProd": {
-        "br": 18,
-        "leader": 37,
+        "br": 16,
+        "leader": 38,
         "leaderName": "Austrália"
       },
       "gapRes": {
         "br": 17,
-        "leader": 31,
+        "leader": 30,
         "leaderName": "Austrália"
       },
       "gapTransf": {
@@ -1865,25 +1870,24 @@
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "Austrália", "val": 37 },
-        { "label": "Brasil", "val": 18 },
+        { "label": "Austrália", "val": 38 },
+        { "label": "Brasil", "val": 16 },
+        { "label": "Índia", "val": 12 },
         { "label": "China", "val": 11 },
-        { "label": "Índia", "val": 11 },
-        { "label": "Rússia", "val": 3 },
-        { "label": "Outros", "val": 20 }
+        { "label": "Outros", "val": 23 }
       ],
       "pieRes": [
-        { "label": "Austrália", "val": 31 },
+        { "label": "Austrália", "val": 30 },
+        { "label": "Rússia", "val": 17 },
         { "label": "Brasil", "val": 17 },
-        { "label": "Rússia", "val": 16 },
         { "label": "China", "val": 8 },
         { "label": "Outros", "val": 28 }
       ],
       "barTransf": [
         { "label": "China", "val": 54 },
-        { "label": "Índia", "val": 7 },
+        { "label": "Índia", "val": 8 },
         { "label": "Japão", "val": 5 },
-        { "label": "EUA", "val": 4 }
+        { "label": "Brasil", "val": 2 }
       ],
       "quemManda": [
         { "etapa": "Reservas", "bandeira": "🇦🇺", "pais": "Austrália" },
@@ -1911,7 +1915,12 @@
         { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Setor Automotivo / Eólico", "opera": "Manufatura de Turbinas" },
         { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Setor de Construção", "opera": "Infraestrutura" }
       ],
-      "analise": "<strong>Internacional:</strong> A Austrália lidera com folga a produção mundial de minério de ferro. No entanto, o mercado é quase inteiramente guiado pela voraz demanda da China, que, além de ser um produtor de porte médio de minério, é o maior consumidor e fabrica mais de 50% do aço global. A indústria busca rotas siderúrgicas de baixo carbono para atingir as metas climáticas.<br><br><strong>Brasil:</strong> O Brasil é um dos dois titãs globais da extração, destacando-se não só pelos enormes volumes (Complexo S11D em Carajás e minas do Quadrilátero Ferrífero), mas também pela altíssima qualidade (teor) do minério de Carajás, que exige menos energia no alto-forno.<br><br><strong>Gargalo:</strong> O setor siderúrgico e as tecnologias de processamento exigem fortes investimentos para descarbonização (substituição do carvão metalúrgico por hidrogênio verde, gás natural ou biomassa).<br><br><strong>Vantagem:</strong> O Brasil larga na frente na descarbonização através da venda de pelotas de redução direta (RD) e dos recém-lançados briquetes. Aliando os briquetes com a disponibilidade de energias limpas para o uso em fornos a arco elétrico (DRI-H2), o país possui as bases necessárias para se tornar o grande fornecedor global de 'Aço Verde'."
+      "analise": "<strong>Internacional:</strong> A Austrália lidera com folga a produção mundial de minério de ferro (~38%). No entanto, o mercado é quase inteiramente guiado pela voraz demanda da China, que, além de produtora média de minério, é o maior consumidor e fabrica mais da metade do aço global (~54%). A indústria busca rotas siderúrgicas de baixo carbono para atingir as metas climáticas.<br><br><strong>Brasil:</strong> O Brasil é um dos dois titãs globais da extração (2º produtor), destacando-se não só pelos enormes volumes (Complexo S11D em Carajás e minas do Quadrilátero Ferrífero), mas também pela altíssima qualidade (teor) do minério de Carajás (>66% Fe), que exige menos energia no alto-forno. A China absorve cerca de 67% do valor exportado.<br><br><strong>Gargalo:</strong> O setor siderúrgico e as tecnologias de processamento exigem fortes investimentos para descarbonização (substituição do carvão metalúrgico por hidrogênio verde, gás natural ou biomassa). O país exporta minério e importa aço de maior valor.<br><br><strong>Vantagem:</strong> O Brasil larga na frente na descarbonização através da venda de pelotas de redução direta (RD) e dos recém-lançados briquetes. Aliando os briquetes à disponibilidade de energias limpas para fornos a arco elétrico (DRI-H₂), o país possui as bases para se tornar o grande fornecedor global de 'Aço Verde'.",
+      "etapasLabels": {
+        "extracao": "Extração (minério de ferro)",
+        "refino": "Aglomeração / siderurgia",
+        "manufatura": "Uso final (aço)"
+      }
     },
     "fluxograma": {
       "def": "flowchart LR\n  min[\"Minério de Ferro<br/>(Hematita, Itabirito)\"]:::minerio\n  gran[\"Sinter Feed /<br/>Granulados\"]:::comum\n  pelota[\"Pelotização /<br/>Briquetagem\"]:::transf\n  altoforno[\"Alto-Forno (Carvão):<br/>Ferro Gusa\"]:::comum\n  dri[\"Redução Direta (DRI)<br/>Gás/Hidrogênio Verde\"]:::bat\n  aco[\"Siderurgia (BOF):<br/>Aço Convencional\"]:::comum\n  acoverde[\"Forno Arco Elétrico (EAF):<br/>Aço Verde\"]:::bat\n  turb[\"Estruturas Eólicas e<br/>Infraestrutura\"]:::esp\n\n  min --> gran --> altoforno --> aco\n  min --> pelota\n  pelota --> altoforno\n  pelota -->|Rota Baixo Carbono| dri --> acoverde --> turb\n  aco --> turb\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
@@ -1936,8 +1945,8 @@
         { "elo": "SIDERURGIA (AÇO BRUTO E LAMINADOS)", "faixa": "down", "hoje": "Gerdau, Usiminas, ArcelorMittal, CSN", "m2050": "Pioneirismo na exportação de aço verde para veículos e turbinas" },
         { "elo": "RECICLAGEM SECUNDÁRIA", "faixa": "rec", "hoje": "Uso intensivo de sucata em fornos EAF da Gerdau" }
       ],
-      "obs": "A descarbonização da siderurgia traciona toda a parte superior (upstream) em busca de teores cada vez mais elevados.",
-      "fonte": "IBRAM / CEBRI"
+      "obs": "Números mundiais pelo USGS MCS 2026: produção 2º (~16%, 420 Mt); reservas 3º (~17%, 34 Gt de minério BRUTO), atrás de Austrália e Rússia (35 Gt). Nota de ambiguidade: por Fe CONTIDO (15 Gt), o Brasil fica em 2º, à frente da Rússia (14 Gt) — daí a divergência entre fontes. A ANM reporta 58,2 Gt por classificação nacional distinta.",
+      "fonte": "IBRAM / CEBRI + USGS MCS 2026"
     }
   },
   {
@@ -1948,14 +1957,14 @@
       "usos": "Historicamente atuando como ativo de refúgio e reserva de valor, o ouro possui propriedades de altíssima condutividade e notável resistência à oxidação. É amplamente demandado na fabricação de joias, bem como na indústria eletroeletrônica, formando circuitos e contatos críticos em celulares, satélites, processadores e veículos automóveis.",
       "destaque": "<strong>Novas Fronteiras:</strong> A exploração nacional tem avançado além do histórico Quadrilátero Ferrífero, revelando grandes províncias geológicas no Cráton Amazônico, como a região do Tapajós.",
       "posicaoBR": {
-        "reserva": "Fora Top 5 (Estimada no Top 10)",
-        "producao": "Fora Top 10 (14º lugar)"
+        "reserva": "9º lugar",
+        "producao": "13º lugar"
       },
       "estadosRes": "MG, PA, BA, MT, GO",
-      "estadosProd": "MG, PA, BA, MT, GO",
+      "estadosProd": "MG, PA, BA, MT, GO, TO, RN, MA",
       "gapProd": {
         "br": 2,
-        "leader": 10,
+        "leader": 12,
         "leaderName": "China"
       },
       "gapRes": {
@@ -1965,50 +1974,51 @@
       },
       "gapTransf": {
         "br": 1,
-        "leader": 30,
-        "leaderName": "China"
+        "leader": 65,
+        "leaderName": "Suíça"
       }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "China", "val": 10 },
-        { "label": "Austrália", "val": 9 },
+        { "label": "China", "val": 12 },
         { "label": "Rússia", "val": 9 },
+        { "label": "Austrália", "val": 8 },
         { "label": "Canadá", "val": 6 },
         { "label": "Brasil", "val": 2 },
-        { "label": "Outros", "val": 64 }
+        { "label": "Outros", "val": 63 }
       ],
       "pieRes": [
         { "label": "Austrália", "val": 20 },
-        { "label": "Rússia", "val": 19 },
+        { "label": "Rússia", "val": 18 },
         { "label": "África do Sul", "val": 8 },
         { "label": "EUA", "val": 5 },
         { "label": "Brasil", "val": 4 },
-        { "label": "Outros", "val": 44 }
+        { "label": "Outros", "val": 45 }
       ],
       "barTransf": [
-        { "label": "China", "val": 30 },
-        { "label": "Índia", "val": 25 },
-        { "label": "Suíça (Refino)", "val": 15 },
-        { "label": "EUA", "val": 5 }
+        { "label": "Suíça", "val": 65 },
+        { "label": "China", "val": 12 },
+        { "label": "EAU", "val": 5 },
+        { "label": "Brasil", "val": 1 }
       ],
       "quemManda": [
         { "etapa": "Reservas", "bandeira": "🇦🇺", "pais": "Austrália" },
         { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Consumo/Refino", "bandeira": "🇨🇳", "pais": "China" }
+        { "etapa": "Transformação (refino)", "bandeira": "🇨🇭", "pais": "Suíça" }
       ],
-      "labelTransf": "Consumo / Joalheria / Refino"
+      "labelTransf": "Refino (ouro 99,99%)"
     },
     "cadeiaGlobal": {
       "extracao": [
         { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Newmont", "opera": "Global" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Barrick Gold", "opera": "Global" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Barrick", "opera": "Global" },
         { "bandeira": "🇿🇦", "pais": "África do Sul", "emp": "AngloGold Ashanti", "opera": "Brasil, Global" },
         { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Kinross", "opera": "Brasil, Global" },
         { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Equinox Gold", "opera": "Brasil, Américas" }
       ],
       "refino": [
         { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Valcambi / PAMP", "opera": "Suíça" },
+        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Metalor", "opera": "Global" },
         { "bandeira": "🇨🇳", "pais": "China", "emp": "Zijin Mining", "opera": "China" },
         { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Asahi Refining", "opera": "EUA, Japão" },
         { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Refinarias Nacionais", "opera": "Brasil" }
@@ -2018,14 +2028,19 @@
         { "bandeira": "🇨🇳", "pais": "China", "emp": "Bancos e Joalheria", "opera": "China" },
         { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Setor Eletrônico (Apple, etc.)", "opera": "Global" }
       ],
-      "analise": "<strong>Internacional:</strong> O mercado do ouro é maduro, pulverizado em diversos continentes, embora China, Austrália e Rússia figurem no topo da produção e reservas. O refino de alta pureza (barras de investimento) é tradicionalmente forte na Suíça, enquanto Índia e China dominam o consumo para joalheria.<br><br><strong>Brasil:</strong> O país possui uma produção aurífera expressiva, concentrada no trabalho de empresas de grande porte em Minas Gerais, Goiás e Bahia, operando rochas profundas. Há também forte crescimento de explorações de classe mundial nas províncias do Cráton Amazônico.<br><br><strong>Gargalo:</strong> O Brasil sofre com a estigmatização da atividade causada pelos impactos do garimpo ilegal (Mineração Artesanal e em Pequena Escala de Ouro - MAPEO), que tem gerado graves passivos socioambientais. É vital aplicar regulações de rastreabilidade (como o fim da presunção de boa-fé e notas fiscais eletrônicas).<br><br><strong>Vantagem:</strong> O cumprimento dos Padrões de Mineração Responsável de Ouro (World Gold Council) e a descarbonização das grandes lavras dão aos produtores industriais do Brasil acesso direto aos mercados premium, num ativo imune a choques da transição."
+      "analise": "<strong>Internacional:</strong> A produção é pulverizada (nenhum país passa de ~12%): China, Rússia e Austrália lideram a lavra, e Austrália e Rússia dominam as reservas. O refino de alta pureza (barras de investimento) é fortemente concentrado na Suíça, por onde passa cerca de dois terços do ouro mundial, enquanto Índia e China dominam o consumo para joalheria. O preço bateu recorde em 2025 (~US$ 3.300/oz).<br><br><strong>Brasil:</strong> O país é o 13º produtor (~80 t entre minas e garimpo), com produção industrial concentrada em Minas Gerais, Goiás e Bahia (Kinross, AngloGold Ashanti, Vale/Salobo como coproduto de cobre) e forte crescimento de projetos no Cráton Amazônico.<br><br><strong>Gargalo:</strong> O Brasil sofre com a estigmatização causada pelo garimpo ilegal (Mineração Artesanal e em Pequena Escala de Ouro – MAPEO), que gera graves passivos socioambientais. É vital aplicar regulações de rastreabilidade (fim da presunção de boa-fé, notas fiscais eletrônicas). Há ainda pouco refino em padrão internacional (LBMA) no país.<br><br><strong>Vantagem:</strong> O cumprimento dos Padrões de Mineração Responsável de Ouro (World Gold Council) e a descarbonização das grandes lavras dão aos produtores industriais acesso direto aos mercados premium, num ativo imune a choques da transição. Somam-se vastas províncias subexploradas (Tapajós, Carajás) e o ouro frequente como coproduto de cobre.",
+      "etapasLabels": {
+        "extracao": "Extração (minério e garimpo)",
+        "refino": "Refino (doré → 99,99%)",
+        "manufatura": "Joalheria, investimento e eletrônica"
+      }
     },
     "fluxograma": {
       "def": "flowchart LR\n  min[\"Minério de Ouro\"]:::minerio\n  conc[\"Beneficiamento /<br/>Britagem e Moagem\"]:::comum\n  lix[\"Lixiviação (Cianetação) /<br/>Recuperação CIP/CIL\"]:::transf\n  dore[\"Fundição:<br/>Barra de Doré (Impura)\"]:::transf\n  ref[\"Refino (Eletrólise/Química):<br/>Ouro 99,99% (Bulhão)\"]:::transf\n  joia[\"Joalheria e<br/>Reserva de Valor\"]:::comum\n  elec[\"Eletroeletrônicos e<br/>Odontologia\"]:::bat\n\n  min --> conc --> lix --> dore --> ref\n  ref --> joia\n  ref --> elec\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A",
       "notas": {
         "lix": "Carbon-in-Pulp (CIP) ou Carbon-in-Leach (CIL) são os processos hidrometalúrgicos predominantes, utilizando cianeto para dissolver o ouro.",
         "dore": "A mina exporta ou envia a 'Barra de Doré' (uma liga bruta de ouro, prata e impurezas) para as refinarias certificadas.",
-        "ref": "O refino final garante o 'grau de investimento', adequando o ouro para os rigorosos padrões do mercado financeiro e eletrônico."
+        "ref": "O refino final garante o 'grau de investimento', adequando o ouro para os rigorosos padrões do mercado financeiro e eletrônico. Cerca de 2/3 do ouro mundial é refinado na Suíça."
       },
       "legenda": [
         { "cor": "#FFB7EC", "label": "Transformação hidrometalúrgica" },
@@ -2036,13 +2051,13 @@
     },
     "cadeiaValor": {
       "elos": [
-        { "elo": "MINÉRIO", "faixa": "up", "hoje": "AngloGold Ashanti, Kinross, Equinox, Pan American" },
+        { "elo": "MINÉRIO / GARIMPO", "faixa": "up", "hoje": "AngloGold Ashanti, Kinross, Equinox, Pan American, Vale (Salobo)" },
         { "elo": "BARRA DE DORÉ (METALURGIA PRIMÁRIA)", "faixa": "mid", "hoje": "Produzida nas próprias instalações das minas" },
-        { "elo": "OURO REFINADO 99,99%", "faixa": "mid", "hoje": "Refinarias Certificadas (Umcor, etc)", "m2030": "Digitalização total e rastreabilidade da origem" },
+        { "elo": "OURO REFINADO 99,99%", "faixa": "mid", "hoje": "Refinarias Certificadas", "m2030": "Ampliar refino padrão LBMA e rastreabilidade da origem" },
         { "elo": "MANUFATURA (JOIAS, ELETRÔNICOS, LIGAS)", "faixa": "down", "hoje": "Fabricantes de eletrônicos, Casa da Moeda, Bancos" }
       ],
-      "obs": "Setor busca formalização e extinção total do garimpo em áreas protegidas.",
-      "fonte": "IBRAM / SGB"
+      "obs": "Números mundiais pelo USGS MCS 2026: produção ~13º (~80 t, ~2,4%); reservas ~8-9º (~2,5 kt, ~3,8%). Correções vs. versão anterior: ordem da produção é China (12%) > Rússia (9%) > Austrália (8%); a barra de 'transformação' foi trocada de consumo (China/Índia) para REFINO, cujo gargalo real é a Suíça (~2/3 do ouro mundial). Produção do Brasil ~13º (não 14º).",
+      "fonte": "IBRAM / SGB + USGS MCS 2026"
     }
   },
   {
@@ -2051,16 +2066,16 @@
     "slug": "silicio",
     "visaoGeral": {
       "usos": "O silício é o segundo elemento mais abundante da crosta terrestre e matéria-prima fundamental das revoluções digitais e energéticas. Na sua forma purificada (silício grau metalúrgico e silício grau solar), é o material condutor base indispensável na fabricação de microchips, semicondutores e, principalmente, das células dos painéis fotovoltaicos.",
-      "destaque": "<strong>Potencial Latente:</strong> O país dispõe de jazidas excepcionais de quartzo de alta pureza (sílica) em Minas Gerais e Goiás, e destaca-se na produção de ferroligas (FeSi), mas importa virtualmente todos os módulos solares de alto valor agregado.",
+      "destaque": "<strong>Potencial Latente:</strong> O país dispõe de jazidas excepcionais de quartzo de alta pureza (sílica) em Minas Gerais e Bahia (Projeto Homerun, >99,6% SiO₂), é o 2º maior produtor mundial de silício metálico e destaca-se em ferroligas — mas importa virtualmente todos os módulos solares de alto valor agregado.",
       "posicaoBR": {
-        "reserva": "Fora do Top 5 (Reservas não totalmente quantificadas globalmente)",
-        "producao": "3º a 4º lugar"
+        "reserva": "Não ranqueado (recurso abundante)",
+        "producao": "~2º em silício metálico"
       },
-      "estadosRes": "MG, GO, BA",
-      "estadosProd": "MG",
+      "estadosRes": "MG, BA, PA, TO, GO",
+      "estadosProd": "MG, BA, TO, CE",
       "gapProd": {
         "br": 4,
-        "leader": 70,
+        "leader": 80,
         "leaderName": "China"
       },
       "gapRes": {
@@ -2070,25 +2085,25 @@
       },
       "gapTransf": {
         "br": 0,
-        "leader": 80,
+        "leader": 90,
         "leaderName": "China"
       }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "China", "val": 70 },
-        { "label": "Rússia", "val": 7 },
+        { "label": "China", "val": 80 },
+        { "label": "Rússia", "val": 5 },
         { "label": "Brasil", "val": 4 },
-        { "label": "Noruega", "val": 4 },
-        { "label": "Outros", "val": 15 }
+        { "label": "Noruega", "val": 3 },
+        { "label": "Outros", "val": 8 }
       ],
       "pieRes": [
         { "label": "N/D (Recurso Abundante)", "val": 100 }
       ],
       "barTransf": [
-        { "label": "China", "val": 80 },
-        { "label": "EUA", "val": 5 },
-        { "label": "Europa", "val": 5 },
+        { "label": "China", "val": 90 },
+        { "label": "Alemanha", "val": 3 },
+        { "label": "EUA", "val": 2 },
         { "label": "Brasil", "val": 0 }
       ],
       "quemManda": [
@@ -2096,16 +2111,17 @@
         { "etapa": "Grau Solar/Células", "bandeira": "🇨🇳", "pais": "China" },
         { "etapa": "Semicondutores", "bandeira": "🇹🇼", "pais": "Taiwan" }
       ],
-      "labelTransf": "Silício Grau Solar / Wafer PV"
+      "labelTransf": "Polissilício (grau solar/eletrônico)"
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Várias mineradoras", "opera": "China" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Liasa, Rima, Minas Ligas", "opera": "Brasil" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Hoshine Silicon", "opera": "China" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Liasa, RIMA, Minas Ligas", "opera": "Brasil" },
+        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Elkem", "opera": "Global" },
         { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Ferroglobe", "opera": "Global" }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tongwei, GCL", "opera": "Polissilício" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tongwei, GCL, Daqo", "opera": "Polissilício" },
         { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Wacker Chemie", "opera": "Polissilício" },
         { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "OCI", "opera": "Polissilício" }
       ],
@@ -2114,13 +2130,19 @@
         { "bandeira": "🇹🇼", "pais": "Taiwan", "emp": "TSMC", "opera": "Semicondutores / Chips" },
         { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Intel, Nvidia", "opera": "Design de Chips" }
       ],
-      "analise": "<strong>Internacional:</strong> O mercado do silício é dominado pela China, que controla toda a esteira de valor da transição: mineração, produção do polissilício, corte de wafers e a montagem das células fotovoltaicas. Já o design e manufatura avançada de semicondutores de precisão (chips) é hegemonia de Taiwan (TSMC) e EUA.<br><br><strong>Brasil:</strong> O Brasil é um produtor de silício de grau metalúrgico forte, com indústrias como a RIMA operando de forma mais verde ao utilizar biomassa (carvão vegetal) como redutor em vez de carvão mineral.<br><br><strong>Gargalo:</strong> O Brasil não converte o silício metalúrgico (MG-Si, 98-99% de pureza) em silício grau solar (SoG-Si, >99,999%) ou eletrônico, etapas altamente intensivas em energia e capital tecnológico. Isso força o país, que possui uma das maiores irradiações solares, a importar massivamente painéis fotovoltaicos.<br><br><strong>Vantagem:</strong> O forte parque industrial eletrointensivo, associado às energias limpas brasileiras, cria um cenário perfeito (powershoring) para atrair fabricantes asiáticos ou ocidentais dispostos a fechar o elo tecnológico no país, produzindo as células solares diretamente da sílica nacional."
+      "analise": "<strong>Internacional:</strong> O silício é abundante, mas a produção é dominada pela China, que responde por cerca de 80% do silício metálico e ferrossilício e por ~90% do polissilício, controlando toda a esteira solar (mineração, polissilício, wafers e células). Já o design e a manufatura avançada de semicondutores de precisão (chips) é hegemonia de Taiwan (TSMC) e EUA.<br><br><strong>Brasil:</strong> O Brasil é o 2º maior produtor mundial de silício metálico, com indústrias como a RIMA operando de forma mais verde ao utilizar biomassa (carvão vegetal) como redutor em vez de carvão mineral, e ainda grande exportador de quartzo (~9% do comércio mundial).<br><br><strong>Gargalo:</strong> O Brasil não converte o silício metalúrgico (MG-Si, 98-99% de pureza) em silício grau solar (SoG-Si, >99,999%) ou eletrônico, etapas altamente intensivas em energia e capital tecnológico. Isso força o país, que possui uma das maiores irradiações solares do mundo, a importar massivamente painéis fotovoltaicos.<br><br><strong>Vantagem:</strong> O forte parque industrial eletrointensivo, associado às energias limpas brasileiras, cria um cenário perfeito (<em>powershoring</em>) para atrair fabricantes dispostos a fechar o elo tecnológico no país, produzindo as células solares diretamente da sílica nacional.",
+      "etapasLabels": {
+        "extracao": "Produção (silício metálico / FeSi)",
+        "refino": "Purificação (polissilício)",
+        "manufatura": "Wafers, células e chips"
+      },
+      "notaRodape": "Reservas de silício não são quantificadas por país pelo USGS (recurso quartzo/sílica abundante). A posição do Brasil é dada pela produção, não por reservas."
     },
     "fluxograma": {
       "def": "flowchart LR\n  min[\"Minério: Quartzo / Sílica<br/>(SiO₂)\"]:::minerio\n  fesi[\"Ferrossilício<br/>(FeSi)\"]:::comum\n  aco[\"Siderurgia:<br/>Aços Elétricos e Ligas\"]:::comum\n  mgsi[\"Redução Carbotérmica:<br/>Silício Metalúrgico (MG-Si) ~99%\"]:::transf\n  silox[\"Indústria Química:<br/>Silicones e Siloxanos\"]:::comum\n  poli[\"Purificação:<br/>Polissilício / Grau Solar (99,999%+)\"]:::bat\n  wafer[\"Lingote e Fatiamento:<br/>Wafers Solares\"]:::bat\n  pv[\"Células e Painéis<br/>Fotovoltaicos\"]:::bat\n  elec[\"Grau Eletrônico:<br/>Microchips e Semicondutores\"]:::esp\n\n  min --> fesi --> aco\n  min -->|Carvão Vegetal no Brasil| mgsi\n  mgsi --> silox\n  mgsi --> poli --> wafer --> pv\n  poli --> elec\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
       "notas": {
         "mgsi": "A redução da sílica em arco elétrico exige enormes volumes de energia. O Brasil usa hidreletricidade e carvão vegetal, tendo um 'silício verde'.",
-        "poli": "Processos complexos (Siemens ou leito fluidizado) convertem o MG-Si em triclorsilano e depois polissilício de altíssima pureza. Gargalo do país.",
+        "poli": "Processos complexos (Siemens ou leito fluidizado) convertem o MG-Si em triclorsilano e depois polissilício de altíssima pureza. Gargalo do país (China ~90%).",
         "pv": "Painéis fotovoltaicos são o insumo da transição com maior taxa de crescimento, sustentando as usinas solares centralizadas e a geração distribuída."
       },
       "legenda": [
@@ -2133,15 +2155,14 @@
     },
     "cadeiaValor": {
       "elos": [
-        { "elo": "QUARTZO / AREIA DE SÍLICA", "faixa": "up", "hoje": "Mineração diversificada (MG, GO)" },
+        { "elo": "QUARTZO / AREIA DE SÍLICA", "faixa": "up", "hoje": "Mineração diversificada (MG, BA, GO); Projeto Homerun (BA)" },
         { "elo": "SILÍCIO METALÚRGICO E FERROSSILÍCIO", "faixa": "mid", "hoje": "RIMA, Liasa, Minas Ligas", "m2030": "Ampliação baseada em energias renováveis e biomassa" },
         { "elo": "SILÍCIO GRAU SOLAR (POLISSILÍCIO)", "faixa": "mid", "pdi": "Lacuna nacional. Projetos e estudos de purificação" },
         { "elo": "CÉLULAS E PAINÉIS FOTOVOLTAICOS", "faixa": "down", "hoje": "BYD (Campinas - pesquisa e montagem de módulos)" },
         { "elo": "SEMICONDUTORES", "faixa": "down", "pdi": "CEITEC" }
       ],
-      "obs": "O país tem a oportunidade de alinhar seu enorme potencial solar a uma política industrial que internalize a fabricação das placas fotovoltaicas.",
-      "fonte": "CETEM / IBRAM"
+      "obs": "Números mundiais pelo USGS MCS 2026: China ~80% da produção de silício (metálico + ferrossilício) e ~90% do polissilício. Correções vs. versão anterior: produção da China 80% (não 70%) e polissilício 90% (não 80%). O USGS não ranqueia reservas por país (recurso abundante) — a pieRes é um marcador; avaliar como exibir. O Brasil é ~2º em silício metálico.",
+      "fonte": "CETEM / IBRAM + USGS MCS 2026"
     }
   }
 ]
- 
