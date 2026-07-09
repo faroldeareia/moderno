@@ -1724,7 +1724,8 @@
       ],
       "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
       "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
-    },
+    }
+  },
   {
     "nome": "Alumínio",
     "simbolo": "Al",
