@@ -1,5 +1,219 @@
 [
   {
+    "nome": "Cobalto",
+    "simbolo": "Co",
+    "slug": "cobalto",
+    "visaoGeral": {
+      "usos": "Dotado de excepcionais propriedades de estabilidade térmica, alta resistência ao desgaste e forte magnetismo, o cobalto é historicamente crucial na fabricação de superligas para turbinas aeroespaciais e ferramentas de corte industrial. Na atualidade, consolidou-se como um mineral de extrema criticidade estratégica para a transição energética, atuando como um estabilizador térmico e estrutural indispensável nos cátodos de baterias de íon-lítio de alta performance. Sua extração ocorre predominantemente de forma associada, como subproduto da mineração de cobre e níquel.",
+      "destaque": "<strong>Projeto Piauí Níquel (Brazilian Nickel), PI:</strong> Financiamento US$ 550 mi do gov. americano. Previsão de produção de cobalto no 2º semestre de 2029.",
+      "posicaoBR": {
+        "reserva": "9º lugar",
+        "producao": "Fora Top 10"
+      },
+      "estadosRes": "PA, PI, CE",
+      "estadosProd": "Sem produção",
+      "gapProd": {
+        "br": 0,
+        "leader": 70,
+        "leaderName": "RDC"
+      },
+      "gapRes": {
+        "br": 3,
+        "leader": 52,
+        "leaderName": "RDC"
+      },
+      "gapTransf": {
+        "br": 0,
+        "leader": 79,
+        "leaderName": "China"
+      }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "R.D. Congo", "val": 70 },
+        { "label": "Indonésia", "val": 17 },
+        { "label": "Rússia", "val": 3 },
+        { "label": "Outros", "val": 10 }
+      ],
+      "pieRes": [
+        { "label": "R.D. Congo", "val": 52 },
+        { "label": "Austrália", "val": 15 },
+        { "label": "Indonésia", "val": 7 },
+        { "label": "Rússia", "val": 5 },
+        { "label": "Outros", "val": 21 }
+      ],
+      "barTransf": [
+        { "label": "China", "val": 79 },
+        { "label": "Finlândia", "val": 8 },
+        { "label": "Japão", "val": 2 },
+        { "label": "Brasil", "val": 0 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇨🇩", "pais": "RDC" },
+        { "etapa": "Produção", "bandeira": "🇨🇩", "pais": "RDC" },
+        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+      ]
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CMOC", "opera": "RDC" },
+        { "bandeira": "🇨🇭", "pais": "Anglo-Suíça", "emp": "Glencore", "opera": "RDC, Canadá" },
+        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ERG", "opera": "RDC" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNMC", "opera": "RDC" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Norilsk", "opera": "Rússia" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Vale", "opera": "Canadá" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Huayou", "opera": "China" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNGM", "opera": "China" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "GEM Co.", "opera": "China" },
+        { "bandeira": "🇧🇪", "pais": "Bélgica", "emp": "Umicore", "opera": "Finlândia, Bélgica" },
+        { "bandeira": "🇨🇭", "pais": "Anglo-Suíça", "emp": "Glencore", "opera": "Noruega" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias e VEs" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias" },
+        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "LG Chem", "opera": "Baterias" },
+        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "POSCO Future M.", "opera": "Mat. p/ Baterias" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Panasonic", "opera": "Baterias" }
+      ],
+      "analise": "<strong>Internacional:</strong> Mais de dois terços da oferta global é da República Democrática do Congo (RDC), enquanto o refino avançado é dominado pela China (com cerca de 80% do total global), sendo uma das cadeias de suprimento mais concentradas e de maior risco geopolítico. Além disso, a prática de extração do cobalto na RDC frequentemente ocorre de forma artesanal, associada a abusos de direitos humanos, degradação ambiental e falhas de segurança.<br><br><strong>Brasil:</strong> A produção atual é inexistente em escala comercial plena, mas o país possui reservas mapeadas que entrarão em operação atreladas ao avanço dos novos projetos de extração de níquel no Nordeste e no Norte do país.<br><br><strong>Gargalo:</strong> A extração do cobalto é totalmente dependente e atrelada à viabilidade econômica da mineração primária de níquel e cobre, exigindo vultosos investimentos iniciais em plantas hidrometalúrgicas complexas.<br><br><strong>Vantagem:</strong> O futuro fornecimento nacional oferece total rastreabilidade e elevada credibilidade socioambiental, preenchendo uma lacuna crítica do mercado internacional que busca mitigar os riscos reputacionais da mineração artesanal africana."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Subproduto de Cu, RDC<br/>e de Ni, laterita\"]:::minerio\n  conc[\"Beneficiamento:<br/>Concentrado / Lixiviação\"]:::comum\n  hidrox[\"Intermediário: Hidróxido<br/>de Cobalto\"]:::transf\n  sulfco[\"Refino: Sulfato de Cobalto<br/>Grau Bateria\"]:::transf\n  metal[\"Refino: Cobalto<br/>Metálico\"]:::transf\n  prec[\"Precursores NMC,<br/>Catodos\"]:::bat\n  batco[\"Baterias de<br/>Veículos Elétricos\"]:::bat\n  liga[\"Superligas Aeroespaciais<br/>e Ferramentas\"]:::esp\n\n  min --> conc --> hidrox\n  hidrox -->|Via Química| sulfco --> prec --> batco\n  hidrox -->|Via Metálica| metal --> liga\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "min": "O cobalto quase nunca é minerado sozinho: é subproduto do cobre (RDC) ou do níquel laterítico (Indonésia, e o futuro Piauí Níquel).",
+        "hidrox": "Hidróxido de cobalto: intermediário exportado da RDC para refino na China (~80%), o elo mais concentrado e arriscado da cadeia."
+      },
+      "legenda": [
+        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
+        { "cor": "#C9C6F4", "label": "Rota bateria (downstream)" },
+        { "cor": "#BDEFC0", "label": "Superligas" },
+        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
+      ],
+      "fonte": "SNGM, rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        { "elo": "MINÉRIO", "faixa": "up", "m2030": "Brazilian Nickel (PNP-PI), offtake assinado 🇧🇷/🇺🇸" },
+        { "elo": "CONCENTRADO DE NÍQUEL-COBALTO (MHP)", "faixa": "mid", "m2030": "Produção de MHP prevista para 2029 (Piauí Níquel)" },
+        { "elo": "ÓXIDOS, HIDRÓXIDOS, CLORETOS, PÓS, MATES", "faixa": "mid" },
+        { "elo": "CHAPAS, FOLHAS, TIRAS, FIOS E PASTILHAS DE COBALTO", "faixa": "down" },
+        { "elo": "PRECURSORES DE BATERIAS", "faixa": "down", "m2050": "Ambição: precursores no Brasil" },
+        { "elo": "RECUPERAÇÃO", "faixa": "rec", "pdi": "LAREX/USP, recuperação de Co de catalisadores exauridos" }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
+      "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
+    }
+  },
+  {
+    "nome": "Cobre",
+    "simbolo": "Cu",
+    "slug": "cobre",
+    "visaoGeral": {
+      "usos": "Devido à sua alta condutividade elétrica e térmica, resistência à corrosão e maleabilidade, o cobre é amplamente utilizado em fiações elétricas, construção civil, eletrônicos, veículos elétricos e equipamentos industriais. Os depósitos economicamente viáveis ocorrem predominantemente na forma de sulfetos e óxidos, exigindo processos de lavra, cominuição e flotação para a obtenção do concentrado mineral.",
+      "destaque": "<strong>Mina Salobo (Vale), PA:</strong> Maior jazida de cobre do Brasil. Expansão contínua (Salobo 3). Vale investe US$ 290 mi no Projeto Bacaba.",
+      "posicaoBR": {
+        "reserva": "Fora Top 10",
+        "producao": "Fora Top 10"
+      },
+      "estadosRes": "PA, GO, BA, MT, AL",
+      "estadosProd": "PA, GO, BA, AL, MT",
+      "gapProd": {
+        "br": 2,
+        "leader": 23,
+        "leaderName": "Chile"
+      },
+      "gapRes": {
+        "br": 3,
+        "leader": 18,
+        "leaderName": "Chile"
+      },
+      "gapTransf": {
+        "br": 1,
+        "leader": 44,
+        "leaderName": "China"
+      }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "Chile", "val": 23 },
+        { "label": "R.D. Congo", "val": 14 },
+        { "label": "Peru", "val": 12 },
+        { "label": "China", "val": 8 },
+        { "label": "Outros", "val": 43 }
+      ],
+      "pieRes": [
+        { "label": "Chile", "val": 18 },
+        { "label": "Austrália", "val": 10 },
+        { "label": "Peru", "val": 8 },
+        { "label": "R.D. Congo", "val": 7 },
+        { "label": "Outros", "val": 57 }
+      ],
+      "barTransf": [
+        { "label": "China", "val": 44 },
+        { "label": "RDC", "val": 11 },
+        { "label": "Chile", "val": 7 },
+        { "label": "Brasil", "val": 1 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇨🇱", "pais": "Chile" },
+        { "etapa": "Produção", "bandeira": "🇨🇱", "pais": "Chile" },
+        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+      ]
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Freeport-McMoRan", "opera": "Indonésia, Peru, EUA" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP", "opera": "Chile, Peru, Austrália" },
+        { "bandeira": "🇨🇱", "pais": "Chile", "emp": "Codelco", "opera": "Chile" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Zijin Mining", "opera": "Congo, Sérvia" },
+        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Congo, Austrália, Chile" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Jiangxi Copper", "opera": "China" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tongling Nonferrous", "opera": "China" },
+        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Aurubis AG", "opera": "Alemanha" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Freeport-McMoRan", "opera": "EUA" },
+        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Global" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇮🇹", "pais": "Itália", "emp": "Prysmian", "opera": "Cabos" },
+        { "bandeira": "🇫🇷", "pais": "França", "emp": "Nexans", "opera": "Cabos" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Southwire", "opera": "Cabos" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Sumitomo Electric", "opera": "Manufatura" },
+        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "KME Germany", "opera": "Manufatura" }
+      ],
+      "analise": "<strong>Internacional:</strong> O Chile é o maior produtor mundial de cobre, liderado pela estatal Codelco. Outros grandes produtores incluem o Peru, a República Democrática do Congo e a China. A China foi responsável por quase metade do refino global. A expansão acelerada da capacidade chinesa, com a ampliação de fundições, tem afetado a lucratividade do setor e a viabilidade de projetos de transformação mineral em outros países.<br><br><strong>Brasil:</strong> O Brasil é o 13º maior produtor mundial de cobre, com produção concentrada no Pará (província mineral de Carajás) e em Goiás. As operações da Vale Base Metals objetivam a expansão da produção para o curto e médio prazo. A empresa projeta um crescimento de 280 mil toneladas para 450 mil toneladas em 2030, e de 600 mil para 2035.<br><br><strong>Gargalo:</strong> A cadeia de valor do país avança até o refino, mas de forma limitada. A Paranapanema é a única empresa no Brasil que atua na fundição e no refino de cobre primário. Um dos maiores gargalos é o alto custo de instalação de novas fundições, de modo que, competitivamente, é mais vantajoso utilizar fundições já instaladas na China.<br><br><strong>Vantagem:</strong> A vantagem competitiva natural do Brasil é, em grande parte, latente e baseada no alto valor do minério por tonelada. A combinação de minério com alta concentração de cobre e a coprodução de ouro, terras raras e outros minerais estratégicos confere às operações uma alta rentabilidade por unidade de volume processado."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério de Cobre\"]:::minerio\n  conc[\"Beneficiamento:<br/>Concentrado de Cobre\"]:::comum\n  fund[\"Transformação 1: Fundição /<br/>Blister / Anodo\"]:::transf\n  eletro[\"Refino<br/>Eletrolítico\"]:::transf\n  sxew[\"Transformação 1:<br/>Lixiviação e SX-EW\"]:::transf\n  catodo[\"Cátodo de Cobre<br/>Grau A, 99,99%\"]:::transf\n  verg[\"Vergalhões<br/>e Trefilaria\"]:::comum\n  fios[\"Fios e Cabos,<br/>Construção e Energia\"]:::comum\n  elecdep[\"Transformação 2: Eletrodeposição<br/>de Alta Precisão\"]:::transf\n  folha[\"Folha de Cobre / Elecfoil,<br/>abaixo de 15 μm\"]:::bat\n  colet[\"Coletores de Corrente,<br/>Anodos de Bateria\"]:::bat\n\n  min -->|Rota Sulfeto - Rocha Dura| conc -->|Via Pirometalurgia| fund --> eletro --> catodo\n  min -->|Rota Óxido| sxew --> catodo\n  catodo -->|Rota Comum| verg --> fios\n  catodo -->|Rota Bateria| elecdep --> folha --> colet\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "catodo": "Cátodo LME Grau A (99,99%): a commodity global do cobre. No Brasil, apenas a Paranapanema (Dias d'Ávila-BA) refina cobre primário, o gargalo nacional.",
+        "sxew": "Rota hidrometalúrgica para minérios oxidados: lixiviação ácida + extração por solventes + eletro-obtenção (SX-EW). Dispensa fundição, menor custo e emissões.",
+        "folha": "Elecfoil: folha eletrodepositada com menos de 15 μm, usada como coletor de corrente do anodo. Mercado dominado por Coreia do Sul, China e Japão."
+      },
+      "legenda": [
+        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
+        { "cor": "#C9C6F4", "label": "Rota bateria (downstream)" },
+        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
+      ],
+      "fonte": "SNGM, rotas de transformação"
+    },
+    "cadeiaValor": {
+      "elos": [
+        { "elo": "MINÉRIO", "faixa": "up", "hoje": "Vale (Salobo, Sossego), Ero Brasil", "pdi": "Carajás–Vale, ADIMB, Unicamp, UFMG, UFU, SGB, UnB, UFOP" },
+        { "elo": "CONCENTRADO DE COBRE", "faixa": "up", "hoje": "Vale, Ero (Caraíba)" },
+        { "elo": "ÓXIDOS, HIDRÓXIDOS, CLORETOS E SULFATOS", "faixa": "mid", "hoje": "Paranapanema (único refino primário)", "pdi": "UFOP, Univasf, UFJF, UCS", "m2030": "Novas minas e novas tecnologias de otimização da produção" },
+        { "elo": "PRODUTOS DE COBRE (FOLHAS, FIOS, CHAPAS, PEÇAS)", "faixa": "down", "hoje": "Paranapanema, Termomecanica" },
+        { "elo": "PRECURSORES DE BATERIAS", "faixa": "down" },
+        { "elo": "RECUPERAÇÃO", "faixa": "rec", "hoje": "Sucata: ~40% do consumo nacional", "m2030": "Bloquetes" }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
+      "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
+    }
+  },
+  {
     "nome": "Elementos de Terras Raras",
     "simbolo": "ETR",
     "slug": "etr",
@@ -109,109 +323,338 @@
     }
   },
   {
-    "nome": "Cobre",
-    "simbolo": "Cu",
-    "slug": "cobre",
+    "nome": "Estanho",
+    "simbolo": "Sn",
+    "slug": "estanho",
     "visaoGeral": {
-      "usos": "Devido à sua alta condutividade elétrica e térmica, resistência à corrosão e maleabilidade, o cobre é amplamente utilizado em fiações elétricas, construção civil, eletrônicos, veículos elétricos e equipamentos industriais. Os depósitos economicamente viáveis ocorrem predominantemente na forma de sulfetos e óxidos, exigindo processos de lavra, cominuição e flotação para a obtenção do concentrado mineral.",
-      "destaque": "<strong>Mina Salobo (Vale), PA:</strong> Maior jazida de cobre do Brasil. Expansão contínua (Salobo 3). Vale investe US$ 290 mi no Projeto Bacaba.",
+      "usos": "Dotado de um baixo ponto de fusão e de propriedades de resistência à corrosão, atoxicidade e capacidade de liga, o estanho foi historicamente fundamental na produção de revestimentos protetores para o aço e ligas metálicas como o bronze. No cenário tecnológico contemporâneo, é utilizado na fabricação de soldas eletrônicas livres de chumbo, essenciais para a integração de semicondutores, placas de circuito impresso (PCBs) e montagem de painéis solares fotovoltaicos.",
+      "destaque": "<strong>Mina Pitinga (Mineração Taboca), AM:</strong> Maior mina de estanho do Brasil e um dos maiores depósitos do mundo (Sn, Nb e Ta associados), verticalizada até o estanho metálico. Em 2025 passou ao controle da estatal chinesa CNMC, que comprou a Taboca da peruana Minsur por US$ 340 mi.",
       "posicaoBR": {
-        "reserva": "Fora Top 10",
-        "producao": "Fora Top 10"
+        "reserva": "3º lugar",
+        "producao": "4º lugar"
       },
-      "estadosRes": "PA, GO, BA, MT, AL",
-      "estadosProd": "PA, GO, BA, AL, MT",
+      "estadosRes": "AM, RO, MG",
+      "estadosProd": "AM, RO",
       "gapProd": {
-        "br": 2,
-        "leader": 23,
-        "leaderName": "Chile"
+        "br": 10,
+        "leader": 24,
+        "leaderName": "China"
       },
       "gapRes": {
-        "br": 3,
-        "leader": 18,
-        "leaderName": "Chile"
+        "br": 12,
+        "leader": 23,
+        "leaderName": "Indonésia"
       },
       "gapTransf": {
-        "br": 1,
-        "leader": 44,
+        "br": 5,
+        "leader": 50,
         "leaderName": "China"
       }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "Chile", "val": 23 },
-        { "label": "R.D. Congo", "val": 14 },
-        { "label": "Peru", "val": 12 },
-        { "label": "China", "val": 8 },
-        { "label": "Outros", "val": 43 }
+        { "label": "China", "val": 24 },
+        { "label": "Indonésia", "val": 21 },
+        { "label": "Peru", "val": 11 },
+        { "label": "Brasil", "val": 10 },
+        { "label": "R.D. Congo", "val": 9 },
+        { "label": "Outros", "val": 25 }
       ],
       "pieRes": [
-        { "label": "Chile", "val": 18 },
+        { "label": "Indonésia", "val": 23 },
+        { "label": "China", "val": 20 },
+        { "label": "Brasil", "val": 12 },
+        { "label": "Myanmar", "val": 12 },
         { "label": "Austrália", "val": 10 },
-        { "label": "Peru", "val": 8 },
-        { "label": "R.D. Congo", "val": 7 },
-        { "label": "Outros", "val": 57 }
+        { "label": "Outros", "val": 23 }
       ],
       "barTransf": [
-        { "label": "China", "val": 44 },
-        { "label": "RDC", "val": 11 },
-        { "label": "Chile", "val": 7 },
-        { "label": "Brasil", "val": 1 }
+        { "label": "China", "val": 50 },
+        { "label": "Indonésia", "val": 19 },
+        { "label": "Malásia", "val": 5 },
+        { "label": "Brasil", "val": 5 }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇨🇱", "pais": "Chile" },
-        { "etapa": "Produção", "bandeira": "🇨🇱", "pais": "Chile" },
+        { "etapa": "Reservas", "bandeira": "🇮🇩", "pais": "Indonésia" },
+        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
         { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Freeport-McMoRan", "opera": "Indonésia, Peru, EUA" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP", "opera": "Chile, Peru, Austrália" },
-        { "bandeira": "🇨🇱", "pais": "Chile", "emp": "Codelco", "opera": "Chile" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Zijin Mining", "opera": "Congo, Sérvia" },
-        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Congo, Austrália, Chile" }
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yunnan Tin", "opera": "China" },
+        { "bandeira": "🇮🇩", "pais": "Indonésia", "emp": "PT Timah", "opera": "Indonésia" },
+        { "bandeira": "🇵🇪", "pais": "Peru", "emp": "Minsur (grupo Breca)", "opera": "Peru" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca (CNMC/China)", "opera": "Brasil (Pitinga)" },
+        { "bandeira": "🇨🇩", "pais": "RDC", "emp": "Alphamin Resources", "opera": "RDC (Bisie)" }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Jiangxi Copper", "opera": "China" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tongling Nonferrous", "opera": "China" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Aurubis AG", "opera": "Alemanha" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Freeport-McMoRan", "opera": "EUA" },
-        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Global" }
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yunnan Tin", "opera": "China" },
+        { "bandeira": "🇮🇩", "pais": "Indonésia", "emp": "PT Timah", "opera": "Indonésia" },
+        { "bandeira": "🇲🇾", "pais": "Malásia", "emp": "Malaysia Smelting Corp", "opera": "Malásia" },
+        { "bandeira": "🇵🇪", "pais": "Peru", "emp": "Minsur (Funsur)", "opera": "Peru" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca (CNMC/China)", "opera": "Brasil" }
       ],
       "manufatura": [
-        { "bandeira": "🇮🇹", "pais": "Itália", "emp": "Prysmian", "opera": "Cabos" },
-        { "bandeira": "🇫🇷", "pais": "França", "emp": "Nexans", "opera": "Cabos" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Southwire", "opera": "Cabos" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Sumitomo Electric", "opera": "Manufatura" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "KME Germany", "opera": "Manufatura" }
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "MacDermid Alpha", "opera": "Solda eletrônica" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Indium Corporation", "opera": "Solda" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Senju Metal", "opera": "Solda" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Nihon Superior", "opera": "Solda" },
+        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "Indústria de eletrônicos", "opera": "Montagem PCB" }
       ],
-      "analise": "<strong>Internacional:</strong> O Chile é o maior produtor mundial de cobre, liderado pela estatal Codelco. Outros grandes produtores incluem o Peru, a República Democrática do Congo e a China. A China foi responsável por quase metade do refino global. A expansão acelerada da capacidade chinesa, com a ampliação de fundições, tem afetado a lucratividade do setor e a viabilidade de projetos de transformação mineral em outros países.<br><br><strong>Brasil:</strong> O Brasil é o 13º maior produtor mundial de cobre, com produção concentrada no Pará (província mineral de Carajás) e em Goiás. As operações da Vale Base Metals objetivam a expansão da produção para o curto e médio prazo. A empresa projeta um crescimento de 280 mil toneladas para 450 mil toneladas em 2030, e de 600 mil para 2035.<br><br><strong>Gargalo:</strong> A cadeia de valor do país avança até o refino, mas de forma limitada. A Paranapanema é a única empresa no Brasil que atua na fundição e no refino de cobre primário. Um dos maiores gargalos é o alto custo de instalação de novas fundições, de modo que, competitivamente, é mais vantajoso utilizar fundições já instaladas na China.<br><br><strong>Vantagem:</strong> A vantagem competitiva natural do Brasil é, em grande parte, latente e baseada no alto valor do minério por tonelada. A combinação de minério com alta concentração de cobre e a coprodução de ouro, terras raras e outros minerais estratégicos confere às operações uma alta rentabilidade por unidade de volume processado."
+      "analise": "<strong>Internacional:</strong> A China lidera a mineração e domina o refino, enquanto o eixo asiático, somado ao Peru e à Bolívia, concentra o restante da oferta global. A solda eletrônica responde por cerca de metade da demanda mundial.<br><br><strong>Brasil:</strong> Ao longo das últimas décadas, a produção de estanho no Brasil concentrou-se na região amazônica, particularmente nos estados do Amazonas e de Rondônia, complementada por operações de menor porte nos estados do Pará e de Minas Gerais. O país ocupa posição de destaque na produção e detém grandes reservas, abrigando casos raros de cadeia verticalizada que vai da mineração até a fundição do metal puro.<br><br><strong>Gargalo:</strong> A indústria interna de eletrônica de alto valor agregado é pouco desenvolvida, limitando o consumo interno avançado, além do esgotamento gradual dos depósitos aluvionares.<br><br><strong>Vantagem:</strong> A capacidade de entregar estanho fundido e rastreável confere enorme vantagem comercial ao país frente ao minério extraído em áreas de conflito na África e na Ásia."
     },
     "fluxograma": {
-      "def": "flowchart LR\n  min[\"Minério de Cobre\"]:::minerio\n  conc[\"Beneficiamento:<br/>Concentrado de Cobre\"]:::comum\n  fund[\"Transformação 1: Fundição /<br/>Blister / Anodo\"]:::transf\n  eletro[\"Refino<br/>Eletrolítico\"]:::transf\n  sxew[\"Transformação 1:<br/>Lixiviação e SX-EW\"]:::transf\n  catodo[\"Cátodo de Cobre<br/>Grau A, 99,99%\"]:::transf\n  verg[\"Vergalhões<br/>e Trefilaria\"]:::comum\n  fios[\"Fios e Cabos,<br/>Construção e Energia\"]:::comum\n  elecdep[\"Transformação 2: Eletrodeposição<br/>de Alta Precisão\"]:::transf\n  folha[\"Folha de Cobre / Elecfoil,<br/>abaixo de 15 μm\"]:::bat\n  colet[\"Coletores de Corrente,<br/>Anodos de Bateria\"]:::bat\n\n  min -->|Rota Sulfeto - Rocha Dura| conc -->|Via Pirometalurgia| fund --> eletro --> catodo\n  min -->|Rota Óxido| sxew --> catodo\n  catodo -->|Rota Comum| verg --> fios\n  catodo -->|Rota Bateria| elecdep --> folha --> colet\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "def": "flowchart LR\n  min[\"Minério: Cassiterita<br/>SnO₂\"]:::minerio\n  conc[\"Beneficiamento Gravimétrico:<br/>Concentrado ~70% Sn\"]:::comum\n  fund[\"Fundição / Redução:<br/>Estanho Metálico 99,9%\"]:::transf\n  solda[\"Ligas de Solda<br/>SAC, Sn-Ag-Cu\"]:::transf\n  pcb[\"Eletrônica: Placas de Circuito<br/>e Células Fotovoltaicas\"]:::bat\n  flandres[\"Folha de Flandres:<br/>Embalagens\"]:::comum\n  quim[\"Ligas e Químicos<br/>de Estanho\"]:::comum\n\n  min --> conc --> fund\n  fund -->|Rota Eletrônica ~50%| solda --> pcb\n  fund --> flandres\n  fund --> quim\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
       "notas": {
-        "catodo": "Cátodo LME Grau A (99,99%): a commodity global do cobre. No Brasil, apenas a Paranapanema (Dias d'Ávila-BA) refina cobre primário, o gargalo nacional.",
-        "sxew": "Rota hidrometalúrgica para minérios oxidados: lixiviação ácida + extração por solventes + eletro-obtenção (SX-EW). Dispensa fundição, menor custo e emissões.",
-        "folha": "Elecfoil: folha eletrodepositada com menos de 15 μm, usada como coletor de corrente do anodo. Mercado dominado por Coreia do Sul, China e Japão."
+        "fund": "A Pitinga (Taboca-AM) funde o próprio concentrado até estanho metálico, caso raro de cadeia mina-metal completa no Brasil.",
+        "solda": "Ligas SAC (estanho-prata-cobre), o padrão lead-free da eletrônica: a solda responde por cerca de metade da demanda mundial de estanho."
       },
       "legenda": [
         { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
-        { "cor": "#C9C6F4", "label": "Rota bateria (downstream)" },
+        { "cor": "#C9C6F4", "label": "Rota eletrônica (downstream)" },
+        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
+      ],
+      "fonte": "SNGM, rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        { "elo": "MINÉRIO (CASSITERITA)", "faixa": "up", "hoje": "Taboca (Pitinga-AM), cooperativas RO" },
+        { "elo": "CONCENTRADO DE CASSITERITA", "faixa": "up", "hoje": "Taboca" },
+        { "elo": "REFINO, LINGOTE", "faixa": "mid", "hoje": "Taboca (estanho metálico), ERSA" },
+        { "elo": "FERROLIGAS", "faixa": "mid" },
+        { "elo": "PRODUTOS, FOLHA DE FLANDRES E SOLDAS", "faixa": "down", "hoje": "White Solder, CSN (flandres)" },
+        { "elo": "RECUPERAÇÃO", "faixa": "rec" }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
+      "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
+    }
+  },
+  {
+    "nome": "Fosfato",
+    "simbolo": "P",
+    "slug": "fosfato",
+    "visaoGeral": {
+      "usos": "Pilar da segurança alimentar global, o fósforo é a base insubstituível dos fertilizantes que garantem a produtividade agrícola mundial. Na frente tecnológica da transição energética, seu uso purificado desponta como matéria prima fundamental para as baterias de fosfato de ferro lítio, as mais utilizadas na mobilidade elétrica de alto volume.",
+      "destaque": "<strong>Complexo Serra do Salitre (EuroChem), MG:</strong> Maior investimento greenfield recente do setor (~US$ 1 bi, inaugurado em 2024), verticalizado da mina ao fertilizante. Sinergia estratégica com Santa Quitéria (CE), onde fosfato e urânio ocorrem juntos.",
+      "posicaoBR": {
+        "reserva": "7º lugar",
+        "producao": "8º lugar"
+      },
+      "estadosRes": "MG, GO, SP, TO, BA",
+      "estadosProd": "MG, GO, SP, TO, BA",
+      "gapProd": {
+        "br": 2,
+        "leader": 44,
+        "leaderName": "China"
+      },
+      "gapRes": {
+        "br": 2,
+        "leader": 68,
+        "leaderName": "Marrocos"
+      },
+      "gapTransf": {
+        "br": 2,
+        "leader": 47,
+        "leaderName": "China"
+      }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "China", "val": 44 },
+        { "label": "Marrocos", "val": 14 },
+        { "label": "EUA", "val": 8 },
+        { "label": "Rússia", "val": 6 },
+        { "label": "Jordânia", "val": 5 },
+        { "label": "Outros", "val": 23 }
+      ],
+      "pieRes": [
+        { "label": "Marrocos", "val": 68 },
+        { "label": "China", "val": 5 },
+        { "label": "Egito", "val": 4 },
+        { "label": "Tunísia", "val": 3 },
+        { "label": "Brasil", "val": 2 },
+        { "label": "Outros", "val": 18 }
+      ],
+      "barTransf": [
+        { "label": "China", "val": 47 },
+        { "label": "Marrocos", "val": 12 },
+        { "label": "EUA", "val": 9 },
+        { "label": "Brasil", "val": 2 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇲🇦", "pais": "Marrocos" },
+        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+      ],
+      "labelTransf": "Ácido Fosfórico"
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇲🇦", "pais": "Marrocos", "emp": "OCP Group", "opera": "Marrocos, Saara Ocidental" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "EUA (Flórida), Brasil, Peru" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "PhosAgro", "opera": "Rússia" },
+        { "bandeira": "🇸🇦", "pais": "Arábia Saudita", "emp": "Ma'aden", "opera": "Arábia Saudita" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yunnan Phosphate (YPH)", "opera": "China" },
+        { "bandeira": "🇯🇴", "pais": "Jordânia", "emp": "JPMC", "opera": "Jordânia" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yuntianhua", "opera": "Ácido fosfórico/DAP" },
+        { "bandeira": "🇲🇦", "pais": "Marrocos", "emp": "OCP Group", "opera": "Ácido fosfórico/MAP/DAP" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "MAP/DAP (EUA, Brasil)" },
+        { "bandeira": "🇸🇦", "pais": "Arábia Saudita", "emp": "Ma'aden", "opera": "DAP" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "PhosAgro", "opera": "MAP/NPK" },
+        { "bandeira": "🇧🇪", "pais": "Bélgica", "emp": "Prayon", "opera": "Ácido fosfórico purificado" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Yara", "opera": "NPK" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "Fertilizantes" },
+        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "Especialidades / LFP" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias LFP" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias LFP e VEs" }
+      ],
+      "analise": "<strong>Internacional:</strong> O Marrocos é o detentor hegemônico das reservas minerais globais, assumindo o papel de liderança geopolítica do setor, enquanto a China atua como o maior produtor e processador, controlando os fluxos comerciais do nutriente e dos precursores avançados de baterias.<br><br><strong>Brasil:</strong> O país ostenta um polo agroindustrial pujante que consome volumes gigantescos do mineral, porém a produção interna consegue atender apenas uma fração da demanda, mantendo o setor primário altamente exposto e dependente das importações globais.<br><br><strong>Gargalo:</strong> O minério brasileiro ocorre predominantemente em rochas ígneas de extrema complexidade de beneficiamento, o que eleva drasticamente os desafios técnicos e custos operacionais frente aos depósitos sedimentares explorados no norte da África.<br><br><strong>Vantagem:</strong> O Brasil detém uma demanda doméstica gigantesca e cativa, aliada a reservas minerais que apresentam sinergias raras, permitindo a extração conjunta e a viabilização econômica de múltiplos elementos estratégicos ao lado do urânio e das terras raras.",
+      "etapasLabels": {
+        "extracao": "Extração (rocha fosfática)",
+        "refino": "Ácido Fosfórico (midstream)",
+        "manufatura": "Fertilizantes & Baterias LFP"
+      },
+      "notaRodape": "O midstream do fosfato é a conversão química da rocha em ácido fosfórico (H₃PO₄), gargalo estratégico equivalente ao refino dos metais, do qual derivam MAP/DAP e o ácido purificado das baterias LFP. Percentuais de transformação aproximados (IFA/setor)."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Rocha Fosfática,<br/>carbonatitos no Brasil\"]:::minerio\n  conc[\"Beneficiamento: Concentrado<br/>30–35% P₂O₅\"]:::comum\n  acid[\"Acidulação H₂SO₄:<br/>Ácido Fosfórico\"]:::transf\n  map[\"Fertilizantes:<br/>MAP / DAP / SSP\"]:::bat\n  agro[\"Agricultura\"]:::bat\n  ppa[\"Purificação: Ácido Grau<br/>Técnico / PPA\"]:::transf\n  lfp[\"Catodos LFP: Fosfato<br/>de Ferro-Lítio\"]:::esp\n  racao[\"Fosfato Bicálcico:<br/>Ração Animal\"]:::comum\n  uran[\"Subproduto: Urânio,<br/>Santa Quitéria\"]:::esp\n\n  min --> conc --> acid\n  acid --> map --> agro\n  acid --> ppa --> lfp\n  acid -.-> racao\n  min -.-> uran\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "acid": "A conversão da rocha em ácido fosfórico (H₃PO₄) é o midstream da cadeia, gargalo químico equivalente ao refino dos metais.",
+        "lfp": "O ácido purificado (PPA) vira fosfato de ferro-lítio, a química de bateria que domina os VEs chineses, nova fronteira de demanda do fósforo.",
+        "uran": "Em Santa Quitéria (CE), fosfato e urânio ocorrem juntos na mesma jazida: a viabilidade econômica de um financia o outro."
+      },
+      "legenda": [
+        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
+        { "cor": "#C9C6F4", "label": "Fertilizantes (downstream)" },
+        { "cor": "#BDEFC0", "label": "LFP / urânio" },
+        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
+      ],
+      "fonte": "SNGM, rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        { "elo": "ROCHA FOSFÁTICA", "faixa": "up", "hoje": "Mosaic (Tapira, Catalão, Araxá), EuroChem (Salitre), Itafos, Galvani" },
+        { "elo": "CONCENTRADO (30–35% P₂O₅)", "faixa": "up", "hoje": "Mosaic, EuroChem" },
+        { "elo": "ÁCIDO FOSFÓRICO", "faixa": "mid", "hoje": "Mosaic (Uberaba), EuroChem", "m2030": "PNF 2050: reduzir a dependência externa de fosfatados" },
+        { "elo": "FERTILIZANTES (MAP / DAP / SSP)", "faixa": "down", "hoje": "Mosaic, EuroChem, Itafos, Galvani" },
+        { "elo": "ÁCIDO PURIFICADO (PPA) → LFP", "faixa": "mid", "pdi": "Rota LFP, estudos" },
+        { "elo": "RECUPERAÇÃO", "faixa": "rec", "m2050": "Sinergia fosfato-urânio (Santa Quitéria)" }
+      ],
+      "fonte": "SNGM, elaborado no modelo IBRAM (criado, validar)"
+    }
+  },
+  {
+    "nome": "Grafita",
+    "simbolo": "C",
+    "slug": "grafita",
+    "visaoGeral": {
+      "usos": "Dotada de uma estrutura cristalina que lhe confere propriedades excepcionais de alta condutibilidade elétrica e térmica, refratariedade e lubricidade natural, a grafita é um insumo de relevância industrial e estratégica. Tradicionalmente indispensável nos setores de metalurgia e refratários, consolidou-se contemporaneamente como um mineral crítico para a transição energética, sendo a matéria-prima majoritária e insubstituível na fabricação de grafita esferoidal para anodos de baterias de íon-lítio, utilizadas em veículos elétricos e sistemas de armazenamento de energia.",
+      "destaque": "<strong>Projeto Graphcoa (Appian Capital), BA:</strong> Investimento R$ 350 mi, capacidade 5,5 mil t/ano. Expansão prevê 65 mil t/ano (R$ 1,5 bi).",
+      "posicaoBR": {
+        "reserva": "2º lugar",
+        "producao": "4º lugar"
+      },
+      "estadosRes": "MG, BA",
+      "estadosProd": "MG, BA",
+      "gapProd": {
+        "br": 4,
+        "leader": 80,
+        "leaderName": "China"
+      },
+      "gapRes": {
+        "br": 25,
+        "leader": 34,
+        "leaderName": "China"
+      },
+      "gapTransf": {
+        "br": 0,
+        "leader": 96,
+        "leaderName": "China"
+      }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "China", "val": 80 },
+        { "label": "Brasil", "val": 4 },
+        { "label": "Tanzânia", "val": 4 },
+        { "label": "Madagascar", "val": 4 },
+        { "label": "Outros", "val": 8 }
+      ],
+      "pieRes": [
+        { "label": "China", "val": 34 },
+        { "label": "Brasil", "val": 25 },
+        { "label": "Madagascar", "val": 8 },
+        { "label": "Moçambique", "val": 5 },
+        { "label": "Outros", "val": 28 }
+      ],
+      "barTransf": [
+        { "label": "China", "val": 96 },
+        { "label": "Japão", "val": 2 },
+        { "label": "EUA", "val": 0 },
+        { "label": "Brasil", "val": 0 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+      ]
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Syrah Resources", "opera": "Moçambique" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Minmetals Corp", "opera": "China" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Nacional de Grafite", "opera": "Brasil" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Qingdao", "opera": "China" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Northern Graphite", "opera": "Canadá, Namíbia" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "NextSource Materials", "opera": "Madagascar" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "BTR, Shangtai", "opera": "China" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Syrah Resources", "opera": "EUA" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nouveau Monde (NMG)", "opera": "Canadá" },
+        { "bandeira": "🇦🇺", "pais": "Austrália/Suécia", "emp": "Talga Group", "opera": "Suécia" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias e VEs" },
+        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "LG Energy Solution", "opera": "Baterias" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Panasonic", "opera": "Baterias" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Tesla", "opera": "Baterias e VEs" },
+        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "SK On", "opera": "Baterias" }
+      ],
+      "analise": "<strong>Internacional:</strong> A hegemonia tecnológica e produtiva da China é quase absoluta tanto na extração bruta quanto na esferoidização e purificação química do material, ditando os preços de mercado e o ritmo tecnológico de fornecimento para as montadoras automotivas mundiais.<br><br><strong>Brasil:</strong> O Brasil detém um dos maiores e mais expressivos potenciais geológicos de grafita natural do mundo, com produção concentrada na Província Bahia–Minas, incluindo o Domínio Ceará Central, o Cráton Amazônico e os cinturões Araguaia, Paraguai e Brasília, posicionando o Brasil entre as poucas nações capazes de expandir a oferta de grafita natural fora da Ásia.<br><br><strong>Gargalo:</strong> A ausência de um parque industrial nacional voltado para as etapas críticas de micronização mecânica e purificação química dificulta a competição comercial com o produto final subsidiado de origem asiática.<br><br><strong>Vantagem:</strong> O Brasil figura entre os países com maior potencial mundial para a produção de grafita natural de qualidade premium, combinando expressivos recursos geológicos a empresas consolidadas na produção, já com experiência em cadeias de transformação intermediária, apesar de focadas nas rotas de siderurgia e refratários."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério de Grafita\"]:::minerio\n  flocos[\"Beneficiamento:<br/>Grafita em Flocos\"]:::comum\n  refra[\"Refratários<br/>e Fundição\"]:::comum\n  esf[\"Transf. Mecânica:<br/>Grafita Esférica\"]:::transf\n  pur[\"Transf. Química/Térmica:<br/>Purificação 99,95%+\"]:::transf\n  anodo[\"Grafita Revestida,<br/>Anodo CSPG\"]:::bat\n  nucg[\"Grafita Nuclear,<br/>Moderadores\"]:::esp\n\n  min --> flocos\n  flocos -->|Rota Comum| refra\n  flocos -->|Rota Tecnológica| esf --> pur\n  pur -->|Grau Bateria| anodo\n  pur -.->|Grau Nuclear| nucg\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "flocos": "O Brasil tem a maior reserva mundial de grafita lamelar (flake), o tipo certo para a rota tecnológica, mas exporta sem purificar.",
+        "esf": "Micronização e esferoidização dos flocos: rendimento de ~50% e know-how concentrado na China (mais de 95% da grafita esférica mundial).",
+        "anodo": "CSPG (grafita esférica purificada e revestida): o material do anodo de praticamente toda bateria de íon-lítio."
+      },
+      "legenda": [
+        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
+        { "cor": "#C9C6F4", "label": "Grau bateria (downstream)" },
+        { "cor": "#BDEFC0", "label": "Grau nuclear" },
         { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
       ],
       "fonte": "SNGM, rotas de transformação"
     },
     "cadeiaValor": {
       "elos": [
-        { "elo": "MINÉRIO", "faixa": "up", "hoje": "Vale (Salobo, Sossego), Ero Brasil", "pdi": "Carajás–Vale, ADIMB, Unicamp, UFMG, UFU, SGB, UnB, UFOP" },
-        { "elo": "CONCENTRADO DE COBRE", "faixa": "up", "hoje": "Vale, Ero (Caraíba)" },
-        { "elo": "ÓXIDOS, HIDRÓXIDOS, CLORETOS E SULFATOS", "faixa": "mid", "hoje": "Paranapanema (único refino primário)", "pdi": "UFOP, Univasf, UFJF, UCS", "m2030": "Novas minas e novas tecnologias de otimização da produção" },
-        { "elo": "PRODUTOS DE COBRE (FOLHAS, FIOS, CHAPAS, PEÇAS)", "faixa": "down", "hoje": "Paranapanema, Termomecanica" },
-        { "elo": "PRECURSORES DE BATERIAS", "faixa": "down" },
-        { "elo": "RECUPERAÇÃO", "faixa": "rec", "hoje": "Sucata: ~40% do consumo nacional", "m2030": "Bloquetes" }
+        { "elo": "EXTRAÇÃO (GRAFITA NATURAL EM PÓ OS ESCAMAS)", "faixa": "up", "hoje": "Nacional de Grafite, Graphcoa" },
+        { "elo": "CONCENTRADO DE GRAFITA", "faixa": "up", "hoje": "Nacional de Grafite" },
+        { "elo": "GRAFITE DE ALTA PUREZA", "faixa": "mid", "hoje": "Nacional de Grafite (expansível, micronizado)" },
+        { "elo": "GRAFITE ESFÉRICO", "faixa": "mid" },
+        { "elo": "GRAFENO E NANOPARTÍCULAS (GRAFITE ESFOLIADO)", "faixa": "mid", "pdi": "UFMG / CTNano" },
+        { "elo": "ELETRODOS, LUBRIFICANTES, PASTILHAS DE FREIO, PILHAS", "faixa": "down", "hoje": "Indústria nacional diversa" },
+        { "elo": "PRECURSORES DE BATERIAS", "faixa": "down" }
       ],
-      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
+      "obs": "Cadeia condensada dos 13 elos do original IBRAM. Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
       "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   },
@@ -327,651 +770,6 @@
     }
   },
   {
-    "nome": "Urânio",
-    "simbolo": "U",
-    "slug": "uranio",
-    "visaoGeral": {
-      "usos": "Dotado de uma excepcional densidade energética, trata-se de um insumo estratégico fundamental para a matriz energética global, sendo o combustível primordial para a geração de eletricidade em reatores de potência (energia nuclear de base e baixa emissão de carbono), além de possuir aplicações cruciais na medicina nuclear, propulsão naval e tecnologia aeroespacial. Os depósitos economicamente viáveis ocorrem predominantemente em formações sedimentares e hidrotermais.",
-      "destaque": "<strong>Projeto Santa Quitéria (INB/Galvani), CE:</strong> Jazida de Itataia para urânio (~2.400t) e fosfato (~220.000t). Licenciamento em impasse.",
-      "posicaoBR": {
-        "reserva": "8º lugar*",
-        "producao": "Fora Top 10*"
-      },
-      "estadosRes": "PA, CE, BA",
-      "estadosProd": "BA",
-      "gapProd": {
-        "br": 0,
-        "leader": 39,
-        "leaderName": "Cazaquistão"
-      },
-      "gapRes": {
-        "br": 3,
-        "leader": 28,
-        "leaderName": "Austrália"
-      },
-      "gapTransf": {
-        "br": 0,
-        "leader": 44,
-        "leaderName": "Rússia"
-      }
-    },
-    "numerosMundiais": {
-      "pieProd": [
-        { "label": "Cazaquistão", "val": 39 },
-        { "label": "Canadá", "val": 24 },
-        { "label": "Namíbia", "val": 12 },
-        { "label": "Austrália", "val": 7 },
-        { "label": "Outros", "val": 18 }
-      ],
-      "pieRes": [
-        { "label": "Austrália", "val": 28 },
-        { "label": "Cazaquistão", "val": 14 },
-        { "label": "Canadá", "val": 10 },
-        { "label": "Namíbia", "val": 8 },
-        { "label": "Outros", "val": 40 }
-      ],
-      "barTransf": [
-        { "label": "Rússia", "val": 44 },
-        { "label": "Europa*", "val": 29 },
-        { "label": "China", "val": 15 },
-        { "label": "Brasil", "val": 0 }
-      ],
-      "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇦🇺", "pais": "Austrália" },
-        { "etapa": "Produção", "bandeira": "🇰🇿", "pais": "Cazaquistão" },
-        { "etapa": "Enriquecimento", "bandeira": "🇷🇺", "pais": "Rússia" }
-      ],
-      "labelTransf": "Enriquecimento"
-    },
-    "cadeiaGlobal": {
-      "extracao": [
-        { "bandeira": "🇰🇿", "pais": "Cazaquistão", "emp": "Kazatomprom", "opera": "Cazaquistão" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Cameco", "opera": "Canadá, Cazaquistão" },
-        { "bandeira": "🇫🇷", "pais": "França", "emp": "Orano", "opera": "Canadá, Níger" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Rosatom", "opera": "Cazaquistão" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CGN", "opera": "China, Namíbia" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP", "opera": "Austrália" }
-      ],
-      "refino": [
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Rosatom", "opera": "Rússia" },
-        { "bandeira": "🇫🇷", "pais": "França", "emp": "Orano", "opera": "França" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Cameco", "opera": "Canadá" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNNC", "opera": "China" }
-      ],
-      "manufatura": [
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Rosatom", "opera": "Rússia" },
-        { "bandeira": "🇪🇺", "pais": "UE", "emp": "Urenco", "opera": "UK, Holanda, Alemanha, EUA" },
-        { "bandeira": "🇫🇷", "pais": "França", "emp": "Orano", "opera": "França" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNNC", "opera": "China" }
-      ],
-      "analise": "<strong>Internacional:</strong> Globalmente, três países dominam a extração e respondem por mais de 60% da produção mundial: Cazaquistão, Canadá e Austrália. O mercado internacional apresenta forte grau de concentração nas etapas avançadas da cadeia, especialmente no enriquecimento isotópico e na fabricação do combustível, pela Rússia, o que cria uma dependência dos países ocidentais.<br><br><strong>Brasil:</strong> Os depósitos brasileiros, descobertos no final dos anos 1970, posicionaram o Brasil entre os principais países detentores de recursos uraníferos. Atualmente, o Brasil ocupa a décima posição mundial em base de recursos de urânio, não obstante a ausência de novas descobertas desde o final dos anos 1980. O país domina as duas pontas do ciclo do combustível nuclear, mas ainda necessita recorrer ao exterior para as etapas intermediárias de conversão química e enriquecimento em larga escala.<br><br><strong>Gargalo:</strong> A baixa capacidade produtiva da mineração atual, com as conhecidas dificuldades operacionais e de orçamento da INB, e a ausência de uma planta nacional de conversão química obrigam o país a exportar o concentrado primário e recomprar o material processado com alto valor agregado.<br><br><strong>Vantagem:</strong> O território nacional abriga reservas gigantescas que frequentemente ocorrem associadas a outros minerais de alto valor, conferindo ao país a capacidade potencial de alcançar total independência energética e soberania tecnológica no ciclo nuclear. A Lei nº 14.514/22 permite que a INB faça parcerias com o setor privado.",
-      "etapasLabels": {
-        "extracao": "Extração",
-        "refino": "Conversão",
-        "manufatura": "Enriquecimento / Combustível"
-      },
-      "notaRodape": "No urânio, o midstream é a conversão em UF₆ e o downstream é o enriquecimento isotópico e a fabricação do combustível, etapas licenciadas e altamente concentradas (Rosatom ~44% da capacidade de enriquecimento)."
-    },
-    "fluxograma": {
-      "def": "flowchart LR\n  min[\"Minério de Urânio\"]:::minerio\n  lixi[\"Beneficiamento:<br/>Lixiviação\"]:::comum\n  yellow[\"Concentrado: Yellowcake<br/>U₃O₈\"]:::transf\n  conv[\"Conversão:<br/>UF₆ Gasoso\"]:::transf\n  enriq[\"Enriquecimento: Centrifugação<br/>U-235 de 0,7% para 3–5%\"]:::transf\n  reconv[\"Reconversão:<br/>Pó de UO₂\"]:::transf\n  fab[\"Fabricação: Pastilhas e<br/>Elementos Combustíveis\"]:::bat\n  reator[\"Usinas Nucleares,<br/>Angra 1 e 2\"]:::bat\n  emp[\"Urânio Empobrecido<br/>, estoque\"]:::comum\n\n  min --> lixi --> yellow --> conv --> enriq --> reconv --> fab --> reator\n  enriq -.-> emp\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
-      "notas": {
-        "yellow": "Yellowcake (U₃O₈): concentrado produzido pela INB em Caetité-BA (~60 t/ano frente a ~400 t de demanda das usinas).",
-        "conv": "Conversão para UF₆: o Brasil não possui planta comercial, etapa contratada no exterior. Só quatro países operam em escala (Rússia, França, Canadá, China).",
-        "enriq": "Enriquecimento por ultracentrifugação: tecnologia nacional (Marinha/INB, Resende-RJ) atende parte da recarga de Angra 1. A Rosatom detém ~44% da capacidade mundial.",
-        "fab": "A INB (Resende-RJ) fabrica pastilhas e monta os elementos combustíveis: o Brasil domina as duas pontas do ciclo, mas não o meio."
-      },
-      "legenda": [
-        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
-        { "cor": "#C9C6F4", "label": "Combustível nuclear (downstream)" },
-        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
-      ],
-      "fonte": "SNGM, rotas de transformação (criado, validar)"
-    },
-    "cadeiaValor": {
-      "elos": [
-        { "elo": "MINÉRIO DE URÂNIO", "faixa": "up", "hoje": "INB (Caetité-BA)", "m2030": "Expansão Caetité + Santa Quitéria (INB/Galvani)" },
-        { "elo": "YELLOWCAKE (U₃O₈)", "faixa": "mid", "hoje": "INB" },
-        { "elo": "CONVERSÃO (UF₆)", "faixa": "mid", "m2050": "Planta nacional de conversão, ambição do setor" },
-        { "elo": "ENRIQUECIMENTO (U-235)", "faixa": "mid", "hoje": "INB Resende, parcial (ultracentrífugas nacionais)", "m2030": "Ampliação das cascatas de enriquecimento" },
-        { "elo": "COMBUSTÍVEL (PASTILHAS E ELEMENTOS)", "faixa": "down", "hoje": "INB Resende, abastece Angra 1 e 2" },
-        { "elo": "RECUPERAÇÃO", "faixa": "rec" }
-      ],
-      "fonte": "SNGM, elaborado no modelo IBRAM (criado, validar)"
-    }
-  },
-  {
-    "nome": "Níquel",
-    "simbolo": "Ni",
-    "slug": "niquel",
-    "visaoGeral": {
-      "usos": "Dotado de excelentes propriedades de resistência à corrosão, estabilidade térmica e alta ductilidade, o níquel é historicamente o principal elemento de liga na produção de aços inoxidáveis e superligas de alta performance. Contemporaneamente, consolidou-se como um insumo de altíssima criticidade estratégica na transição energética, sendo um componente indispensável nos cátodos de baterias de íon-lítio de alta densidade energética, fundamentais para a indústria de veículos elétricos de longo alcance. Seus depósitos economicamente viáveis se dividem principalmente entre minérios lateríticos (oxidados) e sulfetados.",
-      "destaque": "<strong>Projeto Jaguar (Centaurus Metals), PA:</strong> 138,2 Mt a 0,87% Ni. Um dos maiores depósitos de Ni sulfetado do mundo, vital para baterias.",
-      "posicaoBR": {
-        "reserva": "3º lugar",
-        "producao": "6º lugar"
-      },
-      "estadosRes": "GO, PA, BA, PI",
-      "estadosProd": "BA, GO, PA, PI",
-      "gapProd": {
-        "br": 2,
-        "leader": 62,
-        "leaderName": "Indonésia"
-      },
-      "gapRes": {
-        "br": 11,
-        "leader": 45,
-        "leaderName": "Indonésia"
-      },
-      "gapTransf": {
-        "br": 2,
-        "leader": 43,
-        "leaderName": "Indonésia"
-      }
-    },
-    "numerosMundiais": {
-      "pieProd": [
-        { "label": "Indonésia", "val": 62 },
-        { "label": "Filipinas", "val": 5 },
-        { "label": "Rússia", "val": 5 },
-        { "label": "Canadá", "val": 4 },
-        { "label": "Outros", "val": 24 }
-      ],
-      "pieRes": [
-        { "label": "Indonésia", "val": 45 },
-        { "label": "Austrália", "val": 20 },
-        { "label": "Brasil", "val": 11 },
-        { "label": "Rússia", "val": 5 },
-        { "label": "Outros", "val": 19 }
-      ],
-      "barTransf": [
-        { "label": "Indonésia", "val": 43 },
-        { "label": "China", "val": 31 },
-        { "label": "Japão", "val": 3 },
-        { "label": "Brasil", "val": 2 }
-      ],
-      "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇮🇩", "pais": "Indonésia" },
-        { "etapa": "Produção", "bandeira": "🇮🇩", "pais": "Indonésia" },
-        { "etapa": "Transformação", "bandeira": "🇮🇩", "pais": "Indonésia" }
-      ]
-    },
-    "cadeiaGlobal": {
-      "extracao": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tsingshan Holding", "opera": "Indonésia" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Norilsk Nickel", "opera": "Rússia" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Vale", "opera": "Canadá, Indonésia, Brasil" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Jinchuan Group", "opera": "China" },
-        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Canadá, Austrália" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP", "opera": "Austrália" }
-      ],
-      "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tsingshan Holdings", "opera": "Refino" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Norilsk Nickel", "opera": "Rússia" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Jinchuan Group", "opera": "China" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Sumitomo Metal Mining", "opera": "Refino" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Vale S.A.", "opera": "Indonésia e Brasil" }
-      ],
-      "manufatura": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "LG Energy Solution", "opera": "Baterias" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Panasonic", "opera": "Baterias" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Baowu Steel", "opera": "Aço Inox" },
-        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ArcelorMittal", "opera": "Aço Inox" }
-      ],
-      "analise": "<strong>Internacional:</strong> A Indonésia domina a extração global de níquel, e em forte sinergia com a China, controla quase a totalidade do refino mundial. Respondendo por mais de 60% da produção global, o país baniu a exportação do minério bruto. Essa estratégia forçou empresas estrangeiras a investir em fundições e refinarias locais, aproveitando a abundância de reservas e o baixo custo operacional da região. Com isso, o custo de migrar para outros países tornou-se tão elevado que acabou por consolidar a dependência do refino indonésio.<br><br><strong>Brasil:</strong> O Brasil abriga a terceira maior reserva de níquel do mundo. O estado do Pará concentra o maior ativo produtor do país. A jusante na cadeia, o Brasil abriga uma indústria consolidada de aço inoxidável, liderada por Aperam, Villares Metals e Gerdau. Na rota da transição energética, o grupo Jervois planeja a retomada das operações da refinaria de níquel e cobalto de São Miguel Paulista (SP), com início previsto para 2027.<br><br><strong>Gargalo:</strong> O mercado sofre forte pressão do monopólio asiático de baixo custo, dificultando a viabilidade de novos investimentos em refino químico interno.<br><br><strong>Vantagem:</strong> O Brasil abriga reservas estratégicas de níquel sulfetado, o tipo geológico mais demandado e eficiente para a transição energética e mobilidade elétrica. Além disso, o país já avança em cadeias intermediárias e possui experiência na transformação mineral."
-    },
-    "fluxograma": {
-      "def": "flowchart LR\n  min[\"Minério: Sulfeto<br/>ou Laterita\"]:::minerio\n  fenpi[\"Beneficiamento:<br/>Ferro-Níquel / NPI\"]:::comum\n  inox[\"Aço Inox: Utensílios<br/>e Construção\"]:::comum\n  matte[\"Transformação:<br/>Matte ou MHP\"]:::transf\n  sulfni[\"Transformação:<br/>Sulfato de Níquel\"]:::transf\n  class1[\"Refino: Níquel<br/>Metálico Classe 1\"]:::transf\n  batni[\"Baterias de<br/>Veículos Elétricos\"]:::bat\n  liga[\"Superligas:<br/>Nuclear e Defesa\"]:::esp\n\n  min -->|Rota Aço Inox| fenpi --> inox\n  min -->|Rota Estratégica| matte\n  matte -->|Via Química| sulfni --> batni\n  matte -->|Via Metálica| class1 --> liga\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
-      "notas": {
-        "matte": "MHP (hidróxido misto de Ni-Co) e matte: intermediários da rota HPAL indonésia que abastecem as refinarias chinesas de sulfato.",
-        "class1": "Níquel Classe 1 (99,8%+, entregável na LME): rota natural do Ni sulfetado, onde o Brasil (Atlantic Nickel, projeto Jaguar) tem vantagem geológica."
-      },
-      "legenda": [
-        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
-        { "cor": "#C9C6F4", "label": "Rota bateria (downstream)" },
-        { "cor": "#BDEFC0", "label": "Superligas" },
-        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
-      ],
-      "fonte": "SNGM, rotas de transformação"
-    },
-    "cadeiaValor": {
-      "elos": [
-        { "elo": "MINÉRIO", "faixa": "up", "hoje": "Atlantic Nickel (BA), Anglo American (GO), Vale (Onça Puma-PA)", "m2030": "Expansão da mina" },
-        { "elo": "FERRONÍQUEL", "faixa": "mid", "hoje": "Anglo American, Vale", "m2030": "Substituição de carvão por biomassa; escória como coproduto (BlueStone, pavimentação)" },
-        { "elo": "ÓXIDOS, HIDRÓXIDOS, CLORETOS E SULFATOS", "faixa": "mid", "hoje": "Concentrado sulfetado exportado, offtake 🇨🇦/🇬🇧", "m2030": "Parcerias 🇦🇺", "m2050": "Rota sulfato 🇮🇩?" },
-        { "elo": "PRODUTOS DE NÍQUEL (MATES, CATODOS, LIGAS, PÓS)", "faixa": "down" },
-        { "elo": "PRECURSORES DE BATERIAS", "faixa": "down" },
-        { "elo": "RECUPERAÇÃO", "faixa": "rec", "m2030": "Briquetes" }
-      ],
-      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
-      "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
-    }
-  },
-  {
-    "nome": "Grafita",
-    "simbolo": "C",
-    "slug": "grafita",
-    "visaoGeral": {
-      "usos": "Dotada de uma estrutura cristalina que lhe confere propriedades excepcionais de alta condutibilidade elétrica e térmica, refratariedade e lubricidade natural, a grafita é um insumo de relevância industrial e estratégica. Tradicionalmente indispensável nos setores de metalurgia e refratários, consolidou-se contemporaneamente como um mineral crítico para a transição energética, sendo a matéria-prima majoritária e insubstituível na fabricação de grafita esferoidal para anodos de baterias de íon-lítio, utilizadas em veículos elétricos e sistemas de armazenamento de energia.",
-      "destaque": "<strong>Projeto Graphcoa (Appian Capital), BA:</strong> Investimento R$ 350 mi, capacidade 5,5 mil t/ano. Expansão prevê 65 mil t/ano (R$ 1,5 bi).",
-      "posicaoBR": {
-        "reserva": "2º lugar",
-        "producao": "4º lugar"
-      },
-      "estadosRes": "MG, BA",
-      "estadosProd": "MG, BA",
-      "gapProd": {
-        "br": 4,
-        "leader": 80,
-        "leaderName": "China"
-      },
-      "gapRes": {
-        "br": 25,
-        "leader": 34,
-        "leaderName": "China"
-      },
-      "gapTransf": {
-        "br": 0,
-        "leader": 96,
-        "leaderName": "China"
-      }
-    },
-    "numerosMundiais": {
-      "pieProd": [
-        { "label": "China", "val": 80 },
-        { "label": "Brasil", "val": 4 },
-        { "label": "Tanzânia", "val": 4 },
-        { "label": "Madagascar", "val": 4 },
-        { "label": "Outros", "val": 8 }
-      ],
-      "pieRes": [
-        { "label": "China", "val": 34 },
-        { "label": "Brasil", "val": 25 },
-        { "label": "Madagascar", "val": 8 },
-        { "label": "Moçambique", "val": 5 },
-        { "label": "Outros", "val": 28 }
-      ],
-      "barTransf": [
-        { "label": "China", "val": 96 },
-        { "label": "Japão", "val": 2 },
-        { "label": "EUA", "val": 0 },
-        { "label": "Brasil", "val": 0 }
-      ],
-      "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
-      ]
-    },
-    "cadeiaGlobal": {
-      "extracao": [
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Syrah Resources", "opera": "Moçambique" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Minmetals Corp", "opera": "China" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Nacional de Grafite", "opera": "Brasil" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Qingdao", "opera": "China" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Northern Graphite", "opera": "Canadá, Namíbia" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "NextSource Materials", "opera": "Madagascar" }
-      ],
-      "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "BTR, Shangtai", "opera": "China" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Syrah Resources", "opera": "EUA" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nouveau Monde (NMG)", "opera": "Canadá" },
-        { "bandeira": "🇦🇺", "pais": "Austrália/Suécia", "emp": "Talga Group", "opera": "Suécia" }
-      ],
-      "manufatura": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias e VEs" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "LG Energy Solution", "opera": "Baterias" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Panasonic", "opera": "Baterias" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Tesla", "opera": "Baterias e VEs" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "SK On", "opera": "Baterias" }
-      ],
-      "analise": "<strong>Internacional:</strong> A hegemonia tecnológica e produtiva da China é quase absoluta tanto na extração bruta quanto na esferoidização e purificação química do material, ditando os preços de mercado e o ritmo tecnológico de fornecimento para as montadoras automotivas mundiais.<br><br><strong>Brasil:</strong> O Brasil detém um dos maiores e mais expressivos potenciais geológicos de grafita natural do mundo, com produção concentrada na Província Bahia–Minas, incluindo o Domínio Ceará Central, o Cráton Amazônico e os cinturões Araguaia, Paraguai e Brasília, posicionando o Brasil entre as poucas nações capazes de expandir a oferta de grafita natural fora da Ásia.<br><br><strong>Gargalo:</strong> A ausência de um parque industrial nacional voltado para as etapas críticas de micronização mecânica e purificação química dificulta a competição comercial com o produto final subsidiado de origem asiática.<br><br><strong>Vantagem:</strong> O Brasil figura entre os países com maior potencial mundial para a produção de grafita natural de qualidade premium, combinando expressivos recursos geológicos a empresas consolidadas na produção, já com experiência em cadeias de transformação intermediária, apesar de focadas nas rotas de siderurgia e refratários."
-    },
-    "fluxograma": {
-      "def": "flowchart LR\n  min[\"Minério de Grafita\"]:::minerio\n  flocos[\"Beneficiamento:<br/>Grafita em Flocos\"]:::comum\n  refra[\"Refratários<br/>e Fundição\"]:::comum\n  esf[\"Transf. Mecânica:<br/>Grafita Esférica\"]:::transf\n  pur[\"Transf. Química/Térmica:<br/>Purificação 99,95%+\"]:::transf\n  anodo[\"Grafita Revestida,<br/>Anodo CSPG\"]:::bat\n  nucg[\"Grafita Nuclear,<br/>Moderadores\"]:::esp\n\n  min --> flocos\n  flocos -->|Rota Comum| refra\n  flocos -->|Rota Tecnológica| esf --> pur\n  pur -->|Grau Bateria| anodo\n  pur -.->|Grau Nuclear| nucg\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
-      "notas": {
-        "flocos": "O Brasil tem a maior reserva mundial de grafita lamelar (flake), o tipo certo para a rota tecnológica, mas exporta sem purificar.",
-        "esf": "Micronização e esferoidização dos flocos: rendimento de ~50% e know-how concentrado na China (mais de 95% da grafita esférica mundial).",
-        "anodo": "CSPG (grafita esférica purificada e revestida): o material do anodo de praticamente toda bateria de íon-lítio."
-      },
-      "legenda": [
-        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
-        { "cor": "#C9C6F4", "label": "Grau bateria (downstream)" },
-        { "cor": "#BDEFC0", "label": "Grau nuclear" },
-        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
-      ],
-      "fonte": "SNGM, rotas de transformação"
-    },
-    "cadeiaValor": {
-      "elos": [
-        { "elo": "EXTRAÇÃO (GRAFITA NATURAL EM PÓ OS ESCAMAS)", "faixa": "up", "hoje": "Nacional de Grafite, Graphcoa" },
-        { "elo": "CONCENTRADO DE GRAFITA", "faixa": "up", "hoje": "Nacional de Grafite" },
-        { "elo": "GRAFITE DE ALTA PUREZA", "faixa": "mid", "hoje": "Nacional de Grafite (expansível, micronizado)" },
-        { "elo": "GRAFITE ESFÉRICO", "faixa": "mid" },
-        { "elo": "GRAFENO E NANOPARTÍCULAS (GRAFITE ESFOLIADO)", "faixa": "mid", "pdi": "UFMG / CTNano" },
-        { "elo": "ELETRODOS, LUBRIFICANTES, PASTILHAS DE FREIO, PILHAS", "faixa": "down", "hoje": "Indústria nacional diversa" },
-        { "elo": "PRECURSORES DE BATERIAS", "faixa": "down" }
-      ],
-      "obs": "Cadeia condensada dos 13 elos do original IBRAM. Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
-      "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
-    }
-  },
-  {
-    "nome": "Cobalto",
-    "simbolo": "Co",
-    "slug": "cobalto",
-    "visaoGeral": {
-      "usos": "Dotado de excepcionais propriedades de estabilidade térmica, alta resistência ao desgaste e forte magnetismo, o cobalto é historicamente crucial na fabricação de superligas para turbinas aeroespaciais e ferramentas de corte industrial. Na atualidade, consolidou-se como um mineral de extrema criticidade estratégica para a transição energética, atuando como um estabilizador térmico e estrutural indispensável nos cátodos de baterias de íon-lítio de alta performance. Sua extração ocorre predominantemente de forma associada, como subproduto da mineração de cobre e níquel.",
-      "destaque": "<strong>Projeto Piauí Níquel (Brazilian Nickel), PI:</strong> Financiamento US$ 550 mi do gov. americano. Previsão de produção de cobalto no 2º semestre de 2029.",
-      "posicaoBR": {
-        "reserva": "9º lugar",
-        "producao": "Fora Top 10"
-      },
-      "estadosRes": "PA, PI, CE",
-      "estadosProd": "Sem produção",
-      "gapProd": {
-        "br": 0,
-        "leader": 70,
-        "leaderName": "RDC"
-      },
-      "gapRes": {
-        "br": 3,
-        "leader": 52,
-        "leaderName": "RDC"
-      },
-      "gapTransf": {
-        "br": 0,
-        "leader": 79,
-        "leaderName": "China"
-      }
-    },
-    "numerosMundiais": {
-      "pieProd": [
-        { "label": "R.D. Congo", "val": 70 },
-        { "label": "Indonésia", "val": 17 },
-        { "label": "Rússia", "val": 3 },
-        { "label": "Outros", "val": 10 }
-      ],
-      "pieRes": [
-        { "label": "R.D. Congo", "val": 52 },
-        { "label": "Austrália", "val": 15 },
-        { "label": "Indonésia", "val": 7 },
-        { "label": "Rússia", "val": 5 },
-        { "label": "Outros", "val": 21 }
-      ],
-      "barTransf": [
-        { "label": "China", "val": 79 },
-        { "label": "Finlândia", "val": 8 },
-        { "label": "Japão", "val": 2 },
-        { "label": "Brasil", "val": 0 }
-      ],
-      "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇨🇩", "pais": "RDC" },
-        { "etapa": "Produção", "bandeira": "🇨🇩", "pais": "RDC" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
-      ]
-    },
-    "cadeiaGlobal": {
-      "extracao": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CMOC", "opera": "RDC" },
-        { "bandeira": "🇨🇭", "pais": "Anglo-Suíça", "emp": "Glencore", "opera": "RDC, Canadá" },
-        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ERG", "opera": "RDC" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNMC", "opera": "RDC" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Norilsk", "opera": "Rússia" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Vale", "opera": "Canadá" }
-      ],
-      "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Huayou", "opera": "China" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNGM", "opera": "China" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "GEM Co.", "opera": "China" },
-        { "bandeira": "🇧🇪", "pais": "Bélgica", "emp": "Umicore", "opera": "Finlândia, Bélgica" },
-        { "bandeira": "🇨🇭", "pais": "Anglo-Suíça", "emp": "Glencore", "opera": "Noruega" }
-      ],
-      "manufatura": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias e VEs" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "LG Chem", "opera": "Baterias" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "POSCO Future M.", "opera": "Mat. p/ Baterias" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Panasonic", "opera": "Baterias" }
-      ],
-      "analise": "<strong>Internacional:</strong> Mais de dois terços da oferta global é da República Democrática do Congo (RDC), enquanto o refino avançado é dominado pela China (com cerca de 80% do total global), sendo uma das cadeias de suprimento mais concentradas e de maior risco geopolítico. Além disso, a prática de extração do cobalto na RDC frequentemente ocorre de forma artesanal, associada a abusos de direitos humanos, degradação ambiental e falhas de segurança.<br><br><strong>Brasil:</strong> A produção atual é inexistente em escala comercial plena, mas o país possui reservas mapeadas que entrarão em operação atreladas ao avanço dos novos projetos de extração de níquel no Nordeste e no Norte do país.<br><br><strong>Gargalo:</strong> A extração do cobalto é totalmente dependente e atrelada à viabilidade econômica da mineração primária de níquel e cobre, exigindo vultosos investimentos iniciais em plantas hidrometalúrgicas complexas.<br><br><strong>Vantagem:</strong> O futuro fornecimento nacional oferece total rastreabilidade e elevada credibilidade socioambiental, preenchendo uma lacuna crítica do mercado internacional que busca mitigar os riscos reputacionais da mineração artesanal africana."
-    },
-    "fluxograma": {
-      "def": "flowchart LR\n  min[\"Minério: Subproduto de Cu, RDC<br/>e de Ni, laterita\"]:::minerio\n  conc[\"Beneficiamento:<br/>Concentrado / Lixiviação\"]:::comum\n  hidrox[\"Intermediário: Hidróxido<br/>de Cobalto\"]:::transf\n  sulfco[\"Refino: Sulfato de Cobalto<br/>Grau Bateria\"]:::transf\n  metal[\"Refino: Cobalto<br/>Metálico\"]:::transf\n  prec[\"Precursores NMC,<br/>Catodos\"]:::bat\n  batco[\"Baterias de<br/>Veículos Elétricos\"]:::bat\n  liga[\"Superligas Aeroespaciais<br/>e Ferramentas\"]:::esp\n\n  min --> conc --> hidrox\n  hidrox -->|Via Química| sulfco --> prec --> batco\n  hidrox -->|Via Metálica| metal --> liga\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
-      "notas": {
-        "min": "O cobalto quase nunca é minerado sozinho: é subproduto do cobre (RDC) ou do níquel laterítico (Indonésia, e o futuro Piauí Níquel).",
-        "hidrox": "Hidróxido de cobalto: intermediário exportado da RDC para refino na China (~80%), o elo mais concentrado e arriscado da cadeia."
-      },
-      "legenda": [
-        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
-        { "cor": "#C9C6F4", "label": "Rota bateria (downstream)" },
-        { "cor": "#BDEFC0", "label": "Superligas" },
-        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
-      ],
-      "fonte": "SNGM, rotas de transformação (criado, validar)"
-    },
-    "cadeiaValor": {
-      "elos": [
-        { "elo": "MINÉRIO", "faixa": "up", "m2030": "Brazilian Nickel (PNP-PI), offtake assinado 🇧🇷/🇺🇸" },
-        { "elo": "CONCENTRADO DE NÍQUEL-COBALTO (MHP)", "faixa": "mid", "m2030": "Produção de MHP prevista para 2029 (Piauí Níquel)" },
-        { "elo": "ÓXIDOS, HIDRÓXIDOS, CLORETOS, PÓS, MATES", "faixa": "mid" },
-        { "elo": "CHAPAS, FOLHAS, TIRAS, FIOS E PASTILHAS DE COBALTO", "faixa": "down" },
-        { "elo": "PRECURSORES DE BATERIAS", "faixa": "down", "m2050": "Ambição: precursores no Brasil" },
-        { "elo": "RECUPERAÇÃO", "faixa": "rec", "pdi": "LAREX/USP, recuperação de Co de catalisadores exauridos" }
-      ],
-      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
-      "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
-    }
-  },
-  {
-    "nome": "Estanho",
-    "simbolo": "Sn",
-    "slug": "estanho",
-    "visaoGeral": {
-      "usos": "Dotado de um baixo ponto de fusão e de propriedades de resistência à corrosão, atoxicidade e capacidade de liga, o estanho foi historicamente fundamental na produção de revestimentos protetores para o aço e ligas metálicas como o bronze. No cenário tecnológico contemporâneo, é utilizado na fabricação de soldas eletrônicas livres de chumbo, essenciais para a integração de semicondutores, placas de circuito impresso (PCBs) e montagem de painéis solares fotovoltaicos.",
-      "destaque": "<strong>Mina Pitinga (Mineração Taboca), AM:</strong> Maior mina de estanho do Brasil e um dos maiores depósitos do mundo (Sn, Nb e Ta associados), verticalizada até o estanho metálico. Em 2025 passou ao controle da estatal chinesa CNMC, que comprou a Taboca da peruana Minsur por US$ 340 mi.",
-      "posicaoBR": {
-        "reserva": "3º lugar",
-        "producao": "4º lugar"
-      },
-      "estadosRes": "AM, RO, MG",
-      "estadosProd": "AM, RO",
-      "gapProd": {
-        "br": 10,
-        "leader": 24,
-        "leaderName": "China"
-      },
-      "gapRes": {
-        "br": 12,
-        "leader": 23,
-        "leaderName": "Indonésia"
-      },
-      "gapTransf": {
-        "br": 5,
-        "leader": 50,
-        "leaderName": "China"
-      }
-    },
-    "numerosMundiais": {
-      "pieProd": [
-        { "label": "China", "val": 24 },
-        { "label": "Indonésia", "val": 21 },
-        { "label": "Peru", "val": 11 },
-        { "label": "Brasil", "val": 10 },
-        { "label": "R.D. Congo", "val": 9 },
-        { "label": "Outros", "val": 25 }
-      ],
-      "pieRes": [
-        { "label": "Indonésia", "val": 23 },
-        { "label": "China", "val": 20 },
-        { "label": "Brasil", "val": 12 },
-        { "label": "Myanmar", "val": 12 },
-        { "label": "Austrália", "val": 10 },
-        { "label": "Outros", "val": 23 }
-      ],
-      "barTransf": [
-        { "label": "China", "val": 50 },
-        { "label": "Indonésia", "val": 19 },
-        { "label": "Malásia", "val": 5 },
-        { "label": "Brasil", "val": 5 }
-      ],
-      "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇮🇩", "pais": "Indonésia" },
-        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
-      ]
-    },
-    "cadeiaGlobal": {
-      "extracao": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yunnan Tin", "opera": "China" },
-        { "bandeira": "🇮🇩", "pais": "Indonésia", "emp": "PT Timah", "opera": "Indonésia" },
-        { "bandeira": "🇵🇪", "pais": "Peru", "emp": "Minsur (grupo Breca)", "opera": "Peru" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca (CNMC/China)", "opera": "Brasil (Pitinga)" },
-        { "bandeira": "🇨🇩", "pais": "RDC", "emp": "Alphamin Resources", "opera": "RDC (Bisie)" }
-      ],
-      "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yunnan Tin", "opera": "China" },
-        { "bandeira": "🇮🇩", "pais": "Indonésia", "emp": "PT Timah", "opera": "Indonésia" },
-        { "bandeira": "🇲🇾", "pais": "Malásia", "emp": "Malaysia Smelting Corp", "opera": "Malásia" },
-        { "bandeira": "🇵🇪", "pais": "Peru", "emp": "Minsur (Funsur)", "opera": "Peru" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca (CNMC/China)", "opera": "Brasil" }
-      ],
-      "manufatura": [
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "MacDermid Alpha", "opera": "Solda eletrônica" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Indium Corporation", "opera": "Solda" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Senju Metal", "opera": "Solda" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Nihon Superior", "opera": "Solda" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "Indústria de eletrônicos", "opera": "Montagem PCB" }
-      ],
-      "analise": "<strong>Internacional:</strong> A China lidera a mineração e domina o refino, enquanto o eixo asiático, somado ao Peru e à Bolívia, concentra o restante da oferta global. A solda eletrônica responde por cerca de metade da demanda mundial.<br><br><strong>Brasil:</strong> Ao longo das últimas décadas, a produção de estanho no Brasil concentrou-se na região amazônica, particularmente nos estados do Amazonas e de Rondônia, complementada por operações de menor porte nos estados do Pará e de Minas Gerais. O país ocupa posição de destaque na produção e detém grandes reservas, abrigando casos raros de cadeia verticalizada que vai da mineração até a fundição do metal puro.<br><br><strong>Gargalo:</strong> A indústria interna de eletrônica de alto valor agregado é pouco desenvolvida, limitando o consumo interno avançado, além do esgotamento gradual dos depósitos aluvionares.<br><br><strong>Vantagem:</strong> A capacidade de entregar estanho fundido e rastreável confere enorme vantagem comercial ao país frente ao minério extraído em áreas de conflito na África e na Ásia."
-    },
-    "fluxograma": {
-      "def": "flowchart LR\n  min[\"Minério: Cassiterita<br/>SnO₂\"]:::minerio\n  conc[\"Beneficiamento Gravimétrico:<br/>Concentrado ~70% Sn\"]:::comum\n  fund[\"Fundição / Redução:<br/>Estanho Metálico 99,9%\"]:::transf\n  solda[\"Ligas de Solda<br/>SAC, Sn-Ag-Cu\"]:::transf\n  pcb[\"Eletrônica: Placas de Circuito<br/>e Células Fotovoltaicas\"]:::bat\n  flandres[\"Folha de Flandres:<br/>Embalagens\"]:::comum\n  quim[\"Ligas e Químicos<br/>de Estanho\"]:::comum\n\n  min --> conc --> fund\n  fund -->|Rota Eletrônica ~50%| solda --> pcb\n  fund --> flandres\n  fund --> quim\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
-      "notas": {
-        "fund": "A Pitinga (Taboca-AM) funde o próprio concentrado até estanho metálico, caso raro de cadeia mina-metal completa no Brasil.",
-        "solda": "Ligas SAC (estanho-prata-cobre), o padrão lead-free da eletrônica: a solda responde por cerca de metade da demanda mundial de estanho."
-      },
-      "legenda": [
-        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
-        { "cor": "#C9C6F4", "label": "Rota eletrônica (downstream)" },
-        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
-      ],
-      "fonte": "SNGM, rotas de transformação (criado, validar)"
-    },
-    "cadeiaValor": {
-      "elos": [
-        { "elo": "MINÉRIO (CASSITERITA)", "faixa": "up", "hoje": "Taboca (Pitinga-AM), cooperativas RO" },
-        { "elo": "CONCENTRADO DE CASSITERITA", "faixa": "up", "hoje": "Taboca" },
-        { "elo": "REFINO, LINGOTE", "faixa": "mid", "hoje": "Taboca (estanho metálico), ERSA" },
-        { "elo": "FERROLIGAS", "faixa": "mid" },
-        { "elo": "PRODUTOS, FOLHA DE FLANDRES E SOLDAS", "faixa": "down", "hoje": "White Solder, CSN (flandres)" },
-        { "elo": "RECUPERAÇÃO", "faixa": "rec" }
-      ],
-      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
-      "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
-    }
-  },
-  {
-    "nome": "Nióbio",
-    "simbolo": "Nb",
-    "slug": "niobio",
-    "visaoGeral": {
-      "usos": "Dotado de excepcionais propriedades de resistência mecânica, tenacidade, refratariedade e supercondutividade a baixas temperaturas, o nióbio é um insumo estrutural indispensável na siderurgia para a produção de aços de alta resistência e baixa liga (HSLA), viabilizando a redução de peso na indústria automotiva e a integridade de dutos de alta pressão, além de sua extrema importância para a formulação de superligas em turbinas aeroespaciais e a fabricação de magnetos supercondutores para ressonância magnética e aceleradores de partículas. As reservas globais economicamente viáveis encontram-se quase em sua totalidade concentradas no Brasil, ocorrendo predominantemente sob a forma do mineral óxido pirocloro.",
-      "destaque": "<strong>CBMM, Araxá, MG:</strong> Explorando grandes reservas de pirocloro. CBMM responde por ~75% da produção mundial de nióbio.",
-      "posicaoBR": {
-        "reserva": "1º lugar",
-        "producao": "1º lugar"
-      },
-      "estadosRes": "GO, MG",
-      "estadosProd": "GO, MG",
-      "gapProd": {
-        "br": 93,
-        "leader": 5,
-        "leaderName": "Canadá"
-      },
-      "gapRes": {
-        "br": 66,
-        "leader": 30,
-        "leaderName": "China"
-      },
-      "gapTransf": {
-        "br": 90,
-        "leader": 10,
-        "leaderName": "Canadá"
-      }
-    },
-    "numerosMundiais": {
-      "pieProd": [
-        { "label": "Brasil", "val": 93 },
-        { "label": "Canadá", "val": 5 },
-        { "label": "R.D. Congo", "val": 1 },
-        { "label": "Outros", "val": 1 }
-      ],
-      "pieRes": [
-        { "label": "Brasil", "val": 66 },
-        { "label": "China", "val": 30 },
-        { "label": "Canadá", "val": 3 },
-        { "label": "Outros", "val": 1 }
-      ],
-      "barTransf": [
-        { "label": "Brasil", "val": 90 },
-        { "label": "Canadá", "val": 10 }
-      ],
-      "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇧🇷", "pais": "Brasil" },
-        { "etapa": "Produção", "bandeira": "🇧🇷", "pais": "Brasil" },
-        { "etapa": "Transformação", "bandeira": "🇧🇷", "pais": "Brasil" }
-      ]
-    },
-    "cadeiaGlobal": {
-      "extracao": [
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "CBMM", "opera": "Brasil" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CMOC", "opera": "Brasil" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Magris Performance", "opera": "Canadá" }
-      ],
-      "refino": [
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "CBMM", "opera": "Brasil" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CMOC", "opera": "Brasil" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Magris", "opera": "Canadá" }
-      ],
-      "manufatura": [
-        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ArcelorMittal", "opera": "Aços" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Baosteel", "opera": "Aços" },
-        { "bandeira": "🇺🇸", "pais": "EUA/RU", "emp": "GE, Rolls-Royce", "opera": "Superligas" },
-        { "bandeira": "🇺🇸", "pais": "EUA/Alemanha", "emp": "Bruker", "opera": "Supercondutores" },
-        { "bandeira": "🇬🇧", "pais": "Reino Unido", "emp": "Echion Technologies", "opera": "Baterias" }
-      ],
-      "analise": "<strong>Internacional:</strong> O país é o produtor soberano e incontestável do mercado global, abrigando a grande maioria das reservas conhecidas e dominando de ponta a ponta a metalurgia da liga primária exportada para inovações industriais em múltiplos continentes.<br><br><strong>Brasil:</strong> O país já verticalizou a produção mineral do nióbio de forma altamente eficiente, exportando majoritariamente ferronióbio através de empresas de classe mundial (CBMM e CMOC). Há forte desenvolvimento de pesquisas para a produção de óxidos grau bateria.<br><br><strong>Gargalo:</strong> Há uma dependência estrutural do mercado siderúrgico chinês (grande comprador de ferronióbio). A necessidade estratégica imediata é estimular ativamente novos nichos de consumo global e adensar o parque industrial interno para fabricar localmente os produtos finais de nanotecnologia e os componentes complexos para baterias elétricas.<br><br><strong>Vantagem:</strong> Destaca-se a geologia de pirocloro intemperizado (Araxá e Catalão), que entrega o menor custo operacional do mundo e teores altíssimos, bem como o desenvolvimento de tecnologias nacionais sem concorrência internacional."
-    },
-    "fluxograma": {
-      "def": "flowchart LR\n  min[\"Minério: Pirocloro\"]:::minerio\n  conc[\"Beneficiamento: Concentrado<br/>Nb₂O₅ 50%+\"]:::comum\n  refino[\"Refino e<br/>Purificação\"]:::transf\n  fenb[\"Metalurgia: Liga<br/>Ferro-Nióbio ~65%\"]:::transf\n  aco[\"Aços ARBL: Dutos,<br/>Autos e Construção\"]:::comum\n  oxido[\"Óxido de Nióbio<br/>98,5%+\"]:::transf\n  batnb[\"Baterias de Recarga<br/>Ultrarrápida, NTO\"]:::bat\n  metnb[\"Nióbio Metálico<br/>99,9%\"]:::transf\n  liga[\"Superligas e Supercondutores<br/>Nb-Ti / Nb₃Sn\"]:::esp\n\n  min --> conc --> refino\n  refino -->|Rota Siderúrgica ~90%| fenb --> aco\n  refino -->|Rota Química| oxido --> batnb\n  refino -->|Rota Metálica| metnb --> liga\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
-      "notas": {
-        "fenb": "Ferro-nióbio: ~90% do mercado. A CBMM é verticalizada da mina à liga, o modelo de agregação de valor que o Brasil busca replicar nos demais minerais.",
-        "batnb": "Óxidos de nióbio em anodos (NTO/XNO): recarga em minutos e vida longa, aposta da CBMM com a britânica Echion e a Toshiba.",
-        "liga": "Ligas supercondutoras Nb-Ti e Nb₃Sn: ressonância magnética, aceleradores de partículas e fusão nuclear (ITER)."
-      },
-      "legenda": [
-        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
-        { "cor": "#C9C6F4", "label": "Rota baterias (downstream)" },
-        { "cor": "#BDEFC0", "label": "Superligas / supercondutores" },
-        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
-      ],
-      "fonte": "SNGM, rotas de transformação (criado, validar)"
-    },
-    "cadeiaValor": {
-      "elos": [
-        { "elo": "PIROCLORO", "faixa": "up", "hoje": "CBMM (Araxá), CMOC (Catalão)", "pdi": "Laboratórios CBMM" },
-        { "elo": "ÓXIDOS Nb₂O₅", "faixa": "mid", "hoje": "CBMM", "pdi": "Laboratórios CBMM", "m2030": "Anodos metálicos inertes (MOE) para aço verde" },
-        { "elo": "LIGA FERRO-NIÓBIO (FeNb)", "faixa": "mid", "hoje": "CBMM, CMOC" },
-        { "elo": "MATERIAIS (NANOCRISTALINOS, LIGAS ESPECIAIS)", "faixa": "down", "hoje": "CBMM", "pdi": "Laboratórios CBMM" },
-        { "elo": "COMPONENTES PARA BATERIAS E VEÍCULOS", "faixa": "down", "m2030": "Aumento de 40% na produção de nióbio para bateria", "m2050": "Aumento de 25% da receita com matérias-primas para bateria" }
-      ],
-      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
-      "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
-    }
-  },
-  {
     "nome": "Manganês",
     "simbolo": "Mn",
     "slug": "manganes",
@@ -1078,312 +876,207 @@
     }
   },
   {
-    "nome": "Tântalo",
-    "simbolo": "Ta",
-    "slug": "tantalo",
+    "nome": "Nióbio",
+    "simbolo": "Nb",
+    "slug": "niobio",
     "visaoGeral": {
-      "usos": "O tântalo é o coração dos capacitores de alta performance que equipam smartphones, computadores e eletrônica automotiva, sendo vital também para superligas aeroespaciais e instrumentos médicos.",
-      "destaque": "<strong>Mina Mibra (AMG Brasil), Nazareno, MG:</strong> Uma das maiores produtoras de tântalo do Ocidente. Somada à Pitinga (AM, com Sn-Nb-Ta associados), faz do Brasil fonte rastreável fora do eixo de conflito africano.",
+      "usos": "Dotado de excepcionais propriedades de resistência mecânica, tenacidade, refratariedade e supercondutividade a baixas temperaturas, o nióbio é um insumo estrutural indispensável na siderurgia para a produção de aços de alta resistência e baixa liga (HSLA), viabilizando a redução de peso na indústria automotiva e a integridade de dutos de alta pressão, além de sua extrema importância para a formulação de superligas em turbinas aeroespaciais e a fabricação de magnetos supercondutores para ressonância magnética e aceleradores de partículas. As reservas globais economicamente viáveis encontram-se quase em sua totalidade concentradas no Brasil, ocorrendo predominantemente sob a forma do mineral óxido pirocloro.",
+      "destaque": "<strong>CBMM, Araxá, MG:</strong> Explorando grandes reservas de pirocloro. CBMM responde por ~75% da produção mundial de nióbio.",
       "posicaoBR": {
-        "reserva": "3º lugar*",
-        "producao": "4º lugar"
+        "reserva": "1º lugar",
+        "producao": "1º lugar"
       },
-      "estadosRes": "MG, AM, RN, PB",
-      "estadosProd": "MG, AM",
+      "estadosRes": "GO, MG",
+      "estadosProd": "GO, MG",
       "gapProd": {
-        "br": 8,
-        "leader": 52,
-        "leaderName": "RDC"
+        "br": 93,
+        "leader": 5,
+        "leaderName": "Canadá"
       },
       "gapRes": {
-        "br": 10,
-        "leader": 60,
+        "br": 66,
+        "leader": 30,
         "leaderName": "China"
       },
       "gapTransf": {
-        "br": 2,
-        "leader": 47,
-        "leaderName": "China"
+        "br": 90,
+        "leader": 10,
+        "leaderName": "Canadá"
       }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "RDC", "val": 52 },
-        { "label": "Ruanda", "val": 16 },
-        { "label": "Nigéria", "val": 16 },
-        { "label": "Brasil", "val": 8 },
-        { "label": "Outros", "val": 8 }
+        { "label": "Brasil", "val": 93 },
+        { "label": "Canadá", "val": 5 },
+        { "label": "R.D. Congo", "val": 1 },
+        { "label": "Outros", "val": 1 }
       ],
       "pieRes": [
-        { "label": "China", "val": 60 },
-        { "label": "Austrália", "val": 30 },
-        { "label": "Brasil", "val": 10 }
+        { "label": "Brasil", "val": 66 },
+        { "label": "China", "val": 30 },
+        { "label": "Canadá", "val": 3 },
+        { "label": "Outros", "val": 1 }
       ],
       "barTransf": [
-        { "label": "China", "val": 47 },
-        { "label": "Alemanha", "val": 25 },
-        { "label": "Cazaquistão", "val": 16 },
-        { "label": "Brasil", "val": 2 }
+        { "label": "Brasil", "val": 90 },
+        { "label": "Canadá", "val": 10 }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇨🇳", "pais": "China*" },
-        { "etapa": "Produção", "bandeira": "🇨🇩", "pais": "RDC" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+        { "etapa": "Reservas", "bandeira": "🇧🇷", "pais": "Brasil" },
+        { "etapa": "Produção", "bandeira": "🇧🇷", "pais": "Brasil" },
+        { "etapa": "Transformação", "bandeira": "🇧🇷", "pais": "Brasil" }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇨🇩", "pais": "RDC", "emp": "Mineração diversa/artesanal", "opera": "RDC" },
-        { "bandeira": "🇷🇼", "pais": "Ruanda", "emp": "Mineradoras diversas", "opera": "Ruanda" },
-        { "bandeira": "🇳🇬", "pais": "Nigéria", "emp": "Mineradoras diversas", "opera": "Nigéria" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "AMG Brasil (Mibra)", "opera": "Brasil" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca", "opera": "Brasil (Pitinga)" }
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "CBMM", "opera": "Brasil" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CMOC", "opera": "Brasil" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Magris Performance", "opera": "Canadá" }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Processadores de Ta", "opera": "China" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Taniobis (ex-H.C. Starck)", "opera": "Alemanha" },
-        { "bandeira": "🇰🇿", "pais": "Cazaquistão", "emp": "Ulba Metallurgical", "opera": "Cazaquistão" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Global Advanced Metals", "opera": "EUA" }
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "CBMM", "opera": "Brasil" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CMOC", "opera": "Brasil" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Magris", "opera": "Canadá" }
       ],
       "manufatura": [
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "KEMET e outros", "opera": "Capacitores" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Vishay", "opera": "Capacitores" },
-        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Taniobis", "opera": "Pós metálicos" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "GE / Rolls-Royce", "opera": "Superligas" }
+        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ArcelorMittal", "opera": "Aços" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Baosteel", "opera": "Aços" },
+        { "bandeira": "🇺🇸", "pais": "EUA/RU", "emp": "GE, Rolls-Royce", "opera": "Superligas" },
+        { "bandeira": "🇺🇸", "pais": "EUA/Alemanha", "emp": "Bruker", "opera": "Supercondutores" },
+        { "bandeira": "🇬🇧", "pais": "Reino Unido", "emp": "Echion Technologies", "opera": "Baterias" }
       ],
-      "analise": "<strong>Internacional:</strong> A extração global encontra se perigosamente concentrada em zonas de conflito na África, enquanto o processamento químico de alta complexidade é dominado por um seleto grupo de empresas na China, Alemanha e Estados Unidos.<br><br><strong>Brasil:</strong> O territory nacional abriga reservas vultosas e operações ativas que produzem o mineral como coproduto, estabelecendo o país como uma fonte primária segura no mercado global.<br><br><strong>Gargalo:</strong> A cadeia nacional carece de verticalização, exportando o concentrado bruto sem participar do lucrativo mercado de pós metálicos e capacitores eletrônicos avançados.<br><br><strong>Vantagem:</strong> A origem responsável e livre de conflitos éticos confere ao tântalo brasileiro um prêmio de credibilidade indispensável para as gigantes globais de tecnologia e defesa."
+      "analise": "<strong>Internacional:</strong> O país é o produtor soberano e incontestável do mercado global, abrigando a grande maioria das reservas conhecidas e dominando de ponta a ponta a metalurgia da liga primária exportada para inovações industriais em múltiplos continentes.<br><br><strong>Brasil:</strong> O país já verticalizou a produção mineral do nióbio de forma altamente eficiente, exportando majoritariamente ferronióbio através de empresas de classe mundial (CBMM e CMOC). Há forte desenvolvimento de pesquisas para a produção de óxidos grau bateria.<br><br><strong>Gargalo:</strong> Há uma dependência estrutural do mercado siderúrgico chinês (grande comprador de ferronióbio). A necessidade estratégica imediata é estimular ativamente novos nichos de consumo global e adensar o parque industrial interno para fabricar localmente os produtos finais de nanotecnologia e os componentes complexos para baterias elétricas.<br><br><strong>Vantagem:</strong> Destaca-se a geologia de pirocloro intemperizado (Araxá e Catalão), que entrega o menor custo operacional do mundo e teores altíssimos, bem como o desenvolvimento de tecnologias nacionais sem concorrência internacional."
     },
     "fluxograma": {
-      "def": "flowchart LR\n  min[\"Minério: Tantalita /<br/>Columbita\"]:::minerio\n  conc[\"Beneficiamento:<br/>Concentrado de Ta₂O₅\"]:::comum\n  dig[\"Digestão HF + Extração<br/>por Solventes\"]:::transf\n  sal[\"Sal K₂TaF₇ /<br/>Óxido Ta₂O₅\"]:::transf\n  po[\"Redução: Pó Metálico<br/>de Tântalo\"]:::transf\n  cap[\"Capacitores de Tântalo,<br/>Eletrônica\"]:::bat\n  liga[\"Superligas Aeroespaciais<br/>e Implantes Médicos\"]:::esp\n  carb[\"Carbonetos: Ferramentas<br/>de Corte\"]:::comum\n\n  min --> conc --> dig --> sal --> po\n  po --> cap\n  po --> liga\n  sal --> carb\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "def": "flowchart LR\n  min[\"Minério: Pirocloro\"]:::minerio\n  conc[\"Beneficiamento: Concentrado<br/>Nb₂O₅ 50%+\"]:::comum\n  refino[\"Refino e<br/>Purificação\"]:::transf\n  fenb[\"Metalurgia: Liga<br/>Ferro-Nióbio ~65%\"]:::transf\n  aco[\"Aços ARBL: Dutos,<br/>Autos e Construção\"]:::comum\n  oxido[\"Óxido de Nióbio<br/>98,5%+\"]:::transf\n  batnb[\"Baterias de Recarga<br/>Ultrarrápida, NTO\"]:::bat\n  metnb[\"Nióbio Metálico<br/>99,9%\"]:::transf\n  liga[\"Superligas e Supercondutores<br/>Nb-Ti / Nb₃Sn\"]:::esp\n\n  min --> conc --> refino\n  refino -->|Rota Siderúrgica ~90%| fenb --> aco\n  refino -->|Rota Química| oxido --> batnb\n  refino -->|Rota Metálica| metnb --> liga\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
       "notas": {
-        "min": "Mibra (AMG-MG) e Pitinga (AM): origem rastreável, fora do circuito de 'minerais de conflito' africano, o diferencial comercial do Brasil.",
-        "dig": "Digestão com ácido fluorídrico e extração por solventes: química perigosa dominada por pouquíssimos players (Taniobis-DE, GAM-EUA, Ulba-KZ e China).",
-        "cap": "Pós de tântalo de alta área superficial viram capacitores miniaturizados, essenciais em celulares, eletrônica automotiva e defesa."
+        "fenb": "Ferro-nióbio: ~90% do mercado. A CBMM é verticalizada da mina à liga, o modelo de agregação de valor que o Brasil busca replicar nos demais minerais.",
+        "batnb": "Óxidos de nióbio em anodos (NTO/XNO): recarga em minutos e vida longa, aposta da CBMM com a britânica Echion e a Toshiba.",
+        "liga": "Ligas supercondutoras Nb-Ti e Nb₃Sn: ressonância magnética, aceleradores de partículas e fusão nuclear (ITER)."
       },
       "legenda": [
         { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
-        { "cor": "#Capacitores / eletrônica", "label": "Capacitores / eletrônica" },
-        { "cor": "#BDEFC0", "label": "Superligas" },
+        { "cor": "#C9C6F4", "label": "Rota baterias (downstream)" },
+        { "cor": "#BDEFC0", "label": "Superligas / supercondutores" },
         { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
       ],
       "fonte": "SNGM, rotas de transformação (criado, validar)"
     },
     "cadeiaValor": {
       "elos": [
-        { "elo": "EXTRAÇÃO, TANTALITA-COLUMBITA", "faixa": "up", "hoje": "AMG (Mibra-MG), Taboca (Pitinga-AM)", "m2030": "Ramp-up; JV JX Nippon, AMG" },
-        { "elo": "QUÍMICOS E CONCENTRADOS", "faixa": "mid", "hoje": "AMG Brasil" },
-        { "elo": "METALURGIA E SIDERURGIA", "faixa": "mid" },
-        { "elo": "PRODUTOS (CAPACITORES, PÓS, LIGAS)", "faixa": "down" },
-        { "elo": "RECUPERAÇÃO", "faixa": "rec", "pdi": "Boston Metal, recuperação de metais de rejeitos (MG)" }
+        { "elo": "PIROCLORO", "faixa": "up", "hoje": "CBMM (Araxá), CMOC (Catalão)", "pdi": "Laboratórios CBMM" },
+        { "elo": "ÓXIDOS Nb₂O₅", "faixa": "mid", "hoje": "CBMM", "pdi": "Laboratórios CBMM", "m2030": "Anodos metálicos inertes (MOE) para aço verde" },
+        { "elo": "LIGA FERRO-NIÓBIO (FeNb)", "faixa": "mid", "hoje": "CBMM, CMOC" },
+        { "elo": "MATERIAIS (NANOCRISTALINOS, LIGAS ESPECIAIS)", "faixa": "down", "hoje": "CBMM", "pdi": "Laboratórios CBMM" },
+        { "elo": "COMPONENTES PARA BATERIAS E VEÍCULOS", "faixa": "down", "m2030": "Aumento de 40% na produção de nióbio para bateria", "m2050": "Aumento de 25% da receita com matérias-primas para bateria" }
       ],
       "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
       "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   },
   {
-    "nome": "Zinco",
-    "simbolo": "Zn",
-    "slug": "zinco",
+    "nome": "Níquel",
+    "simbolo": "Ni",
+    "slug": "niquel",
     "visaoGeral": {
-      "usos": "O zinco é a principal barreira anticorrosiva do mundo moderno através da galvanização do aço, protegendo desde a construção civil até a nova infraestrutura de torres eólicas e painéis solares.",
-      "destaque": "<strong>Complexo Aripuanã (Nexa), MT:</strong> Novo polo polimetálico (Zn-Pb-Cu) do Brasil. Somado à mina de Vazante (MG) e aos refinos de Três Marias e Juiz de Fora, dá ao país uma cadeia integrada mina-metal.",
+      "usos": "Dotado de excelentes propriedades de resistência à corrosão, estabilidade térmica e alta ductilidade, o níquel é historicamente o principal elemento de liga na produção de aços inoxidáveis e superligas de alta performance. Contemporaneamente, consolidou-se como um insumo de altíssima criticidade estratégica na transição energética, sendo um componente indispensável nos cátodos de baterias de íon-lítio de alta densidade energética, fundamentais para a indústria de veículos elétricos de longo alcance. Seus depósitos economicamente viáveis se dividem principalmente entre minérios lateríticos (oxidados) e sulfetados.",
+      "destaque": "<strong>Projeto Jaguar (Centaurus Metals), PA:</strong> 138,2 Mt a 0,87% Ni. Um dos maiores depósitos de Ni sulfetado do mundo, vital para baterias.",
       "posicaoBR": {
-        "reserva": "Fora Top 10*",
-        "producao": "Fora Top 10*"
+        "reserva": "3º lugar",
+        "producao": "6º lugar"
       },
-      "estadosRes": "MG, MT, PA, RO",
-      "estadosProd": "MG, MT",
+      "estadosRes": "GO, PA, BA, PI",
+      "estadosProd": "BA, GO, PA, PI",
       "gapProd": {
         "br": 2,
-        "leader": 33,
-        "leaderName": "China"
+        "leader": 62,
+        "leaderName": "Indonésia"
       },
       "gapRes": {
-        "br": 1,
-        "leader": 28,
-        "leaderName": "Austrália"
+        "br": 11,
+        "leader": 45,
+        "leaderName": "Indonésia"
       },
       "gapTransf": {
         "br": 2,
-        "leader": 48,
-        "leaderName": "China"
+        "leader": 43,
+        "leaderName": "Indonésia"
       }
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "China", "val": 33 },
-        { "label": "Peru", "val": 11 },
-        { "label": "Austrália", "val": 9 },
-        { "label": "Índia", "val": 7 },
-        { "label": "México", "val": 6 },
-        { "label": "Outros", "val": 34 }
-      ],
-      "pieRes": [
-        { "label": "Austrália", "val": 28 },
-        { "label": "China", "val": 20 },
-        { "label": "Rússia", "val": 13 },
-        { "label": "Peru", "val": 9 },
-        { "label": "Outros", "val": 30 }
-      ],
-      "barTransf": [
-        { "label": "China", "val": 48 },
-        { "label": "Coreia do Sul", "val": 7 },
-        { "label": "Índia", "val": 6 },
-        { "label": "Brasil", "val": 2 }
-      ],
-      "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇦🇺", "pais": "Austrália" },
-        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
-      ]
-    },
-    "cadeiaGlobal": {
-      "extracao": [
-        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Austrália, Peru, Cazaquistão" },
-        { "bandeira": "🇮🇳", "pais": "Índia", "emp": "Hindustan Zinc (Vedanta)", "opera": "Índia" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Teck Resources", "opera": "Canadá, EUA (Red Dog)" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Nexa Resources", "opera": "Brasil, Peru" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Zijin Mining", "opera": "China" }
-      ],
-      "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Fundições diversas", "opera": "China" },
-        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "Korea Zinc", "opera": "Coreia do Sul" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Nexa (Três Marias, Juiz de Fora)", "opera": "Brasil" },
-        { "bandeira": "🇮🇳", "pais": "Índia", "emp": "Hindustan Zinc", "opera": "Índia" }
-      ],
-      "manufatura": [
-        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ArcelorMittal", "opera": "Aço galvanizado" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Nippon Steel", "opera": "Aço galvanizado" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Baowu Steel", "opera": "Galvanizados" },
-        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Indústria de galvanização", "opera": "Galvanização" }
-      ],
-      "analise": "<strong>Internacional:</strong> A mineração é pulverizada, com a Austrália detendo as maiores reservas, porém a China comanda isolada a capacidade de fundição e refino del metal globalmente.<br><br><strong>Brasil:</strong> O país apresenta um cenário notável de verticalização, possuindo operações de mineração integradas a refinarias que entregam o zinco metálico de alta pureza ao mercado doméstico e externo.<br><br><strong>Gargalo:</strong> A base de reservas minerais internas é restrita, exigindo a importação contínua de concentrados de países vizinhos para alimentar a capacidade total das refinarias instaladas.<br><br><strong>Vantagem:</strong> O domínio completo da rota de transformação química e metalúrgica garante ao Brasil protagonismo regional e segurança no fornecimento de ligas essenciais para a infraestrutura nacional."
-    },
-    "fluxograma": {
-      "def": "flowchart LR\n  min[\"Minério: Esfalerita Zn-Pb<br/>e Willemita, Vazante\"]:::minerio\n  conc[\"Beneficiamento:<br/>Concentrado ~50% Zn\"]:::comum\n  ust[\"Ustulação:<br/>Calcinado / ZnO\"]:::transf\n  rle[\"Lixiviação + Eletrólise:<br/>Zinco SHG 99,995%\"]:::transf\n  galv[\"Galvanização do Aço,<br/>~60% da demanda\"]:::comum\n  ligas[\"Ligas: Latão e<br/>Fundição sob Pressão\"]:::comum\n  oxq[\"Óxidos e Químicos<br/>de Zinco\"]:::comum\n  zbat[\"Baterias de Zinco,<br/>emergente\"]:::bat\n\n  min --> conc --> ust --> rle\n  rle --> galv\n  rle --> ligas\n  rle --> oxq\n  rle -.-> zbat\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
-      "notas": {
-        "min": "Vazante-MG: maior mina de zinco silicatado (willemita) do mundo, mineralogia rara que exige rota de beneficiamento própria.",
-        "rle": "Rota RLE (ustulação-lixiviação-eletrólise) nas refinarias da Nexa em Três Marias e Juiz de Fora: o Brasil fecha a cadeia mina-metal."
-      },
-      "legenda": [
-        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
-        { "cor": "#C9C6F4", "label": "Baterias (emergente)" },
-        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
-      ],
-      "fonte": "SNGM, rotas de transformação (criado, validar)"
-    },
-    "cadeiaValor": {
-      "elos": [
-        { "elo": "MINÉRIO", "faixa": "up", "hoje": "Nexa (Vazante-MG, Aripuanã-MT)", "m2030": "Redução de 20% das emissões em 2030 e neutralidade em 2040" },
-        { "elo": "SULFETOS, ÓXIDOS, CLORETOS", "faixa": "mid", "hoje": "Nexa" },
-        { "elo": "ZINCO SPECIAL HIGH GRADE (SHG)", "faixa": "mid", "hoje": "Nexa (Três Marias, Juiz de Fora)" },
-        { "elo": "LIGAS (CGG, ZAMAC)", "faixa": "down", "hoje": "Nexa e transformadores nacionais" },
-        { "elo": "PILHAS E BATERIAS", "faixa": "down" },
-        { "elo": "RECUPERAÇÃO", "faixa": "rec", "hoje": "Reciclagem de pó de aciaria (Juiz de Fora)" }
-      ],
-      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
-      "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
-    }
-  },
-  {
-    "nome": "Titânio",
-    "simbolo": "Ti",
-    "slug": "titanio",
-    "visaoGeral": {
-      "usos": "O metal ostenta enorme prestígio industrial por sua altíssima resistência estrutural e notável leveza, propriedades indispensáveis na engenharia aeronáutica, na criação de implantes médicos de precisão e na base fundamental para os pigmentos industriais de máxima cobertura e durabilidade.",
-      "destaque": "<strong>Complexos de anatásio (Tapira, Catalão, Salitre), MG/GO:</strong> O Brasil detém alguns dos maiores recursos de anatásio (TiO₂) do mundo, associados a carbonatitos, hoje subaproveitados, potencial estratégico ainda não convertido em reserva/produção.",
-      "posicaoBR": {
-        "reserva": "Grandes recursos*",
-        "producao": "Fora Top 10*"
-      },
-      "estadosRes": "MG, GO, RJ, PB",
-      "estadosProd": "MG, RJ",
-      "gapProd": {
-        "br": 1,
-        "leader": 33,
-        "leaderName": "China"
-      },
-      "gapRes": {
-        "br": 1,
-        "leader": 38,
-        "leaderName": "Austrália"
-      },
-      "gapTransf": {
-        "br": 1,
-        "leader": 69,
-        "leaderName": "China"
-      }
-    },
-    "numerosMundiais": {
-      "pieProd": [
-        { "label": "China", "val": 33 },
-        { "label": "Moçambique", "val": 19 },
-        { "label": "África do Sul", "val": 14 },
-        { "label": "Austrália", "val": 10 },
+        { "label": "Indonésia", "val": 62 },
+        { "label": "Filipinas", "val": 5 },
+        { "label": "Rússia", "val": 5 },
+        { "label": "Canadá", "val": 4 },
         { "label": "Outros", "val": 24 }
       ],
       "pieRes": [
-        { "label": "Austrália", "val": 38 },
-        { "label": "China", "val": 20 },
-        { "label": "Canadá", "val": 9 },
-        { "label": "Noruega", "val": 7 },
-        { "label": "Outros", "val": 26 }
+        { "label": "Indonésia", "val": 45 },
+        { "label": "Austrália", "val": 20 },
+        { "label": "Brasil", "val": 11 },
+        { "label": "Rússia", "val": 5 },
+        { "label": "Outros", "val": 19 }
       ],
       "barTransf": [
-        { "label": "China", "val": 69 },
-        { "label": "Japão", "val": 8 },
-        { "label": "Rússia", "val": 6 },
-        { "label": "Brasil", "val": 1 }
+        { "label": "Indonésia", "val": 43 },
+        { "label": "China", "val": 31 },
+        { "label": "Japão", "val": 3 },
+        { "label": "Brasil", "val": 2 }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇦🇺", "pais": "Austrália" },
-        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
-        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+        { "etapa": "Reservas", "bandeira": "🇮🇩", "pais": "Indonésia" },
+        { "etapa": "Produção", "bandeira": "🇮🇩", "pais": "Indonésia" },
+        { "etapa": "Transformação", "bandeira": "🇮🇩", "pais": "Indonésia" }
       ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇬🇧", "pais": "Reino Unido/Austrália", "emp": "Rio Tinto (RTIT)", "opera": "África do Sul, Canadá, Madagascar" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Tronox", "opera": "África do Sul, Austrália, EUA" },
-        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Iluka Resources", "opera": "Austrália" },
-        { "bandeira": "🇮🇪", "pais": "Irlanda", "emp": "Kenmare Resources", "opera": "Moçambique" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Pangang Group", "opera": "China" }
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tsingshan Holding", "opera": "Indonésia" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Norilsk Nickel", "opera": "Rússia" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Vale", "opera": "Canadá, Indonésia, Brasil" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Jinchuan Group", "opera": "China" },
+        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Canadá, Austrália" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP", "opera": "Austrália" }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Lomon Billions", "opera": "Pigmento TiO₂" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Tronox / Chemours", "opera": "Pigmento TiO₂" },
-        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Osaka Titanium / Toho", "opera": "Esponja de Ti" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "VSMPO-AVISMA", "opera": "Esponja/metal de Ti" }
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Tsingshan Holdings", "opera": "Refino" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Norilsk Nickel", "opera": "Rússia" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Jinchuan Group", "opera": "China" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Sumitomo Metal Mining", "opera": "Refino" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Vale S.A.", "opera": "Indonésia e Brasil" }
       ],
       "manufatura": [
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Boeing", "opera": "Aeroespacial" },
-        { "bandeira": "🇫🇷", "pais": "França", "emp": "Airbus / Safran", "opera": "Aeroespacial" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "VSMPO-AVISMA", "opera": "Ligas de Ti" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Chemours", "opera": "Pigmentos" }
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias" },
+        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "LG Energy Solution", "opera": "Baterias" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Panasonic", "opera": "Baterias" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Baowu Steel", "opera": "Aço Inox" },
+        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ArcelorMittal", "opera": "Aço Inox" }
       ],
-      "analise": "<strong>Internacional:</strong> As areias minerais brutas são extraídas com grande ênfase em regiões africanas e australianas, ao passo que o complexo refino da esponja metálica e dos compostos químicos especializados se mantém concentrado sob as capacidades industriais da China, Japão e Rússia.<br><br><strong>Brasil:</strong> As operações nacionais extraem minerais pesados e formulam concentrados comerciais de forma pontual no Nordeste e no Sudeste, mas as maiores e mais promissoras reservas sedimentares do interior continental permanecem mapeadas aguardando total viabilização técnica.<br><br><strong>Gargalo:</strong> Os imensos depósitos do mineral anatásio localizados no cerrado brasileiro enfrentam pesados desafios metalúrgicos de purificação que, até o presente momento, bloqueiam o escalonamento produtivo para padrões comerciais globalmente viáveis.<br><br><strong>Vantagem:</strong> A dimensão impressionante dos recursos minerais terrestres ainda não explorados confere ao Brasil um imenso trunfo latente, preparado para assumir a dianteira global do setor assim que a engenharia e a inovação química nacional ultrapassarem as atuais barreiras de processamento."
+      "analise": "<strong>Internacional:</strong> A Indonésia domina a extração global de níquel, e em forte sinergia com a China, controla quase a totalidade do refino mundial. Respondendo por mais de 60% da produção global, o país baniu a exportação do minério bruto. Essa estratégia forçou empresas estrangeiras a investir em fundições e refinarias locais, aproveitando a abundância de reservas e o baixo custo operacional da região. Com isso, o custo de migrar para outros países tornouse tão elevado que acabou por consolidar a dependência do refino indonésio.<br><br><strong>Brasil:</strong> O Brasil abriga a terceira maior reserva de níquel do mundo. O estado do Pará concentra o maior ativo produtor do país. A jusante na cadeia, o Brasil abriga uma indústria consolidada de aço inoxidável, liderada por Aperam, Villares Metals e Gerdau. Na rota da transição energética, o grupo Jervois planeja a retomada das operações da refinaria de níquel e cobalto de São Miguel Paulista (SP), com início previsto para 2027.<br><br><strong>Gargalo:</strong> O mercado sofre forte pressão do monopólio asiático de baixo custo, dificultando a viabilidade de novos investimentos em refino químico interno.<br><br><strong>Vantagem:</strong> O Brasil abriga reservas estratégicas de níquel sulfetado, o tipo geológico mais demandado e eficiente para a transição energética e mobilidade elétrica. Além disso, o país já avança em cadeias intermediárias e possui experiência na transformação mineral."
     },
     "fluxograma": {
-      "def": "flowchart LR\n  min[\"Minério: Ilmenita / Rutilo<br/>+ Anatásio, Brasil\"]:::minerio\n  conc[\"Beneficiamento: Concentrado<br/>de Minerais Pesados\"]:::comum\n  cloro[\"Cloração:<br/>TiCl₄\"]:::transf\n  pig[\"Pigmento TiO₂,<br/>Tintas, ~90% da demanda\"]:::comum\n  kroll[\"Processo Kroll:<br/>Esponja de Titânio\"]:::transf\n  ligati[\"Fusão e Ligas:<br/>Ti-6Al-4V\"]:::transf\n  aero[\"Aeroespacial, Médico<br/>e Defesa\"]:::esp\n\n  min --> conc --> cloro\n  cloro -->|Rota Pigmento| pig\n  cloro -->|Rota Metal| kroll --> ligati --> aero\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "def": "flowchart LR\n  min[\"Minério: Sulfeto<br/>ou Laterita\"]:::minerio\n  fenpi[\"Beneficiamento:<br/>Ferro-Níquel / NPI\"]:::comum\n  inox[\"Aço Inox: Utensílios<br/>e Construção\"]:::comum\n  matte[\"Transformação:<br/>Matte ou MHP\"]:::transf\n  sulfni[\"Transformação:<br/>Sulfato de Níquel\"]:::transf\n  class1[\"Refino: Níquel<br/>Metálico Classe 1\"]:::transf\n  batni[\"Baterias de<br/>Veículos Elétricos\"]:::bat\n  liga[\"Superligas:<br/>Nuclear e Defesa\"]:::esp\n\n  min -->|Rota Aço Inox| fenpi --> inox\n  min -->|Rota Estratégica| matte\n  matte -->|Via Química| sulfni --> batni\n  matte -->|Via Metálica| class1 --> liga\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
       "notas": {
-        "min": "O anatásio dos carbonatitos de Tapira, Catalão e Salitre é um recurso gigante, mas de beneficiamento difícil, ainda sem rota comercial viável.",
-        "kroll": "Processo Kroll: redução do TiCl₄ com magnésio. Pouquíssimos países produzem esponja de titânio (Japão, Rússia, China, Cazaquistão, EUA)."
+        "matte": "MHP (hidróxido misto de Ni-Co) e matte: intermediários da rota HPAL indonésia que abastecem as refinarias chinesas de sulfato.",
+        "class1": "Níquel Classe 1 (99,8%+, entregável na LME): rota natural do Ni sulfetado, onde o Brasil (Atlantic Nickel, projeto Jaguar) tem vantagem geológica."
       },
       "legenda": [
         { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
-        { "cor": "#BDEFC0", "label": "Aeroespacial / médico" },
+        { "cor": "#C9C6F4", "label": "Rota bateria (downstream)" },
+        { "cor": "#BDEFC0", "label": "Superligas" },
         { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
       ],
-      "fonte": "SNGM, rotas de transformação (criado, validar)"
+      "fonte": "SNGM, rotas de transformação"
     },
     "cadeiaValor": {
       "elos": [
-        { "elo": "EXTRAÇÃO, ILMENITA", "faixa": "up", "hoje": "Largo (Maracás-BA), INB (Buena-RJ)", "m2030": "Ramp-up; ampliação da produção (complexo Ti-V na BA)" },
-        { "elo": "AREIAS (MINERAIS PESADOS)", "faixa": "up", "hoje": "INB (Buena-RJ)" },
-        { "elo": "DIÓXIDO DE TITÂNIO (TiO₂)", "faixa": "mid", "hoje": "Tronox (Camaçari-BA)" },
-        { "elo": "METALURGIA (Ti METÁLICO)", "faixa": "mid" },
-        { "elo": "PIGMENTOS, COSMÉTICOS, CERÂMICAS", "faixa": "down", "hoje": "Indústria nacional de tintas e cerâmicas" },
-        { "elo": "RECUPERAÇÃO", "faixa": "rec" }
+        { "elo": "MINÉRIO", "faixa": "up", "hoje": "Atlantic Nickel (BA), Anglo American (GO), Vale (Onça Puma-PA)", "m2030": "Expansão da mina" },
+        { "elo": "FERRONÍQUEL", "faixa": "mid", "hoje": "Anglo American, Vale", "m2030": "Substituição de carvão por biomassa; escória como coproduto (BlueStone, pavimentação)" },
+        { "elo": "ÓXIDOS, HIDRÓXIDOS, CLORETOS E SULFATOS", "faixa": "mid", "hoje": "Concentrado sulfetado exportado, offtake 🇨🇦/🇬🇧", "m2030": "Parcerias 🇦🇺", "m2050": "Rota sulfato 🇮🇩?" },
+        { "elo": "PRODUTOS DE NÍQUEL (MATES, CATODOS, LIGAS, PÓS)", "faixa": "down" },
+        { "elo": "PRECURSORES DE BATERIAS", "faixa": "down" },
+        { "elo": "RECUPERAÇÃO", "faixa": "rec", "m2030": "Briquetes" }
       ],
       "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
       "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
@@ -1609,27 +1302,27 @@
     }
   },
   {
-    "nome": "Fosfato",
-    "simbolo": "P",
-    "slug": "fosfato",
+    "nome": "Tântalo",
+    "simbolo": "Ta",
+    "slug": "tantalo",
     "visaoGeral": {
-      "usos": "Pilar da segurança alimentar global, o fósforo é a base insubstituível dos fertilizantes que garantem a produtividade agrícola mundial. Na frente tecnológica da transição energética, seu uso purificado desponta como matéria prima fundamental para as baterias de fosfato de ferro lítio, as mais utilizadas na mobilidade elétrica de alto volume.",
-      "destaque": "<strong>Complexo Serra do Salitre (EuroChem), MG:</strong> Maior investimento greenfield recente do setor (~US$ 1 bi, inaugurado em 2024), verticalizado da mina ao fertilizante. Sinergia estratégica com Santa Quitéria (CE), onde fosfato e urânio ocorrem juntos.",
+      "usos": "O tântalo é o coração dos capacitores de alta performance que equipam smartphones, computadores e eletrônica automotiva, sendo vital também para superligas aeroespaciais e instrumentos médicos.",
+      "destaque": "<strong>Mina Mibra (AMG Brasil), Nazareno, MG:</strong> Uma das maiores produtoras de tântalo do Ocidente. Somado à Pitinga (AM, com Sn-Nb-Ta associados), faz do Brasil fonte rastreável fora do eixo de conflito africano.",
       "posicaoBR": {
-        "reserva": "7º lugar",
-        "producao": "8º lugar"
+        "reserva": "3º lugar*",
+        "producao": "4º lugar"
       },
-      "estadosRes": "MG, GO, SP, TO, BA",
-      "estadosProd": "MG, GO, SP, TO, BA",
+      "estadosRes": "MG, AM, RN, PB",
+      "estadosProd": "MG, AM",
       "gapProd": {
-        "br": 2,
-        "leader": 44,
-        "leaderName": "China"
+        "br": 8,
+        "leader": 52,
+        "leaderName": "RDC"
       },
       "gapRes": {
-        "br": 2,
-        "leader": 68,
-        "leaderName": "Marrocos"
+        "br": 10,
+        "leader": 60,
+        "leaderName": "China"
       },
       "gapTransf": {
         "br": 2,
@@ -1639,91 +1332,398 @@
     },
     "numerosMundiais": {
       "pieProd": [
-        { "label": "China", "val": 44 },
-        { "label": "Marrocos", "val": 14 },
-        { "label": "EUA", "val": 8 },
-        { "label": "Rússia", "val": 6 },
-        { "label": "Jordânia", "val": 5 },
-        { "label": "Outros", "val": 23 }
+        { "label": "RDC", "val": 52 },
+        { "label": "Ruanda", "val": 16 },
+        { "label": "Nigéria", "val": 16 },
+        { "label": "Brasil", "val": 8 },
+        { "label": "Outros", "val": 8 }
       ],
       "pieRes": [
-        { "label": "Marrocos", "val": 68 },
-        { "label": "China", "val": 5 },
-        { "label": "Egito", "val": 4 },
-        { "label": "Tunísia", "val": 3 },
-        { "label": "Brasil", "val": 2 },
-        { "label": "Outros", "val": 18 }
+        { "label": "China", "val": 60 },
+        { "label": "Austrália", "val": 30 },
+        { "label": "Brasil", "val": 10 }
       ],
       "barTransf": [
         { "label": "China", "val": 47 },
-        { "label": "Marrocos", "val": 12 },
-        { "label": "EUA", "val": 9 },
+        { "label": "Alemanha", "val": 25 },
+        { "label": "Cazaquistão", "val": 16 },
         { "label": "Brasil", "val": 2 }
       ],
       "quemManda": [
-        { "etapa": "Reservas", "bandeira": "🇲🇦", "pais": "Marrocos" },
-        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Reservas", "bandeira": "🇨🇳", "pais": "China*" },
+        { "etapa": "Produção", "bandeira": "🇨🇩", "pais": "RDC" },
         { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
-      ],
-      "labelTransf": "Ácido Fosfórico"
+      ]
     },
     "cadeiaGlobal": {
       "extracao": [
-        { "bandeira": "🇲🇦", "pais": "Marrocos", "emp": "OCP Group", "opera": "Marrocos, Saara Ocidental" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "EUA (Flórida), Brasil, Peru" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "PhosAgro", "opera": "Rússia" },
-        { "bandeira": "🇸🇦", "pais": "Arábia Saudita", "emp": "Ma'aden", "opera": "Arábia Saudita" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yunnan Phosphate (YPH)", "opera": "China" },
-        { "bandeira": "🇯🇴", "pais": "Jordânia", "emp": "JPMC", "opera": "Jordânia" }
+        { "bandeira": "🇨🇩", "pais": "RDC", "emp": "Mineração diversa/artesanal", "opera": "RDC" },
+        { "bandeira": "🇷🇼", "pais": "Ruanda", "emp": "Mineradoras diversas", "opera": "Ruanda" },
+        { "bandeira": "🇳🇬", "pais": "Nigéria", "emp": "Mineradoras diversas", "opera": "Nigéria" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "AMG Brasil (Mibra)", "opera": "Brasil" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Mineração Taboca", "opera": "Brasil (Pitinga)" }
       ],
       "refino": [
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "Yuntianhua", "opera": "Ácido fosfórico/DAP" },
-        { "bandeira": "🇲🇦", "pais": "Marrocos", "emp": "OCP Group", "opera": "Ácido fosfórico/MAP/DAP" },
-        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Mosaic", "opera": "MAP/DAP (EUA, Brasil)" },
-        { "bandeira": "🇸🇦", "pais": "Arábia Saudita", "emp": "Ma'aden", "opera": "DAP" },
-        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "PhosAgro", "opera": "MAP/NPK" },
-        { "bandeira": "🇧🇪", "pais": "Bélgica", "emp": "Prayon", "opera": "Ácido fosfórico purificado" }
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Processadores de Ta", "opera": "China" },
+        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Taniobis (ex-H.C. Starck)", "opera": "Alemanha" },
+        { "bandeira": "🇰🇿", "pais": "Cazaquistão", "emp": "Ulba Metallurgical", "opera": "Cazaquistão" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Global Advanced Metals", "opera": "EUA" }
       ],
       "manufatura": [
-        { "bandeira": "🇳🇴", "pais": "Noruega", "emp": "Yara", "opera": "NPK" },
-        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Nutrien", "opera": "Fertilizantes" },
-        { "bandeira": "🇮🇱", "pais": "Israel", "emp": "ICL", "opera": "Especialidades / LFP" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "CATL", "opera": "Baterias LFP" },
-        { "bandeira": "🇨🇳", "pais": "China", "emp": "BYD", "opera": "Baterias LFP e VEs" }
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "KEMET e outros", "opera": "Capacitores" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Vishay", "opera": "Capacitores" },
+        { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Taniobis", "opera": "Pós metálicos" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "GE / Rolls-Royce", "opera": "Superligas" }
       ],
-      "analise": "<strong>Internacional:</strong> O Marrocos é o detentor hegemônico das reservas minerais globais, assumindo o papel de liderança geopolítica do setor, enquanto a China atua como o maior produtor e processador, controlando os fluxos comerciais do nutriente e dos precursores avançados de baterias.<br><br><strong>Brasil:</strong> O país ostenta um polo agroindustrial pujante que consome volumes gigantescos do mineral, porém a produção interna consegue atender apenas uma fração da demanda, mantendo o setor primário altamente exposto e dependente das importações globais.<br><br><strong>Gargalo:</strong> O minério brasileiro ocorre predominantemente em rochas ígneas de extrema complexidade de beneficiamento, o que eleva drasticamente os desafios técnicos e custos operacionais frente aos depósitos sedimentares explorados no norte da África.<br><br><strong>Vantagem:</strong> O Brasil detém uma demanda doméstica gigantesca e cativa, aliada a reservas minerais que apresentam sinergias raras, permitindo a extração conjunta e a viabilização econômica de múltiplos elementos estratégicos ao lado do urânio e das terras raras.",
-      "etapasLabels": {
-        "extracao": "Extração (rocha fosfática)",
-        "refino": "Ácido Fosfórico (midstream)",
-        "manufatura": "Fertilizantes & Baterias LFP"
-      },
-      "notaRodape": "O midstream do fosfato é a conversão química da rocha em ácido fosfórico (H₃PO₄), gargalo estratégico equivalente ao refino dos metais, do qual derivam MAP/DAP e o ácido purificado das baterias LFP. Percentuais de transformação aproximados (IFA/setor)."
+      "analise": "<strong>Internacional:</strong> A extração global encontra se perigosamente concentrada em zonas de conflito na África, enquanto o processamento químico de alta complexidade é dominado por um seleto grupo de empresas na China, Alemanha e Estados Unidos.<br><br><strong>Brasil:</strong> O territory nacional abriga reservas vultosas e operações ativas que produzem o mineral como coproduto, estabelecendo o país como uma fonte primária segura no mercado global.<br><br><strong>Gargalo:</strong> A cadeia nacional carece de verticalização, exportando o concentrado bruto sem participar do lucrativo mercado de pós metálicos e capacitores eletrônicos avançados.<br><br><strong>Vantagem:</strong> A origem responsável e livre de conflitos éticos confere ao tântalo brasileiro um prêmio de credibilidade indispensável para as gigantes globais de tecnologia e defesa."
     },
     "fluxograma": {
-      "def": "flowchart LR\n  min[\"Minério: Rocha Fosfática,<br/>carbonatitos no Brasil\"]:::minerio\n  conc[\"Beneficiamento: Concentrado<br/>30–35% P₂O₅\"]:::comum\n  acid[\"Acidulação H₂SO₄:<br/>Ácido Fosfórico\"]:::transf\n  map[\"Fertilizantes:<br/>MAP / DAP / SSP\"]:::bat\n  agro[\"Agricultura\"]:::bat\n  ppa[\"Purificação: Ácido Grau<br/>Técnico / PPA\"]:::transf\n  lfp[\"Catodos LFP: Fosfato<br/>de Ferro-Lítio\"]:::esp\n  racao[\"Fosfato Bicálcico:<br/>Ração Animal\"]:::comum\n  uran[\"Subproduto: Urânio,<br/>Santa Quitéria\"]:::esp\n\n  min --> conc --> acid\n  acid --> map --> agro\n  acid --> ppa --> lfp\n  acid -.-> racao\n  min -.-> uran\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "def": "flowchart LR\n  min[\"Minério: Tantalita /<br/>Columbita\"]:::minerio\n  conc[\"Beneficiamento:<br/>Concentrado de Ta₂O₅\"]:::comum\n  dig[\"Digestão HF + Extração<br/>por Solventes\"]:::transf\n  sal[\"Sal K₂TaF₇ /<br/>Óxido Ta₂O₅\"]:::transf\n  po[\"Redução: Pó Metálico<br/>de Tântalo\"]:::transf\n  cap[\"Capacitores de Tântalo,<br/>Eletrônica\"]:::bat\n  liga[\"Superligas Aeroespaciais<br/>e Implantes Médicos\"]:::esp\n  carb[\"Carbonetos: Ferramentas<br/>de Corte\"]:::comum\n\n  min --> conc --> dig --> sal --> po\n  po --> cap\n  po --> liga\n  sal --> carb\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
       "notas": {
-        "acid": "A conversão da rocha em ácido fosfórico (H₃PO₄) é o midstream da cadeia, gargalo químico equivalente ao refino dos metais.",
-        "lfp": "O ácido purificado (PPA) vira fosfato de ferro-lítio, a química de bateria que domina os VEs chineses, nova fronteira de demanda do fósforo.",
-        "uran": "Em Santa Quitéria (CE), fosfato e urânio ocorrem juntos na mesma jazida: a viabilidade econômica de um financia o outro."
+        "min": "Mibra (AMG-MG) e Pitinga (AM): origem rastreável, fora do circuito de 'minerais de conflito' africano, o diferencial comercial do Brasil.",
+        "dig": "Digestão com ácido fluorídrico e extração por solventes: química perigosa dominada por pouquíssimos players (Taniobis-DE, GAM-EUA, Ulba-KZ e China).",
+        "cap": "Pós de tântalo de alta área superficial viram capacitores miniaturizados, essenciais em celulares, eletrônica automotiva e defesa."
       },
       "legenda": [
         { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
-        { "cor": "#C9C6F4", "label": "Fertilizantes (downstream)" },
-        { "cor": "#BDEFC0", "label": "LFP / urânio" },
+        { "cor": "#Capacitores / eletrônica", "label": "Capacitores / eletrônica" },
+        { "cor": "#BDEFC0", "label": "Superligas" },
         { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
       ],
       "fonte": "SNGM, rotas de transformação (criado, validar)"
     },
     "cadeiaValor": {
       "elos": [
-        { "elo": "ROCHA FOSFÁTICA", "faixa": "up", "hoje": "Mosaic (Tapira, Catalão, Araxá), EuroChem (Salitre), Itafos, Galvani" },
-        { "elo": "CONCENTRADO (30–35% P₂O₅)", "faixa": "up", "hoje": "Mosaic, EuroChem" },
-        { "elo": "ÁCIDO FOSFÓRICO", "faixa": "mid", "hoje": "Mosaic (Uberaba), EuroChem", "m2030": "PNF 2050: reduzir a dependência externa de fosfatados" },
-        { "elo": "FERTILIZANTES (MAP / DAP / SSP)", "faixa": "down", "hoje": "Mosaic, EuroChem, Itafos, Galvani" },
-        { "elo": "ÁCIDO PURIFICADO (PPA) → LFP", "faixa": "mid", "pdi": "Rota LFP, estudos" },
-        { "elo": "RECUPERAÇÃO", "faixa": "rec", "m2050": "Sinergia fosfato-urânio (Santa Quitéria)" }
+        { "elo": "EXTRAÇÃO, TANTALITA-COLUMBITA", "faixa": "up", "hoje": "AMG (Mibra-MG), Taboca (Pitinga-AM)", "m2030": "Ramp-up; JV JX Nippon, AMG" },
+        { "elo": "QUÍMICOS E CONCENTRADOS", "faixa": "mid", "hoje": "AMG Brasil" },
+        { "elo": "METALURGIA E SIDERURGIA", "faixa": "mid" },
+        { "elo": "PRODUTOS (CAPACITORES, PÓS, LIGAS)", "faixa": "down" },
+        { "elo": "RECUPERAÇÃO", "faixa": "rec", "pdi": "Boston Metal, recuperação de metais de rejeitos (MG)" }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
+      "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
+    }
+  },
+  {
+    "nome": "Titânio",
+    "simbolo": "Ti",
+    "slug": "titanio",
+    "visaoGeral": {
+      "usos": "O metal ostenta enorme prestígio industrial por sua altíssima resistência estrutural e notável leveza, propriedades indispensáveis na engenharia aeronáutica, na criação de implantes médicos de precisão e na base fundamental para os pigmentos industriais de máxima cobertura e durabilidade.",
+      "destaque": "<strong>Complexos de anatásio (Tapira, Catalão, Salitre), MG/GO:</strong> O Brasil detém alguns dos maiores recursos de anatásio (TiO₂) do mundo, associados a carbonatitos, hoje subaproveitados, potencial estratégico ainda não convertido em reserva/produção.",
+      "posicaoBR": {
+        "reserva": "Grandes recursos*",
+        "producao": "Fora Top 10*"
+      },
+      "estadosRes": "MG, GO, RJ, PB",
+      "estadosProd": "MG, RJ",
+      "gapProd": {
+        "br": 1,
+        "leader": 33,
+        "leaderName": "China"
+      },
+      "gapRes": {
+        "br": 1,
+        "leader": 38,
+        "leaderName": "Austrália"
+      },
+      "gapTransf": {
+        "br": 1,
+        "leader": 69,
+        "leaderName": "China"
+      }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "China", "val": 33 },
+        { "label": "Moçambique", "val": 19 },
+        { "label": "África do Sul", "val": 14 },
+        { "label": "Austrália", "val": 10 },
+        { "label": "Outros", "val": 24 }
+      ],
+      "pieRes": [
+        { "label": "Austrália", "val": 38 },
+        { "label": "China", "val": 20 },
+        { "label": "Canadá", "val": 9 },
+        { "label": "Noruega", "val": 7 },
+        { "label": "Outros", "val": 26 }
+      ],
+      "barTransf": [
+        { "label": "China", "val": 69 },
+        { "label": "Japão", "val": 8 },
+        { "label": "Rússia", "val": 6 },
+        { "label": "Brasil", "val": 1 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇦🇺", "pais": "Austrália" },
+        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+      ]
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇬🇧", "pais": "Reino Unido/Austrália", "emp": "Rio Tinto (RTIT)", "opera": "África do Sul, Canadá, Madagascar" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Tronox", "opera": "África do Sul, Austrália, EUA" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "Iluka Resources", "opera": "Austrália" },
+        { "bandeira": "🇮🇪", "pais": "Irlanda", "emp": "Kenmare Resources", "opera": "Moçambique" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Pangang Group", "opera": "China" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Lomon Billions", "opera": "Pigmento TiO₂" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Tronox / Chemours", "opera": "Pigmento TiO₂" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Osaka Titanium / Toho", "opera": "Esponja de Ti" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "VSMPO-AVISMA", "opera": "Esponja/metal de Ti" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Boeing", "opera": "Aeroespacial" },
+        { "bandeira": "🇫🇷", "pais": "França", "emp": "Airbus / Safran", "opera": "Aeroespacial" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "VSMPO-AVISMA", "opera": "Ligas de Ti" },
+        { "bandeira": "🇺🇸", "pais": "EUA", "emp": "Chemours", "opera": "Pigmentos" }
+      ],
+      "analise": "<strong>Internacional:</strong> As areias minerais brutas são extraídas com grande ênfase em regiões africanas e australianas, ao passo que o complexo refino da esponja metálica e dos compostos químicos especializados se mantém concentrado sob as capacidades industriais da China, Japão e Rússia.<br><br><strong>Brasil:</strong> As operações nacionais extraem minerais pesados e formulam concentrados comerciais de forma pontual no Nordeste e no Sudeste, mas as maiores e mais promissoras reservas sedimentares do interior continental permanecem mapeadas aguardando total viabilização técnica.<br><br><strong>Gargalo:</strong> Os imensos depósitos do mineral anatásio localizados no cerrado brasileiro enfrentam pesados desafios metalúrgicos de purificação que, até o presente momento, bloqueiam o escalonamento produtivo para padrões comerciais globalmente viáveis.<br><br><strong>Vantagem:</strong> A dimensão impressionante dos recursos minerais terrestres ainda não explorados confere ao Brasil um imenso trunfo latente, preparado para assumir a dianteira global do setor assim que a engenharia e a inovação química nacional ultrapassarem as atuais barreiras de processamento."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Ilmenita / Rutilo<br/>+ Anatásio, Brasil\"]:::minerio\n  conc[\"Beneficiamento: Concentrado<br/>de Minerais Pesados\"]:::comum\n  cloro[\"Cloração:<br/>TiCl₄\"]:::transf\n  pig[\"Pigmento TiO₂,<br/>Tintas, ~90% da demanda\"]:::comum\n  kroll[\"Processo Kroll:<br/>Esponja de Titânio\"]:::transf\n  ligati[\"Fusão e Ligas:<br/>Ti-6Al-4V\"]:::transf\n  aero[\"Aeroespacial, Médico<br/>e Defesa\"]:::esp\n\n  min --> conc --> cloro\n  cloro -->|Rota Pigmento| pig\n  cloro -->|Rota Metal| kroll --> ligati --> aero\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "min": "O anatásio dos carbonatitos de Tapira, Catalão e Salitre é um recurso gigante, mas de beneficiamento difícil, ainda sem rota comercial viável.",
+        "kroll": "Processo Kroll: redução do TiCl₄ com magnésio. Pouquíssimos países produzem esponja de titânio (Japão, Rússia, China, Cazaquistão, EUA)."
+      },
+      "legenda": [
+        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
+        { "cor": "#BDEFC0", "label": "Aeroespacial / médico" },
+        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
+      ],
+      "fonte": "SNGM, rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        { "elo": "EXTRAÇÃO, ILMENITA", "faixa": "up", "hoje": "Largo (Maracás-BA), INB (Buena-RJ)", "m2030": "Ramp-up; ampliação da produção (complexo Ti-V na BA)" },
+        { "elo": "AREIAS (MINERAIS PESADOS)", "faixa": "up", "hoje": "INB (Buena-RJ)" },
+        { "elo": "DIÓXIDO DE TITÂNIO (TiO₂)", "faixa": "mid", "hoje": "Tronox (Camaçari-BA)" },
+        { "elo": "METALURGIA (Ti METÁLICO)", "faixa": "mid" },
+        { "elo": "PIGMENTOS, COSMÉTICOS, CERÂMICAS", "faixa": "down", "hoje": "Indústria nacional de tintas e cerâmicas" },
+        { "elo": "RECUPERAÇÃO", "faixa": "rec" }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
+      "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
+    }
+  },
+  {
+    "nome": "Urânio",
+    "simbolo": "U",
+    "slug": "uranio",
+    "visaoGeral": {
+      "usos": "Dotado de uma excepcional densidade energética, trata-se de um insumo estratégico fundamental para a matriz energética global, sendo o combustível primordial para a geração de eletricidade em reatores de potência (energia nuclear de base e baixa emissão de carbono), além de possuir aplicações cruciais na medicina nuclear, propulsão naval e tecnologia aeroespacial. Os depósitos economicamente viáveis ocorrem predominantemente em formações sedimentares e hidrotermais.",
+      "destaque": "<strong>Projeto Santa Quitéria (INB/Galvani), CE:</strong> Jazida de Itataia para urânio (~2.400t) e fosfato (~220.000t). Licenciamento em impasse.",
+      "posicaoBR": {
+        "reserva": "8º lugar*",
+        "producao": "Fora Top 10*"
+      },
+      "estadosRes": "PA, CE, BA",
+      "estadosProd": "BA",
+      "gapProd": {
+        "br": 0,
+        "leader": 39,
+        "leaderName": "Cazaquistão"
+      },
+      "gapRes": {
+        "br": 3,
+        "leader": 28,
+        "leaderName": "Austrália"
+      },
+      "gapTransf": {
+        "br": 0,
+        "leader": 44,
+        "leaderName": "Rússia"
+      }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "Cazaquistão", "val": 39 },
+        { "label": "Canadá", "val": 24 },
+        { "label": "Namíbia", "val": 12 },
+        { "label": "Austrália", "val": 7 },
+        { "label": "Outros", "val": 18 }
+      ],
+      "pieRes": [
+        { "label": "Austrália", "val": 28 },
+        { "label": "Cazaquistão", "val": 14 },
+        { "label": "Canadá", "val": 10 },
+        { "label": "Namíbia", "val": 8 },
+        { "label": "Outros", "val": 40 }
+      ],
+      "barTransf": [
+        { "label": "Rússia", "val": 44 },
+        { "label": "Europa*", "val": 29 },
+        { "label": "China", "val": 15 },
+        { "label": "Brasil", "val": 0 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇦🇺", "pais": "Austrália" },
+        { "etapa": "Produção", "bandeira": "🇰🇿", "pais": "Cazaquistão" },
+        { "etapa": "Enriquecimento", "bandeira": "🇷🇺", "pais": "Rússia" }
+      ],
+      "labelTransf": "Enriquecimento"
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇰🇿", "pais": "Cazaquistão", "emp": "Kazatomprom", "opera": "Cazaquistão" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Cameco", "opera": "Canadá, Cazaquistão" },
+        { "bandeira": "🇫🇷", "pais": "França", "emp": "Orano", "opera": "Canadá, Níger" },
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Rosatom", "opera": "Cazaquistão" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CGN", "opera": "China, Namíbia" },
+        { "bandeira": "🇦🇺", "pais": "Austrália", "emp": "BHP", "opera": "Austrália" }
+      ],
+      "refino": [
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Rosatom", "opera": "Rússia" },
+        { "bandeira": "🇫🇷", "pais": "França", "emp": "Orano", "opera": "França" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Cameco", "opera": "Canadá" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNNC", "opera": "China" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇷🇺", "pais": "Rússia", "emp": "Rosatom", "opera": "Rússia" },
+        { "bandeira": "🇪🇺", "pais": "UE", "emp": "Urenco", "opera": "UK, Holanda, Alemanha, EUA" },
+        { "bandeira": "🇫🇷", "pais": "França", "emp": "Orano", "opera": "França" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "CNNC", "opera": "China" }
+      ],
+      "analise": "<strong>Internacional:</strong> Globalmente, três países dominam a extração e respondem por mais de 60% da produção mundial: Cazaquistão, Canadá e Austrália. O mercado internacional apresenta forte grau de concentração nas etapas avançadas da cadeia, especialmente no enriquecimento isotópico e na fabricação do combustível, pela Rússia, o que cria uma dependência dos países ocidentais.<br><br><strong>Brasil:</strong> Os depósitos brasileiros, descobertos no final dos anos 1970, posicionaram o Brasil entre os principais países detentores de recursos uraníferos. Atualmente, o Brasil ocupa a décima posição mundial em base de recursos de urânio, não obstante a ausência de novas descobertas desde o final dos anos 1980. O país domina as duas pontas do ciclo do combustível nuclear, mas ainda necessita recorrer ao exterior para as etapas intermediárias de conversão química e enriquecimento em larga escala.<br><br><strong>Gargalo:</strong> A baixa capacidade produtiva da mineração atual, com as conhecidas dificuldades operacionais e de orçamento da INB, e a ausência de uma planta nacional de conversão química obrigam o país a exportar o concentrado primário e recomprar o material processado com alto valor agregado.<br><br><strong>Vantagem:</strong> O território nacional abriga reservas gigantescas que frequentemente ocorrem associadas a outros minerais de alto valor, conferindo ao país a capacidade potencial de alcançar total independência energética e soberania tecnológica no ciclo nuclear. A Lei nº 14.514/22 permite que a INB faça parcerias com o setor privado.",
+      "etapasLabels": {
+        "extracao": "Extração",
+        "refino": "Conversão",
+        "manufatura": "Enriquecimento / Combustível"
+      },
+      "notaRodape": "No urânio, o midstream é a conversão em UF₆ e o downstream é o enriquecimento isotópico e a fabricação do combustível, etapas licenciadas e altamente concentradas (Rosatom ~44% da capacidade de enriquecimento)."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério de Urânio\"]:::minerio\n  lixi[\"Beneficiamento:<br/>Lixiviação\"]:::comum\n  yellow[\"Concentrado: Yellowcake<br/>U₃O₈\"]:::transf\n  conv[\"Conversão:<br/>UF₆ Gasoso\"]:::transf\n  enriq[\"Enriquecimento: Centrifugação<br/>U-235 de 0,7% para 3–5%\"]:::transf\n  reconv[\"Reconversão:<br/>Pó de UO₂\"]:::transf\n  fab[\"Fabricação: Pastilhas e<br/>Elementos Combustíveis\"]:::bat\n  reator[\"Usinas Nucleares,<br/>Angra 1 e 2\"]:::bat\n  emp[\"Urânio Empobrecido<br/>, estoque\"]:::comum\n\n  min --> lixi --> yellow --> conv --> enriq --> reconv --> fab --> reator\n  enriq -.-> emp\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "yellow": "Yellowcake (U₃O₈): concentrado produzido pela INB em Caetité-BA (~60 t/ano frente a ~400 t de demanda das usinas).",
+        "conv": "Conversão para UF₆: o Brasil não possui planta comercial, etapa contratada no exterior. Só quatro países operam em escala (Rússia, França, Canadá, China).",
+        "enriq": "Enriquecimento por ultracentrífugação: tecnologia nacional (Marinha/INB, Resende-RJ) atende parte da recarga de Angra 1. A Rosatom detém ~44% da capacidade mundial.",
+        "fab": "A INB (Resende-RJ) fabrica pastilhas e monta os elementos combustíveis: o Brasil domina as duas pontas do ciclo, mas não o meio."
+      },
+      "legenda": [
+        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
+        { "cor": "#C9C6F4", "label": "Combustível nuclear (downstream)" },
+        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
+      ],
+      "fonte": "SNGM, rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        { "elo": "MINÉRIO DE URÂNIO", "faixa": "up", "hoje": "INB (Caetité-BA)", "m2030": "Expansão Caetité + Santa Quitéria (INB/Galvani)" },
+        { "elo": "YELLOWCAKE (U₃O₈)", "faixa": "mid", "hoje": "INB" },
+        { "elo": "CONVERSÃO (UF₆)", "faixa": "mid", "m2050": "Planta nacional de conversão, ambição do setor" },
+        { "elo": "ENRIQUECIMENTO (U-235)", "faixa": "mid", "hoje": "INB Resende, parcial (ultracentrífugas nacionais)", "m2030": "Ampliação das cascatas de enriquecimento" },
+        { "elo": "COMBUSTÍVEL (PASTILHAS E ELEMENTOS)", "faixa": "down", "hoje": "INB Resende, abastece Angra 1 e 2" },
+        { "elo": "RECUPERAÇÃO", "faixa": "rec" }
       ],
       "fonte": "SNGM, elaborado no modelo IBRAM (criado, validar)"
+    }
+  },
+  {
+    "nome": "Zinco",
+    "simbolo": "Zn",
+    "slug": "zinco",
+    "visaoGeral": {
+      "usos": "O zinco é a principal barreira anticorrosiva do mundo moderno através da galvanização do aço, protegendo desde a construção civil até a nova infraestrutura de torres eólicas e painéis solares.",
+      "destaque": "<strong>Complexo Aripuanã (Nexa), MT:</strong> Novo polo polimetálico (Zn-Pb-Cu) do Brasil. Somado à mina de Vazante (MG) e aos refinos de Três Marias e Juiz de Fora, dá ao país uma cadeia integrada mina-metal.",
+      "posicaoBR": {
+        "reserva": "Fora Top 10*",
+        "producao": "Fora Top 10*"
+      },
+      "estadosRes": "MG, MT, PA, RO",
+      "estadosProd": "MG, MT",
+      "gapProd": {
+        "br": 2,
+        "leader": 33,
+        "leaderName": "China"
+      },
+      "gapRes": {
+        "br": 1,
+        "leader": 28,
+        "leaderName": "Austrália"
+      },
+      "gapTransf": {
+        "br": 2,
+        "leader": 48,
+        "leaderName": "China"
+      }
+    },
+    "numerosMundiais": {
+      "pieProd": [
+        { "label": "China", "val": 33 },
+        { "label": "Peru", "val": 11 },
+        { "label": "Austrália", "val": 9 },
+        { "label": "Índia", "val": 7 },
+        { "label": "México", "val": 6 },
+        { "label": "Outros", "val": 34 }
+      ],
+      "pieRes": [
+        { "label": "Austrália", "val": 28 },
+        { "label": "China", "val": 20 },
+        { "label": "Rússia", "val": 13 },
+        { "label": "Peru", "val": 9 },
+        { "label": "Outros", "val": 30 }
+      ],
+      "barTransf": [
+        { "label": "China", "val": 48 },
+        { "label": "Coreia do Sul", "val": 7 },
+        { "label": "Índia", "val": 6 },
+        { "label": "Brasil", "val": 2 }
+      ],
+      "quemManda": [
+        { "etapa": "Reservas", "bandeira": "🇦🇺", "pais": "Austrália" },
+        { "etapa": "Produção", "bandeira": "🇨🇳", "pais": "China" },
+        { "etapa": "Transformação", "bandeira": "🇨🇳", "pais": "China" }
+      ]
+    },
+    "cadeiaGlobal": {
+      "extracao": [
+        { "bandeira": "🇨🇭", "pais": "Suíça", "emp": "Glencore", "opera": "Austrália, Peru, Cazaquistão" },
+        { "bandeira": "🇮🇳", "pais": "Índia", "emp": "Hindustan Zinc (Vedanta)", "opera": "Índia" },
+        { "bandeira": "🇨🇦", "pais": "Canadá", "emp": "Teck Resources", "opera": "Canadá, EUA (Red Dog)" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Nexa Resources", "opera": "Brasil, Peru" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Zijin Mining", "opera": "China" }
+      ],
+      "refino": [
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "Fundições diversas", "opera": "China" },
+        { "bandeira": "🇰🇷", "pais": "Coreia do Sul", "emp": "Korea Zinc", "opera": "Coreia do Sul" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Nexa (Três Marias, Juiz de Fora)", "opera": "Brasil" },
+        { "bandeira": "🇮🇳", "pais": "Índia", "emp": "Hindustan Zinc", "opera": "Índia" }
+      ],
+      "manufatura": [
+        { "bandeira": "🇱🇺", "pais": "Luxemburgo", "emp": "ArcelorMittal", "opera": "Aço galvanizado" },
+        { "bandeira": "🇯🇵", "pais": "Japão", "emp": "Nippon Steel", "opera": "Aço galvanizado" },
+        { "bandeira": "🇨🇳", "pais": "China", "emp": "China Baowu Steel", "opera": "Galvanizados" },
+        { "bandeira": "🇧🇷", "pais": "Brasil", "emp": "Indústria de galvanização", "opera": "Galvanização" }
+      ],
+      "analise": "<strong>Internacional:</strong> A mineração é pulverizada, com a Austrália detendo as maiores reservas, porém a China comanda isolada a capacidade de fundição e refino del metal globalmente.<br><br><strong>Brasil:</strong> O país apresenta um cenário notável de verticalização, possuindo operações de mineração integradas a refinarias que entregam o zinco metálico de alta pureza ao mercado doméstico e externo.<br><br><strong>Gargalo:</strong> A base de reservas minerais internas é restrita, exigindo a importação contínua de concentrados de países vizinhos para alimentar a capacidade total das refinarias instaladas.<br><br><strong>Vantagem:</strong> O domínio completo da rota de transformação química e metalúrgica garante ao Brasil protagonismo regional e segurança no fornecimento de ligas essenciais para a infraestrutura nacional."
+    },
+    "fluxograma": {
+      "def": "flowchart LR\n  min[\"Minério: Esfalerita Zn-Pb<br/>e Willemita, Vazante\"]:::minerio\n  conc[\"Beneficiamento:<br/>Concentrado ~50% Zn\"]:::comum\n  ust[\"Ustulação:<br/>Calcinado / ZnO\"]:::transf\n  rle[\"Lixiviação + Eletrólise:<br/>Zinco SHG 99,995%\"]:::transf\n  galv[\"Galvanização do Aço,<br/>~60% da demanda\"]:::comum\n  ligas[\"Ligas: Latão e<br/>Fundição sob Pressão\"]:::comum\n  oxq[\"Óxidos e Químicos<br/>de Zinco\"]:::comum\n  zbat[\"Baterias de Zinco,<br/>emergente\"]:::bat\n\n  min --> conc --> ust --> rle\n  rle --> galv\n  rle --> ligas\n  rle --> oxq\n  rle -.-> zbat\n\n  classDef minerio fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1.5px,color:#1A1A1A\n  classDef comum fill:#F0EFEC,stroke:#8A8A8A,stroke-dasharray:5 4,color:#4A4A4A\n  classDef transf fill:#FFB7EC,stroke:#1A1A1A,color:#1A1A1A\n  classDef bat fill:#C9C6F4,stroke:#1A1A1A,color:#1A1A1A\n  classDef esp fill:#BDEFC0,stroke:#1A1A1A,color:#1A1A1A",
+      "notas": {
+        "min": "Vazante-MG: maior mina de zinco silicatado (willemita) do mundo, mineralogia rara que exige rota de beneficiamento própria.",
+        "rle": "Rota RLE (ustulação-lixiviação-eletrólise) nas refinarias da Nexa em Três Marias e Juiz de Fora: o Brasil fecha a cadeia mina-metal."
+      },
+      "legenda": [
+        { "cor": "#FFB7EC", "label": "Transformação química (midstream)" },
+        { "cor": "#C9C6F4", "label": "Baterias (emergente)" },
+        { "cor": "#F0EFEC", "label": "Rota convencional", "tracejado": true }
+      ],
+      "fonte": "SNGM, rotas de transformação (criado, validar)"
+    },
+    "cadeiaValor": {
+      "elos": [
+        { "elo": "MINÉRIO", "faixa": "up", "hoje": "Nexa (Vazante-MG, Aripuanã-MT)", "m2030": "Redução de 20% das emissões em 2030 e neutralidade em 2040" },
+        { "elo": "SULFETOS, ÓXIDOS, CLORETOS", "faixa": "mid", "hoje": "Nexa" },
+        { "elo": "ZINCO SPECIAL HIGH GRADE (SHG)", "faixa": "mid", "hoje": "Nexa (Três Marias, Juiz de Fora)" },
+        { "elo": "LIGAS (CGG, ZAMAC)", "faixa": "down", "hoje": "Nexa e transformadores nacionais" },
+        { "elo": "PILHAS E BATERIAS", "faixa": "down" },
+        { "elo": "RECUPERAÇÃO", "faixa": "rec", "hoje": "Reciclagem de pó de aciaria (Juiz de Fora)" }
+      ],
+      "obs": "Elos e metas conforme material do IBRAM; empresas da coluna 'Hoje' preenchidas pela SNGM a partir dos logos do original, validar.",
+      "fonte": "IBRAM, Cadeias de Valor de Minerais Estratégicos / SNGM"
     }
   }
 ]
