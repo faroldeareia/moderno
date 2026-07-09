@@ -1731,7 +1731,7 @@
     "simbolo": "Al",
     "slug": "aluminio",
     "visaoGeral": {
-      "usos": "O alumínio é amplamente utilizado nos setores de transportes, construção civil, embalagens e transmissão de energia, destacando-se por sua leveza, alta condutividade elétrica e térmica, maleabilidade e resistência à corrosão. Na transição energética, é crucial para a fabricação de componentes de veículos elétricos, turbinas eólicas e painéis solares.",
+      "usos": "Dotado de uma excepcional relação resistência-peso, alta condutibilidade térmica e elétrica, e notável resistência à corrosão, é indispensável nas indústrias aeroespacial, automotiva (redução de peso e eficiência energética), na infraestrutura de transmissão de energia elétrica de longa distância e como material de embalagem reciclável de alta performance.  É extraído comercialmente quase exclusivamente a partir da bauxita.",
       "destaque": "<strong>Cadeia integrada + reciclagem recorde:</strong> O Brasil recicla praticamente 100% das latas de alumínio (líder global em circularidade) e abriga a Hydro Alunorte (PA), maior refinaria de alumina fora da China — combinação rara de verticalização e sustentabilidade neste metal.",
       "posicaoBR": {
         "reserva": "6º lugar",
@@ -1805,7 +1805,7 @@
         { "bandeira": "🇯🇵", "pais": "Japão", "emp": "UACJ", "opera": "Laminados" },
         { "bandeira": "🇩🇪", "pais": "Alemanha", "emp": "Trimet", "opera": "Automotivo" }
       ],
-      "analise": "<strong>Internacional:</strong> A Guiné detém as maiores reservas mundiais de bauxita e também lidera a produção do minério (~150 Mt), seguida por Austrália e China. Embora a China seja apenas a 3ª na mineração, ela controla o elo de transformação: cerca de 62% da alumina e ~59% do alumínio primário mundial (midstream).<br><br><strong>Brasil:</strong> O Brasil possui uma cadeia de valor do alumínio totalmente integrada, atuando desde a mineração da bauxita (destaque para a MRN e Hydro no Pará), passando pelo refino da alumina — onde é o 3º maior do mundo (~7%) via Alunorte — até a metalurgia do alumínio primário (Albras, CBA, Alcoa).<br><br><strong>Gargalo:</strong> O processo metalúrgico para a obtenção do alumínio primário é altamente energo-intensivo. Historicamente, os altos custos de energia elétrica no Brasil impactaram a competitividade da indústria, forçando até o fechamento de algumas unidades de fundição no passado.<br><br><strong>Vantagem:</strong> O Brasil beneficia-se do <em>powershoring</em>, com uma matriz elétrica essencialmente renovável (hidrelétricas e fontes alternativas). A produção nacional de alumínio primário possui uma das menores pegadas de carbono do mundo. Adicionalmente, as impressionantes taxas de reciclagem de sucata geram economia de mais de 90% na energia demandada, fortalecendo a economia circular.",
+      "analise": "<strong>Internacional:</strong> A Guiné detém as maiores reservas mundiais de bauxita e também lidera a produção do minério, seguida por Austrália e China. Embora a China seja apenas a 3ª na mineração, ela controla o elo de transformação: cerca de ~60% do alumínio primário mundial.<br><br><strong>Brasil:</strong> O Brasil possui uma cadeia de valor do alumínio totalmente integrada, atuando desde a mineração da bauxita (destaque para a MRN e Hydro no Pará), passando pelo refino da alumina, onde é o 3º maior do mundo (~7%) via Alunorte, até a metalurgia do alumínio primário (Albras, CBA, Alcoa).<br><br><strong>Gargalo:</strong> O processo metalúrgico para a obtenção do alumínio primário é altamente energo-intensivo. Historicamente, os altos custos de energia elétrica no Brasil impactaram a competitividade da indústria, forçando até o fechamento de algumas unidades de fundição no passado. Atualmente, a produção de alumínio tem sofrido enorme concorrência contra a produção Chinesa, que tem sido acusada de dumping.<br><br><strong>Vantagem:</strong> O Brasil beneficia-se do <em>powershoring</em>, com uma matriz elétrica essencialmente renovável (hidrelétricas e fontes alternativas). A produção nacional de alumínio primário possui uma das menores pegadas de carbono do mundo. Adicionalmente, as impressionantes taxas de reciclagem de sucata geram economia de mais de 90% na energia demandada, fortalecendo a economia circular.",
       "etapasLabels": {
         "extracao": "Extração (bauxita)",
         "refino": "Refino Bayer (alumina)",
@@ -1844,7 +1844,7 @@
     "simbolo": "Fe",
     "slug": "ferro",
     "visaoGeral": {
-      "usos": "O ferro é o metal mais consumido do mundo e a espinha dorsal da indústria siderúrgica, indispensável na construção civil, infraestrutura logística, indústria naval e automobilística. No contexto da transição energética, volumes gigantescos de aço são demandados para a construção de parques eólicos (torres e fundações) e usinas solares.",
+      "usos": "Caracterizado por sua alta resistência mecânica, versatilidade metalúrgica e abundância geológica, o ferro é o componente fundamental do aço. Ele constitui a espinha dorsal da civilização moderna, sendo insubstituível na construção civil, infraestrutura urbana, fabricação de máquinas e equipamentos, e nos sistemas de transporte de massa, mantendo-se como o elemento mais demandado na metalurgia global, inclusive para a infraestrutura da transição energética. O ferro também está presente como material do cátodo em baterias LFP (Lítio-Ferro-Fosfato). É extraído principalmente de minerais óxidos como a hematita e a magnetita.",
       "destaque": "<strong>Inovação em Aço Verde:</strong> A Vale desenvolveu a tecnologia de briquetes de minério de ferro com cura a frio, que reduzem as emissões de CO₂ na siderurgia em até 10%, pavimentando o caminho para a redução direta (DRI).",
       "posicaoBR": {
         "reserva": "3º lugar",
@@ -1954,7 +1954,7 @@
     "simbolo": "Au",
     "slug": "ouro",
     "visaoGeral": {
-      "usos": "Historicamente atuando como ativo de refúgio e reserva de valor, o ouro possui propriedades de altíssima condutividade e notável resistência à oxidação. É amplamente demandado na fabricação de joias, bem como na indústria eletroeletrônica, formando circuitos e contatos críticos em celulares, satélites, processadores e veículos automóveis.",
+      "usos": "Embora possua uma função histórica e econômica consolidada como reserva de valor, o ouro possui propriedades físicas únicas de resistência à oxidação e maleabilidade, sendo um insumo técnico de alta criticidade na eletrônica de precisão. É amplamente demandado na fabricação de joias, bem como na indústria eletroeletrônica, formando circuitos e contatos críticos em celulares, satélites, processadores e veículos automóveis.",
       "destaque": "<strong>Novas Fronteiras:</strong> A exploração nacional tem avançado além do histórico Quadrilátero Ferrífero, revelando grandes províncias geológicas no Cráton Amazônico, como a região do Tapajós.",
       "posicaoBR": {
         "reserva": "9º lugar",
@@ -2065,7 +2065,7 @@
     "simbolo": "Si",
     "slug": "silicio",
     "visaoGeral": {
-      "usos": "O silício é o segundo elemento mais abundante da crosta terrestre e matéria-prima fundamental das revoluções digitais e energéticas. Na sua forma purificada (silício grau metalúrgico e silício grau solar), é o material condutor base indispensável na fabricação de microchips, semicondutores e, principalmente, das células dos painéis fotovoltaicos.",
+      "usos": "O silício é um semimetal abundante na crosta terrestre, extraído a partir do processamento de quartzitos de alta pureza. Sua principal característica é a capacidade de manipular fluxos elétricos com extrema precisão. Por isso, é o insumo indispensável da indústria eletrônica, servindo como base para a fabricação de chips, processadores e circuitos integrados que compõem todos os dispositivos digitais modernos. Além disso, é o componente central na produção de células fotovoltaicas, sendo fundamental para o funcionamento de painéis solares. Também tem papel relevante na metalurgia, como elemento de liga, e na fabricação de silicones para selantes e produtos médicos.",
       "destaque": "<strong>Potencial Latente:</strong> O país dispõe de jazidas excepcionais de quartzo de alta pureza (sílica) em Minas Gerais e Bahia (Projeto Homerun, >99,6% SiO₂), é o 2º maior produtor mundial de silício metálico e destaca-se em ferroligas — mas importa virtualmente todos os módulos solares de alto valor agregado.",
       "posicaoBR": {
         "reserva": "Não ranqueado (recurso abundante)",
