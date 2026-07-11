@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════════════
-   📦 CONFIG
+   📦 CONFIG E FONTES
    ════════════════════════════════════════════════════════════════════ */
 const CONFIG = {
   slidesPerMineral: 7,
@@ -10,11 +10,6 @@ const CONFIG = {
   dataUrl:      "minerais.json"
 };
 
-/* ════════════════════════════════════════════════════════════════════
-   📚 FONTES POR MINERAL — exibidas no rodapé dos slides de dados
-   - pr = fonte de Produção / Reservas
-   - tr = fonte de Transformação / Refino
-   ════════════════════════════════════════════════════════════════════ */
 const FONTES = {
   etr:        { pr: "USGS MCS 2026", tr: "IEA Global Critical Minerals Outlook 2025" },
   cobre:      { pr: "USGS MCS 2026", tr: "IEA Global Critical Minerals Outlook 2025" },
@@ -40,73 +35,41 @@ const fonteRodape = (m) => {
 };
 
 /* ════════════════════════════════════════════════════════════════════
-   🎨 PALETA DE CORES — atribuída automaticamente
-   - Países recorrentes têm cor fixa (consistência entre slides)
-   - Brasil sempre laranja (cor da identidade)
-   - Países não mapeados usam paleta sequencial por posição
-   - "Outros" sempre cinza
+   🎨 PALETA DE CORES E DADOS
    ════════════════════════════════════════════════════════════════════ */
 const COUNTRY_COLORS = {
-  "Brasil":         "#E8920D",
-  "China":          "#D32F2F",
-  "EUA":            "#1565C0",
-  "Chile":          "#1565C0",
-  "Austrália":      "#2E7D32",
-  "R.D. Congo":     "#6A1B9A",
-  "RDC":            "#1565C0",
-  "Indonésia":      "#D32F2F",
-  "Cazaquistão":    "#1565C0",
-  "Canadá":         "#D32F2F",
-  "Rússia":         "#6A1B9A",
-  "Argentina":      "#F57F17",
-  "Zimbábue":       "#F57F17",
-  "Madagascar":     "#6A1B9A",
-  "Moçambique":     "#1565C0",
-  "Namíbia":        "#F57F17",
-  "Peru":           "#2E7D32",
-  "Myanmar":        "#6A1B9A",
-  "Filipinas":      "#1565C0",
-  "Tanzânia":       "#2E7D32",
-  "Malásia":        "#F57F17",
-  "Finlândia":      "#1565C0",
-  "Japão":          "#2E7D32",
-  "Europa*":        "#6A1B9A",
-  "Belarus":        "#2E7D32",
-  "Laos":           "#F57F17",
-  "Alemanha":       "#00838F",
-  "Marrocos":       "#6A1B9A",
-  "Egito":          "#F57F17",
-  "Tunísia":        "#00838F",
-  "Jordânia":       "#2E7D32",
-  "Outros":         "#BDBDBD"
+  "Brasil": "#E8920D", "China": "#D32F2F", "EUA": "#1565C0", "Chile": "#1565C0",
+  "Austrália": "#2E7D32", "R.D. Congo": "#6A1B9A", "RDC": "#1565C0", "Indonésia": "#D32F2F",
+  "Cazaquistão": "#1565C0", "Canadá": "#D32F2F", "Rússia": "#6A1B9A", "Argentina": "#F57F17",
+  "Zimbábue": "#F57F17", "Madagascar": "#6A1B9A", "Moçambique": "#1565C0", "Namíbia": "#F57F17",
+  "Peru": "#2E7D32", "Myanmar": "#6A1B9A", "Filipinas": "#1565C0", "Tanzânia": "#2E7D32",
+  "Malásia": "#F57F17", "Finlândia": "#1565C0", "Japão": "#2E7D32", "Europa*": "#6A1B9A",
+  "Belarus": "#2E7D32", "Laos": "#F57F17", "Alemanha": "#00838F", "Marrocos": "#6A1B9A",
+  "Egito": "#F57F17", "Tunísia": "#00838F", "Jordânia": "#2E7D32", "Outros": "#BDBDBD"
 };
-// Paleta de fallback (caso apareça país novo não mapeado)
 const FALLBACK_PALETTE = ["#1565C0","#2E7D32","#F57F17","#6A1B9A","#00838F","#5D4037","#AD1457"];
 
 function colorFor(label, idx){
   if(COUNTRY_COLORS[label]) return COUNTRY_COLORS[label];
   return FALLBACK_PALETTE[idx % FALLBACK_PALETTE.length];
 }
-
-// Aplica cor a um array {label, val} retornando {label, val, color}
 function withColors(arr){
   return arr.map((it, i) => ({ ...it, color: colorFor(it.label, i) }));
 }
 
-/* ════════════════════════════════════════════════════════════════════
-   📂 DADOS — carregados de minerais.json
-   ════════════════════════════════════════════════════════════════════ */
 let MINERAL_DATA = [];
 
 /* ════════════════════════════════════════════════════════════════════
-   🔧 RENDER ENGINE
+   🔧 RENDER ENGINE E NAVEGAÇÃO REESCRITA (ÍNDICE LINEAR)
    ════════════════════════════════════════════════════════════════════ */
-let H = [], cM = 0, cS = 0;
+let H = [];
+let H_objs = []; 
+let cM = -1, cS = -1, currentIndex = 0; // Índice linear para suportar Capas Mistas
 const SN = CONFIG.slidesPerMineral;
 
 const flag = (emoji) => `<span class="c-flag">${emoji}</span>`;
-const totalSlides = () => MINERAL_DATA.length * SN;
-const globalIndex = () => cM * SN + cS;
+const totalSlides = () => H_objs.length;
+const globalIndex = () => currentIndex;
 
 function buildHeader(m, slideTitle){
   return `<div class="slide-header">
@@ -139,17 +102,11 @@ function buildFooter(source){
   </div>`;
 }
 
-/* Nota de rodapé opcional (campo notaRodape em cadeiaGlobal) —
-   estilizada inline para não exigir mudança no CSS */
 function buildChainNote(nota){
   if(!nota) return '';
   return `<div class="chain-note" style="padding:0 var(--pad-slide-x) 8px 76px;font-size:var(--fs-xs);color:var(--light);font-style:italic;line-height:1.4;flex-shrink:0">* ${nota}</div>`;
 }
 
-/* ════════════════════════════════════════════════════════════════════
-   🥧 PIZZA EM SVG — vetorial, nítida na tela e na impressão
-   (o conic-gradient anterior era rasterizado em baixa resolução no PDF)
-   ════════════════════════════════════════════════════════════════════ */
 function buildPie(rawData){
   const data = withColors(rawData);
   const C = 50, R = 50;
@@ -230,11 +187,6 @@ function buildImageSlide(m, slideTitle, tema, icon, label){
   </div>`;
 }
 
-/* ════════════════════════════════════════════════════════════════════
-   ⛓️ CADEIA DE VALOR NO BRASIL — matriz elo × tempo (modelo IBRAM)
-   - Campo opcional "cadeiaValor" no JSON: elos com faixa (up/mid/down/rec),
-     presença hoje, PD&I e metas 2030/2050. Fallback: imagem <slug>_cadeia.jpg
-   ════════════════════════════════════════════════════════════════════ */
 function buildCadeiaValorSlide(m){
   const cv = m.cadeiaValor;
   const CORES = { up:'#1565C0', mid:'#E8920D', down:'#6E6E6E', rec:'#00838F' };
@@ -286,17 +238,9 @@ function buildCadeiaValorSlide(m){
 function generateSlides(m){
   const S = [];
   const v = m.visaoGeral, n = m.numerosMundiais, c = m.cadeiaGlobal;
-
-  /* Rótulos dinâmicos por mineral (campos opcionais no JSON):
-     - n.labelTransf → título da barra de transformação (slide 3)
-       e da seção de gap (slide 2). Ex.: "Exportações" (potássio),
-       "Ácido Fosfórico" (fosfato), "Enriquecimento" (urânio).
-     - c.etapasLabels → títulos das 3 colunas da cadeia global (slide 5).
-     Minerais sem os campos caem no padrão (|| fallback). */
   const tLabel = n.labelTransf || null;
   const labels = c.etapasLabels || {};
 
-  // ─── 1. CAPA ───
   const photoUrl = assetUrl(m.slug, 'capa');
   const placeholderHtml = `<div class="capa-photo-placeholder"><div><span class="icon">🪨</span>FOTO DO MINERAL<br><span style="font-size:var(--fs-sm);opacity:.7">${m.nome}</span></div></div>`;
   const capaPhoto = photoUrl
@@ -313,7 +257,6 @@ function generateSlides(m){
     <div class="capa-footer-bar"></div>
   </div>`);
 
-  // ─── 2. VISÃO GERAL ───
   const empUrl = assetUrl(m.slug, 'empreendimento');
   const empFallback = `<div class="emp-photo-fallback">Foto: ${m.slug}_empreendimento.${CONFIG.imageExt}</div>`;
   const empHtml = empUrl
@@ -361,7 +304,6 @@ function generateSlides(m){
     ${buildFooter(fonteRodape(m))}
   </div>`);
 
-  // ─── 3. NÚMEROS MUNDIAIS ───
   const flags = n.quemManda.map(q =>
     `<div class="flag-box">
       <div class="flag-emoji">${q.bandeira}</div>
@@ -383,14 +325,12 @@ function generateSlides(m){
     ${buildFooter(fonteRodape(m))}
   </div>`);
 
-  // ─── 4. CADEIA DE VALOR ───
   if(m.cadeiaValor && m.cadeiaValor.elos){
     S.push(buildCadeiaValorSlide(m));
   } else {
     S.push(buildImageSlide(m, "Cadeia de Valor no Brasil", "cadeia", "⛓️", "Cadeia de Valor"));
   }
 
-  // ─── 5. CADEIA GLOBAL ───
   S.push(`<div class="slide">${buildHeader(m, "Cadeia Global e Geopolítica")}
     <div class="slide-content grid-4">
       <div class="card"><div class="card-badge">${labels.extracao || 'Extração'}</div>${listHTML(c.extracao)}</div>
@@ -402,9 +342,6 @@ function generateSlides(m){
     ${buildFooter()}
   </div>`);
 
-  // ─── 6. FLUXOGRAMA ───
-  // Se o mineral tiver o campo "fluxograma" no JSON, desenha via Mermaid;
-  // caso contrário, mantém o slide de imagem (img/<slug>_fluxo.jpg).
   if(m.fluxograma && m.fluxograma.def){
     const fx = m.fluxograma;
     const legenda = (fx.legenda || []).map(l =>
@@ -424,16 +361,13 @@ function generateSlides(m){
     S.push(buildImageSlide(m, "Fluxograma de Transformação", "fluxo", "🔀", "Fluxograma"));
   }
 
-  // ─── 7. MAPA ───
   S.push(buildImageSlide(m, "Mapa de Ocorrências", "mapa", "🗺️", "Mapa"));
 
   return S;
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   🔀 FLUXOGRAMAS — Mermaid.js carregado sob demanda (CDN)
-   - Minerais com campo "fluxograma" no JSON são desenhados por código
-   - "notas" (opcional) torna as caixas clicáveis com explicação
+   🔀 MERMAID E BACKGROUND GENERATOR (Mantido intacto)
    ════════════════════════════════════════════════════════════════════ */
 let mermaidReady = null;
 function loadMermaid(){
@@ -443,8 +377,7 @@ function loadMermaid(){
     s.src = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js';
     s.onload = () => {
       window.mermaid.initialize({
-        startOnLoad: false,
-        securityLevel: 'loose',
+        startOnLoad: false, securityLevel: 'loose',
         flowchart: { htmlLabels: true, curve: 'linear' },
         themeVariables: { fontFamily: "'DM Sans', system-ui, sans-serif", fontSize: '14px', lineColor: '#4A4A4A' }
       });
@@ -463,8 +396,7 @@ async function renderMermaidIn(container){
   let mermaid;
   try{ mermaid = await loadMermaid(); }
   catch(err){
-    console.error('[SNGM] Mermaid não carregou:', err);
-    holders.forEach(el => { el.innerHTML = '<div style="color:var(--light);font-weight:600;padding:30px;text-align:center">⚠️ Fluxograma indisponível (sem acesso ao CDN)</div>'; });
+    holders.forEach(el => { el.innerHTML = '<div style="color:var(--light);font-weight:600;padding:30px;text-align:center">⚠️ Fluxograma indisponível</div>'; });
     return;
   }
   for(const el of holders){
@@ -476,16 +408,13 @@ async function renderMermaidIn(container){
       el.innerHTML = svg;
       const svgEl = el.querySelector('svg');
       if(svgEl){
-        svgEl.style.maxWidth = '100%';
-        svgEl.style.width = '100%';
-        svgEl.style.height = '100%';
-        svgEl.style.maxHeight = '100%';
+        svgEl.style.maxWidth = '100%'; svgEl.style.width = '100%';
+        svgEl.style.height = '100%'; svgEl.style.maxHeight = '100%';
       }
       el.dataset.done = '1';
       bindFluxNotes(el);
     }catch(err){
-      console.error('[SNGM] Erro ao desenhar fluxograma:', err);
-      el.innerHTML = '<div style="color:var(--light);font-weight:600;padding:30px;text-align:center">⚠️ Erro na definição do fluxograma (ver console)</div>';
+      el.innerHTML = '<div style="color:var(--light);font-weight:600;padding:30px;text-align:center">⚠️ Erro na definição do fluxograma</div>';
     }
   }
 }
@@ -499,10 +428,7 @@ function bindFluxNotes(holder){
     const key = Object.keys(notas).find(k => id === k || id.includes('-' + k + '-') || id.endsWith('-' + k));
     if(!key) return;
     node.style.cursor = 'pointer';
-    node.addEventListener('click', ev => {
-      ev.stopPropagation();
-      showFluxNote(notas[key]);
-    });
+    node.addEventListener('click', ev => { ev.stopPropagation(); showFluxNote(notas[key]); });
   });
 }
 
@@ -512,7 +438,7 @@ function showFluxNote(texto){
   wrap.id = 'fluxnote';
   wrap.style.cssText = 'position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.45);padding:20px';
   wrap.innerHTML = `<div style="background:#fff;border:2px solid var(--orange);border-radius:12px;max-width:460px;width:100%;padding:20px 22px;box-shadow:0 20px 60px rgba(0,0,0,.35);position:relative">
-    <button onclick="closeFluxNote()" style="position:absolute;top:10px;right:12px;border:none;background:none;font-size:18px;cursor:pointer;color:var(--light);font-weight:700" aria-label="Fechar">✕</button>
+    <button onclick="closeFluxNote()" style="position:absolute;top:10px;right:12px;border:none;background:none;font-size:18px;cursor:pointer;color:var(--light);font-weight:700">✕</button>
     <div style="font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.7px;color:var(--orange);margin-bottom:8px">💡 Sobre esta etapa</div>
     <div style="font-size:var(--fs-sm);line-height:1.55;color:var(--dark)">${texto}</div>
   </div>`;
@@ -520,14 +446,8 @@ function showFluxNote(texto){
   wrap.addEventListener('mousedown', e => e.stopPropagation());
   document.body.appendChild(wrap);
 }
-function closeFluxNote(){
-  const el = document.getElementById('fluxnote');
-  if(el) el.remove();
-}
+function closeFluxNote(){ const el = document.getElementById('fluxnote'); if(el) el.remove(); }
 
-/* ════════════════════════════════════════════════════════════════════
-   🎨 BACKGROUND DE CONTORNOS
-   ════════════════════════════════════════════════════════════════════ */
 const CONTOUR_BG = (() => {
   const cache = {};
   const perm = new Uint8Array(512);
@@ -577,7 +497,6 @@ const CONTOUR_BG = (() => {
       for(const s of segs){ctx.moveTo(s.x1*cW,s.y1*cH);ctx.lineTo(s.x2*cW,s.y2*cH)}
       ctx.stroke();
     }
-    // PNG (sem perdas) — o JPEG borrava as linhas finas do contorno
     return cache[key] = cv.toDataURL('image/png');
   }
   return { generate };
@@ -590,7 +509,7 @@ function injectBg(){
     const h = Math.min(window.innerHeight, 1080);
     bgCache = CONTOUR_BG.generate(w, h);
   }
-  document.querySelectorAll('#sc .slide:not(.slide-capa)').forEach(sl => {
+  document.querySelectorAll('#sc .slide:not(.slide-capa):not(.slide-capa-mestra):not(.slide-eixo)').forEach(sl => {
     if(!sl.querySelector('.slide-bg')){
       const bg = document.createElement('div');
       bg.className = 'slide-bg';
@@ -603,92 +522,83 @@ function injectBg(){
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   🎮 NAVEGAÇÃO
+   🛠️ MONTAGEM DOS SLIDES E NAVEGAÇÃO LINEAR
    ════════════════════════════════════════════════════════════════════ */
 function buildSlides(){
-  H = [];
-  MINERAL_DATA.forEach(m => H.push(...generateSlides(m)));
+  H_objs = [];
+  
+  // 1. Capa Mestra (Início da Apresentação)
+  H_objs.push({
+    html: `<div class="slide slide-capa-mestra">
+             <div class="mestre-content">
+               <h1>Minerais Estratégicos</h1>
+               <p>Cadeias Produtivas e Geopolítica</p>
+             </div>
+           </div>`,
+    cM: -1, cS: -1
+  });
+
+  let currentEixo = "";
+  MINERAL_DATA.forEach((m, i) => {
+    // 2. Se houver o campo "eixo" no JSON, cria uma Contra-Capa
+    if(m.eixo && m.eixo !== currentEixo){
+      currentEixo = m.eixo;
+      H_objs.push({
+        html: `<div class="slide slide-eixo">
+                 <div class="eixo-content">
+                   <h2>Eixo Temático</h2>
+                   <h1>${currentEixo}</h1>
+                 </div>
+               </div>`,
+        cM: -1, cS: -1
+      });
+    }
+
+    // 3. Adiciona os 7 slides de cada mineral
+    const slides = generateSlides(m);
+    slides.forEach((html, j) => {
+      H_objs.push({ html, cM: i, cS: j });
+    });
+  });
+
+  // Exporta o HTML de todos para o array H usado pelo engine original
+  H = H_objs.map(obj => obj.html);
 }
 
-function showError(msg){
-  document.getElementById('sc').innerHTML =
-    `<div style="display:flex;align-items:center;justify-content:center;width:100%;color:#fff;padding:40px;text-align:center;font-family:var(--font-display)">
-      <div style="background:rgba(0,0,0,.5);padding:32px 40px;border-radius:14px;border:1px solid rgba(255,255,255,.15);max-width:560px">
-        <div style="font-size:48px;margin-bottom:14px">⚠️</div>
-        <div style="font-size:20px;font-weight:700;margin-bottom:10px">Não foi possível carregar os dados</div>
-        <div style="font-size:14px;font-weight:400;line-height:1.5;color:rgba(255,255,255,.75)">${msg}</div>
-      </div>
-    </div>`;
+function update_cM_cS() {
+  const obj = H_objs[currentIndex];
+  cM = obj.cM;
+  cS = obj.cS;
 }
 
-async function init(){
-  try{
-    const res = await fetch(CONFIG.dataUrl, { cache: 'no-cache' });
-    if(!res.ok) throw new Error(`HTTP ${res.status} ao carregar ${CONFIG.dataUrl}`);
-    MINERAL_DATA = await res.json();
-    if(!Array.isArray(MINERAL_DATA) || MINERAL_DATA.length === 0)
-      throw new Error('JSON vazio ou inválido');
-  }catch(err){
-    console.error('[SNGM] Falha ao carregar dados:', err);
-    const isFile = location.protocol === 'file:';
-    const hint = isFile
-      ? 'Você abriu o arquivo direto pelo navegador (file://). Por segurança, o navegador bloqueia o fetch local. Sirva a pasta com um servidor simples — ex: <code style="background:rgba(255,255,255,.1);padding:2px 6px;border-radius:4px">python -m http.server</code> e acesse via http://localhost:8000.'
-      : `Verifique se o arquivo <code style="background:rgba(255,255,255,.1);padding:2px 6px;border-radius:4px">${CONFIG.dataUrl}</code> está na mesma pasta do HTML.<br><br><strong>Erro:</strong> ${err.message}`;
-    showError(hint);
-    return false;
+function next(){ 
+  if(currentIndex < totalSlides() - 1){ 
+    currentIndex++; update_cM_cS(); render(); 
+  } 
+}
+function prev(){ 
+  if(currentIndex > 0){ 
+    currentIndex--; update_cM_cS(); render(); 
+  } 
+}
+
+function goToSlide(mineralIdx, slideIdx){
+  const idx = H_objs.findIndex(obj => obj.cM === mineralIdx && obj.cS === slideIdx);
+  if(idx !== -1){
+    currentIndex = idx; update_cM_cS(); render();
   }
-  return true;
 }
+function goTo(i){ goToSlide(i, 0); closeSidebar(); }
 
-// Minerais expandidos manualmente pelo usuário (via chevron).
-// O accordion abre/fecha SOMENTE por clique no chevron — o mineral ativo
-// não abre mais automaticamente.
-const expandedMinerals = new Set();
-
-function toggleMineralExpand(idx, ev){
-  if(ev){ ev.stopPropagation(); ev.preventDefault(); }
-  if(expandedMinerals.has(idx)) expandedMinerals.delete(idx);
-  else expandedMinerals.add(idx);
-  renderSidebarMenu();
-}
-
-function isGroupOpen(idx){
-  // Aberto somente se o usuário expandiu manualmente (clicou no chevron).
-  return expandedMinerals.has(idx);
-}
-
-function renderSidebarMenu(){
-  document.getElementById('mt').innerHTML = MINERAL_DATA.map((m, i) => {
-    const isActive = i === cM;
-    const isOpen = isGroupOpen(i);
-    const subItems = CONFIG.slideNames.map((name, j) => {
-      const subActive = (isActive && j === cS) ? ' active' : '';
-      return `<button class="mineral-sub-item${subActive}" onclick="goToSlide(${i}, ${j}); closeSidebar()">
-        <span class="sub-num">${j + 1}</span>${name}
-      </button>`;
-    }).join('');
-    return `<div class="mineral-group${isOpen ? ' open' : ''}">
-      <div class="mineral-row">
-        <button class="mineral-item${isActive ? ' active' : ''}" onclick="goTo(${i})">
-          <span class="mineral-symbol">${m.simbolo}</span>
-          <span class="mineral-name">${m.nome}</span>
-        </button>
-        <button class="mineral-chevron-btn" onclick="toggleMineralExpand(${i}, event)" aria-label="Expandir temas de ${m.nome}" title="Mostrar 7 temas">
-          <span class="mineral-chevron">▾</span>
-        </button>
-      </div>
-      <div class="mineral-subs">${subItems}</div>
-    </div>`;
-  }).join('');
-}
-
+/* ════════════════════════════════════════════════════════════════════
+   🎨 RENDER E EVENTOS DE MENU
+   ════════════════════════════════════════════════════════════════════ */
 function render(){
   const i = globalIndex();
   document.getElementById('sc').innerHTML = H[i];
   document.getElementById('cn').textContent = `${i + 1} / ${totalSlides()}`;
 
-  // O HTML dos slides é gerado uma única vez no buildSlides(), com o stepper
-  // "fotografado" em cS=0. Aqui sincronizamos a classe .active com cS atual.
+  // Sincroniza abas do mineral (se houver)
   document.querySelectorAll('#sc .step-item').forEach((btn, idx) => {
     btn.classList.toggle('active', idx === cS);
   });
@@ -701,6 +611,37 @@ function render(){
   if(v) v.scrollTop = 0;
 }
 
+const expandedMinerals = new Set();
+function toggleMineralExpand(idx, ev){
+  if(ev){ ev.stopPropagation(); ev.preventDefault(); }
+  if(expandedMinerals.has(idx)) expandedMinerals.delete(idx);
+  else expandedMinerals.add(idx);
+  renderSidebarMenu();
+}
+
+function renderSidebarMenu(){
+  document.getElementById('mt').innerHTML = MINERAL_DATA.map((m, i) => {
+    const isActive = i === cM;
+    const isOpen = expandedMinerals.has(i);
+    const subItems = CONFIG.slideNames.map((name, j) => {
+      const subActive = (isActive && j === cS) ? ' active' : '';
+      return `<button class="mineral-sub-item${subActive}" onclick="goToSlide(${i}, ${j}); closeSidebar()">
+        <span class="sub-num">${j + 1}</span>${name}
+      </button>`;
+    }).join('');
+    return `<div class="mineral-group${isOpen ? ' open' : ''}">
+      <div class="mineral-row">
+        <button class="mineral-item${isActive ? ' active' : ''}" onclick="goTo(${i})">
+          <span class="mineral-symbol">${m.simbolo}</span>
+          <span class="mineral-name">${m.nome}</span>
+        </button>
+        <button class="mineral-chevron-btn" onclick="toggleMineralExpand(${i}, event)" title="Mostrar temas"><span class="mineral-chevron">▾</span></button>
+      </div>
+      <div class="mineral-subs">${subItems}</div>
+    </div>`;
+  }).join('');
+}
+
 function attachImageFallbacks(){
   document.querySelectorAll('#sc img[data-fallback]').forEach(img => {
     if(img.dataset.fbBound) return;
@@ -708,25 +649,13 @@ function attachImageFallbacks(){
     const apply = () => {
       const html = decodeURIComponent(img.dataset.fallback);
       const mode = img.dataset.fallbackMode;
-      if(mode === 'parent' && img.parentNode){
-        img.parentNode.innerHTML = html;
-      } else {
-        img.outerHTML = html;
-      }
+      if(mode === 'parent' && img.parentNode){ img.parentNode.innerHTML = html; } 
+      else { img.outerHTML = html; }
     };
     img.addEventListener('error', apply);
     if(img.complete && img.naturalWidth === 0) apply();
   });
 }
-function next(){ if(globalIndex() < totalSlides() - 1){ cS++; if(cS >= SN){ cM++; cS = 0 } render() } }
-function prev(){ if(globalIndex() > 0){ cS--; if(cS < 0){ cM--; cS = SN - 1 } render() } }
-
-function goToSlide(mineralIdx, slideIdx){
-  cM = mineralIdx;
-  cS = Math.max(0, Math.min(slideIdx, SN - 1));
-  render();
-}
-function goTo(i){ goToSlide(i, 0); closeSidebar() }
 
 function openSidebar(){
   document.getElementById('sb').classList.add('open');
@@ -742,17 +671,22 @@ function toggleSidebar(){
   document.getElementById('sb').classList.contains('open') ? closeSidebar() : openSidebar();
 }
 
-/* ════════════════════════════════════════════════════════════════════
-   🖨️ EXPORTAR PDF — com AUTO-FIT (Versão Definitiva)
-   1. Monta todos os slides no container #pc (oculto).
-   2. Aplica a classe .print-fit → o CSS posiciona #pc fora da tela
-      já nas dimensões exatas do papel (A4 paisagem ≈ 1122×794 px).
-   3. Ajusta o tamanho dos diagramas Mermaid.
-   4. Mede cada .slide-content e aplica transform:scale() para caber.
-   5. Chama window.print().
-   ════════════════════════════════════════════════════════════════════ */
+async function init(){
+  try{
+    const res = await fetch(CONFIG.dataUrl, { cache: 'no-cache' });
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    MINERAL_DATA = await res.json();
+    return true;
+  }catch(err){
+    console.error(err);
+    document.getElementById('sc').innerHTML = `<div style="color:white;padding:50px;text-align:center">⚠️ Erro ao carregar minerais.json</div>`;
+    return false;
+  }
+}
 
-/* Espera todas as <img> do container carregarem (ou falharem). */
+/* ════════════════════════════════════════════════════════════════════
+   🖨️ PDF EXPORT
+   ════════════════════════════════════════════════════════════════════ */
 function pdfWaitForImages(root){
   const imgs = Array.prototype.slice.call(root.querySelectorAll('img'));
   return Promise.all(imgs.map(function(img){
@@ -763,8 +697,6 @@ function pdfWaitForImages(root){
     });
   }));
 }
-
-/* Dimensiona cada SVG do Mermaid para ocupar o máximo do contêiner */
 function fitMermaidSvgs(root){
   root.querySelectorAll('.mermaid-flux').forEach(function(holder){
     const svg = holder.querySelector('svg');
@@ -774,33 +706,22 @@ function fitMermaidSvgs(root){
     const w = holder.clientWidth, h = holder.clientHeight;
     if(!w || !h) return;
     const s = Math.min(w / vb.width, h / vb.height);
-    svg.style.maxWidth  = 'none';
-    svg.style.maxHeight = 'none';
+    svg.style.maxWidth  = 'none'; svg.style.maxHeight = 'none';
     svg.style.width  = (vb.width  * s) + 'px';
     svg.style.height = (vb.height * s) + 'px';
   });
 }
-
-/* Auto-fit de um slide via transform:scale (confiável na impressão). */
 function autoFitSlide(sl){
   const content = sl.querySelector('.slide-content');
-  if(!content) return; /* capa não tem .slide-content */
-
-  ['transform','transform-origin','width','height','margin-bottom','flex']
-    .forEach(function(p){ content.style.removeProperty(p); });
-  content.style.zoom = '';
-
+  if(!content) return;
+  ['transform','transform-origin','width','height','margin-bottom','flex'].forEach(function(p){ content.style.removeProperty(p); });
   const availW = content.clientWidth, availH = content.clientHeight;
-  if(availH < 80 || availW < 300) return; /* medição inválida — não escala */
-
+  if(availH < 80 || availW < 300) return;
   let s = 1;
   for(let i = 0; i < 4; i++){
     const needW = content.scrollWidth, needH = content.scrollHeight;
     if(needW <= content.clientWidth + 1 && needH <= content.clientHeight + 1) break;
-    s = Math.max(
-      s * Math.min(content.clientWidth / needW, content.clientHeight / needH) * 0.99,
-      0.5
-    );
+    s = Math.max(s * Math.min(content.clientWidth / needW, content.clientHeight / needH) * 0.99, 0.5);
     content.style.setProperty('flex', 'none', 'important');
     content.style.setProperty('transform-origin', '0 0', 'important');
     content.style.setProperty('transform', 'scale(' + s + ')', 'important');
@@ -810,86 +731,43 @@ function autoFitSlide(sl){
     if(s <= 0.5) break;
   }
 }
-
 async function printPDF(){
   const pc = document.getElementById('pc');
-  if(!pc || typeof H === 'undefined' || !H || !H.join){
-    console.error('[PDF] container #pc ou array de slides H não encontrado.');
-    window.print();
-    return;
-  }
-
   pc.innerHTML = H.join('');
-
-  /* Fundo de contornos nos slides internos. */
   try{
-    if(typeof CONTOUR_BG !== 'undefined' && CONTOUR_BG && CONTOUR_BG.generate){
-      let _bg = null;
-      if(typeof bgPrintCache !== 'undefined' && bgPrintCache) _bg = bgPrintCache;
-      if(!_bg){
-        _bg = CONTOUR_BG.generate(2245, 1588);
-        bgPrintCache = _bg;
-      }
-      pc.querySelectorAll('.slide:not(.slide-capa)').forEach(function(sl){
-        let bg = sl.querySelector('.slide-bg');
-        if(!bg){
-          bg = document.createElement('div');
-          bg.className = 'slide-bg';
-          sl.prepend(bg);
-        }
-        bg.style.backgroundImage = 'url(' + _bg + ')';
-        bg.style.backgroundSize  = 'cover';
-      });
-    }
-  }catch(e){ console.warn('[PDF] fundo de contornos:', e); }
-
-  /* Imagens que falharem não podem quebrar o layout. */
+    let _bg = bgPrintCache || CONTOUR_BG.generate(2245, 1588);
+    bgPrintCache = _bg;
+    pc.querySelectorAll('.slide:not(.slide-capa):not(.slide-capa-mestra):not(.slide-eixo)').forEach(function(sl){
+      let bg = sl.querySelector('.slide-bg') || document.createElement('div');
+      bg.className = 'slide-bg'; sl.prepend(bg);
+      bg.style.backgroundImage = 'url(' + _bg + ')'; bg.style.backgroundSize = 'cover';
+    });
+  }catch(e){}
+  
   pc.querySelectorAll('img').forEach(function(img){
     const kill = function(){ img.style.display = 'none'; };
     if(img.complete && img.naturalWidth === 0) kill();
     else img.addEventListener('error', kill, {once:true});
   });
 
-  /* 1) Posiciona no tamanho do papel ANTES de renderizar e medir. */
   pc.classList.add('print-fit');
+  pc.querySelectorAll('div[style*="min-width:860"], div[style*="min-width: 860"]').forEach(function(g){
+    g.classList.add('cv-grid'); if(g.parentElement) g.parentElement.classList.add('cv-scroll');
+  });
 
-  /* 2) Marca a grade da Cadeia de Valor para as regras cv-* do CSS */
-  pc.querySelectorAll('div[style*="min-width:860"], div[style*="min-width: 860"]')
-    .forEach(function(g){
-      g.classList.add('cv-grid');
-      if(g.parentElement) g.parentElement.classList.add('cv-scroll');
-    });
-
-  /* 3) Espera fontes e imagens carregarem. */
   try{ await document.fonts.ready; }catch(e){}
   await pdfWaitForImages(pc);
-
-  /* 4) Renderiza o Mermaid e maximiza os diagramas na página. */
-  try{
-    if(typeof renderMermaidIn === 'function') await renderMermaidIn(pc);
-  }catch(e){ console.warn('[PDF] mermaid:', e); }
-  await new Promise(function(r){
-    requestAnimationFrame(function(){ requestAnimationFrame(r); });
-  });
+  try{ if(typeof renderMermaidIn === 'function') await renderMermaidIn(pc); }catch(e){}
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
   fitMermaidSvgs(pc);
-
-  /* 5) Auto-fit de cada slide — transform, nunca zoom. */
   pc.querySelectorAll('.slide').forEach(autoFitSlide);
-  await new Promise(function(r){ requestAnimationFrame(r); });
-
+  await new Promise(r => requestAnimationFrame(r));
   window.print();
-
-  /* Limpeza: volta tudo ao estado normal. */
   pc.classList.remove('print-fit');
-  pc.querySelectorAll('.slide-content').forEach(function(c){
-    ['transform','transform-origin','width','height','margin-bottom','flex']
-      .forEach(function(p){ c.style.removeProperty(p); });
-    c.style.zoom = '';
-  });
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   🎯 INTERAÇÃO
+   🚀 INIT E EVENTOS GERAIS
    ════════════════════════════════════════════════════════════════════ */
 window.onload = async () => {
   const ok = await init();
@@ -903,9 +781,9 @@ window.onload = async () => {
   document.getElementById('so').addEventListener('click', closeSidebar);
 
   const sc = document.getElementById('sc');
-
-  // ─── DESKTOP: click pra avançar (>900px) ───
   let pressStart = null;
+  
+  // Desktop Click
   sc.addEventListener('mousedown', e => {
     if(e.target.closest('.slide-stepper, .step-item, .mermaid-flux')) { pressStart = null; return; }
     pressStart = { x: e.clientX, y: e.clientY, t: Date.now(), scrollTop: sc.scrollTop };
@@ -921,13 +799,17 @@ window.onload = async () => {
     if(dx < 8 && dy < 8 && dScroll < 5 && dt < 400 && window.innerWidth > 900) next();
   });
 
-  // ─── MOBILE: só swipe horizontal troca slide ───
+  // Mobile Swipe Fix
   let tStart = null;
   let isHSwipe = false;
-
   sc.addEventListener('touchstart', e => {
     if(e.touches.length > 1){ tStart = null; return; }
-    if(e.target.closest('.slide-stepper, .step-item, .mermaid-flux')){ tStart = null; return; }
+    
+    // NOVO: Adicionado verificação de rolagem (Cadeia de Valor) para não trocar slide sem querer
+    if(e.target.closest('.slide-stepper, .step-item, .mermaid-flux, [style*="overflow"], .cv-grid, .company-list, .cv-scroll')){ 
+      tStart = null; return; 
+    }
+    
     const t = e.touches[0];
     tStart = { x: t.screenX, y: t.screenY, scrollTop: sc.scrollTop };
     isHSwipe = false;
@@ -935,42 +817,24 @@ window.onload = async () => {
 
   sc.addEventListener('touchmove', e => {
     if(!tStart || e.touches.length > 1) return;
-    const t = e.touches[0];
-    const dx = t.screenX - tStart.x;
-    const dy = t.screenY - tStart.y;
-    if(!isHSwipe && Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy) * 1.8){
-      isHSwipe = true;
-    }
+    const dx = e.touches[0].screenX - tStart.x;
+    const dy = e.touches[0].screenY - tStart.y;
+    if(!isHSwipe && Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy) * 1.8) isHSwipe = true;
   }, { passive: true });
 
   sc.addEventListener('touchend', e => {
     if(!tStart) return;
-    const t = e.changedTouches[0];
-    const dx = t.screenX - tStart.x;
-    const ady = Math.abs(t.screenY - tStart.y);
-    const adx = Math.abs(dx);
+    const dx = e.changedTouches[0].screenX - tStart.x;
+    const adx = Math.abs(dx), ady = Math.abs(e.changedTouches[0].screenY - tStart.y);
     const dScroll = Math.abs(sc.scrollTop - tStart.scrollTop);
     const wasHSwipe = isHSwipe;
     tStart = null;
-
     if(wasHSwipe && adx > 60 && adx > ady * 2 && dScroll < 10){
       dx < 0 ? next() : prev();
     }
   }, { passive: true });
 
-  // ─── Resize ───
-  let rt, lastW = window.innerWidth;
-  window.addEventListener('resize', () => {
-    clearTimeout(rt);
-    rt = setTimeout(() => {
-      const dw = Math.abs(window.innerWidth - lastW);
-      if(dw > 200){
-        bgCache = null;
-        lastW = window.innerWidth;
-        injectBg();
-      }
-    }, 400);
-  });
+  window.addEventListener('resize', () => { bgCache = null; injectBg(); });
 };
 
 document.addEventListener('keydown', e => {
