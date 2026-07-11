@@ -529,11 +529,18 @@ function buildSlides(){
   
   // 1. Capa Mestra (Início da Apresentação)
   H_objs.push({
-    html: `<div class="slide slide-capa-mestra">
-             <div class="mestre-content">
-               <h1>Minerais Estratégicos</h1>
-               <p>Cadeias Produtivas e Geopolítica</p>
+html: `<div class="slide slide-capa-mestra">
+             <div class="mestre-bg-decor"></div>
+             <div class="mestre-glass-card">
+               <div class="mestre-tag">SNGM · PANORAMA GEOCONÔMICO</div>
+               <h1>Minerais<br>Estratégicos</h1>
+               <div class="mestre-divider"></div>
+               <p>Cadeias Produtivas, Geopolítica e a Posição do Brasil nos Fluxos Globais de Suprimento</p>
              </div>
+             <div class="mestre-gov-logo">
+               Ministério de<br>Minas e Energia<br><span class="gov">Governo Federal</span>
+             </div>
+             <div class="capa-footer-bar"></div>
            </div>`,
     cM: -1, cS: -1
   });
@@ -544,11 +551,14 @@ function buildSlides(){
     if(m.eixo && m.eixo !== currentEixo){
       currentEixo = m.eixo;
       H_objs.push({
-        html: `<div class="slide slide-eixo">
-                 <div class="eixo-content">
-                   <h2>Eixo Temático</h2>
+html: `<div class="slide slide-eixo">
+                 <div class="eixo-bg-decor"></div>
+                 <div class="eixo-glass-card">
+                   <div class="eixo-subtitle">Eixo Temático Estratégico</div>
                    <h1>${currentEixo}</h1>
+                   <div class="eixo-indicator">Avançar para os minerais mapeados ➔</div>
                  </div>
+                 <div class="capa-footer-bar"></div>
                </div>`,
         cM: -1, cS: -1
       });
