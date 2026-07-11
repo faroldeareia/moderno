@@ -39,17 +39,16 @@
 
   --sidebar-w:     290px;
 
-  --glass-bg:       rgba(255,255,255,0.3);
-  --glass-blur:     blur(14px) saturate(160%);
-  --glass-border:   1px solid rgba(255,255,255,0.5);
+  --glass-bg:      rgba(255,255,255,0.3);
+  --glass-blur:    blur(14px) saturate(160%);
+  --glass-border:  1px solid rgba(255,255,255,0.5);
 
-  --emp-photo-h: 320px;
+  --emp-photo-h:   320px;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%}
 html{
-  /* importante: deixa o html scrollar mas body fixo no desktop */
   overflow:hidden;
 }
 body{
@@ -122,7 +121,7 @@ body{
 }
 .mineral-item.active .mineral-symbol{background:rgba(0,0,0,.28)}
 
-/* ─── ACCORDION (mineral expande os 7 sub-itens) ─── */
+/* ─── ACCORDION ─── */
 .mineral-group{margin-bottom:3px;border-radius:9px}
 .mineral-row{
   display:flex;align-items:stretch;gap:2px;
@@ -235,7 +234,7 @@ body{
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   📜 VIEWER + SLIDE — desktop trava em 100vh, mobile rola livre
+   📜 VIEWER + SLIDE
    ════════════════════════════════════════════════════════════════════ */
 .viewer{
   position:fixed;inset:0;
@@ -256,7 +255,7 @@ body{
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .slide{animation:fadeIn .25s ease}
 .slide-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
-.slide:not(.slide-capa)>*:not(.slide-bg){position:relative;z-index:1}
+.slide:not(.slide-capa):not(.slide-capa-mestra):not(.slide-eixo)>*:not(.slide-bg){position:relative;z-index:1}
 
 /* ─── HEADER ─── */
 .slide-header{
@@ -327,7 +326,41 @@ body{
   text-align:center;padding:10px;
 }
 
-/* ─── CAPA — usa <img> real para podermos ter fallback ─── */
+/* ─── CAPAS ESPECIAIS (MESTRA E EIXO) ─── */
+.slide-capa-mestra, .slide-eixo {
+  background: linear-gradient(135deg, #1a1a2e, #0f0f23);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  flex-direction: column;
+}
+.mestre-content, .eixo-content {
+  padding: 0 20px;
+}
+.mestre-content h1, .eixo-content h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--orange);
+  line-height: 1.1;
+}
+.mestre-content p {
+  font-size: var(--fs-xl);
+  color: rgba(255,255,255,0.7);
+}
+.eixo-content h2 {
+  font-size: var(--fs-md);
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+/* ─── CAPA DO MINERAL ─── */
 .slide-capa{padding:0;background:#1a1a2e;position:relative}
 .capa-photo-wrapper{
   position:absolute;inset:0;overflow:hidden;background:#2a2a3e;
@@ -403,7 +436,6 @@ body{
 /* ─── S3 NÚMEROS ─── */
 .grid-pizza{display:grid;grid-template-columns:1.1fr 0.9fr;gap:var(--gap-cards);height:100%;min-height:0}
 .pie-wrapper{display:flex;align-items:center;gap:22px;flex:1;min-height:0}
-/* .pie-container agora é um <svg> (vetorial) — nítido na tela e no PDF */
 .pie-container{
   width:180px;height:180px;border-radius:50%;
   box-shadow:0 3px 10px rgba(0,0,0,.1);
@@ -462,9 +494,7 @@ body{
 .img-placeholder .title{font-family:var(--font-display);font-size:var(--fs-xl);color:var(--gray);margin-bottom:6px}
 .img-placeholder .hint{font-size:var(--fs-sm);font-weight:400;color:#aaa}
 
-/* ════════════════════════════════════════════════════════════════════
-   📍 STEPPER — abas dos 7 temas, dentro do slide
-   ════════════════════════════════════════════════════════════════════ */
+/* ─── STEPPER ─── */
 .slide-stepper{
   display:flex;align-items:center;justify-content:center;gap:6px;
   padding:8px var(--pad-slide-x) 8px 76px;
@@ -503,13 +533,8 @@ body{
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   📱 MOBILE — slide cresce livremente, viewer rola
-   IMPORTANTE: todas as regras de slide são escopadas em #sc (a tela).
-   O container de impressão #pc NUNCA pode ser afetado por media queries
-   de largura de janela — era isso que corrompia a medição do PDF quando
-   a janela estava estreita na hora de exportar.
+   📱 MOBILE
    ════════════════════════════════════════════════════════════════════ */
-
 @media(max-width:900px){
   :root{
     --sidebar-w:280px;
@@ -523,10 +548,7 @@ body{
     --emp-photo-h:160px;
   }
 
-  /* ── FIX SCROLL: viewer vira block no mobile (some o flex que travava) ── */
-  .viewer{
-    display:block;
-  }
+  .viewer{ display:block; }
 
   #sc .slide{
     height:auto !important;
@@ -535,24 +557,19 @@ body{
     flex-direction:column;
   }
 
-  /* ── FIX SOBREPOSIÇÃO: força altura automática em todos os containers ── */
   #sc .slide-content, #sc .s2-layout, #sc .grid-pizza, #sc .grid-4{
     height:auto !important;
     min-height:auto !important;
     overflow:visible;
   }
 
-  #sc .slide-content{
-    flex-direction:column;
-    flex:none;
-  }
+  #sc .slide-content{ flex-direction:column; flex:none; }
   #sc .slide-header{padding:14px 18px 10px 70px}
   #sc .slide-footer{padding:8px 18px 8px 70px}
   #sc .header-logo{display:none}
   #sc .header-title{font-size:var(--fs-xl)}
   #sc .header-subtitle{font-size:var(--fs-xs)}
 
-  /* Stepper vira só dots no mobile */
   #sc .slide-stepper{
     padding:9px 14px 8px;
     gap:4px;
@@ -572,10 +589,6 @@ body{
     box-shadow:0 0 0 3px var(--orange-fill);
   }
 
-  /* Capa em mobile: foto no topo + glass card sobreposto descendo
-     IMPORTANTE: .slide-capa não vira flex porque ele já é position:relative
-     e os filhos se posicionam por margin/relative — mantemos a estrutura
-     do desktop, só trocando absolute por relative. */
   #sc .slide-capa{
     height:auto !important;
     min-height:0 !important;
@@ -597,7 +610,6 @@ body{
     display:block;
   }
 
-  /* Cards / colunas */
   #sc .s2-layout{flex-direction:column}
   #sc .s2-col{flex:none}
   #sc .card, #sc .card-highlight{flex:none !important}
@@ -607,21 +619,14 @@ body{
   #sc .pos-item{padding:11px 8px}
   #sc .pos-val{font-size:20px}
 
-  /* Pie chart: empilha vertical */
   #sc .pie-wrapper{flex-direction:column;gap:14px;align-items:stretch}
   #sc .pie-container{width:140px;height:140px;margin:0 auto}
   #sc .pie-legend-box{font-size:var(--fs-sm)}
 
-  /* Listas: sem scroll, mostra tudo */
   #sc .company-list{overflow-y:visible;max-height:none}
-
-  /* Slides de imagem: altura mínima decente */
   #sc .img-placeholder{min-height:50vh;min-height:50dvh}
-
-  /* Empreendimento card */
   #sc .emp-photo, #sc .emp-photo-fallback{height:var(--emp-photo-h)}
 
-  /* Nav controls discretos */
   .nav-controls{
     bottom:10px;right:10px;padding:4px;gap:3px;
     background:rgba(0,0,0,.55);backdrop-filter:blur(10px);
@@ -691,17 +696,33 @@ body{
   #sc .pos-val{font-size:17px}
 }
 
-/* ─── PRINT ─── */
+/* ════════════════════════════════════════════════════════════════════
+   🖨️ PRINT
+   ════════════════════════════════════════════════════════════════════ */
 @media print{
   *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  
+  /* Esconde os controles */
   .hamburger,.sidebar,.sidebar-overlay,.nav-controls,.slide-stepper{display:none!important}
+  
+  /* CORREÇÃO DO OCR NO PDF: Remove o backdrop-filter das capas para não virar imagem */
+  .capa-glass {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: none !important;
+  }
+  
+  /* Correções de layout gerais para o Print */
   body,html{overflow:visible!important;height:auto!important}
   .viewer{position:relative!important;display:block!important;cursor:auto!important;overflow:visible!important}
+  
+  /* Garante que tabelas com scroll fiquem 100% vísiveis no papel */
+  .cv-scroll, [style*="overflow"] { overflow: visible !important; }
+
   #sc{display:none!important}
   #pc{display:block!important}
   .slide{
-    /* 209.9mm (e não 210mm): meio pixel de folga mata o vazamento da
-       barra da capa para o topo da página seguinte (arredondamento mm→px) */
     width:297mm!important;height:209.9mm!important;
     page-break-after:always;page-break-inside:avoid;
     overflow:hidden!important;animation:none!important;
@@ -717,23 +738,14 @@ body{
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   🖨️ MODO IMPRESSÃO (AUTO-FIT)
-   O printPDF() adiciona a classe .print-fit no #pc: o container é
-   posicionado fora da tela JÁ nas dimensões do papel (A4 paisagem
-   ≈ 1122×794 px @96dpi), permitindo medir cada slide.
-   O ajuste de escala agora é feito via transform:scale() (inline, pelo
-   JS) — o antigo `zoom` era aplicado de forma inconsistente pelo
-   Chromium na impressão (layout numa largura, pintura noutra), o que
-   estourava o conteúdo horizontalmente no PDF.
+   🖨️ MODO IMPRESSÃO (AUTO-FIT ENGINE)
    ════════════════════════════════════════════════════════════════════ */
 @media screen{
-  /* segurança: #pc nunca aparece na tela fora do modo de medição */
   #pc:not(.print-fit){display:none}
 
   #pc.print-fit{
     display:block!important;
     position:fixed;left:-99999px;top:0;width:1122px;
-    /* trava tokens de desktop mesmo se a janela estiver estreita */
     --pad-slide-x:56px;--pad-slide-y:18px;--pad-card:18px;--gap-cards:14px;
     --fs-2xl:25px;--fs-xl:21px;--fs-hero:57px;--emp-photo-h:320px;
   }
@@ -755,9 +767,7 @@ body{
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   🖨️ COMPACTAÇÃO "Visão Geral" — escopada em #pc (só existe na
-   impressão/medição, nunca afeta a tela). Reduz o slide 2 para que
-   o auto-fit raramente precise aplicar escala.
+   🖨️ COMPACTAÇÃO DE VISÃO GERAL, CADEIA DE VALOR E FLUXOGRAMA NO PDF
    ════════════════════════════════════════════════════════════════════ */
 #pc .slide:has(.s2-layout) .slide-content{padding-top:8px;padding-bottom:8px;gap:10px}
 #pc .slide:has(.s2-layout) .s2-col{gap:10px}
@@ -775,26 +785,11 @@ body{
 #pc .slide:has(.s2-layout) .gap-label{font-size:11px;width:75px}
 #pc .slide:has(.s2-layout) .gap-val{font-size:11px;width:42px}
 
-/* ════════════════════════════════════════════════════════════════════
-   🖨️ CADEIA DE VALOR na impressão — no papel não existe rolagem:
-   a matriz precisa CABER na largura da página. Zera o min-width da
-   grade e deixa as células quebrarem linha.
-   ════════════════════════════════════════════════════════════════════ */
 #pc .cv-scroll{overflow:hidden!important}
 #pc .cv-grid{min-width:0!important}
 #pc .cv-grid > div{min-width:0}
 
-/* ════════════════════════════════════════════════════════════════════
-   🖨️ FLUXOGRAMA na impressão — maximiza a área útil do diagrama.
-   O tamanho final do SVG é fixado pelo fitMermaidSvgs() no app.js.
-   ════════════════════════════════════════════════════════════════════ */
 #pc .slide:has(.mermaid-flux) .slide-content{padding:10px 20px}
 #pc .slide:has(.mermaid-flux) .card{padding:8px 12px}
 #pc .slide:has(.mermaid-flux) .card-badge{margin-bottom:6px;padding-bottom:4px}
 #pc .mermaid-flux{min-height:0!important;overflow:hidden!important}
-
-/* Opcional: para remover a foto do empreendimento SÓ no PDF,
-   descomente o bloco abaixo (ganha ~120px de altura no slide 2):
-#pc .slide:has(.s2-layout) .emp-photo,
-#pc .slide:has(.s2-layout) .emp-photo-fallback{display:none}
-*/
