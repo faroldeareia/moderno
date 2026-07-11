@@ -304,12 +304,13 @@ body{
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   💎 NOVAS CAPAS INSTITUCIONAIS (MESTRA E EIXO TEMÁTICO)
+   💎 NOVAS CAPAS INSTITUCIONAIS (MESTRA E EIXO TEMÁTICO) - CORRIGIDO
    ════════════════════════════════════════════════════════════════════ */
 .slide-capa-mestra, .slide-eixo {
   background: radial-gradient(circle at 80% 20%, #1e1e38 0%, #0c0c19 100%);
   display: flex;
-  align-items: center;
+  flex-direction: row !important; /* CORREÇÃO: Garante o alinhamento central na vertical */
+  align-items: center;            /* Centraliza verticalmente o card na tela */
   position: relative;
   overflow: hidden;
   width: 100vw;
@@ -318,7 +319,7 @@ body{
 
 /* --- CAPA MESTRA GERAL --- */
 .slide-capa-mestra {
-  justify-content: flex-start;
+  justify-content: flex-start;    /* Empurra o card para a esquerda */
   padding-left: 8.5%;
 }
 
