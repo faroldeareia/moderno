@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════════════
-   🎨 DESIGN TOKENS
+   🎨 DESIGN TOKENS E BASE
    ════════════════════════════════════════════════════════════════════ */
 :root {
   --font-main: "Twemoji Country Flags", 'DM Sans', system-ui, sans-serif;
@@ -48,9 +48,7 @@
 
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%}
-html{
-  overflow:hidden;
-}
+html{ overflow:hidden; }
 body{
   font-family:var(--font-main);
   font-size:var(--fs-base);
@@ -59,7 +57,9 @@ body{
   overflow:hidden;
 }
 
-/* ─── HAMBURGER ─── */
+/* ════════════════════════════════════════════════════════════════════
+   UI FIXA: MENU, SIDEBAR E NAVEGAÇÃO
+   ════════════════════════════════════════════════════════════════════ */
 .hamburger{
   position:fixed;top:18px;left:18px;z-index:1000;
   width:44px;height:44px;border-radius:10px;
@@ -73,7 +73,6 @@ body{
 .hamburger.active span:nth-child(2){opacity:0}
 .hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* ─── SIDEBAR ─── */
 .sidebar{
   position:fixed;top:0;left:0;height:100vh;height:100dvh;width:var(--sidebar-w);
   background:linear-gradient(180deg,#0f0f23,#1a1a2e);
@@ -121,16 +120,13 @@ body{
 }
 .mineral-item.active .mineral-symbol{background:rgba(0,0,0,.28)}
 
-/* ─── ACCORDION ─── */
 .mineral-group{margin-bottom:3px;border-radius:9px}
 .mineral-row{
   display:flex;align-items:stretch;gap:2px;
   border-radius:9px;
   position:relative;
 }
-.mineral-row .mineral-item{
-  flex:1;margin-bottom:0;
-}
+.mineral-row .mineral-item{ flex:1;margin-bottom:0; }
 .mineral-chevron-btn{
   flex-shrink:0;width:34px;
   background:rgba(255,255,255,.04);
@@ -140,22 +136,10 @@ body{
   transition:.18s;
   padding:0;
 }
-.mineral-chevron-btn:hover{
-  background:rgba(255,255,255,.14);
-  color:#fff;
-}
-.mineral-item.active + .mineral-chevron-btn{
-  background:rgba(0,0,0,.20);
-  color:#fff;
-}
-.mineral-item.active + .mineral-chevron-btn:hover{
-  background:rgba(0,0,0,.32);
-}
-.mineral-chevron{
-  font-size:13px;
-  display:inline-block;line-height:1;
-  transition:transform .25s;
-}
+.mineral-chevron-btn:hover{ background:rgba(255,255,255,.14); color:#fff; }
+.mineral-item.active + .mineral-chevron-btn{ background:rgba(0,0,0,.20); color:#fff; }
+.mineral-item.active + .mineral-chevron-btn:hover{ background:rgba(0,0,0,.32); }
+.mineral-chevron{ font-size:13px; display:inline-block;line-height:1; transition:transform .25s; }
 .mineral-group.open .mineral-chevron{transform:rotate(180deg)}
 
 .mineral-subs{
@@ -164,10 +148,7 @@ body{
   display:flex;flex-direction:column;gap:1px;
   padding:0 6px 0 14px;
 }
-.mineral-group.open .mineral-subs{
-  max-height:500px;
-  padding-top:5px;padding-bottom:8px;
-}
+.mineral-group.open .mineral-subs{ max-height:500px; padding-top:5px;padding-bottom:8px; }
 
 .mineral-sub-item{
   display:flex;align-items:center;gap:10px;
@@ -215,7 +196,6 @@ body{
 }
 .sidebar-overlay.active{opacity:1;pointer-events:auto}
 
-/* ─── NAV CONTROLS ─── */
 .nav-controls{
   position:fixed;bottom:18px;right:18px;z-index:500;
   display:flex;align-items:center;gap:8px;
@@ -234,7 +214,7 @@ body{
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   📜 VIEWER + SLIDE
+   SLIDES (VIEWER) E CONTEÚDO COMUM
    ════════════════════════════════════════════════════════════════════ */
 .viewer{
   position:fixed;inset:0;
@@ -257,7 +237,6 @@ body{
 .slide-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
 .slide:not(.slide-capa):not(.slide-capa-mestra):not(.slide-eixo)>*:not(.slide-bg){position:relative;z-index:1}
 
-/* ─── HEADER ─── */
 .slide-header{
   padding:18px var(--pad-slide-x) 14px 76px;
   display:flex;justify-content:space-between;align-items:center;
@@ -285,7 +264,6 @@ body{
   min-height:0;
 }
 
-/* ─── CARDS ─── */
 .card{
   background:var(--bg-card);border:1px solid #E5E3DF;border-radius:var(--radius);
   padding:var(--pad-card);display:flex;flex-direction:column;
@@ -305,7 +283,6 @@ body{
 .card-highlight .card-badge{color:var(--dark);border-color:var(--dark)}
 .text-body{font-size:var(--fs-md);line-height:1.55;color:var(--dark)}
 
-/* ─── FOTO EMPREENDIMENTO ─── */
 .emp-photo{
   width:100%;height:var(--emp-photo-h);
   object-fit:cover;
@@ -326,41 +303,158 @@ body{
   text-align:center;padding:10px;
 }
 
-/* ─── CAPAS ESPECIAIS (MESTRA E EIXO) ─── */
+/* ════════════════════════════════════════════════════════════════════
+   💎 NOVAS CAPAS INSTITUCIONAIS (MESTRA E EIXO TEMÁTICO)
+   ════════════════════════════════════════════════════════════════════ */
 .slide-capa-mestra, .slide-eixo {
-  background: linear-gradient(135deg, #1a1a2e, #0f0f23);
+  background: radial-gradient(circle at 80% 20%, #1e1e38 0%, #0c0c19 100%);
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* --- CAPA MESTRA GERAL --- */
+.slide-capa-mestra {
+  justify-content: flex-start;
+  padding-left: 8.5%;
+}
+
+.mestre-bg-decor {
+  position: absolute;
+  right: -10%; top: -20%;
+  width: 70vw; height: 70vw;
+  background: radial-gradient(circle, rgba(232, 146, 13, 0.12) 0%, rgba(21, 101, 192, 0.03) 70%, transparent 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.mestre-glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 5px solid var(--orange);
+  border-radius: 24px;
+  padding: 56px 64px;
+  max-width: 680px;
+  width: min(85vw, 680px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.4s ease-out;
+  z-index: 2;
+}
+
+.mestre-tag {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--orange);
+  letter-spacing: 2.5px;
+  margin-bottom: 24px;
+}
+
+.mestre-glass-card h1 {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1.05;
+  color: #ffffff;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+}
+
+.mestre-divider {
+  width: 80px; height: 4px;
+  background: #ffffff;
+  opacity: 0.2;
+  margin-bottom: 28px;
+}
+
+.mestre-glass-card p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
+}
+
+.mestre-gov-logo {
+  position: absolute;
+  right: 56px; bottom: 44px;
+  color: rgba(255,255,255,0.8);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  line-height: 1.4;
+  text-align: right;
+  z-index: 2;
+}
+.mestre-gov-logo .gov { color: #64b5f6; font-weight: 800; }
+
+/* --- CONTRA-CAPAS DE EIXO --- */
+.slide-eixo {
   justify-content: center;
   text-align: center;
-  color: #fff;
-  flex-direction: column;
 }
-.mestre-content, .eixo-content {
-  padding: 0 20px;
+
+.eixo-bg-decor {
+  position: absolute;
+  left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 90vw; height: 40vh;
+  background: radial-gradient(ellipse, rgba(21, 101, 192, 0.08) 0%, transparent 75%);
+  pointer-events: none;
 }
-.mestre-content h1, .eixo-content h1 {
-  font-family: var(--font-display);
-  font-size: var(--fs-hero);
-  font-weight: 800;
-  margin-bottom: 16px;
-  color: var(--orange);
-  line-height: 1.1;
+
+.eixo-glass-card {
+  background: rgba(15, 15, 35, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 28px;
+  padding: 60px 80px;
+  max-width: 800px;
+  width: min(90vw, 800px);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+  z-index: 2;
 }
-.mestre-content p {
-  font-size: var(--fs-xl);
-  color: rgba(255,255,255,0.7);
-}
-.eixo-content h2 {
-  font-size: var(--fs-md);
-  color: var(--gray);
+
+.eixo-subtitle {
+  font-size: var(--fs-sm);
+  color: rgba(255,255,255,0.4);
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
   font-weight: 700;
 }
 
-/* ─── CAPA DO MINERAL ─── */
+.eixo-glass-card h1 {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 800;
+  color: var(--orange);
+  line-height: 1.15;
+  margin-bottom: 32px;
+}
+
+.eixo-indicator {
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translateX(0); opacity: 0.4; }
+  50% { transform: translateX(4px); opacity: 0.8; }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   CAPA INDIVIDUAL DO MINERAL
+   ════════════════════════════════════════════════════════════════════ */
 .slide-capa{padding:0;background:#1a1a2e;position:relative}
 .capa-photo-wrapper{
   position:absolute;inset:0;overflow:hidden;background:#2a2a3e;
@@ -416,7 +510,9 @@ body{
   background:linear-gradient(90deg,var(--br-green),var(--br-yellow),var(--br-blue));
 }
 
-/* ─── S2 VISÃO GERAL ─── */
+/* ════════════════════════════════════════════════════════════════════
+   GRIDS E CONTEÚDOS DE DADOS (VISÃO GERAL, NÚMEROS, ETC)
+   ════════════════════════════════════════════════════════════════════ */
 .s2-layout{display:flex;gap:var(--gap-cards);width:100%;height:100%;min-height:0}
 .s2-col{flex:1;display:flex;flex-direction:column;gap:var(--gap-cards);min-height:0}
 .pos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -433,7 +529,6 @@ body{
 .gap-bar-fill.leader-fill{background:var(--gray)}
 .gap-val{width:55px;font-size:var(--fs-sm);font-weight:700}
 
-/* ─── S3 NÚMEROS ─── */
 .grid-pizza{display:grid;grid-template-columns:1.1fr 0.9fr;gap:var(--gap-cards);height:100%;min-height:0}
 .pie-wrapper{display:flex;align-items:center;gap:22px;flex:1;min-height:0}
 .pie-container{
@@ -468,7 +563,6 @@ body{
 .transf-bar-fill.is-br{background:var(--orange)}
 .transf-bar-fill.is-other{background:#888}
 
-/* ─── S5 CADEIA GLOBAL ─── */
 .grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1.4fr;gap:var(--gap-cards);height:100%;min-height:0}
 .company-list{list-style:none;overflow-y:auto;flex:1}
 .company-list::-webkit-scrollbar{width:4px}
@@ -481,7 +575,6 @@ body{
 .c-title{font-weight:700;color:var(--dark)}
 .c-meta{color:var(--light);font-size:var(--fs-xs)}
 
-/* ─── PLACEHOLDER IMG ─── */
 .img-placeholder{
   flex:1;background:#fff;border:2px dashed #D5D3CF;border-radius:var(--radius);
   display:flex;align-items:center;justify-content:center;
@@ -494,7 +587,9 @@ body{
 .img-placeholder .title{font-family:var(--font-display);font-size:var(--fs-xl);color:var(--gray);margin-bottom:6px}
 .img-placeholder .hint{font-size:var(--fs-sm);font-weight:400;color:#aaa}
 
-/* ─── STEPPER ─── */
+/* ════════════════════════════════════════════════════════════════════
+   STEPPER DE NAVEGAÇÃO INTERNA DO SLIDE
+   ════════════════════════════════════════════════════════════════════ */
 .slide-stepper{
   display:flex;align-items:center;justify-content:center;gap:6px;
   padding:8px var(--pad-slide-x) 8px 76px;
@@ -533,7 +628,7 @@ body{
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   📱 MOBILE
+   📱 MOBILE (RESPONSIVIDADE GERAL E DAS NOVAS CAPAS)
    ════════════════════════════════════════════════════════════════════ */
 @media(max-width:900px){
   :root{
@@ -589,6 +684,33 @@ body{
     box-shadow:0 0 0 3px var(--orange-fill);
   }
 
+  /* Capas Executivas Mobile */
+  .slide-capa-mestra {
+    padding: 0 24px;
+    justify-content: center;
+    align-items: center;
+  }
+  .mestre-glass-card {
+    padding: 38px 32px;
+    border-left: none;
+    border-top: 4px solid var(--orange);
+    text-align: center;
+  }
+  .mestre-glass-card h1 { font-size: 38px; }
+  .mestre-divider { margin: 0 auto 20px; }
+  .mestre-glass-card p { font-size: var(--fs-sm); }
+  .mestre-gov-logo {
+    position: relative;
+    right: auto; bottom: auto;
+    margin-top: 32px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .eixo-glass-card { padding: 40px 24px; margin: 0 16px; }
+  .eixo-glass-card h1 { font-size: 32px; }
+
+  /* Capa do Mineral Mobile */
   #sc .slide-capa{
     height:auto !important;
     min-height:0 !important;
@@ -610,6 +732,7 @@ body{
     display:block;
   }
 
+  /* Grids Mobile */
   #sc .s2-layout{flex-direction:column}
   #sc .s2-col{flex:none}
   #sc .card, #sc .card-highlight{flex:none !important}
@@ -683,41 +806,47 @@ body{
 }
 
 @media(max-width:380px){
-  :root{
-    --pad-slide-x:12px;
-    --fs-hero:26px;
-    --fs-2xl:16px;
-  }
+  :root{ --pad-slide-x:12px; --fs-hero:26px; --fs-2xl:16px; }
   #sc .slide-header{padding:10px 12px 8px 60px}
   #sc .header-title{font-size:14px}
   #sc .header-subtitle{font-size:10px}
   #sc .header-symbol{padding:4px 9px;font-size:11px}
   #sc .capa-glass h1{font-size:24px}
   #sc .pos-val{font-size:17px}
+  .mestre-glass-card h1 { font-size: 32px; }
+  .eixo-glass-card h1 { font-size: 26px; }
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   🖨️ PRINT
+   🖨️ PRINT MEDIA - CORREÇÃO DO OCR NO PDF E A4
    ════════════════════════════════════════════════════════════════════ */
 @media print{
   *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
   
-  /* Esconde os controles */
+  /* Esconde controles */
   .hamburger,.sidebar,.sidebar-overlay,.nav-controls,.slide-stepper{display:none!important}
   
-  /* CORREÇÃO DO OCR NO PDF: Remove o backdrop-filter das capas para não virar imagem */
-  .capa-glass {
+  /* CORREÇÃO DO OCR: Remove o backdrop-filter das capas para não virar imagem. 
+     Usa fallbacks de cor sólida elegantes. */
+  .capa-glass, .mestre-glass-card, .eixo-glass-card {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    background: rgba(255, 255, 255, 0.95) !important;
     box-shadow: none !important;
   }
+  .capa-glass {
+    background: rgba(255, 255, 255, 0.95) !important;
+  }
+  .mestre-glass-card, .eixo-glass-card {
+    background: rgba(30, 30, 56, 0.95) !important;
+    border: 1px solid #444 !important;
+  }
   
-  /* Correções de layout gerais para o Print */
+  /* Oculta o botão piscante "Avançar" no PDF */
+  .eixo-indicator { display: none !important; }
+  
+  /* Correções gerais de overflow */
   body,html{overflow:visible!important;height:auto!important}
   .viewer{position:relative!important;display:block!important;cursor:auto!important;overflow:visible!important}
-  
-  /* Garante que tabelas com scroll fiquem 100% vísiveis no papel */
   .cv-scroll, [style*="overflow"] { overflow: visible !important; }
 
   #sc{display:none!important}
@@ -738,7 +867,7 @@ body{
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   🖨️ MODO IMPRESSÃO (AUTO-FIT ENGINE)
+   🖨️ MODO IMPRESSÃO (AUTO-FIT ENGINE NO JAVASCRIPT)
    ════════════════════════════════════════════════════════════════════ */
 @media screen{
   #pc:not(.print-fit){display:none}
@@ -767,7 +896,7 @@ body{
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   🖨️ COMPACTAÇÃO DE VISÃO GERAL, CADEIA DE VALOR E FLUXOGRAMA NO PDF
+   🖨️ COMPACTAÇÃO E ENCAIXE PARA O PDF
    ════════════════════════════════════════════════════════════════════ */
 #pc .slide:has(.s2-layout) .slide-content{padding-top:8px;padding-bottom:8px;gap:10px}
 #pc .slide:has(.s2-layout) .s2-col{gap:10px}
