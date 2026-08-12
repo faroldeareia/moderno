@@ -275,7 +275,7 @@ const FORMATOS = ['.ogg', '.mp3', '.wav'];
    `quebrada`), então dá para deixar sobrando: hoje há duas, e o dia em que
    a trilha5.ogg aparecer na pasta ela entra sem tocar em código. */
 const TRILHAS = Array.from({length:12}, (_,i) => 'audio/trilha' + (i+1));
-const VOLUME_TRILHA = 0.40;
+const VOLUME_TRILHA = 0.30;
 
 const SONS = {
 passarTurno:   ['audio/turno',         0.797],
