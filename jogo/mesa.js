@@ -278,21 +278,21 @@ const TRILHAS = Array.from({length:12}, (_,i) => 'audio/trilha' + (i+1));
 const VOLUME_TRILHA = 0.40;
 
 const SONS = {
-  passarTurno:   ['audio/turno',         1.55],
-  jogarCarta:    ['audio/extrair',       1.60],
-  refinar:       ['audio/refinar',       1.60],
-  forjarLiga:    ['audio/forjar',        1.70],
-  atacarCarta:   ['audio/ataque-carta',  1.60],
-  atacarHeroi:   ['audio/ataque-escudo', 1.70],
-  fimPartida:    ['audio/fim',           1.75],
-  tempoAcabando: ['audio/tempo',         1.50],
-  comprarCarta:  ['audio/comprar',       1.35],
-  cartaEsgotada: ['audio/esgotou',       1.55],
-  ligaDisponivel:['audio/liga-pronta',   1.45],
-  especulacao:   ['audio/especulacao',   1.55],
-  exaustao:      ['audio/exaustao',      1.60],
-  jogadaInvalida:['audio/nao',           1.40],
-  barreira:      ['audio/barreira',     1.55]
+passarTurno:   ['audio/turno',         0.797],
+jogarCarta:    ['audio/extrair',       0.823],
+refinar:       ['audio/refinar',       0.823],
+forjarLiga:    ['audio/forjar',        0.874],
+atacarCarta:   ['audio/ataque-carta',  0.823],
+atacarHeroi:   ['audio/ataque-escudo', 0.874],
+fimPartida:    ['audio/fim',            0.900],
+tempoAcabando: ['audio/tempo',          0.771],
+comprarCarta:  ['audio/comprar',        0.694],
+cartaEsgotada: ['audio/esgotou',        0.797],
+ligaDisponivel:['audio/liga-pronta',    0.746],
+especulacao:   ['audio/especulacao',    0.797],
+exaustao:      ['audio/exaustao',       0.823],
+jogadaInvalida:['audio/nao',            0.720],
+barreira:      ['audio/barreira',       0.797]
 };
 
 /* Escolhe o formato pelo que o navegador declara saber tocar, e cai para
