@@ -215,19 +215,6 @@ body{
 </head>
 <body>
 
-<svg style="display:none">
-  <symbol id="i-um" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 3v4M5 21v-3a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v3"/><circle cx="12" cy="10" r="3.2"/>
-  </symbol>
-  <symbol id="i-rede" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-    stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/>
-  </symbol>
-  <symbol id="i-pedra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-    stroke-linejoin="round"><path d="M12 3 4 9l3 10h10l3-10z"/><path d="M4 9h16M12 3v16"/></symbol>
-</svg>
-
 <main class="entrada" id="entrada">
 
   <div class="marca">
@@ -243,12 +230,12 @@ body{
 
   <div class="modos" id="modos">
     <button class="modo vidro" type="button" id="mSolo">
-      <svg class="ic"><use href="#i-um"/></svg>
+      <i data-lucide="user" class="ic"></i>
       <b>Um jogador</b>
       <small>Contra o computador</small>
     </button>
     <button class="modo vidro" type="button" id="mRede" disabled>
-      <svg class="ic"><use href="#i-rede"/></svg>
+      <i data-lucide="globe" class="ic"></i>
       <b>Online</b>
       <small>Contra outra pessoa, pela internet</small>
     </button>
@@ -267,7 +254,7 @@ body{
     <button class="linkRod vidro" type="button" id="bCreditos">Créditos</button>
     <button class="linkRod vidro" type="button" id="bComo">Como se joga</button>
     <button class="linkRod vidro" type="button" id="bSom" aria-pressed="true"
-            title="Som"><span id="icoSom">&#9835;</span><span id="rotSom">Som</span></button>
+           title="Som"><span id="icoSom">&#9835;</span><span id="rotSom">Som</span></button>
   </div>
   <div class="assinatura">
     <span class="orgao">Secretaria Nacional de Geologia, Mineração e Transformação Mineral</span>
@@ -433,6 +420,9 @@ body{
   </div>
 </div>
 
+<!-- Importação do Lucide -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
 <script>
 /* ============================================================
    OS CINCO ADVERSÁRIOS
@@ -548,7 +538,7 @@ function montarAdversarios(){
     b.type = 'button';
     b.className = 'adv vidro';
     b.innerHTML =
-      '<span class="retrato"><svg class="ic"><use href="#i-pedra"/></svg></span>' +
+      '<span class="retrato"><i data-lucide="mountain" class="ic"></i></span>' +
       '<b>' + a.nome + '</b>' +
       '<span class="grau g' + a.grau.normalize('NFD').replace(/[^a-z]/gi,'').toLowerCase() + '">' +
         a.grau + '</span>';
@@ -565,6 +555,9 @@ function montarAdversarios(){
     };
     zona.appendChild(b);
   });
+  
+  // Renderiza os ícones de pedra/mountain criados dinamicamente
+  lucide.createIcons();
 }
 
 /* ============================================================
@@ -680,6 +673,9 @@ document.querySelectorAll('.folha').forEach(function(f){
   f.addEventListener('click', function(e){ if(e.target === f) fechar(); });
 });
 addEventListener('keydown', function(e){ if(e.key === 'Escape') fechar(); });
+
+// Renderiza os ícones fixos da tela inicial (Usuário e Globo)
+lucide.createIcons();
 </script>
 </body>
 </html>
