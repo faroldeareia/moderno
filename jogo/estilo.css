@@ -918,6 +918,17 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
 /* ---------- 2. DEITADO E BAIXO: o arranjo de celular ---------- */
 @media (orientation:landscape) and (max-height:560px){
 
+  /* Trava a rolagem para o touch funcionar perfeitamente sem o navegador interferir */
+  body {
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  /* Deixa um espaço de 100px na direita para a coluna de botões (O Trilho) */
+  .mesa, .maoArea {
+    padding-right: 100px;
+  }
+
   /* o topo encolhe e para de grudar: 44 px de altura fixa são 12% de uma
      tela de 360, e a mesa precisa deles */
   .topo{position:static;padding:2px 7px;gap:5px;border-bottom-width:0}
@@ -925,10 +936,23 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
   .botoesTopo .b{padding:5px 8px;font-size:11px}
   .botoesTopo .b span,.botoesTopo .b{gap:4px}
 
-  /* uma coluna só: as duas laterais saem da grade */
+  /* uma coluna só para a mesa, a lateral sai e vira botão */
   .mesa{display:block;padding:4px 6px 0;max-width:none}
   .colEsq{display:none}          /* Registro -> botão no topo */
-  .trilho{display:contents}      /* as ações vão para a barra do rodapé */
+
+  /* TRILHO PASSA A SER UMA COLUNA NA DIREITA DA TELA */
+  .trilho {
+    position: fixed;
+    right: 4px;
+    top: 48px; /* Fica abaixo do topo do jogo */
+    bottom: 4px;
+    width: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 6px;
+    z-index: 20;
+  }
 
   .arena{min-height:0;padding:3px 7px 4px;border-radius:10px;border-width:1px;gap:0}
   .faixaJog{min-height:0;gap:5px}
@@ -952,7 +976,7 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
   .maoVirada{display:none}       /* o leque do adversário é enfeite aqui */
 
   /* a mão: uma tira baixa, sem título */
-  .maoArea{padding:1px 6px 50px}   /* 50 = a barra de ações fixa embaixo */
+  .maoArea{padding-bottom:4px}   /* Remove o espaço antigo e respeita a coluna direita */
   .maoArea .faixa{display:none}
   .mao{min-height:0;padding:0;gap:0}
   .mao > .c{width:var(--larguraCarta,96px);margin:3px 3px 4px;border-width:1.5px;border-radius:9px}
@@ -968,16 +992,16 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
   .badge.val{left:-7px;bottom:-8px} .badge.dur{right:-7px;bottom:-9px}
   .selo{font-size:7.5px;padding:1px 4px}
 
-  /* AS AÇÕES VIRAM BARRA FIXA NO RODAPÉ.
-     Encerrar o turno é a ação mais frequente do jogo — ela não pode
-     custar dois toques, então fica sempre visível e é a maior. */
-  .trilho > .b,.trilho > .relogio{position:fixed;bottom:5px;z-index:20;margin:0}
-  .trilho > .relogio{left:6px;width:96px;padding:4px 7px}
+  /* AJUSTE DOS BOTÕES PARA A NOVA COLUNA DA DIREITA */
+  .trilho > .b, .trilho > .relogio {
+    position: static;
+    width: 100%;
+    margin: 0;
+  }
+  .trilho > .relogio{padding:4px;min-width:0}
   .trilho .relogio .lin span{font-size:8px} .trilho .relogio b{font-size:15px}
-  .bEncerrar{right:6px;width:112px;min-height:42px;font-size:13px;flex-direction:row;gap:5px}
-  .bForjar {right:124px;width:92px;min-height:42px;font-size:11.5px}
-  .bRefinar{right:222px;width:92px;min-height:42px;font-size:10.5px}
-  #btnPeD  {right:320px;width:88px;min-height:42px;font-size:10.5px}
+  .bEncerrar{min-height:42px;font-size:11px;flex-direction:column;gap:2px}
+  .bForjar, .bRefinar, #btnPeD {min-height:38px;font-size:10px;padding:4px}
   .pistaLiga,.dicaTrilho{display:none}   /* não há linha sobrando */
 
   /* o resto que não cabe */
@@ -990,12 +1014,9 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
   .painelAcao{bottom:58px;max-height:56vh}
 }
 
-/* Telas MUITO baixas (celular pequeno deitado, ~320 px): a barra de ações
-   passa a ter duas fileiras seria pior — em vez disso o P&D some, porque
-   é a ação menos usada das quatro. */
+/* Telas MUITO baixas (celular pequeno deitado, ~320 px) */
 @media (orientation:landscape) and (max-height:400px){
   #btnPeD{display:none}
-  .bEncerrar{width:104px} .bForjar{right:116px;width:88px} .bRefinar{right:210px;width:88px}
 }
 
 /* o botão do Registro só existe onde a coluna dele não cabe */
