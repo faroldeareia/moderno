@@ -905,9 +905,8 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
     letter-spacing:.14em;text-transform:uppercase;color:var(--ouro2)}
   #gireOAparelho p{font-size:16px;color:var(--creme2);max-width:30ch;line-height:1.5}
   #gireOAparelho small{font-size:13px;color:var(--creme3);max-width:34ch;line-height:1.45}
-  /* o jogo continua montado atrás, só não é visível: assim virar o
-     aparelho não recarrega nem perde a partida em andamento */
-  body > *:not(#gireOAparelho){visibility:hidden}
+/* o jogo continua montado atrás, só não é visível... */
+  body:has(#gireOAparelho) > *:not(#gireOAparelho){visibility:hidden}
 }
 @keyframes gira{
   0%,20%  {transform:rotate(0deg)}
