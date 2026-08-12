@@ -275,7 +275,7 @@ const FORMATOS = ['.ogg', '.mp3', '.wav'];
    `quebrada`), então dá para deixar sobrando: hoje há duas, e o dia em que
    a trilha5.ogg aparecer na pasta ela entra sem tocar em código. */
 const TRILHAS = Array.from({length:12}, (_,i) => 'audio/trilha' + (i+1));
-const VOLUME_TRILHA = 0.20;
+const VOLUME_TRILHA = 0.3;
 
 const SONS = {
 passarTurno:   ['audio/turno',         0.8],
@@ -284,7 +284,7 @@ refinar:       ['audio/refinar',       0.8],
 forjarLiga:    ['audio/forjar',        0.9],
 atacarCarta:   ['audio/ataque-carta',  0.8],
 atacarHeroi:   ['audio/ataque-escudo', 0.8],
-fimPartida:    ['audio/fim',            0.900],
+fimPartida:    ['audio/fim',            0.9],
 tempoAcabando: ['audio/tempo',          0.7],
 comprarCarta:  ['audio/comprar',        0.7],
 cartaEsgotada: ['audio/esgotou',        0.7],
