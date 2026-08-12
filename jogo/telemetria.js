@@ -1,44 +1,21 @@
-/* TELEMETRIA.JS — a partida vai para o servidor sozinha.
+/* TELEMETRIA.JS : a partida vai para o servidor sozinha.
 
-   O botão "Guardar partida" era para o Thomas, não para o jogador. Quem
-   joga na feira não clica em nada, e a partida que mais interessa é
-   justamente a que a pessoa ABANDONOU — é ela que diz onde o jogo cansa.
-
-   O QUE ELE ENVIA é o mesmo registro que o botão baixa: semente, cfg,
-   lista de ações e o bloco `partida` (modo, nomes, contra qual bot,
-   vencedor). Nada mais.
-
-   POR QUE ISSO BASTA: o motor é determinístico, então semente + ações
-   RECONSTROEM a partida inteira, jogada por jogada. Guardando 8,7 KB
-   dá para responder depois qualquer pergunta — inclusive as que ninguém
-   pensou em fazer hoje. É por isso que aqui não se calcula estatística
-   nenhuma: quem calcula é o serviço do servidor, que pode mudar de ideia
-   sem precisar de um jogo novo.
-
-   TRÊS MOMENTOS em que a partida é registrada:
-     fim       alguém venceu
-     abandono  fechou a aba, saiu, ou o aparelho foi bloqueado
-     nova      começou outra por cima de uma em andamento
-
-   O QUE NÃO VAI JUNTO: nome do jogador não é enviado. Ele existe no
-   registro local (o arquivo que o Thomas baixa) mas é removido antes do
-   envio — é dado pessoal e não serve para nenhuma estatística de
-   balanceamento. Ver `limpar()`.
-*/
+   O que ele baixa: semente, cfg,  lista de ações e o bloco `partida` (modo, nomes, contra qual bot, vencedor). 
+   Como o motor é determinístico, então semente + ações  RECONSTROEM a partida inteira, jogada por jogada. Guardando os arquivos, podemos auditar o jogo depois.
+   Há um serviço separado (script) que faz a análise, quando necessária, juntando as várias partidas. Conseguimos responder: qual estilo de jogar vence mais, se começar como jogador 1 ou 2 é balançeado. No xadrez, por exemplo, as brancas tem um pouco mais de 50% de chance de vencer (52 a 56%).
+   A telemetria também mede a taxa de abandono da partida e em que ponto se desistiu do jogo (para inferirmos se foi uma desistência por tédio ou pois o jogo já estava perdido mesmo). 
+   Nada que possa indetificar ou afetar a privacidade do usuário é guardado, como nome, endereço IP, etc. Ver função `limpar()`.
+*/ 
 (function (raiz) {
   'use strict';
 
-  /* O endereço do endpoint que recebe. Relativo de propósito: funciona
-     tanto em `faroldeareia.com/jogo/` quanto abrindo o arquivo local — no
-     local ele falha, cai na fila, e nada se perde.
-
-     A FILA LOCAL E A PASTA DO SERVIDOR SÃO COISAS DIFERENTES:
+  /* O endereço do endpoint que recebe. 
        · `localStorage` fica no navegador DO JOGADOR. É só uma sala de
          espera para quando o servidor está fora ou não há internet.
        · `registropartidas/AAAA-MM/` fica NO SERVIDOR. É o acervo de
          verdade, e é de lá que as estatísticas saem.
-     Uma não substitui a outra: sem a fila, uma partida jogada offline na
-     feira se perderia; sem a pasta, não haveria acervo. */
+     Uma não substitui a outra: sem a fila, uma partida jogada offline se perderia; sem a pasta, não haveria acervo. */
+   
   var DESTINO = 'api/partida';
 
   var CHAVE_FILA = 'minerais.fila';
@@ -55,10 +32,7 @@
     catch (e) { /* cota cheia ou modo privado: perde-se a fila, e tudo bem */ }
   }
 
-  /* Tira o que é pessoal e o que é volumoso e redundante.
-     O `log` são as frases em português que a tela mostrou — 60 linhas por
-     partida, reconstruíveis a partir das ações. Fora do envio ele corta
-     quase metade do tamanho. */
+  /* Tira o que é pessoal e o que é volumoso e redundante. */
   function limpar(reg) {
     var r = JSON.parse(JSON.stringify(reg));
     delete r.log;
@@ -76,8 +50,7 @@
   }
 
   /* `sendBeacon` é o único envio que o navegador garante durante o
-     fechamento da aba. `fetch` normal é cancelado no meio. Ele não
-     devolve resposta — mandou, esqueceu. */
+     fechamento da aba. `fetch` normal é cancelado no meio. */
   function enviar(reg) {
     if (!DESTINO) return false;
     var corpo = new Blob([JSON.stringify(reg)], { type: 'application/json' });
@@ -91,8 +64,8 @@
     } catch (e) { return false; }
   }
 
-  /* Ao abrir a página, tenta despachar o que ficou para trás — de quando
-     o servidor estava fora, ou de quando não havia internet na feira. */
+  /* Ao abrir a página, tenta despachar o que ficou para trás, de quando
+     o servidor estava fora, ou de quando não havia internet para o jogador. */
   function despacharFila() {
     if (!DESTINO) return;
     var f = lerFila();
@@ -107,18 +80,14 @@
   var Telemetria = {
     ativo: true,
 
-    /* Chamado pelo mesa.js. `montar` é o `montarRegistro` de lá — a
-       telemetria não sabe montar registro, e é de propósito: um montador
-       só, senão o arquivo que o Thomas analisa e o que o servidor recebe
-       divergem com o tempo. */
+    /* Chamado pelo mesa.js. `montar` é o `montarRegistro` de lá (essa telemetria não sabe montar registro, de propósito, para não existir sobreposição). */
     registrar: function (montar, motivo) {
       if (!this.ativo || typeof montar !== 'function') return;
       var reg;
       try { reg = montar(motivo); } catch (e) { return; }
       if (!reg || !reg.acoes || reg.acoes.length < 4) return;   // nem começou
 
-      /* Uma partida por motivo. Sem isto, sair pelo botão dispararia
-         'abandono' e o `pagehide` dispararia de novo logo depois. */
+      /* Uma partida por motivo. Sem isto, sair pelo botão dispararia 'abandono' e o `pagehide` dispararia de novo logo depois. */
       var id = reg.semente + ':' + motivo;
       if (jaRegistrou[id]) return;
       jaRegistrou[id] = 1;
@@ -152,7 +121,7 @@
       });
     },
 
-    /* Para o Thomas ver o que está na fila, do console do navegador. */
+    /* Para ver o que está na fila, do console do navegador. */
     fila: lerFila,
     destino: function (url) { DESTINO = url || ''; despacharFila(); }
   };
