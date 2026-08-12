@@ -275,24 +275,24 @@ const FORMATOS = ['.ogg', '.mp3', '.wav'];
    `quebrada`), então dá para deixar sobrando: hoje há duas, e o dia em que
    a trilha5.ogg aparecer na pasta ela entra sem tocar em código. */
 const TRILHAS = Array.from({length:12}, (_,i) => 'audio/trilha' + (i+1));
-const VOLUME_TRILHA = 0.30;
+const VOLUME_TRILHA = 0.20;
 
 const SONS = {
-passarTurno:   ['audio/turno',         0.797],
-jogarCarta:    ['audio/extrair',       0.823],
-refinar:       ['audio/refinar',       0.823],
-forjarLiga:    ['audio/forjar',        0.874],
-atacarCarta:   ['audio/ataque-carta',  0.823],
-atacarHeroi:   ['audio/ataque-escudo', 0.874],
+passarTurno:   ['audio/turno',         0.8],
+jogarCarta:    ['audio/extrair',       0.8],
+refinar:       ['audio/refinar',       0.8],
+forjarLiga:    ['audio/forjar',        0.9],
+atacarCarta:   ['audio/ataque-carta',  0.8],
+atacarHeroi:   ['audio/ataque-escudo', 0.8],
 fimPartida:    ['audio/fim',            0.900],
-tempoAcabando: ['audio/tempo',          0.771],
-comprarCarta:  ['audio/comprar',        0.694],
-cartaEsgotada: ['audio/esgotou',        0.797],
-ligaDisponivel:['audio/liga-pronta',    0.746],
-especulacao:   ['audio/especulacao',    0.797],
-exaustao:      ['audio/exaustao',       0.823],
-jogadaInvalida:['audio/nao',            0.720],
-barreira:      ['audio/barreira',       0.797]
+tempoAcabando: ['audio/tempo',          0.7],
+comprarCarta:  ['audio/comprar',        0.7],
+cartaEsgotada: ['audio/esgotou',        0.7],
+ligaDisponivel:['audio/liga-pronta',    0.7],
+especulacao:   ['audio/especulacao',    0.8],
+exaustao:      ['audio/exaustao',       0.8],
+jogadaInvalida:['audio/nao',            0.7],
+barreira:      ['audio/barreira',       0.8]
 };
 
 /* Escolhe o formato pelo que o navegador declara saber tocar, e cai para
