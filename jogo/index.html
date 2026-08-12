@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minerais Críticos — o jogo</title>
+
+<!--
+  TELA INICIAL. 
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+
+<style>
+/* ============================================================
+   PALETA DA ENTRADA — extraída de mesa/fundo.jpg
+   ============================================================ */
+:root{
+  --terra:#6e4926;   --terra2:#8a5c33;   --terra3:#4a2f18;
+  --ocre:#c9a26b;    --ocre2:#e0c193;    --ocreEsc:#8a6a3a;
+  --telha:#b5533a;   --papoula:#c3402e;
+  --ceu:#a3bace;     --ceu2:#cfdde8;
+  --rio:#4d8b9e;     --rio2:#6fb0c0;     --rioEsc:#2f5f6e;
+  --mata:#6e7f45;    --mata2:#8ba05a;
+  --cal:#f4ede0;     --calEsc:#d9cdb8;
+  --tintaT:#33241a;
+}
+
+/* O FUNDO É A IMAGEM. O que está aqui é só o escurecedor por cima dela —
+   um degradê preto, mais forte em cima e embaixo, para o título e os
+   botões terem contraste sobre qualquer paisagem que o Thomas puser.
+   Sem imagem, fica o marrom liso; nada de degradê colorido. */
+body{
+  background:
+    linear-gradient(180deg,rgba(10,7,4,.86) 0%,rgba(10,7,4,.62) 30%,
+                            rgba(10,7,4,.70) 60%,rgba(10,7,4,.93) 100%),
+    var(--capa,none),
+    #241b12;
+  background-size:cover,cover,auto;background-position:center;background-attachment:fixed;
+  color:var(--cal);font-family:var(--texto)}
+
+/* O conteúdo sobe: `flex-start` em vez de `center`, com um respiro de 4vh.
+   Centralizado, o título ficava no meio da tela e a paisagem de cima —
+   que é a parte bonita da arte — ficava sem nada por perto. */
+.entrada{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  gap:22px;padding:4vh 20px 18px;text-align:center}
+
+/* ---- marca ---- */
+.marca h1{font-family:var(--disp);font-size:clamp(56px,7.4vw,104px);font-weight:800;line-height:.9;
+  letter-spacing:.02em;text-transform:uppercase;color:var(--cal);
+  text-shadow:0 2px 0 var(--terra3),0 5px 0 rgba(0,0,0,.25),0 14px 34px rgba(0,0,0,.5)}
+.marca h1 span{display:block;font-size:clamp(16px,2.1vw,30px);font-weight:600;letter-spacing:.34em;
+  color:var(--ocre2);margin-top:8px;text-shadow:0 2px 6px rgba(0,0,0,.6)}
+.marca p{margin-top:14px;font-size:16px;color:var(--cal);max-width:50ch;line-height:1.55;
+  text-shadow:0 1px 4px rgba(0,0,0,.7)}
+
+/* ---- caixa de nome ---- */
+.campoNome{display:flex;flex-direction:column;align-items:center;gap:7px}
+.campoNome label{font-family:var(--disp);font-size:14px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--ocre2);
+  text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.campoNome input{width:320px;max-width:78vw;padding:13px 16px;text-align:center;
+  font-family:var(--texto);font-size:17px;font-weight:600;color:#fff;border-radius:13px;
+  outline:none;transition:border-color .16s,box-shadow .16s,background .16s}
+.campoNome input::placeholder{color:rgba(244,237,224,.6);font-weight:400}
+.campoNome input:focus{background:rgba(255,255,255,.2);border-color:rgba(160,222,235,.85);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 0 0 4px rgba(111,176,192,.3)}
+
+/* ---- os modos ---- */
+.modos{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+/* VIDRO. A paisagem tem que aparecer por baixo do botão — é ela a
+   protagonista da entrada. Por isso: fundo translúcido, desfoque do que
+   está atrás, um filete claro em cima (o brilho da borda de vidro) e
+   sombra funda embaixo, para o cartão parecer flutuar sobre a imagem.
+
+   O `backdrop-filter` é o que desfoca o fundo. Navegador antigo ignora e
+   fica só o translúcido — mais fraco, mas legível, porque o escurecedor
+   do body já garante o contraste. */
+.vidro{background:rgba(255,255,255,.11);
+  -webkit-backdrop-filter:blur(14px) saturate(1.25);
+  backdrop-filter:blur(14px) saturate(1.25);
+  border:1px solid rgba(255,255,255,.30);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.42),0 14px 40px rgba(0,0,0,.5)}
+
+.modo{width:238px;padding:22px 18px;border-radius:18px;cursor:pointer;text-align:center;
+  color:var(--cal);font-family:var(--texto);
+  transition:transform .16s,background .16s,border-color .16s,box-shadow .16s}
+.modo:hover:not(:disabled),.modo:focus-visible:not(:disabled){transform:translateY(-5px);
+  background:rgba(111,176,192,.26);border-color:rgba(160,222,235,.7);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 20px 44px rgba(0,0,0,.55)}
+.modo:active:not(:disabled){transform:translateY(-1px)}
+.modo svg{font-size:40px;color:var(--rio2);margin:0 auto 11px;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,.6))}
+.modo b{display:block;font-family:var(--disp);font-size:25px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;color:#fff;
+  text-shadow:0 2px 8px rgba(0,0,0,.75)}
+.modo small{display:block;margin-top:6px;font-size:13.5px;color:rgba(244,237,224,.88);
+  line-height:1.4;text-shadow:0 1px 4px rgba(0,0,0,.7)}
+.modo:disabled{opacity:.45;cursor:not-allowed}
+.modo:disabled svg{color:rgba(244,237,224,.6)}
+.modo:disabled b::after{content:'em breve';display:block;font-size:11px;letter-spacing:.18em;
+  color:#ffb9a6;margin-top:5px;text-shadow:0 1px 4px rgba(0,0,0,.8)}
+
+/* ---- escolha do adversário ---- */
+.escolha{display:none;flex-direction:column;align-items:center;gap:18px;width:100%}
+.escolha.on{display:flex}
+.entrada.escolhendo .modos,.entrada.escolhendo .marca p,
+.entrada.escolhendo .campoNome{display:none}
+.tituloEscolha{font-family:var(--disp);font-size:27px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ocre2);text-shadow:0 2px 6px rgba(0,0,0,.65)}
+.adversarios{display:flex;gap:13px;flex-wrap:wrap;justify-content:center;max-width:1120px}
+.adv{width:190px;padding:0 0 15px;border-radius:18px;cursor:pointer;overflow:hidden;
+  color:var(--cal);font-family:var(--texto);
+  transition:transform .16s,background .16s,border-color .16s,box-shadow .16s}
+.adv:hover,.adv:focus-visible{transform:translateY(-6px);
+  background:rgba(111,176,192,.26);border-color:rgba(160,222,235,.7);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 22px 46px rgba(0,0,0,.55)}
+.adv:active{transform:translateY(-2px)}
+.adv .retrato{width:100%;aspect-ratio:1/1;display:grid;place-items:center;overflow:hidden;
+  background:rgba(0,0,0,.28);border-bottom:1px solid rgba(255,255,255,.24)}
+.adv .retrato img{width:100%;height:100%;object-fit:cover;display:block}
+.adv .retrato svg{font-size:58px;color:rgba(255,255,255,.5)}
+.adv b{display:block;margin-top:12px;font-family:var(--disp);font-size:22px;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;color:#fff;
+  text-shadow:0 2px 8px rgba(0,0,0,.75)}
+
+/* GRAU — três rótulos, não escadinha de estrelas.
+   Lavra, Fundição e Refinaria são o aggro, o midrange e o control: estilos
+   diferentes, medidos em 52%, 58% e 52% de vitória. Uma escadinha diria
+   que a Refinaria é o dobro da Lavra, e isso o dado não mostra. */
+.grau{display:inline-block;margin-top:9px;font-size:11.5px;font-weight:800;
+  letter-spacing:.15em;text-transform:uppercase;padding:3px 13px;border-radius:999px;
+  color:#fff}
+.grau.giniciante{background:#5c6c39}   /* verde escurecido: em --mata o branco dava 4,39:1, abaixo do minimo */
+.grau.gmdia{background:var(--ocreEsc)}
+.grau.gdifcil{background:var(--papoula)}
+
+/* ---- voltar: seta, sem grifo ---- */
+.voltar{display:inline-flex;align-items:center;gap:9px;border-radius:999px;color:var(--cal);
+  font-family:var(--disp);font-size:16px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;cursor:pointer;padding:8px 20px 8px 15px;
+  transition:background .16s,border-color .16s,transform .16s}
+.voltar::before{content:'';width:10px;height:10px;border-left:2.5px solid currentColor;
+  border-bottom:2.5px solid currentColor;transform:rotate(45deg)}
+.voltar:hover,.voltar:focus-visible{background:var(--rio);border-color:var(--rio2);
+  transform:translateX(-4px)}
+
+/* ---- rodapé ---- */
+.rodape{display:flex;flex-direction:column;align-items:center;gap:12px;
+  padding:6px 16px 20px}
+.linhaBotoes{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:center}
+/* A hierarquia é essa: a Secretaria é quem faz, o Ministério é a casa.
+   Por isso a Secretaria vem em cima e maior. */
+.assinatura{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center}
+/* A assinatura institucional cresceu bastante: é material do MME e num
+   estande ela precisa ser lida de longe, não decifrada. A Secretaria é
+   quem faz e vem maior; o Ministério é a casa e vem logo abaixo. */
+.assinatura .orgao{font-family:var(--disp);font-size:clamp(17px,1.5vw,23px);font-weight:700;
+  letter-spacing:.11em;text-transform:uppercase;color:#fff;
+  text-shadow:0 2px 8px rgba(0,0,0,.9);max-width:64ch;line-height:1.25}
+.linkRod{display:inline-flex;align-items:center;cursor:pointer;color:var(--cal);
+  font-family:var(--disp);font-size:15px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;padding:8px 15px;border-radius:999px;
+  text-shadow:0 1px 3px rgba(0,0,0,.7);transition:background .16s,border-color .16s,transform .16s}
+.linkRod:hover,.linkRod:focus-visible{background:rgba(111,176,192,.32);
+  border-color:rgba(160,222,235,.75);transform:translateY(-2px)}
+.selo{font-family:var(--disp);font-size:clamp(15px,1.25vw,19px);font-weight:600;
+  color:rgba(244,237,224,.9);letter-spacing:.18em;text-transform:uppercase;
+  text-shadow:0 2px 6px rgba(0,0,0,.9)}
+#bSom{min-width:104px;justify-content:center}
+#bSom #icoSom{font-size:17px;line-height:1;margin-right:7px}
+
+/* ---- janelas de Sobre e Créditos ---- */
+.folha{position:fixed;inset:0;z-index:40;display:none;place-items:center;padding:20px;
+  background:rgba(30,18,10,.72);backdrop-filter:blur(3px)}
+.folha.on{display:grid}
+.folha .miolo{max-width:640px;width:100%;max-height:86vh;overflow:auto;text-align:left;
+  background:linear-gradient(172deg,var(--cal),var(--calEsc));color:var(--tintaT);
+  border:2px solid var(--ocreEsc);border-radius:16px;padding:26px 28px 22px;
+  box-shadow:0 26px 70px rgba(0,0,0,.6)}
+.folha h2{font-family:var(--disp);font-size:30px;font-weight:700;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--terra3);margin-bottom:4px}
+.folha h3{font-family:var(--disp);font-size:17px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--rioEsc);margin:18px 0 7px}
+.folha p{font-size:14.5px;line-height:1.6;margin-bottom:10px}
+.folha p.abre{font-size:16.5px;line-height:1.55;color:var(--terra3);font-weight:500;
+  border-left:3px solid var(--rio);padding-left:12px;margin:10px 0 4px}
+.folha p.legenda{text-align:center;font-size:13.5px;color:#6b5540;margin-top:-6px}
+.folha ul{margin:0 0 10px 18px;font-size:14.5px;line-height:1.6}
+.folha .cadeia{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;
+  margin:14px 0;font-family:var(--disp);font-size:16px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase}
+.folha .cadeia i{font-style:normal;padding:5px 13px;border-radius:6px;color:#fff}
+.folha .cadeia i:nth-child(1){background:var(--terra2)}
+.folha .cadeia i:nth-child(3){background:var(--ocreEsc)}
+.folha .cadeia i:nth-child(5){background:var(--rio)}
+.folha .cadeia b{color:var(--terra2);font-size:19px}
+ /* fundo em --rioEsc, nao --rio: com --rio o branco dava 3,82:1 e o texto
+    tem 17px, que ainda conta como texto pequeno para a norma. */
+.folha .fechar{margin-top:16px;width:100%;padding:11px;border-radius:10px;cursor:pointer;
+  font-family:var(--disp);font-size:17px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:#fff;background:var(--rioEsc);border:2px solid #234953}
+.folha .fechar:hover{background:#234953}
+.aFazer{background:rgba(197,64,46,.12);border-left:3px solid var(--papoula);
+  padding:8px 12px;font-size:13.5px;color:#7a3326;border-radius:0 6px 6px 0}
+
+@media(max-width:700px){
+  .marca h1{font-size:38px} .marca h1 span{font-size:17px;letter-spacing:.22em}
+  .modo{width:100%;max-width:330px} .adv{width:152px}
+  .entrada{gap:18px}
+}
+</style>
+</head>
+<body>
+
+<svg style="display:none">
+  <symbol id="i-um" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3v4M5 21v-3a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v3"/><circle cx="12" cy="10" r="3.2"/>
+  </symbol>
+  <symbol id="i-rede" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+    stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/>
+  </symbol>
+  <symbol id="i-pedra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+    stroke-linejoin="round"><path d="M12 3 4 9l3 10h10l3-10z"/><path d="M4 9h16M12 3v16"/></symbol>
+</svg>
+
+<main class="entrada" id="entrada">
+
+  <div class="marca">
+    <h1>Minerais<span>críticos e estratégicos</span></h1>
+    <p>Tire do chão, refine, forje. Quem transforma se protege.</p>
+  </div>
+
+  <div class="campoNome">
+    <label for="nome">Seu nome</label>
+    <input id="nome" type="text" maxlength="18" autocomplete="off" spellcheck="false"
+           placeholder="como quer ser chamado" class="vidro">
+  </div>
+
+  <div class="modos" id="modos">
+    <button class="modo vidro" type="button" id="mSolo">
+      <svg class="ic"><use href="#i-um"/></svg>
+      <b>Um jogador</b>
+      <small>Contra o computador</small>
+    </button>
+    <button class="modo vidro" type="button" id="mRede" disabled>
+      <svg class="ic"><use href="#i-rede"/></svg>
+      <b>Online</b>
+      <small>Contra outra pessoa, pela internet</small>
+    </button>
+  </div>
+
+  <div class="escolha" id="escolha">
+    <div class="tituloEscolha">Escolha seu adversário</div>
+    <div class="adversarios" id="adversarios"></div>
+    <button class="voltar vidro" type="button" id="voltar">voltar</button>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="linhaBotoes">
+    <button class="linkRod vidro" type="button" id="bSobre">Sobre o projeto</button>
+    <button class="linkRod vidro" type="button" id="bCreditos">Créditos</button>
+    <button class="linkRod vidro" type="button" id="bComo">Como se joga</button>
+    <button class="linkRod vidro" type="button" id="bSom" aria-pressed="true"
+            title="Som"><span id="icoSom">&#9835;</span><span id="rotSom">Som</span></button>
+  </div>
+  <div class="assinatura">
+    <span class="orgao">Secretaria Nacional de Geologia, Mineração e Transformação Mineral</span>
+    <span class="selo">Ministério de Minas e Energia</span>
+  </div>
+</footer>
+
+<!-- ---------- SOBRE: context ---------- -->
+<div class="folha" id="fSobre" role="dialog" aria-modal="true" aria-labelledby="tSobre">
+  <div class="miolo">
+    <h2 id="tSobre">Sobre o projeto</h2>
+
+    <p class="abre">Existe uma lista de substâncias minerais que o Brasil
+      considera <b>críticas e estratégicas</b>. Este jogo busca ser uma forma lúdica de ensinar sobre ela.</p>
+
+
+    <h3>O que torna um mineral "crítico" ou "estratégico"</h3>
+    <p>Um mineral entra na lista de estratégico quando a
+      economia mundial depende dele <b>e</b> o Brasil tem recursos minerais, mesmo que atualmente ainda não o explore em todo seu potencial. Uma substância mineral é crítica, quando o Brasil depende dele, por não ter reservas ou não conseguir produzir o necessário.</p>
+
+    <h3>O tempero geopolítico</h3>
+    <p>Ter a jazida não é o mesmo que ter a indústria. Um país pode ser o
+      maior detentor de reservas ou o maior produtor mundial de um minério e comprar de volta, muito mais
+      caro, o produto feito com ele.</p>
+    <p>É a diferença entre <b>extrair</b>, <b>refinar</b> e
+      <b> processar</b> que decide onde fica o emprego, o
+      imposto e a tecnologia. Esse jogo tenta, de forma bastante simplificada (mas lúdica) demonstar a cadeia mineral e o quanto ela é importante para a força geopolítica de um país.</p>
+
+    <div class="cadeia">
+      <i>Concentrado</i><b>&rarr;</b><i>Refinado</i><b>&rarr;</b><i>Manufatura</i>
+    </div>
+    <p class="legenda">calcopirita &rarr; cobre catódico &rarr; fios</p>
+
+       <h3>O Jogo</h3>
+    <p>Esse jogo se baseia em mecanismos clássicos de jogos do tipo "TCG" (Trading Carg Games - Jogo de Cartas Colecionáveis). São jogos de estratégia onde os participantes jogam com baralhos com cartas que possuem diferentes poderes, custos e habilidades.</p>
+    <p>Em jogos desse tipo, a estratégia é fundamental, e costuma-se ter uma curva de aprendizado (ritmo para conhecer as regras) bastante rápida. Caso você venha de alguma experiência em jogos assim (como Magic, Hearthstone, Pokemon, Yu-Gi-Oh, etc.) se adaptará rápido. Caso não venha, não se assuste, o jogo é fácil de aprender. Ele mistura lógica, matemática, um pouco de sorte e, no caso específico dessa projeto, Geografia e Geologia. </p>
+
+    <h3>Regras como metáfora</h3>
+    <p>Há uma seção apenas para se entender as regras. Mas, basicamente, você precisa usar suas cartas (que representam substâncias minerais) para atingir o escudo do adversário, o qual representa a "força geopolítica". Por sua vez, deve evitar que o seu escudo seja atingido. Toda carta refinada vira uma <b>barreira</b>. O adversário
+      precisa "derrubá-la" antes de atingir você. Não é diferente da realidade.<b>Países que controlam etapas minerais de maior valor agregado, conseguem usar isso como barganha política</b> Quem só exporta bruto fica exposto ao preço, ao embargo e à decisão dos outros.</p> <p> Ao refinar e evoluir suas cartas, elas também ficam mais fortes. </p>
+
+    <h3>A jazida acaba</h3>
+    <p>O baralho é a jazida, e ele esgota no meio da partida. Num jogo sobre mineração,
+      essa talvez seja uma lição pouco debatida. <b>Recurso mineral não é
+      renovável</b>, e o que sobra depois dele é o que se construiu
+      enquanto ele durou.</p>
+
+    <h3>Para usar em sala ou em feira</h3>
+    <p>O jogo possui partidas rápidas, de 5 a 15 minutos. Diferente da maioria dos jogos similares, neste, o baralho é
+      é sorteado, e cada pessoa se vira com o que veio. Afinal, recursos minerais são assim mesmo. Nem sempre sabemos o que temos.</p>
+    <p>Não é preciso instalar, basta ter acesso à internet. As perguntas que
+      costumam aparecer sozinhas depois de jogar são boas:
+      <i>por que a carta muda de nome? por que refinar protege? o que
+      acontece quando a mina acaba?</i></p>
+
+    <button class="fechar" type="button" data-fecha>Fechar</button>
+  </div>
+</div>
+
+<!-- ---------- CRÉDITOS ---------- -->
+<div class="folha" id="fCreditos" role="dialog" aria-modal="true" aria-labelledby="tCred">
+  <div class="miolo">
+    <h2 id="tCred">Créditos</h2>
+
+    <h3>Realização</h3>
+    <p>Ministério de Minas e Energia.</p>
+
+    <h3>Concepção, regras e desenvolvimento</h3>
+    <p>Thomas Johannes Schrage - Coordenador de Geologia e recursos Minerais</p>
+
+    <h3>Arte</h3>
+    <p class="aFazer">A preencher: autoria das ilustrações de carta, dos
+      cenários e dos retratos. A procedência de cada imagem está sendo
+      registrada em <code>arte/CREDITOS.csv</code> — acervo, autor e
+      licença — e precisa estar completa antes de qualquer publicação.</p>
+
+    <h3>Trilha e efeitos</h3>
+    <p class="aFazer">A preencher: autoria da trilha sonora e dos efeitos.</p>
+
+    <h3>Tipografia</h3>
+    <ul>
+      <li><b>Barlow Condensed</b> — títulos, botões e números</li>
+      <li><b>Inter</b> — textos e rótulos</li>
+      <li><b>Spectral</b> — nomes de mineral na carta grande</li>
+    </ul>
+    <p style="font-size:13px;color:#6b5540">As três são de código aberto,
+      sob licença SIL Open Font.</p>
+
+    <h3>Fontes de dado</h3>
+    <p class="aFazer">A preencher: a lista oficial de substâncias críticas
+      e estratégicas usada como base, e as referências de produção e
+      reserva. Duas cartas — cromo e zinco — não constam da lista oficial e
+      entraram para viabilizar o aço inoxidável e o latão.</p>
+
+    <button class="fechar" type="button" data-fecha>Fechar</button>
+  </div>
+</div>
+
+<!-- ---------- COMO SE JOGA: as regras, fundidas ---------- -->
+<div class="folha" id="fComo" role="dialog" aria-modal="true" aria-labelledby="tComo">
+  <div class="miolo">
+    <h2 id="tComo">Como se joga</h2>
+    <p class="abre">Esse é um resumor de <b>como jogar</b>. Dentro da própria partida, haverá dicas e um botão com maiores instruções. Pouse o ponteiro do mouse para ler melhor as funcionalidades.</p>
+
+    <h3>O objetivo</h3>
+    <p>Zerar a <b>força geopolítica</b> do adversário: o escudo no meio da
+      mesa. Quem chegar a zero primeiro, perde.</p>
+
+    <h3>Os três números da carta</h3>
+    <ul>
+      <li><b>Energia</b> &mdash; quanto custa para entrar em campo. Você
+        ganha 1 por turno, até 9, e ela <b>não acumula</b>: o que sobrar
+        se perde.</li>
+      <li><b>Força</b> &mdash; o peso da substância na produção. É o dano
+        que ela causa.</li>
+      <li><b>Dureza</b> &mdash; a importância geopolítica. É o quanto ela
+        aguenta antes de sair do campo.</li>
+    </ul>
+
+    <h3>A escada</h3>
+    <p>Toda carta entra como <b>concentrado</b>, que é, usualmente, sua forma mais simples de ser comercializada.</p>
+    <div class="cadeia">
+      <i>Concentrado</i><b>&rarr;</b><i>Refinado</i><b>&rarr;</b><i>Liga</i>
+    </div>
+    <ul>
+      <li><b>Refinar</b> sobe um degrau: <b>+1 de força e +2 de dureza</b>,
+        e a carta passa a fazer barreira.</li>
+      <li><b>Forjar liga</b> junta duas cartas refinadas numa só, que entra
+        com <b>+4 e +4</b> — o maior salto do jogo. Ela dorme um turno
+        antes de poder atacar.</li>
+    </ul>
+    <p>O nome da carta muda em cada degrau. É assim que dá para ver a
+      calcopirita virar cobre catódico virar bronze na sua mão.</p>
+
+    <h3>Barreira</h3>
+    <p>Enquanto houver uma carta refinada em campo, ela é o
+      <b>único alvo possível</b>: nem as outras cartas nem o escudo podem
+      ser atingidos. Para chegar na vida do adversário é preciso derrubar
+      o que ele processou.</p>
+
+    <h3>O turno</h3>
+    <ul>
+      <li>Arraste a carta da mão até o seu campo, ou clique nela. Cabem
+        cinco cartas por vez na mesa (para cada jogador).</li>
+      <li>Arraste sua ficha até uma ficha inimiga ou até o escudo.</li>
+      <li>Carta recém-extraída descansa e só pode atacar no turno seguinte. Idem para ligas.</li>
+      <li>Ao atingir outra ficha, as duas se machucam de forma cruzada. Ex: uma carta de ataque 4, ao atingir uma carta de resistência 5, faz a outra carta ter resistência 1. Por sua vez, o ataque da outra carta atingida, tira a resistência da sua carta</li>
+      <li>São 90 segundos por turno. Acabou o tempo, o turno passa
+        sozinho.</li>
+    </ul>
+
+    <h3>A jazida e a mão</h3>
+    <ul>
+      <li>O baralho é sorteado: <b>ninguém monta o seu</b>.</li>
+      <li>A mão vai até 8 cartas. Com a mão cheia você não compra, a carta
+        se perde e custa 1 de seu escudo. O jogo pune a especulação.</li>
+      <li><b>A jazida acaba.</b> Quando acaba, a exaustão passa a tirar sua
+        força a cada turno, e o golpe cresce: 1, depois 2, depois 3. Ela
+        come primeiro as suas barreiras.</li>
+    </ul>
+
+    <button class="fechar" type="button" data-fecha>Fechar</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   OS CINCO ADVERSÁRIOS
+
+   A escada de dificuldade É a cadeia produtiva: pesquisa, lavra,
+   metalurgia, refino, transformação. Quanto mais valor agregado, mais
+   forte o adversário — a tese do jogo dentro do seletor, sem uma linha de
+   texto explicativo.
+
+   `perfil` é o nome interno, o que existe no bots.js, e NÃO aparece na
+   tela: a pessoa descobre o estilo jogando. Se mudar aqui, mude também o
+   ADVERSARIOS do solo.js.
+
+   Retrato opcional em `bots/<id>.png`. Faltando, entra o ícone de pedra.
+   ============================================================ */
+/* A ESCADA DE ADVERSÁRIOS, e por que cada um é o que é.
+
+   Os quatro primeiros são os bots CLÁSSICOS (listas de prioridade). O
+   último é o bot de ÁRVORE DE BUSCA do bot2.js, que enumera as jogadas,
+   simula cada uma e escolhe pela nota.
+
+   Medido na bateria de 11/08, todos contra todos:
+
+     ia_midrange  ganha do ia_aggro 52,3 · do ia_control 59,0
+                  e dos clássicos: aggro 88,7 · midrange 70,7 · control 71,2
+
+   Ou seja: o `ia_midrange` ganha de TODO MUNDO, incluindo os outros dois
+   perfis de IA. É por isso que ele é a Verticalização — e agora o rótulo
+   "difícil" é verdade, o que não era o caso quando ali estava o combo
+   (49,1%, o mais fraco dos arquétipos).
+
+   O `combo` saiu da escada: como adversário de feira ele é frustrante
+   (vence 63% quando forja a liga e 3% quando não forja), e o nome
+   "Fundição" foi para o midrange, que é o que mais combina com um bot que
+   joga bem em todos os degraus.
+
+   `perfil` é o nome interno e NÃO aparece na tela: a pessoa descobre o
+   estilo jogando. Se mudar aqui, mude também o ADVERSARIOS do solo.js. */
+var ADVERSARIOS = [
+  { id:'prospeccao',     nome:'Prospecção',     perfil:'aleatorio',   grau:'iniciante' },
+  { id:'lavra',          nome:'Lavra',          perfil:'aggro',       grau:'média' },
+  { id:'fundicao',       nome:'Fundição',       perfil:'midrange',    grau:'média' },
+  { id:'refinaria',      nome:'Refinaria',      perfil:'control',     grau:'média' },
+  { id:'verticalizacao', nome:'Verticalização', perfil:'ia_midrange', grau:'difícil' }
+];
+
+/* MESMA ORDEM DO mesa.js: .webp, .jpg, .png — o primeiro que carregar
+   vence. Estava com `.png` fixo em dois lugares, e quando o Thomas
+   converteu tudo para WebP e apagou os PNG, o retrato dos adversários
+   sumiu da tela de escolha. Erro meu: consertei o mesa.js e esqueci que a
+   tela inicial tem o seu próprio carregamento. */
+var FORMATOS_IMG = ['.webp', '.jpg', '.png'];
+function primeiraQueCarregar(base, aoAchar){
+  var i = 0;
+  (function tentar(){
+    if(i >= FORMATOS_IMG.length) return;
+    var u = base + FORMATOS_IMG[i++];
+    var im = new Image();
+    im.onload  = function(){ aoAchar(u, im); };
+    im.onerror = tentar;
+    im.src = u;
+  })();
+}
+
+var entrada   = document.getElementById('entrada');
+var escolha   = document.getElementById('escolha');
+var campoNome = document.getElementById('nome');
+
+/* O nome fica guardado: quem joga a segunda partida não redigita. */
+try { campoNome.value = localStorage.getItem('minerais.nome') || ''; } catch(e){}
+function nomeEscolhido(){
+  var n = (campoNome.value || '').trim().slice(0, 18);
+  try { localStorage.setItem('minerais.nome', n); } catch(e){}
+  return n;
+}
+/* Enter abre a ESCOLHA DO ADVERSÁRIO, não a partida. Ia direto para o
+   jogo, e quem digitava o nome e apertava Enter era jogado numa partida
+   sem escolher contra quem — pulando justamente a tela que existe para
+   ele escolher. */
+/* Enter NÃO faz nada. Já levou direto para a partida e depois para a
+   escolha do adversário; os dois estavam errados pelo mesmo motivo — a
+   tela não sabe para onde a pessoa quer ir. Quando o modo online existir
+   serão dois caminhos, e adivinhar qual seria pior que não fazer nada. */
+campoNome.addEventListener('keydown', function(e){
+  if(e.key === 'Enter') e.preventDefault();
+});
+
+/* Capa opcional: mesa/inicio.jpg | .png | .webp. Faltando, fica o degradê
+   de céu e terra, que já é a paleta da paisagem. */
+(function(){
+  primeiraQueCarregar('mesa/inicio', function(u){
+    document.documentElement.style.setProperty('--capa', 'url("' + u + '")');
+  });
+})();
+
+document.getElementById('mSolo').onclick = function(){
+  entrada.classList.add('escolhendo');
+  escolha.classList.add('on');
+  montarAdversarios();
+  var b = escolha.querySelector('.adv'); if(b) b.focus();
+};
+document.getElementById('voltar').onclick = function(){
+  entrada.classList.remove('escolhendo');
+  escolha.classList.remove('on');
+  document.getElementById('mSolo').focus();
+};
+
+function montarAdversarios(){
+  var zona = document.getElementById('adversarios');
+  if(zona.children.length) return;
+  ADVERSARIOS.forEach(function(a){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'adv vidro';
+    b.innerHTML =
+      '<span class="retrato"><svg class="ic"><use href="#i-pedra"/></svg></span>' +
+      '<b>' + a.nome + '</b>' +
+      '<span class="grau g' + a.grau.normalize('NFD').replace(/[^a-z]/gi,'').toLowerCase() + '">' +
+        a.grau + '</span>';
+    b.setAttribute('aria-label', 'Jogar contra ' + a.nome + ', dificuldade ' + a.grau);
+
+    primeiraQueCarregar('bots/' + a.id, function(u, im){
+      var r = b.querySelector('.retrato');
+      if(r){ r.innerHTML = ''; r.appendChild(im); }
+    });
+
+    b.onclick = function(){
+      location.href = 'jogo.html?modo=solo&bot=' + a.id +
+                      '&nome=' + encodeURIComponent(nomeEscolhido());
+    };
+    zona.appendChild(b);
+  });
+}
+
+/* ============================================================
+   SOM DA ENTRADA
+
+   UMA trilha só, `audio/inicio`, mais calma e mais baixa que as do jogo
+   (0,28 contra 0,40) — ela toca enquanto a pessoa lê e escolhe, não
+   enquanto joga.
+
+   O botão tem os mesmos três degraus do jogo e GUARDA NA MESMA CHAVE
+   (`minerais.som`): quem silenciar aqui entra no jogo silenciado, e
+   vice-versa. Duas chaves diferentes fariam a pessoa desligar o som duas
+   vezes.
+
+   Nada é obrigatório: arquivo que não existir é ignorado sem erro.
+   ============================================================ */
+var FORMATOS = ['.ogg','.mp3','.wav'];
+var VOL_TRILHA_ENTRADA = 0.28;
+var EFEITOS = { clique:['audio/ui-clique',0.45], passa:['audio/ui-passa',0.22] };
+
+var som = { nivel:2, trilha:null, efeitos:{}, destravado:false, esperando:false };
+try { var g = localStorage.getItem('minerais.som');
+      if(g !== null) som.nivel = Math.max(0, Math.min(2, Number(g))); } catch(e){}
+
+function novoAudio(base, vol){
+  var a = new Audio(); a.volume = vol; var i = 0;
+  function tentar(){ if(i >= FORMATOS.length){ a.quebrada = true; return; } a.src = base + FORMATOS[i++]; }
+  a.addEventListener('error', tentar); tentar(); return a;
+}
+(function prepararSom(){
+  som.trilha = novoAudio('audio/inicio', VOL_TRILHA_ENTRADA);
+  som.trilha.loop = true;
+  /* 'none' aqui também: a trilha da entrada só baixa quando for tocar, e
+     quem entra com o som mudo não paga por ela. */
+  som.trilha.preload = 'none';
+  Object.keys(EFEITOS).forEach(function(k){
+    var e = EFEITOS[k];
+    /* três instâncias em rodízio: dois cliques seguidos não se cortam */
+    som.efeitos[k] = { i:0, vozes:[novoAudio(e[0],e[1]),novoAudio(e[0],e[1]),novoAudio(e[0],e[1])] };
+  });
+})();
+
+function tocar(nome){
+  if(som.nivel === 0) return;
+  var e = som.efeitos[nome]; if(!e) return;
+  var a = e.vozes[e.i = (e.i + 1) % 3];
+  if(a.quebrada) return;
+  try { a.currentTime = 0; a.play().catch(function(){}); } catch(err){}
+}
+function tocarTrilha(){
+  if(som.nivel !== 2 || !som.trilha || som.trilha.quebrada) return;
+  if(som.trilha.preload === 'none'){ som.trilha.preload = 'auto'; try { som.trilha.load(); } catch(e){} }
+  som.trilha.play().then(function(){ som.destravado = true; }).catch(destravarNoGesto);
+}
+/* Navegador nenhum toca áudio antes de um gesto — é regra da plataforma.
+   Então: tenta na hora e, se for barrado, engata no primeiro clique. Um
+   cadastro só, senão dois ouvintes põem duas trilhas por cima. */
+function destravarNoGesto(){
+  if(som.destravado || som.esperando) return;
+  som.esperando = true;
+  var engatar = function(){
+    som.esperando = false;
+    removeEventListener('pointerdown', engatar); removeEventListener('keydown', engatar);
+    if(som.destravado) return;
+    som.destravado = true; tocarTrilha();
+  };
+  addEventListener('pointerdown', engatar, {once:true});
+  addEventListener('keydown', engatar, {once:true});
+}
+function pintarSom(){
+  document.getElementById('rotSom').textContent = ['Mudo','Efeitos','Som'][som.nivel];
+  document.getElementById('icoSom').innerHTML = som.nivel ? '&#9835;' : '&#128263;';
+  document.getElementById('bSom').setAttribute('aria-pressed', String(som.nivel > 0));
+}
+document.getElementById('bSom').onclick = function(){
+  /* DESCE: Som -> Efeitos -> Mudo -> Som. O primeiro clique de quem só
+     quer abaixar a música não pode deixar a pessoa sem som nenhum. */
+  som.nivel = (som.nivel + 2) % 3;
+  if(som.nivel === 2) tocarTrilha();
+  else if(som.trilha){ try { som.trilha.pause(); } catch(e){} }
+  try { localStorage.setItem('minerais.som', String(som.nivel)); } catch(e){}
+  pintarSom(); tocar('clique');
+};
+pintarSom(); tocarTrilha(); destravarNoGesto();
+
+/* Efeito em todo botão da tela, sem precisar ligar um por um. */
+document.addEventListener('click', function(e){
+  var b = e.target.closest && e.target.closest('button');
+  if(b && b.id !== 'bSom' && !b.disabled) tocar('clique');
+});
+document.addEventListener('pointerover', function(e){
+  var b = e.target.closest && e.target.closest('.modo,.adv');
+  if(b && !b.disabled && b !== som._ultimo){ som._ultimo = b; tocar('passa'); }
+});
+document.addEventListener('pointerout', function(e){
+  if(e.target.closest && e.target.closest('.modo,.adv') === som._ultimo) som._ultimo = null;
+});
+
+/* ---- as três folhas do rodapé ---- */
+var aberta = null;
+function abrir(id){
+  fechar();
+  aberta = document.getElementById(id);
+  aberta.classList.add('on');
+  var f = aberta.querySelector('[data-fecha]'); if(f) f.focus();
+}
+function fechar(){ if(aberta){ aberta.classList.remove('on'); aberta = null; } }
+document.getElementById('bSobre').onclick    = function(){ abrir('fSobre'); };
+document.getElementById('bCreditos').onclick = function(){ abrir('fCreditos'); };
+document.getElementById('bComo').onclick     = function(){ abrir('fComo'); };
+document.querySelectorAll('[data-fecha]').forEach(function(b){ b.onclick = fechar; });
+document.querySelectorAll('.folha').forEach(function(f){
+  f.addEventListener('click', function(e){ if(e.target === f) fechar(); });
+});
+addEventListener('keydown', function(e){ if(e.key === 'Escape') fechar(); });
+</script>
+</body>
+</html>
