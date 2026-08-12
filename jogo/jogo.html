@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minerais do Brasil — mesa de teste (v9)</title>
+<!-- Estrutura só. Aparência em estilo.css, comportamento em mesa.js,
+     regras em engine-v7.js, dados em dados.js (gerado da planilha). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-energia" viewBox="0 0 24 24"><path fill="currentColor" d="M13.6 2 4.8 13.2c-.4.5 0 1.3.6 1.3h4.2l-1.2 7.3c-.1.8.9 1.2 1.4.6l8.8-11.2c.4-.5 0-1.3-.6-1.3h-4.2l1.2-7.3c.1-.8-.9-1.2-1.4-.6z"/></symbol>
+  <symbol id="i-valor" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><ellipse cx="12" cy="6.6" rx="7.6" ry="3.1"/><path d="M4.4 6.6v4.2c0 1.7 3.4 3.1 7.6 3.1s7.6-1.4 7.6-3.1V6.6"/><path d="M4.4 10.9v4.2c0 1.7 3.4 3.1 7.6 3.1s7.6-1.4 7.6-3.1v-4.2"/></g></symbol>
+  <symbol id="i-dureza" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M6.2 3h11.6l3.4 5.6L12 21 2.8 8.6z"/><path d="M2.8 8.6h18.4M8.6 8.6 12 21l3.4-12.4M6.2 3l2.4 5.6M17.8 3l-2.4 5.6"/></g></symbol>
+  <!-- escudo cheio: é a placa do herói, a vida do jogo -->
+  <symbol id="i-escudo" viewBox="0 0 24 24"><path fill="currentColor" stroke="rgba(0,0,0,.45)" stroke-width="1" d="M12 1.8 3.4 4.9v6.4c0 5.3 3.5 9.6 8.6 11.7 5.1-2.1 8.6-6.4 8.6-11.7V4.9z"/></symbol>
+  <symbol id="i-geo" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 2.6 4.2 5.4v6.1c0 4.9 3.2 8.9 7.8 10.9 4.6-2 7.8-6 7.8-10.9V5.4z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12 8.2v7M8.5 11.7h7"/></symbol>
+  <symbol id="i-reservas" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 2.8 2.6 7.5 12 12.2l9.4-4.7z"/><path d="m2.6 12 9.4 4.7 9.4-4.7M2.6 16.5 12 21.2l9.4-4.7"/></g></symbol>
+  <symbol id="i-liga" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8.6" cy="12" r="5.6"/><circle cx="15.4" cy="12" r="5.6"/></g></symbol>
+  <symbol id="i-refinar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2 6.6 8.6h10.8z"/><path d="M12 10.6 6.6 16h10.8z"/><path d="M6.6 20.4h10.8"/></g></symbol>
+  <symbol id="i-ajuda" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9.2"/><path stroke-linecap="round" d="M9.4 9.2a2.7 2.7 0 1 1 3.4 2.6c-.5.2-.8.7-.8 1.2v.8M12 17.1h.01"/></g></symbol>
+  <symbol id="i-encerrar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12h13"/><path d="m11.5 7 5 5-5 5"/><path d="M20.5 4.5v15"/></g></symbol>
+  <symbol id="i-novo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.6 4.2v4.6H16"/></g></symbol>
+  <symbol id="i-sup" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6"/><path d="m6.5 11.5 5.5-5.5 5.5 5.5"/></g></symbol>
+  <symbol id="i-mao" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="6" width="11" height="14" rx="2"/><path d="m16.4 6.9 3.5 1.3a2 2 0 0 1 1.2 2.6l-3.3 8.6"/></g></symbol>
+  <symbol id="i-pedra" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 10.5 9.5 4h7L21 10l-6 9.5H8.5z"/><path d="m9.5 4 2.5 6.4L21 10M12 10.4 8.5 19.5M12 10.4 4 10.5"/></g></symbol>
+  <symbol id="i-registro" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5 3.6h11l3 3v13.8H5z"/><path d="M8 9h8M8 12.6h8M8 16.2h5"/></g></symbol>
+  <symbol id="i-som" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M11 4.5 6.2 8.4H3v7.2h3.2L11 19.5z"/><path stroke-linecap="round" d="M15 9.2a4 4 0 0 1 0 5.6"/><path stroke-linecap="round" d="M17.8 6.4a8 8 0 0 1 0 11.2"/></g></symbol>
+  <symbol id="i-mudo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M11 4.5 6.2 8.4H3v7.2h3.2L11 19.5z"/><path stroke-linecap="round" d="m15.5 9.5 5 5M20.5 9.5l-5 5"/></g></symbol>
+  <!-- muro de pedra: a marca da barreira -->
+  <symbol id="i-barreira" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M3.2 6.6h17.6v4.4H3.2zM3.2 11h17.6v4.4H3.2zM3.2 15.4h17.6v4.4H3.2z"/><path d="M9.1 6.6V11M14.9 6.6V11M6.2 11v4.4M12 11v4.4M17.8 11v4.4M9.1 15.4v4.4M14.9 15.4v4.4"/></g></symbol>
+  <symbol id="i-sair" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3.5H5.5v17H14"/><path d="M18.5 12h-9"/><path d="m14 7.5 4.5 4.5-4.5 4.5"/></g></symbol>
+  <symbol id="i-baixar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v11"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M4.5 19.5h15"/></g></symbol>
+</svg>
+
+<div class="topo">
+  <div class="vez">
+    <span class="pino" id="pino">1</span>
+    <span><h1 id="quem">Jogador 1</h1><small id="turnoTxt">Turno 1</small></span>
+  </div>
+  <div class="botoesTopo">
+    <button class="b peq fantasma" id="btnSom" aria-pressed="false" data-dica="som"><svg class="ic" id="icoSom"><use href="#i-mudo"/></svg><span id="rotSom">Som</span></button>
+    <!-- só aparece no celular deitado, onde a coluna do Registro não cabe -->
+    <button class="b peq fantasma soCelular" id="btnRegistro"><svg class="ic"><use href="#i-registro"/></svg>Registro</button>
+    <button class="b peq fantasma" id="btnAjuda"><svg class="ic"><use href="#i-ajuda"/></svg>Como jogar</button>
+    <button class="b peq fantasma" id="btnNovo"><svg class="ic"><use href="#i-novo"/></svg>Nova partida</button>
+    <button class="b peq fantasma" id="btnSair"><svg class="ic"><use href="#i-sair"/></svg>Sair</button>
+  </div>
+</div>
+
+<div class="mesa">
+
+  <aside class="colEsq">
+    <div class="pnl bloco">
+      <h3 data-dica="registro"><svg class="ic"><use href="#i-registro"/></svg>Registro</h3>
+      <ul id="log"></ul>
+      <button class="b peq bGuardar" id="btnGuardar">
+        <svg class="ic"><use href="#i-baixar"/></svg>Guardar partida
+      </button>
+    </div>
+  </aside>
+
+  <div class="arena" id="arena">
+
+    <!-- adversário: nome à esquerda, medidores à direita -->
+    <div class="faixaJog op">
+      <div class="placa">
+        <span class="avatar" id="avatarOp" data-guia="avatar" data-dica="avatar"></span>
+        <span>
+          <span class="quemNome" id="opNome">Jogador 2</span>
+        </span>
+      </div>
+      <div class="maoVirada" id="maoOp" data-guia="maoop" data-dica="maoOp"></div>
+      <span id="avisoBarreira" style="display:none"></span>
+      <div class="heroiLinha op">
+        <button class="heroi op" id="heroiOp" data-drop="heroi" data-guia="heroi" type="button"
+                data-dica="escudoOp">
+          <span class="placaEsc"><svg class="ic"><use href="#i-escudo"/></svg></span>
+          <b id="opGeo">15</b>
+          <span class="cap" id="capOp">Geopolítica</span>
+        </button>
+      </div>
+      <div class="medidores">
+        <span class="med" data-dica="reservas"><svg class="ic"><use href="#i-reservas"/></svg>
+          <span><span class="rot" id="rotResOp">Reservas</span></span><b id="opRes">0</b></span>
+        <!-- a energia do adversário: sem ela não dá para prever o que ele
+             consegue jogar no turno seguinte -->
+        <span class="med" data-dica="energia"><svg class="ic"><use href="#i-energia"/></svg>
+          <span><span class="rot">Energia</span><span class="pilhaOp" id="opEnergiaBarra"></span></span>
+          <b id="opEnergia">0</b></span>
+      </div>
+    </div>
+
+    <div class="pista">
+      <div class="campo op" id="campoOp"></div>
+      <div class="meio"></div>
+      <div class="campo meu" id="campoEu" data-drop="campo" data-guia="campo"></div>
+    </div>
+
+    <!-- você: nome à esquerda, Reservas e Energia à direita -->
+    <div class="faixaJog eu">
+      <div class="placa">
+        <span class="avatar" id="avatarEu"></span>
+        <span>
+          <span class="quemNome" id="meuNome">Jogador 1</span>
+        </span>
+      </div>
+      <div class="heroiLinha euL">
+        <button class="heroi" id="heroiEu" type="button" tabindex="-1" data-dica="escudoEu">
+          <span class="placaEsc"><svg class="ic"><use href="#i-escudo"/></svg></span>
+          <b id="meuGeo">15</b>
+          <span class="cap" id="capEu">Geopolítica</span>
+        </button>
+      </div>
+      <div class="medidores" data-guia="ene">
+        <span class="med" data-dica="reservas"><svg class="ic"><use href="#i-reservas"/></svg>
+          <span><span class="rot" id="rotResEu">Reservas</span></span><b id="meuRes">0</b></span>
+        <span class="med ene" data-dica="energia"><svg class="ic"><use href="#i-energia"/></svg>
+          <span><span class="rot">Energia</span><span class="pilhas" id="pilhas"></span></span>
+          <b id="meuEne">0</b></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="trilho">
+    <div class="pnl relogio" id="relogio" data-guia="relogio" data-dica="relogio">
+      <div class="lin"><span>Tempo do turno</span><b id="segundos">90</b></div>
+      <div class="barra"><i id="barraTempo" style="width:100%"></i></div>
+    </div>
+    <button class="b bEncerrar" id="btnPassar" data-guia="encerrar" data-dica="encerrar">
+      <svg class="ic"><use href="#i-encerrar"/></svg>Fim do turno
+    </button>
+    <button class="b bForjar" id="btnForjar" data-guia="forjar" data-dica="forjar">
+      <svg class="ic"><use href="#i-liga"/></svg>Forjar liga<span class="cont" id="contLigas" hidden>0</span>
+    </button>
+    <!-- diz qual liga está ao alcance e o que falta para ela -->
+    <p class="pistaLiga" id="pistaLiga" hidden></p>
+    <button class="b bRefinar" id="btnRefinar" data-guia="refinar" data-dica="refinar">
+      <svg class="ic"><use href="#i-refinar"/></svg>Refinar no Campo<span class="cont" id="contRefino" hidden>0</span>
+    </button>
+    <button class="b bRefinar" id="btnPeD" data-guia="refinar" data-dica="refinar">
+      <svg class="ic"><use href="#i-refinar"/></svg>P&D na Mão<span class="cont" id="contPeD" hidden>0</span>
+    </button>
+    <p class="dicaTrilho">Arraste a carta para o campo e a ficha para o alvo.</p>
+  </div>
+</div>
+
+<div class="maoArea">
+  <!-- o aviso de campo cheio fica AQUI, entre a mesa e a mão: é onde o
+       olho está quando a pessoa tenta jogar e a carta não desce -->
+  <p class="avisoCampo" id="avisoCampo" hidden></p>
+  <div class="faixa"><h2>Sua mão</h2><span class="sub" id="subMao"></span></div>
+  <div class="mao" id="mao" data-guia="mao"></div>
+</div>
+
+<div class="previa" id="previa" aria-hidden="true"></div>
+<div id="paineis"></div>
+<!-- RETRATO: pede para virar o aparelho.
+     Não dá para travar a orientação no navegador — a API só funciona em
+     tela cheia e o Safari do iPhone não a suporta. Então se pede.
+     O jogo continua montado atrás (só `visibility:hidden`), para virar o
+     aparelho não recarregar nem perder a partida em andamento. -->
+<div id="gireOAparelho">
+  <span class="icone" aria-hidden="true"></span>
+  <h2>Vire o aparelho</h2>
+  <p>O jogo precisa da tela deitada: são cinco cartas lado a lado em cada campo.</p>
+  <small>Se a tela não girar, verifique se a rotação automática do aparelho está ligada.</small>
+</div>
+
+<div id="dica" class="pnl" role="tooltip"></div>
+<div id="telas"></div>
+
+<script src="dados.js"></script>
+<script src="engine.js"></script>
+<!-- ORDEM IMPORTA:
+     bot2.js  ANTES do bots.js — o bots.js procura `window.IABot` na hora
+              em que carrega. Se o bot2 vier depois, `IA` fica null e todo
+              perfil `ia_*` devolve "passar": o adversário passa a vez a
+              partida inteira e parece que o jogo travou. Foi exatamente o
+              que aconteceu com a Verticalização em 11/08.
+     solo.js  depois, e mesa.js por último. -->
+<script src="bot2.js"></script>
+<script src="bots.js"></script>
+<script src="solo.js"></script>
+<script src="telemetria.js"></script>
+<script src="mesa.js"></script>
+</body>
+</html>

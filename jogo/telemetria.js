@@ -1,0 +1,161 @@
+/* TELEMETRIA.JS — a partida vai para o servidor sozinha.
+
+   O botão "Guardar partida" era para o Thomas, não para o jogador. Quem
+   joga na feira não clica em nada, e a partida que mais interessa é
+   justamente a que a pessoa ABANDONOU — é ela que diz onde o jogo cansa.
+
+   O QUE ELE ENVIA é o mesmo registro que o botão baixa: semente, cfg,
+   lista de ações e o bloco `partida` (modo, nomes, contra qual bot,
+   vencedor). Nada mais.
+
+   POR QUE ISSO BASTA: o motor é determinístico, então semente + ações
+   RECONSTROEM a partida inteira, jogada por jogada. Guardando 8,7 KB
+   dá para responder depois qualquer pergunta — inclusive as que ninguém
+   pensou em fazer hoje. É por isso que aqui não se calcula estatística
+   nenhuma: quem calcula é o serviço do servidor, que pode mudar de ideia
+   sem precisar de um jogo novo.
+
+   TRÊS MOMENTOS em que a partida é registrada:
+     fim       alguém venceu
+     abandono  fechou a aba, saiu, ou o aparelho foi bloqueado
+     nova      começou outra por cima de uma em andamento
+
+   O QUE NÃO VAI JUNTO: nome do jogador não é enviado. Ele existe no
+   registro local (o arquivo que o Thomas baixa) mas é removido antes do
+   envio — é dado pessoal e não serve para nenhuma estatística de
+   balanceamento. Ver `limpar()`.
+*/
+(function (raiz) {
+  'use strict';
+
+  /* O endereço do endpoint que recebe. Relativo de propósito: funciona
+     tanto em `faroldeareia.com/jogo/` quanto abrindo o arquivo local — no
+     local ele falha, cai na fila, e nada se perde.
+
+     A FILA LOCAL E A PASTA DO SERVIDOR SÃO COISAS DIFERENTES:
+       · `localStorage` fica no navegador DO JOGADOR. É só uma sala de
+         espera para quando o servidor está fora ou não há internet.
+       · `registropartidas/AAAA-MM/` fica NO SERVIDOR. É o acervo de
+         verdade, e é de lá que as estatísticas saem.
+     Uma não substitui a outra: sem a fila, uma partida jogada offline na
+     feira se perderia; sem a pasta, não haveria acervo. */
+  var DESTINO = 'api/partida';
+
+  var CHAVE_FILA = 'minerais.fila';
+  var MAX_FILA   = 40;     /* ~350 KB. Acima disso o navegador reclama, e
+                              uma fila que nunca esvazia é sinal de que o
+                              servidor está fora — não adianta acumular. */
+
+  function lerFila() {
+    try { return JSON.parse(localStorage.getItem(CHAVE_FILA) || '[]'); }
+    catch (e) { return []; }
+  }
+  function gravarFila(f) {
+    try { localStorage.setItem(CHAVE_FILA, JSON.stringify(f.slice(-MAX_FILA))); }
+    catch (e) { /* cota cheia ou modo privado: perde-se a fila, e tudo bem */ }
+  }
+
+  /* Tira o que é pessoal e o que é volumoso e redundante.
+     O `log` são as frases em português que a tela mostrou — 60 linhas por
+     partida, reconstruíveis a partir das ações. Fora do envio ele corta
+     quase metade do tamanho. */
+  function limpar(reg) {
+    var r = JSON.parse(JSON.stringify(reg));
+    delete r.log;
+    if (r.partida) {
+      r.partida.jogadores = undefined;   // nome de pessoa não sobe
+      delete r.partida.jogadores;
+      if (r.partida.vencedor && r.partida.vencedor !== 'empate') {
+        /* "Thomas" vira "humano" ou "bot": o que importa é QUEM venceu no
+           sentido de papel, não o nome digitado. */
+        r.partida.vencedor = (r.partida.humano !== null && r.fim === r.partida.humano)
+          ? 'humano' : 'bot';
+      }
+    }
+    return r;
+  }
+
+  /* `sendBeacon` é o único envio que o navegador garante durante o
+     fechamento da aba. `fetch` normal é cancelado no meio. Ele não
+     devolve resposta — mandou, esqueceu. */
+  function enviar(reg) {
+    if (!DESTINO) return false;
+    var corpo = new Blob([JSON.stringify(reg)], { type: 'application/json' });
+    try {
+      if (navigator.sendBeacon && navigator.sendBeacon(DESTINO, corpo)) return true;
+    } catch (e) {}
+    try {
+      fetch(DESTINO, { method: 'POST', body: corpo, keepalive: true,
+                       headers: { 'Content-Type': 'application/json' } });
+      return true;
+    } catch (e) { return false; }
+  }
+
+  /* Ao abrir a página, tenta despachar o que ficou para trás — de quando
+     o servidor estava fora, ou de quando não havia internet na feira. */
+  function despacharFila() {
+    if (!DESTINO) return;
+    var f = lerFila();
+    if (!f.length) return;
+    var sobrou = [];
+    for (var i = 0; i < f.length; i++) if (!enviar(f[i])) sobrou.push(f[i]);
+    gravarFila(sobrou);
+  }
+
+  var jaRegistrou = {};   /* semente+motivo já enviados nesta sessão */
+
+  var Telemetria = {
+    ativo: true,
+
+    /* Chamado pelo mesa.js. `montar` é o `montarRegistro` de lá — a
+       telemetria não sabe montar registro, e é de propósito: um montador
+       só, senão o arquivo que o Thomas analisa e o que o servidor recebe
+       divergem com o tempo. */
+    registrar: function (montar, motivo) {
+      if (!this.ativo || typeof montar !== 'function') return;
+      var reg;
+      try { reg = montar(motivo); } catch (e) { return; }
+      if (!reg || !reg.acoes || reg.acoes.length < 4) return;   // nem começou
+
+      /* Uma partida por motivo. Sem isto, sair pelo botão dispararia
+         'abandono' e o `pagehide` dispararia de novo logo depois. */
+      var id = reg.semente + ':' + motivo;
+      if (jaRegistrou[id]) return;
+      jaRegistrou[id] = 1;
+
+      var enxuto = limpar(reg);
+      if (!enviar(enxuto)) {
+        var f = lerFila();
+        f.push(enxuto);
+        gravarFila(f);
+      }
+    },
+
+    /* Liga os três gatilhos. O mesa.js chama isto uma vez. */
+    ligar: function (montar, temPartida) {
+      var eu = this;
+      despacharFila();
+
+      /* `pagehide` em vez de `beforeunload`: é o único que dispara no
+         Safari do iPhone quando a pessoa troca de app ou bloqueia a tela,
+         que é como a maioria das partidas de celular termina. */
+      addEventListener('pagehide', function () {
+        if (temPartida && temPartida()) eu.registrar(montar, 'abandono');
+      });
+      /* rede de segurança para navegadores que não disparam pagehide */
+      addEventListener('beforeunload', function () {
+        if (temPartida && temPartida()) eu.registrar(montar, 'abandono');
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'hidden' && temPartida && temPartida())
+          eu.registrar(montar, 'abandono');
+      });
+    },
+
+    /* Para o Thomas ver o que está na fila, do console do navegador. */
+    fila: lerFila,
+    destino: function (url) { DESTINO = url || ''; despacharFila(); }
+  };
+
+  raiz.Telemetria = Telemetria;
+})(typeof self !== 'undefined' ? self : this);
