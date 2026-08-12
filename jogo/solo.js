@@ -1,20 +1,14 @@
 /* SOLO.JS — a partida contra o computador.
 
-   Este arquivo NÃO tem regra de jogo e NÃO tem cérebro de bot. Ele só faz
-   três coisas:
+   Este script faz três coisas:
 
      1. lê da URL contra quem a pessoa escolheu jogar (inicio.html);
-     2. sorteia quem começa;
-     3. pilota o bot: pergunta a jogada ao bots.js e a entrega ao mesa.js,
-        com pausa entre uma e outra.
+     2. sorteia quem começa a primeira jogada;
+     3. pilota o bot: pergunta a jogada ao bots.js e a entrega ao mesa.js, com pausa entre uma e outra.
 
-   A regra mora no engine.js, o cérebro no bots.js e a tela no mesa.js.
-   Se um dia isto aqui crescer e virar "quase um bot", é sinal de que
-   alguma coisa foi parar no lugar errado.
+   A regra mora no engine.js, o cérebro no bots.js e bots2.js e a tela no mesa.js.
 
-   Carregado DEPOIS do bots.js e ANTES do mesa.js (ver jogo.html). Quando a
-   URL não diz nada, `Solo.ativo` fica falso e o jogo se comporta
-   exatamente como antes.
+   Esse arquivo é carregado DEPOIS do bots.js e ANTES do mesa.js (ver jogo.html).
 */
 (function (raiz) {
   'use strict';
@@ -22,15 +16,13 @@
   var p = new URLSearchParams(location.search);
 
   /* Os cinco adversários. Os nomes de exibição e os perfis internos são os
-     mesmos do inicio.html — se mudar lá, mude aqui. */
-  /* Tem que bater com o ADVERSARIOS do inicio.html. O porquê de cada
-     perfil está lá, com os números da medição. */
+     mesmos do inicio.html. Importante manter o mesmo nome. */
   var ADVERSARIOS = {
     prospeccao:     { nome: 'Prospecção',     perfil: 'aleatorio' },
     lavra:          { nome: 'Lavra',          perfil: 'aggro' },
     fundicao:       { nome: 'Fundição',       perfil: 'midrange' },
     refinaria:      { nome: 'Refinaria',      perfil: 'control' },
-    /* o bot de árvore de busca do bot2.js: ganha de todos os outros */
+    /* o bot de árvore de busca do bot2.js: que usa um sistema mais inteligente de jogadas */
     verticalizacao: { nome: 'Verticalização', perfil: 'ia_midrange' }
   };
 
@@ -42,28 +34,20 @@
   /* ------------------------------------------------------------------
      O RITMO DO BOT.
 
-     Ele NÃO pode jogar instantâneo. Se as seis jogadas dele saem no mesmo
-     quadro, a pessoa vê o tabuleiro mudar de uma vez e não faz ideia do
-     que aconteceu — e o objetivo do jogo é justamente ela entender a
-     escada olhando alguém subir.
+     O bot joga muito rápido. A pessoa vê o tabuleiro mudar de uma vez e não faz ideia do
+     que aconteceu.
 
      Cada tipo de jogada tem seu tempo, proporcional ao quanto ela muda o
      tabuleiro. Forjar liga é o clímax da partida e ganha a pausa maior.
 
-     DOBRADO em 10/08 depois do primeiro playtest. O Thomas: "fica tudo
-     MUITO RÁPIDO, eu que sou experiente em Hearthstone fiquei confuso".
-     Se um jogador de TCG se perde, quem nunca viu um não tem chance.
-
      Cada jogada agora dura o tempo de LER a faixa que a anuncia (a
-     `falaDoBot` do mesa.js fica 1,5 s na tela). Uma partida do bot ficou
-     mais lenta, e é o preço certo: o jogo existe para ensinar a cadeia
-     produtiva, e ninguém aprende olhando um tabuleiro que muda sozinho. */
+     `falaDoBot` do mesa.js fica 1,5 s na tela). */
   var RITMO = {
     jogar:   1500,
     refinar: 1700,
     fundir:  2600,   // o clímax da partida: dá tempo de ler a liga forjada
     atacar:  1400,
-    passar:  1100
+    passar:  1200
   };
   var PAUSA_INICIAL = 1200;  // antes da primeira jogada do turno dele
 
@@ -77,16 +61,8 @@
     pensando: false,
     _timer: null,
 
-    /* QUEM COMEÇA É SORTEADO, e isso não é detalhe.
-
-       O motor compensa quem joga em segundo: mão de 5 em vez de 4, uma
-       carta a mais na jazida e energia extra nos dois primeiros turnos
-       (`maoSegundo`, `baralhoSegundoExtra`, `fichaSegundo` no dados.js).
-       A medição de espelho de 09/08 mostrou o jogador 2 vencendo 60% no
-       espelho do aggro — ou seja, o lado importa.
-
-       Se o humano fosse sempre o mesmo lado, a dificuldade real do jogo
-       seria outra e ninguém perceberia. */
+    /* QUEM COMEÇA É SORTEADO
+      O jogo tentou ser, após milhares e milhares de simulação, balançear o jogador 1 com o 2, mas, como qualquer jogo de turno, pode haver desbalançeamento. */
     sortearLados: function () {
       if (!this.ativo) return;
       this.humano = Math.random() < 0.5 ? 0 : 1;
@@ -132,15 +108,15 @@
 
       /* O `agir` do mesa.js chama `talvezJogar` de novo no fim, então o
          encadeamento acontece sozinho. O `pensando` continua ligado até a
-         vez voltar para a pessoa — é ele que autoriza a jogada a passar
+         vez voltar para a pessoa. É ele que autoriza a jogada a passar
          pela trava do agir. */
       setTimeout(function () {
         var agora = raiz.estadoAtual && raiz.estadoAtual();
         if (!eu.ativo || !agora || agora.fim !== null) { eu.pensando = false; return; }
         var ok = raiz.agir(acao);
-        /* Jogada recusada seria laço infinito: o bot insistiria no mesmo
+        /* Jogada recusada seria laço infinito, onde o bot insistiria no mesmo
            lance para sempre. Se acontecer, ele passa o turno e a partida
-           continua — e o console registra, porque isso é bug do bots.js e
+           continua. O console registra, porque isso é bug do bots.js e
            não pode passar despercebido. */
         if (!ok) {
           console.warn('jogada do bot recusada:', acao, '- passando o turno');
