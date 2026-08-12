@@ -366,9 +366,14 @@ function tocar(nome){
   if(som.nivel === 0) return;
   const e = som.efeitos[nome];
   if(!e) return;
+  
   const a = e.vozes[e.i = (e.i + 1) % VOZES];
   if(a.quebrada) return;
-  try { a.currentTime = 0; a.play().catch(() => {}); } catch(err){}
+  
+  /* Isola o currentTime para que, se ele falhar, não cancele o play() */
+  try { a.currentTime = 0; } catch(err){}
+  
+  try { a.play().catch(() => {}); } catch(err){}
 }
 function proximaFaixa(){
   const boas = som.faixas.filter(a => !a.quebrada);
