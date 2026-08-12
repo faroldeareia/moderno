@@ -1,23 +1,6 @@
 /* VERSÃO DA MESA: v10 (2026-08-06)
-   motor: engine-v7.js · dados: dados.js (gerado da planilha)
-
-   A partir da v10 o arquivo NÃO carrega mais o número no nome. Com a
-   interface separada em três arquivos (jogo.html, estilo.css, mesa.js),
-   versionar cada um daria jogo-v10.html + estilo-v10.css + mesa-v10.js,
-   e bastaria esquecer um para o conjunto ficar inconsistente. Então:
-
-     jogo.html, estilo.css, mesa.js   sempre a versão atual
-     versoes/jogo-vN.html             fotografias antigas, arquivo único
-     engine-vN.js                     o motor CONTINUA versionado, porque
-                                      registro de partida antigo precisa
-                                      do motor da época para reproduzir
-
-   O número da versão vive aqui em cima e sai no console ao abrir.
-
-/* Interface do Jogo de Cartas Minerais — hot-seat, dois jogadores no
-   mesmo aparelho.
-
-   Aqui NÃO há regra de jogo: quem decide é engine-v7.js. Este arquivo
+   motor: engine.js · dados: dados.js (gerado da planilha)
+   Aqui NÃO há regra de jogo. Este arquivo
    desenha o estado, escuta clique e arrasto, e chama Motor.aplicar.
    Se alguma regra aparecer aqui, ela vai divergir do servidor. */
 'use strict';
@@ -32,13 +15,9 @@ const T = {
 };
 const SEG_TURNO = 90;
 
-/* AS CINCO FAMÍLIAS. A chave é o campo `bloco` do dados.js, escrito
-   IGUALZINHO — acento e barra inclusive. Antes eram três chaves (I, II,
-   III) que não batiam com nenhum bloco do baralho novo, então todas as 28
-   cartas caíam no padrão e o jogo inteiro ficava roxo.
-   As cores moram no topo do estilo.css, em --b1 a --b5. */
-/* Os cinco nomes são os que o MME usa. Vieram do Thomas em 10/08/2026 e
-   substituíram os rótulos internos antigos (Base, Balança/Tecnologia…). */
+/* AS CINCO FAMÍLIAS.
+   As cores moram no topo do estilo.css, em --b1 a --b5. São classes comumente usadas pelo MME */
+
 const COR = {
   'Segurança Alimentar':  {c:'var(--b1)', s:'var(--b1s)', nome:'Segurança alimentar',  chave:'SEGURANÇA ALIMENTAR'},
   'Transição Energética': {c:'var(--b2)', s:'var(--b2s)', nome:'Transição energética', chave:'TRANSIÇÃO ENERGÉTICA'},
@@ -46,45 +25,17 @@ const COR = {
   'Alta Tecnologia':      {c:'var(--b4)', s:'var(--b4s)', nome:'Alta tecnologia',      chave:'ALTA TECNOLOGIA'},
   'Segurança Energética': {c:'var(--b5)', s:'var(--b5s)', nome:'Segurança energética', chave:'SEGURANÇA ENERGÉTICA'}
 };
-/* Se um bloco novo aparecer no dados.js sem cor aqui, ele cai na Transição
-   — mas o console avisa, para o erro não passar despercebido de novo. */
+/* Se um bloco novo aparecer no dados.js sem cor aqui, ele cai na Transição, mas o console avisa, para o erro não passar despercebido de novo. */
 const CORPADRAO = COR['Transição Energética'];
 
 /* ============================================================
-   SLOTS DE ARTE — nada aqui é obrigatório. Cada imagem que
-   existir entra sozinha; o que não existir usa o desenho em CSS.
-     arte/01.jpg … arte/25.jpg    arte de cada carta (4:3)
-     mesa/fundo.jpg               cenário da tela inteira
-     mesa/mesa.jpg                tampo da arena (opcional)
-     mesa/verso.jpg               verso da carta
-     avatares/01.png … 04.png     avatar do jogador
-   ============================================================ */
-/* ------------------------------------------------------------
-   ARTE — três formas e três estados, com queda suave.
-
-   FORMAS    'retrato'  carta da mão e carta grande, recorte 4:3
-             'ficha'    disco do tabuleiro, recorte circular
-
-   ESTADOS   concentrado · refinado · liga
-
-   O jogo tenta os arquivos NA ORDEM abaixo e usa o primeiro que
-   existir. Ou seja: você pode desenhar só `arte/07.jpg` e tudo
-   funciona; desenhar `07-ficha.jpg` melhora o disco; desenhar
-   `07-refinado.jpg` faz a carta mudar ao subir de degrau. Nada
-   é obrigatório e nada quebra se faltar.
+   SLOTS DE ARTE 
    ------------------------------------------------------------ */
 const NN = id => String(id).padStart(2,'0');
 
 /* QUALQUER FORMATO, EM TODO LUGAR.
-
-   Até 11/08 cada caminho aceitava um formato só, e cada um o seu: a arte
-   das cartas só `.jpg`, os avatares só `.png`, os retratos de bot só
-   `.png`. Só o cenário e a capa aceitavam os três. Converter um PNG para
-   JPEG — que é o certo para foto — fazia o jogo parar de achar o arquivo.
-
-   Agora é uma função só. A ordem importa: **webp primeiro**, porque é o
-   menor; depois jpg; png por último, que é o pior para foto e o único que
-   guarda transparência. O primeiro que carregar vence. */
+ **webp primeiro**, porque é o
+   menor; depois jpg; png por último. O primeiro que carregar vence. */
 const FORMATOS_IMG = ['.webp', '.jpg', '.png'];
 const comFormatos = base => FORMATOS_IMG.map(e => base + e);
 const slug = t => String(t).normalize('NFD').replace(/[\u0300-\u036f]/g,'')
@@ -145,18 +96,13 @@ function seExistir(url, aoCarregar){
 const raiz = document.documentElement;
 /* CENÁRIO SORTEADO — como nomear os arquivos:
 
-       mesa/fundo1.jpg   mesa/fundo2.jpg   …   até mesa/fundo8
-       (e .png e .webp também servem; o antigo mesa/fundo.jpg continua valendo)
+       mesa/fundo1.   mesa/fundo2.  …   até mesa/fundo8
 
    Ele testa todos, fica com os que carregarem de verdade e sorteia um por
-   partida. Desenhe um, três ou oito — não precisa mexer em código.
-
-   ACEITA .jpg, .png E .webp de propósito: o mesa/fundo2.png estava na pasta
-   e sendo ignorado em silêncio, porque a lista só tinha .jpg.
-
+   partida. 
    O sorteio usa Math.random e NÃO a semente: cenário não é regra de jogo, e
    ver outra paisagem na segunda partida é bom, não é inconsistência. (O
-   avatar é o contrário — ele usa a semente, porque precisa bater com o
+   avatar é o contrário, sendo que ele usa a semente, porque precisa bater com o
    replay guardado.) */
 (function cenarioSorteado(){
   const nomes = ['mesa/fundo'];
@@ -229,10 +175,7 @@ const nomeNivel = c => NIVEIS[c.nivel || 0] || 'concentrado';
 
    Cada carta do dados.js tem  nome / minerio / refinado , e a liga
    tem o dela em  ligas[].refinado . A carta mostra o nome do degrau
-   em que ela está AGORA: calcopirita vira cobre catódico vira
-   bronze na mão da pessoa, sem uma linha de texto explicativo.
-
-   Se algum campo faltar, cai no nome de jogo e nada quebra.
+   em que ela está AGORA
    ------------------------------------------------------------ */
 function nomeDegrau(c, b){
   if(c.liga){
@@ -250,32 +193,7 @@ function ligasDaCarta(b){
 }
 
 /* ============================================================
-   OS TRÊS SELOS DA CARTA — e por que os três precisam de símbolo
-
-   O tutorial diz "os mesmos três símbolos aparecem em toda parte". Até
-   11/08 isso era falso: só o selo de energia tinha símbolo (o raio); os
-   de força e de dureza mostravam o número pelado. Ou seja, dois dos três
-   ícones que o guia manda procurar não existiam em lugar nenhum da
-   carta, e a pessoa procurava por eles.
-
-   Agora os três carregam, em marca d'água atrás do número, o mesmo ícone
-   que o tutorial e a tela de ajuda usam. O número continua sendo o que se
-   lê de longe — é ele que muda durante a partida; o símbolo dá o
-   significado a quem olha de perto.
-   ============================================================ */
-/* SÓ O NÚMERO. Cheguei a pôr o ícone em marca d'água nos três selos, para
-   bater com o que o tutorial manda procurar. O Thomas testou e achou
-   poluído — e concordo: a carta pequena tem 152 px de largura, o número
-   precisa dela inteira, e três símbolos disputando o mesmo espaço viram
-   sujeira.
-
-   A forma passa a ser o símbolo: DISCO dourado para energia e força,
-   ESCUDO azul para dureza. O tutorial foi reescrito para falar de forma e
-   posição, não de ícone, que é o que a pessoa consegue mesmo distinguir
-   naquele tamanho.
-
-   O raio da energia fica, porque ele já existia, é o único e não compete
-   com nada — o selo de custo não tem vizinho. */
+   OS TRÊS SELOS DA CARTA — e por que os três precisam de símbolo */
 const selo = (tipo, ico, n) =>
   '<span class="badge ' + tipo + '"><span>' + n + '</span></span>';
 const hexEnergia = n =>
@@ -349,21 +267,8 @@ function esconderDica(){ clearTimeout(dicaTimer); $('dica').classList.remove('on
 
 /* ============================================================
    TRILHA SONORA — arquivos em  audio/  (ver audio/LEIA-ME.md).
-   Comece pelos nomes abaixo; o que não existir é simplesmente
-   ignorado, sem erro no console.
-
-   Começa MUDA de propósito: navegador não deixa tocar áudio antes
-   de um gesto do usuário, e estande de feira já é barulhento.
-   O botão SOM no topo liga, e a partir daí as faixas se revezam
-   em laço com uma transição curta entre elas.
-   ============================================================ */
-/* ------------------------------------------------------------
-   SOM — arquivos em audio/. Ver audio/LEIA-ME.md.
-
-   Os nomes vão SEM extensão. O jogo pergunta ao navegador o que ele
-   sabe tocar e procura nessa ordem: .ogg, .mp3, .wav. Assim você
-   publica em ogg (3 MB) em vez de wav (30 MB) sem tocar no código, e
-   quem tiver só o wav continua funcionando.
+ O jogo pergunta ao navegador o que ele
+   sabe tocar e procura nessa ordem: .ogg, .mp3, .wav.
    ------------------------------------------------------------ */
 const FORMATOS = ['.ogg', '.mp3', '.wav'];
 /* Quantas trilhas procurar. O que não existir é descartado sozinho (fica
@@ -414,9 +319,7 @@ function novoAudio(base, vol){
 }
 
 /* Três degraus: 0 mudo · 1 só efeitos · 2 efeitos + trilha.
-   COMEÇA LIGADO. O botão continua existindo porque estande de feira é
-   barulhento e quem demonstra às vezes quer só os efeitos — mas a
-   escolha padrão passou a ser tocar. */
+   COMEÇA LIGADO. */
 /* atual:-1 = "ainda não tocou nada", que é o sinal para SORTEAR a primeira. */
 const som = { nivel:2, faixas:[], atual:-1, efeitos:{}, destravado:false, esperandoGesto:false };
 const VOZES = 3;
@@ -425,10 +328,8 @@ function prepararSom(){
   TRILHAS.forEach(base => {
     const a = novoAudio(base, VOLUME_TRILHA);
     /* preload NONE, não 'auto'. Com 'auto' o navegador baixava AS OITO
-       trilhas ao abrir a página: 33 MB antes da primeira jogada, contra
-       3,7 MB de todo o resto do jogo somado. Num servidor com franquia de
-       banda isso é o custo dominante, e numa conexão de escola é a
-       diferença entre carregar e desistir.
+       trilhas ao abrir a página: muito peso antes da primeira jogada, contra
+       pouco de todo o resto do jogo somado. 
        Só toca uma por vez, então só se baixa a que vai tocar. */
     a.preload = 'none';
     a.addEventListener('ended', () => { if(som.nivel === 2) proximaFaixa(); });
@@ -440,24 +341,7 @@ function prepararSom(){
   });
 }
 
-/* Navegador nenhum deixa tocar áudio antes de um gesto do usuário — é
-   regra da plataforma, não escolha nossa. Então: tenta tocar na hora; se
-   for barrado, engata no primeiro clique ou tecla que acontecer. Do ponto
-   de vista de quem joga, a música começa sozinha. */
-/* BUG DAS TRILHAS SOBREPOSTAS (10/08/2026) — eram três causas somadas:
-
-   1. Cada chamada criava um `engatar` NOVO. O removeEventListener de
-      dentro só apagava a si mesmo, então dois cadastros viravam duas
-      trilhas no primeiro clique.
-   2. O `engatar` não reconferia `som.destravado`. Quando o navegador
-      DEIXAVA tocar sozinho, o ouvinte continuava armado e o primeiro
-      clique da pessoa punha uma segunda faixa por cima da que já tocava.
-      Esse era o caminho do dia a dia.
-   3. A `proximaFaixa` nunca pausava a anterior. Só não dava problema
-      quando a faixa acabava sozinha, porque aí ela já estava parada.
-
-   Conserto: um cadastro só (`som.esperandoGesto`), o engatar reconfere,
-   e trocar de faixa passa a PARAR TODAS antes de tocar a próxima. */
+/* Navegador nenhum deixa tocar áudio antes de um gesto do usuário */
 function destravarNoPrimeiroGesto(){
   if(som.destravado || som.esperandoGesto) return;
   som.esperandoGesto = true;
@@ -490,10 +374,10 @@ function proximaFaixa(){
   const boas = som.faixas.filter(a => !a.quebrada);
   if(!boas.length) return;
   /* PARA TODAS antes de tocar a próxima. Sem isto, duas faixas dividem a
-     mesma mesa e o jogo vira rádio com dois locutores. */
+     mesma mesa e o jogo um barulhão!. */
   pararTrilha();
   /* A PRIMEIRA é sorteada; as seguintes seguem em fila. Assim duas partidas
-     seguidas não abrem com a mesma música — e, como a fila continua, também
+     seguidas não abrem com a mesma música e, como a fila continua, também
      não fica repetindo a mesma por sorteio azarado. */
   som.atual = som.atual < 0 ? Math.floor(Math.random() * boas.length)
                             : (som.atual + 1) % boas.length;
@@ -508,9 +392,7 @@ function pararTrilha(){
   som.faixas.forEach(a => { try{ a.pause(); a.currentTime = 0; }catch(e){} });
 }
 /* O botão DESCE: Som (tudo) → Efeitos → Mudo → Som…
-   Era `+1`, que subia: de Som ia direto para Mudo, e quem só queria abaixar
-   a música se via sem som nenhum. Como o padrão é começar tocando, o
-   primeiro clique tem que ser o passo pequeno. */
+  */
 function alternarSom(){
   som.nivel = (som.nivel + 2) % 3;
   if(som.nivel === 2){ som.atual = -1; proximaFaixa(); } else pararTrilha();
@@ -533,17 +415,6 @@ function guardarSom(){ try{ localStorage.setItem('minerais.som', String(som.nive
 
 /* ============================================================
    DE QUEM É A VEZ  x  DE QUEM É A TELA
-
-   No modo de revezamento os dois são a mesma coisa: a tela vira de lado a
-   cada turno, porque o aparelho passa de mão em mão.
-
-   Contra o computador, não. A pessoa tem que ver SEMPRE a própria mão
-   embaixo, inclusive enquanto o bot joga — senão, na vez dele, ela veria o
-   tabuleiro pela ótica do adversário e não entenderia nada.
-
-   Por isso as duas ideias viraram funções separadas:
-     est.vez   quem o motor deixa jogar agora
-     EU()      de quem é a perspectiva desenhada na tela
 
    O `Solo` vem do solo.js, que só existe quando a partida é contra o
    computador. Sem ele, tudo se comporta como antes.
@@ -590,25 +461,13 @@ const simboloDe = (c,b) => c.liga ? '⚒' : (SIGLA[b.elemento] || b.elemento || 
 
 /* A MÃO CHEIA CABE EM UMA LINHA SÓ.
 
-   Com 8 cartas (o maoMax de hoje) a última descia para a segunda linha e
-   obrigava a rolar a tela no meio da partida. Contas na janela de 1460:
-   cada carta ocupa 166 px mais margem, e 8 × 190 = 1520 contra 1428 de
-   largura útil — faltavam 92 px.
-
+   Com 8 cartas (o maoMax de hoje)
    Em vez de fixar uma margem menor no CSS e torcer, isto MEDE a janela que
    a pessoa tem agora e ENCOLHE a carta o tanto exato para a fila caber.
-
-   Encolher, e não sobrepor como leque: a carta tem o custo na ponta
-   esquerda e a dureza na ponta direita, então encavalar esconderia a
-   dureza de sete das oito cartas. Perder número é pior que perder tamanho.
-
    Piso de 130 px. Abaixo disso o nome vira reticências em quase tudo e não
    vale mais a pena — aí a mão volta a quebrar linha, que é o que acontece
    em janela estreita até a versão de celular ficar pronta. */
-/* No celular deitado a carta é bem menor (o CSS manda 96 px e esconde a
-   arte), então o piso do encaixe também precisa descer — senão a conta
-   acha que não cabe e manda quebrar linha numa tela que não tem altura
-   para duas fileiras. */
+
 const CARTA_LARGA = 166;
 const ehCelular = () => matchMedia('(orientation:landscape) and (max-height:560px)').matches;
 const cartaMin = () => ehCelular() ? 74 : 130;
@@ -621,9 +480,7 @@ function encaixarMao(zm){
   const e = getComputedStyle(cartas[0]);
   const e2 = getComputedStyle(zm);
   const margens = parseFloat(e.marginLeft) + parseFloat(e.marginRight);
-  /* clientWidth INCLUI o padding da caixa. Sem descontar, eu superestimava
-     a largura em 12 px — e como a folga era de 8, a oitava carta descia.
-     Foi exatamente o que o Thomas viu depois do primeiro conserto. */
+  /* clientWidth INCLUI o padding da caixa.*/
   const pd = parseFloat(e2.paddingLeft) + parseFloat(e2.paddingRight);
   const disponivel = zm.clientWidth - pd - 2;            // 2px de respiro
   const larguraCheia = ehCelular() ? 96 : CARTA_LARGA;
@@ -656,8 +513,7 @@ function novaPartida(){
    O DANO QUE NINGUÉM CAUSOU — exaustão e especulação
    ============================================================
 
-   São os dois únicos danos do jogo SEM AGRESSOR: ninguém atacou e mesmo
-   assim a coisa perde ponto. Por isso são os que mais precisam de aviso.
+   São os dois únicos danos do jogo 
    São mecânicas diferentes e o motor as trata em ramos separados:
 
      tem carta na jazida?
@@ -667,12 +523,7 @@ function novaPartida(){
        NÃO                      -> EXAUSTÃO. Progressiva (1, 2, 3...) e
                                    come as barreiras antes da força.
 
-   MEDIÇÃO EM VEZ DE LEITURA DE TEXTO. A primeira versão disto lia as
-   frases do registro com expressão regular, e errava: quando a barreira
-   absorvia tudo, eu escondia o número de propósito — e era justamente o
-   número que o Thomas queria ver. Agora tiramos uma FOTO do estado antes
-   da jogada e comparamos depois. O número que aparece na tela é a
-   subtração de verdade, não uma interpretação de frase. */
+    */
 
 function fotografar(){
   const f = { jog: [], cartas: {} };
@@ -697,11 +548,7 @@ function mostrarDanoSemAgressor(antes, linhas){
   const arena = $('arena');
   let houveExaustao = -1, danoExaustao = 0, especulou = -1;
 
-  /* CAUSA, NÃO EFEITO. A primeira versão perguntava "a força caiu?" — e a
-     força cai quando uma carta ataca o escudo, então todo ataque disparava
-     o cartaz azul de especulação. O Thomas viu isso na primeira partida.
-
-     Agora cada uma tem uma marca própria e inequívoca:
+  /* CAUSA, NÃO EFEITO. 
        exaustão    -> o contador j.exaustao subiu. Só o motor mexe nele, e
                       só no ramo da jazida vazia.
        especulação -> o motor escreveu "Mão cheia" no registro deste lance.
@@ -766,18 +613,6 @@ function mostrarDanoSemAgressor(antes, linhas){
 
 /* ============================================================
    A FALA DO ADVERSÁRIO
-
-   O Thomas jogou e disse: "fica tudo MUITO RÁPIDO, eu que sou experiente
-   em Hearthstone fiquei confuso — imagina quem não conhece o jogo".
-
-   O problema não era só velocidade: era que o tabuleiro mudava sem
-   ninguém dizer o que tinha mudado. Num jogo cujo objetivo é ENSINAR a
-   cadeia produtiva, ver o adversário refinar sem entender que ele
-   refinou é perder a aula inteira.
-
-   Agora cada jogada do bot é anunciada numa faixa em cima da mesa, com o
-   nome da carta, e some sozinha. É a mesma informação do registro, mas no
-   lugar para onde a pessoa está olhando.
    ============================================================ */
 function falaDoBot(acao, linhas, quemAgiu){
   /* `quemAgiu` é capturado ANTES do Motor.aplicar. Tem que ser: o
@@ -805,12 +640,7 @@ function falaDoBot(acao, linhas, quemAgiu){
   else if(acao.tipo === 'passar')  txt = 'Encerrou o turno';
   if(!txt) return;
 
-  /* Ela subiu para o MEIO DA MESA e ficou mais tempo. Estava no alto da
-     arena, fora de onde o olho está, e sumia antes de dar para ler — o
-     Thomas: "podia estar no campo de batalha e demorar um pouco mais".
-     Como ela é a única explicação do que o adversário fez, o tempo dela
-     tem que ser maior que o tempo entre duas jogadas do bot (que é o
-     RITMO no solo.js), senão uma engole a outra. */
+
   const el = document.createElement('div');
   el.className = 'falaBot' + (acao.tipo === 'fundir' ? ' forte' : '');
   el.setAttribute('role', 'status');
@@ -856,8 +686,7 @@ function agir(acao){
   if(est.fim !== null){
     tocar('fimPartida');
     /* A partida vai para o servidor sozinha. O botão "Guardar" continua
-       existindo para o Thomas, mas o jogador de feira não clica em nada —
-       e a partida que mais interessa é a que ele abandonou. */
+       */
     if(typeof Telemetria !== 'undefined') Telemetria.registrar(montarRegistro, 'fim');
   }
   if(modoSolo()) Solo.talvezJogar();
@@ -891,8 +720,7 @@ function aviso(msg){
 function montarAvatares(){
   /* Os índices eram FIXOS (0 e 1), mas `avatarEu` e `avatarOp` são
      posições da TELA, não jogadores. Quando o humano é o jogador 2, o
-     retrato dele ia para o lado do adversário e vice-versa — o Thomas
-     via a cara do bot no próprio lugar. Agora usa a perspectiva. */
+     retrato dele ia para o lado do adversário e vice-versa. Agora usa a perspectiva. */
   [['avatarEu', EU()], ['avatarOp', OP()]].forEach(([id, i]) => {
     const el = $(id);
     const n = ((est.semente >> (i * 3)) % 4) + 1;
@@ -933,10 +761,7 @@ function assinaturaDados(){
 
 /* MONTAR e BAIXAR viraram duas coisas.
 
-   A telemetria precisa do MESMO registro que o botão baixa — se fossem
-   dois montadores, o arquivo que o Thomas analisa e o que o servidor
-   recebe divergiriam com o tempo, e ninguém perceberia. Um monta, o outro
-   entrega. */
+   A telemetria precisa do MESMO registro que o botão baixa  */
 function montarRegistro(motivo){
   return { versaoMotor: Motor.versao, dados: assinaturaDados(),
                 quando: new Date().toISOString(),
@@ -1093,13 +918,7 @@ function cartaEl(c){
     '<span class="badge sim' + (simbolo.length > 2 ? ' peq' : '') + '">' + esc(simbolo) + '</span>' +
     selo('val', 'i-valor',  c.ataque) +
     selo('dur', 'i-dureza', dureza) +
-    /* NA CARTA PEQUENA: o nome da substância, e embaixo o DEGRAU em que
-       ela está — concentrado, refinado ou liga.
-       Aqui já esteve o nome do minério ("Laterita niquelífera"), e o
-       Thomas cortou: na carta pequena ele é comprido, corta com
-       reticências e compete com o nome de jogo. O minério continua, com
-       espaço para respirar, na carta grande. O que a pessoa precisa saber
-       de relance na mão é em que degrau a carta está. */
+
     '<span class="tit"><span class="n">' + esc(curto(c.nome)) + '</span>' +
       '<span class="sub' + ((c.nivel || 0) >= 1 || c.liga ? ' subRef' : '') + '">' +
       esc(nomeNivel(c).toUpperCase()) + '</span></span>' +
@@ -1133,29 +952,6 @@ function previa(c){
   const dureza = Math.max(0, c.defesa);
   const simbolo = simboloDe(c, b);
   let chave, desc, frase = '', sub;
-
-  /* A CAIXA DA PRÉVIA É SÓ O DEGRAU E A FRASE.
-
-     Aqui existiu, por umas horas, uma escada desenhada em três caixinhas
-     (concentrado → refinado → liga). O Thomas cortou em 10/08, e o
-     argumento é melhor que o meu: entregar a escada pronta tira da pessoa
-     a descoberta. Ela vê "Calcopirita" no chip, refina, e o nome vira
-     "Cobre catódico" na mão dela — ISSO ensina. Um diagrama avisando que
-     isso vai acontecer estraga a surpresa e ainda rouba o lugar da frase.
-     O CSS `.pc .escada` ficou no estilo.css, sem uso, caso volte. */
-  /* ORDEM DA CARTA GRANDE, definida pelo Thomas em 10/08:
-
-        CABEÇALHO   nome da substância
-                    o degrau (CONCENTRADO · REFINADO · LIGA)
-        [ arte ]
-        [ barra de dureza ]
-        CAIXA       ALTA TECNOLOGIA          <- a família
-                    Laterita niquelífera     <- o minério de referência
-                    a frase, sem itálico
-
-     Não há rodapé. Ele repetia o degrau que já está no cabeçalho e
-     mostrava "005/028", que é número de catálogo e não interessa a quem
-     está jogando. */
   if(c.liga){
     const lg = DADOS.ligas.find(l => l.nome === c.liga);
     chave = 'LIGA FORJADA';
@@ -1328,12 +1124,7 @@ function zonaSob(x, y, carga){
   }
   /* Rede de segurança geométrica: o ponteiro está dentro do retângulo de
      alguma zona legítima, tenha o que tiver pintado por cima?
-
-     A tolerância é ZERO para a carta da mão. O Thomas pediu que ela caia
-     "exatamente se for solta EM CIMA DA MESA", e perdoar 6 px de fora da
-     mesa é justamente o tipo de generosidade que faz a pessoa sentir que
-     o jogo decidiu por ela. Para a ficha atacando, os 6 px ficam: o alvo
-     é um disco pequeno e ali a mão trêmula merece perdão. */
+ */
   const m = carga.tipo === 'mao' ? 0 : 6;
   for(const cand of zonasValidas(carga)){
     if(!cand) continue;
@@ -1355,11 +1146,10 @@ function desenhar(){
 
   $('pino').textContent = est.vez + 1;
   $('quem').textContent = nomeJog(est.vez);
-  /* TURNO CORRIDO, como o Thomas prefere: turno 1 é do jogador 1, turno 2
+  /* TURNO CORRIDO: turno 1 é do jogador 1, turno 2
      é do jogador 2. Cheguei a trocar por "Rodada" (turno/2) achando que
      confundiria; ele testou e prefere assim, e é o mesmo número que
-     aparece no registro e no arquivo guardado — um número só, sem
-     tradução, é menos coisa para conferir depois. */
+     aparece no registro e no arquivo guardado. */
   $('turnoTxt').textContent = 'Turno ' + est.turno;
   $('meuNome').textContent = nomeJog(EU());
   $('opNome').textContent  = nomeJog(OP());
@@ -1536,10 +1326,7 @@ function desenhar(){
   $('contLigas').hidden = true;
 
   /* A LINHA EMBAIXO DO BOTÃO só aparece quando a liga está PRONTA para
-     forjar. Antes ela falava também das que estavam longe, e virava
-     ruído permanente — o Thomas: "o botão deveria sempre aparecer se a
-     pessoa tiver qualquer mineral; a linha de baixo, só quando já tiver
-     todos os ingredientes refinados".
+     forjar.
      O que está longe continua acessível: é só abrir o painel. */
   const pista = $('pistaLiga');
   if(pista){
