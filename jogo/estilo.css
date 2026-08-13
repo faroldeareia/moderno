@@ -719,17 +719,20 @@ body:not(:has(.mesa)) {
 /* ============================================================================
    MODO RETRATO (VERTICAL) - Compacto, Layout 4 Colunas e Tudo Visível
    ============================================================================ */
+/* ============================================================================
+   MODO RETRATO (VERTICAL) - Versão Definitiva / Ajustes Finais
+   ============================================================================ */
 @media (orientation: portrait) {
     /* Esconde o aviso de girar a tela */
     #gireOAparelho { display: none !important; }
     body:has(#gireOAparelho) > *:not(#gireOAparelho) { visibility: visible !important; }
 
-    /* 1. MESA GERAL - Removido o padding de baixo para grudar mais na mão */
+    /* 1. MESA GERAL */
     .mesa {
         display: flex !important;
         flex-direction: column !important;
-        padding: 6px 6px 0 6px !important; 
-        gap: 6px !important;
+        padding: 4px 6px 0 6px !important; 
+        gap: 4px !important;
     }
     .colEsq { display: none !important; }
 
@@ -737,7 +740,7 @@ body:not(:has(.mesa)) {
     .arena {
         width: 100% !important;
         min-height: auto !important;
-        padding: 8px 4px !important;
+        padding: 6px 4px !important;
     }
     
     .faixaJog { 
@@ -746,115 +749,105 @@ body:not(:has(.mesa)) {
         flex-wrap: nowrap !important; 
         align-items: center !important; 
         justify-content: space-between !important; 
-        min-height: 50px !important; 
+        min-height: 44px !important; 
     }
     
-    /* Nomes e Avatares MENORES */
     .placa { padding: 2px 4px !important; gap: 4px !important; }
-    .avatar { width: 28px !important; height: 28px !important; font-size: 10px !important; }
+    .avatar { width: 26px !important; height: 26px !important; font-size: 10px !important; }
     .avatar::after { display: none !important; }
-    .placa .quemNome { font-size: 9px !important; }
-    .placa .papel { font-size: 7px !important; }
+    .placa .quemNome { font-size: 8.5px !important; }
+    .placa .papel { font-size: 6px !important; }
     
-    /* CARTAS DO ADVERSÁRIO - Descendo abaixo da área do nome */
-    .maoVirada { 
-        padding-left: 0 !important; 
-        margin-top: 18px !important; /* Desce as cartas */
-    }
-    .verso { width: 14px !important; height: 20px !important; border-radius: 3px !important; border-width: 1px !important; }
-    .verso + .verso { margin-left: -8px !important; }
-    .contaMao { display: none !important; } /* Escondido para não poluir esse canto minúsculo */
+    .maoVirada { padding-left: 0 !important; margin-top: 16px !important; }
+    .verso { width: 12px !important; height: 18px !important; border-radius: 2px !important; border-width: 1px !important; }
+    .verso + .verso { margin-left: -7px !important; }
+    .contaMao { display: none !important; } 
 
-    /* ESCUDO (Herói) */
     .heroiLinha {
         position: absolute !important;
         left: 50% !important;
         top: 50% !important;
         transform: translate(-50%, -50%) !important;
     }
-    .heroi { width: 46px !important; height: 46px !important; }
-    .heroi .placaEsc svg { width: 46px !important; height: 46px !important; }
-    .heroi b { font-size: 18px !important; padding-top: 10px !important; }
-    .heroi .cap { font-size: 7px !important; bottom: -5px !important; padding: 1px 4px !important; }
+    .heroi { width: 42px !important; height: 42px !important; }
+    .heroi .placaEsc svg { width: 42px !important; height: 42px !important; }
+    .heroi b { font-size: 16px !important; padding-top: 8px !important; }
+    .heroi .cap { font-size: 6px !important; bottom: -4px !important; padding: 1px 3px !important; }
 
-    /* MEDIDORES */
-    .medidores { flex-direction: row !important; align-items: center !important; gap: 4px !important; }
-    .med { min-width: 0 !important; padding: 3px 6px !important; gap: 4px !important; border-radius: 6px !important; justify-content: center !important; }
+    .medidores { flex-direction: row !important; align-items: center !important; gap: 3px !important; }
+    .med { min-width: 0 !important; padding: 2px 4px !important; gap: 3px !important; border-radius: 5px !important; justify-content: center !important; }
     .med .rot { display: none !important; } 
     .pilhas, .pilhaOp { display: none !important; } 
-    .med b { font-size: 14px !important; display: inline-block !important; margin-left: 2px !important; }
-    .med svg { font-size: 12px !important; }
+    .med b { font-size: 13px !important; display: inline-block !important; margin-left: 2px !important; }
+    .med svg { font-size: 11px !important; }
 
-    .campo { min-height: 70px !important; padding: 2px !important; gap: 4px !important; }
-    .f { width: 56px !important; }
-    .f .disco { width: 44px !important; height: 44px !important; }
-    .f .nome { font-size: 8px !important; max-width: 56px !important; margin-top: -5px !important; padding: 2px 3px !important;}
-    .f .num { width: 16px !important; height: 16px !important; font-size: 9px !important; top: 28px !important; border-width: 1px !important;}
-    .f .nivel { font-size: 6px !important; padding: 1px 4px !important; margin-bottom: 2px !important;}
-    .f .simbChip { font-size: 8px !important; top: 2px !important; min-width: 14px !important; padding: 1px 4px !important; }
+    .campo { min-height: 60px !important; padding: 2px !important; gap: 3px !important; }
+    .f { width: 50px !important; }
+    .f .disco { width: 38px !important; height: 38px !important; }
+    .f .nome { font-size: 7.5px !important; max-width: 50px !important; margin-top: -4px !important; padding: 1px 2px !important;}
+    .f .num { width: 15px !important; height: 15px !important; font-size: 8px !important; top: 24px !important; border-width: 1px !important;}
+    .f .nivel { font-size: 6px !important; padding: 1px 3px !important; margin-bottom: 1px !important;}
+    .f .simbChip { font-size: 7.5px !important; top: 2px !important; min-width: 12px !important; padding: 1px 3px !important; }
 
-    /* 3. BOTÕES (O TRILHO NA BASE) - Forçando exatos 25% de largura para todos */
-.trilho {
+    /* 3. BOTÕES NA BASE (Reorganizados: Tempo, Ações no Meio, Fim do Turno) */
+    .trilho {
         position: static !important;
         display: grid !important;
         grid-template-columns: repeat(4, minmax(0, 1fr)) !important; 
-        grid-template-rows: 28px 28px !important; /* Um pouquinho mais alto pra caber as letras maiores */
-        gap: 4px !important;
+        grid-template-rows: 26px 26px !important; 
+        gap: 3px !important;
         width: 100% !important;
         background: transparent !important;
         border: none !important;
-        padding: 4px 0 0 0 !important; 
+        padding: 2px 0 0 0 !important; 
     }
 
-    .trilho > .relogio { grid-column: 1; grid-row: 1 / 3; } 
-    #btnPassar { grid-column: 2; grid-row: 1 / 3; }         
-    #btnForjar { grid-column: 3; grid-row: 1; }             
-    .pistaLiga, .dicaTrilho { grid-column: 3; grid-row: 2; margin: 0 !important; } 
-    #btnRefinar { grid-column: 4; grid-row: 1; }            
-    #btnPeD { grid-column: 4; grid-row: 2; }                
+    /* Nova Ordem Pedida */
+    .trilho > .relogio { grid-column: 1; grid-row: 1 / 3; } /* Esquerda: Tempo */
+    #btnForjar { grid-column: 2; grid-row: 1; }             /* Meio cima: Forjar */
+    .pistaLiga, .dicaTrilho { display: none !important; }   /* Adeus texto "arraste a carta" */
+    #btnRefinar { grid-column: 3; grid-row: 1; }            /* Meio cima: Refinar */
+    #btnPeD { grid-column: 3; grid-row: 2; }                /* Meio baixo: P&D */
+    #btnPassar { grid-column: 4; grid-row: 1 / 3; }         /* Direita: Fim do Turno */
 
     .trilho > .b, .trilho > .relogio {
         min-height: 0 !important; 
         height: 100% !important; 
         min-width: 0 !important; 
-        font-size: 8px !important; 
+        font-size: 7.5px !important; 
         padding: 2px !important;
         margin: 0 !important;
-        border-radius: 6px !important;
+        border-radius: 5px !important;
         display: flex !important;
         flex-direction: column !important; 
         align-items: center !important;
         justify-content: center !important;
         text-align: center !important;
         white-space: normal !important; 
-        line-height: 1.1 !important;
+        line-height: 1 !important;
     }
     
-    /* ESCONDER ÍCONES SECUNDÁRIOS PARA SALVAR ESPAÇO */
     #btnForjar svg, #btnRefinar svg, #btnPeD svg { display: none !important; }
     
-    /* AUMENTANDO RELÓGIO E FIM DE TURNO */
-    .trilho .relogio .lin { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 2px !important; width: 100% !important; }
-    .trilho .relogio .lin span { font-size: 8px !important; letter-spacing: 0 !important; line-height: 1 !important; text-align: center !important; }
-    .trilho .relogio b { font-size: 18px !important; margin-top: 0 !important; line-height: 1 !important; }
+    .trilho .relogio .lin { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 1px !important; width: 100% !important; }
+    .trilho .relogio .lin span { font-size: 6px !important; letter-spacing: 0 !important; line-height: 1 !important; text-align: center !important; }
+    .trilho .relogio b { font-size: 16px !important; margin-top: 0 !important; line-height: 1 !important; }
     .trilho .relogio .barra { display: none !important; } 
     
-    #btnPassar { font-size: 10px !important; gap: 4px !important; }
-    #btnPassar svg { font-size: 15px !important; margin-bottom: 2px !important; }
-    
-    .pistaLiga, .dicaTrilho { font-size: 7px !important; padding: 1px !important; text-align: center; display: flex; align-items: center; justify-content: center; line-height: 1.1; }
-  
-/* 4. MÃO DE CARTAS E AJUSTE DO ESPAÇO */
+    #btnPassar { font-size: 9px !important; gap: 2px !important; font-weight: 700 !important; }
+    #btnPassar svg { font-size: 13px !important; margin-bottom: 1px !important; }
+
+    /* 4. MÃO DE CARTAS (Coladas nos botões, sem buraco) */
     .maoArea { 
-        padding: 0 8px 10px !important; 
-        margin-top: -8px !important; /* MÁGICA: Puxa a mão inteira para cima, matando o buraco vazio */
+        padding: 2px 6px 8px !important; 
+        margin-top: -10px !important; /* Sucga a mão para cima perfeitamente */
     }
     .maoArea .faixa {
         display: flex !important;
-        margin-bottom: 6px !important; 
+        margin-bottom: 4px !important; 
     }
-    .maoArea h2 { font-size: 13px !important; }
-    .maoArea .sub { font-size: 10px !important; }
+    .maoArea h2 { font-size: 12px !important; }
+    .maoArea .sub { font-size: 9px !important; }
     
     .mao {
         display: grid !important;
@@ -866,46 +859,71 @@ body:not(:has(.mesa)) {
         width: 100% !important; 
         border-width: 1px !important;
         margin: 0 !important;
-        min-height: 80px !important; 
+        min-height: 75px !important; 
     }
     .c .arte, .c .mohs { display: none !important; } 
-    .c .tit { padding: 4px 2px !important; }
-    .c .n { font-size: 9px !important; line-height: 1.1 !important; }
-    .c .sub { font-size: 6px !important; margin-top: 3px !important; }
+    .c .tit { padding: 3px 2px !important; }
+    .c .n { font-size: 8.5px !important; line-height: 1.1 !important; }
+    .c .sub { font-size: 5.5px !important; margin-top: 2px !important; }
     
-    /* Selos milimétricos */
-    .badge.ene { width: 16px !important; height: 16px !important; font-size: 9px !important; left: -1px !important; top: -1px !important; border-width: 1px !important;}
-    .badge.val, .badge.dur { width: 14px !important; height: 14px !important; font-size: 8px !important; border-width: 1px !important;}
+    /* CORREÇÃO DOS SELOS: Remove o raio gigante do fundo e destaca os números */
+    .badge.ene .marca { display: none !important; } 
+    .badge.ene { width: 16px !important; height: 16px !important; font-size: 9.5px !important; left: -1px !important; top: -1px !important; border-width: 1px !important;}
+    
+    .badge.val, .badge.dur { width: 15px !important; height: 15px !important; font-size: 9.5px !important; font-weight: 800 !important; border-width: 1px !important;}
     .badge.val { left: -1px !important; bottom: -1px !important; }
     .badge.dur { right: -1px !important; bottom: -1px !important; }
     .badge.sim { width: 12px !important; height: 12px !important; font-size: 6px !important; right: -1px !important; top: -1px !important; border-width: 1px !important;}
-    /* Topo Mais limpo */
-.topo { 
+
+    /* 5. PAINEL DE AÇÃO FLUTUANTE (P&D / Forjar) - Corrigido tamanho e centralização */
+    .painelAcao {
+        position: fixed !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important; /* Centralizado absoluto na tela */
+        width: 92vw !important;
+        max-width: 400px !important;
+        max-height: 70vh !important;
+        padding: 12px !important;
+        border-radius: 14px !important;
+        z-index: 999 !important;
+    }
+    .painelAcao h3 { font-size: 13px !important; margin-bottom: 8px !important; }
+    .grade { grid-template-columns: 1fr !important; gap: 6px !important; } /* Coluna única no celular para facilitar toque */
+    .lg { padding: 8px 10px !important; }
+    .lg .t { font-size: 14px !important; }
+    .lg .f2 { font-size: 11px !important; }
+    .lg .e { font-size: 10px !important; }
+
+    /* TOPO NA MESMA LINHA */
+    .topo { 
         padding: 4px 6px !important; 
-        flex-wrap: nowrap !important; /* O SEGREDO: Proíbe quebrar a linha */
+        flex-wrap: nowrap !important; 
         gap: 4px !important; 
     }
     .vez { gap: 4px !important; }
     .vez h1 { font-size: 12px !important; white-space: nowrap !important; }
-    .pino { width: 16px !important; height: 16px !important; font-size: 9px !important; flex: none !important; }    
+    .pino { width: 16px !important; height: 16px !important; font-size: 9px !important; flex: none !important; }
+    
     .botoesTopo { 
-        gap: 2px !important; /* Gruda bem os botões */
+        gap: 2px !important; 
         flex-wrap: nowrap !important; 
     }
     .botoesTopo .b { 
-        font-size: 7px !important; /* Texto menor */
+        font-size: 7px !important; 
         padding: 4px !important; 
-        gap: 2px !important; /* Espaço entre o ícone e o texto */
+        gap: 2px !important; 
     }
     .botoesTopo .b svg { 
-        font-size: 10px !important; /* Ícone menor para acompanhar */
+        font-size: 10px !important; 
     }
-    /* Centraliza a visualização ampliada (Previa) */
+
+    /* PRÉVIA DA CARTA (Zoom ao segurar) */
     .previa {
         display: block !important;
         left: 50% !important;
         top: 50% !important;
-        transform: translate(-50%, -50%) scale(0.85) !important;
-        z-index: 100 !important;
+        transform: translate(-50%, -50%) scale(0.75) !important;
+        z-index: 1000 !important;
     }
 }
