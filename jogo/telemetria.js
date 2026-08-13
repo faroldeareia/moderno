@@ -4,7 +4,7 @@
    Como o motor é determinístico, então semente + ações  RECONSTROEM a partida inteira, jogada por jogada. Guardando os arquivos, podemos auditar o jogo depois.
    Há um serviço separado (script) que faz a análise, quando necessária, juntando as várias partidas. Conseguimos responder: qual estilo de jogar vence mais, se começar como jogador 1 ou 2 é balançeado. No xadrez, por exemplo, as brancas tem um pouco mais de 50% de chance de vencer (52 a 56%).
    A telemetria também mede a taxa de abandono da partida e em que ponto se desistiu do jogo (para inferirmos se foi uma desistência por tédio ou pois o jogo já estava perdido mesmo). 
-   Nada que possa indetificar ou afetar a privacidade do usuário é guardado, como nome, endereço IP, etc. Ver função `limpar()`.
+   Nada que possa indetificar ou afetar a privacidade do usuário é guardado, como endereço IP, etc. Ver função `limpar()`. O nome é salvo no login por dois motivos: observar padrão de um jogador específico na fase de testes. Após a fase de testes, não será necessário. Importante notar que o nome é auto declaratório, assim, não se configura informação sensível. 
 */ 
 (function (raiz) {
   'use strict';
