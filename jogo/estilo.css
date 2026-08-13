@@ -369,6 +369,8 @@ body.arr-mao .campo.meu{border-color:var(--b3);background:rgba(43,138,83,.12)}
   
   /* 2. Mostra o botão de Registro no menu superior para compensar */
   .soCelular { display: inline-flex !important; }
+  
+  /* .previa{display:none} */
 }
 
 /* 3. AUMENTAR UM POUCO A LETRA apenas quando o celular estiver em pé (Portrait) */
@@ -692,7 +694,6 @@ body.arr-ficha .f.op .disco,.f.op.mira .disco{box-shadow:0 0 0 3px var(--alvo),0
    "005/028 · CONCENTRADO"). O rodapé repetia o degrau que já está no
    cabeçalho e mostrava número de catálogo, que não interessa a quem está
    jogando. Estão no backups/20260810-1704/ se fizerem falta. */
-@media(max-width:1180px){.previa{display:none}}
 
 /* ---------- mão ---------- */
 .maoArea{width:100%;max-width:1460px;margin:0 auto;padding:2px 16px 18px}
@@ -899,33 +900,9 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
     transition-duration:.01ms!important}
 }
 
-
 /* ============================================================================
    CELULAR — deitado, e só deitado
-   ============================================================================
-
-   POR QUE NÃO É "RESPONSIVO" NO SENTIDO USUAL.
-
-   Medi antes de escolher o caminho. A tela de PC é 1460 x 890, proporção
-   1,64. Celular deitado é 800 x 360, proporção 2,2 — mais largo e MUITO
-   mais baixo. Encolher a tela inteira para caber daria 36% de escala num
-   Android comum, e o nome da carta, que tem 18,4 px, viraria 6,6 px.
-   Ilegível.
-
-   Então não é a mesma tela menor: é OUTRO ARRANJO da mesma informação.
-   As duas colunas laterais (Registro à esquerda, ações à direita) somam
-   406 dos 1460 px e não cabem. Elas viram:
-     · o Registro, um botão que abre por cima;
-     · as ações, uma barra fixa no rodapé, do tamanho do dedo.
-
-   O GATILHO é `max-height`, não `max-width`. O que falta no celular
-   deitado é ALTURA — um iPad deitado tem 768 px de altura e recebe o
-   layout de PC sem problema, enquanto um celular tem 360.
-
-   RETRATO: não dá para travar a orientação no navegador. A API existe mas
-   só funciona em tela cheia, e o Safari do iPhone não a suporta de jeito
-   nenhum. O que dá para fazer, e é o que todo jogo web faz, é pedir.
-   ---------------------------------------------------------------------- */
+   ============================================================================ */
 
 /* ---------- 1. MODO RETRATO (VERTICAL): Jogo Empilhado ---------- */
 #gireOAparelho { display: none !important; } /* Destrói a tela de bloqueio */
@@ -937,12 +914,12 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
   body:has(#gireOAparelho) > *:not(#gireOAparelho) { visibility: visible; }
   
   /* Mesa numa coluna só, sem laterais */
-  .mesa { display: flex; flex-direction: column; padding: 4px; gap: 8px; }
+  .mesa { display: flex !important; flex-direction: column !important; padding: 10px !important; gap: 8px; flex: none !important; }
   .colEsq { display: none; } /* Oculta a coluna de registro grande */
   .soCelular { display: inline-flex; } /* Mostra o botão de Registro no topo */
   
   /* Arena vertical: os medidores ficam compactos */
-  .arena { min-height: 45vh; padding: 8px 6px; gap: 10px; }
+  .arena { width: 100% !important; min-height: auto !important; padding: 8px 6px; gap: 10px; }
   .faixaJog { min-height: auto; flex-wrap: wrap; justify-content: space-between; }
   .avatar { width: 36px; height: 36px; border-radius: 6px; }
   .avatar::after { display: none; }
@@ -959,12 +936,12 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
   /* Fichas redondas adaptadas para retrato */
   .f { width: 56px; }
   .f .disco { width: 44px; height: 44px; }
-  .f .nome { font-size: 8px; max-width: 56px; margin-top: -4px; }
-  .f .num { width: 18px; height: 18px; font-size: 11px; top: 26px; }
+  .f .nome { font-size: 10px; max-width: 56px; margin-top: -4px; }
+  .f .num { width: 20px; height: 20px; font-size: 12px; top: 26px; }
   .f .simbChip { font-size: 9px; min-width: 16px; top: 2px; }
   
   /* Mão do jogador e área de baixo */
-  .maoArea { padding-bottom: 60px; /* espaço para os botões fixos */ }
+  .maoArea { padding-bottom: 10px !important; margin-top: 10px !important; padding-top: 0 !important; }
   .maoArea .faixa { display: none; }
   .mao { gap: 3px; justify-content: center; }
   
@@ -972,27 +949,43 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
   .mao > .c { width: 80px; margin: 2px; border-width: 1px; }
   .c .arte, .c .mohs { display: none; }
   .c .tit { padding: 4px 2px; }
-  .c .n { font-size: 11px; line-height: 1; }
-  .c .sub { font-size: 7px; }
+  .c .n { font-size: 12px; line-height: 1; }
+  .c .sub { font-size: 8px; }
   .badge.ene { width: 22px; height: 22px; font-size: 13px; left: -6px; top: -6px; }
   .badge.val, .badge.dur { width: 20px; height: 20px; font-size: 11px; }
   .badge.sim { width: 18px; height: 18px; font-size: 9px; right: -4px; top: -4px; }
   
-  /* O Trilho (Ações) vira uma barra fixada no RODAPÉ */
+  /* O Trilho (Ações) desce para baixo da arena, fluindo com a página */
   .trilho {
-    position: fixed; bottom: 0; left: 0; right: 0; top: auto;
-    flex-direction: row; flex-wrap: nowrap; background: #18120d;
-    padding: 6px; gap: 4px; z-index: 50; width: 100%;
-    border-top: 1px solid rgba(201,162,39,.4);
+    position: relative !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    gap: 12px !important;
+    padding: 15px 0 !important;
+    background: transparent !important;
+    border: none !important;
+    top: auto !important;
+    bottom: auto !important;
   }
   
   /* Distribui os botões lado a lado */
-  .trilho > .b { flex: 1; margin: 0; font-size: 10px; padding: 4px 2px; min-height: 44px; flex-direction: column; gap: 2px; }
+  .trilho > .b, .trilho > .relogio {
+    flex: 1 1 45% !important; 
+    min-height: 80px !important; 
+    font-size: 22px !important; 
+    margin: 0 !important; 
+    justify-content: center !important; 
+    flex-direction: column; gap: 2px;
+  }
+  .trilho > .relogio { align-items: center !important; }
+  
   .bEncerrar { flex: 1.2; font-size: 11px; background: linear-gradient(168deg,#c9a227,#8a6d14); color: #fff; }
-  .trilho > .relogio, .pistaLiga, .dicaTrilho, #btnPeD { display: none; }
+  .pistaLiga, .dicaTrilho, #btnPeD { display: none; }
   
   /* Ajustes extras de mensagens */
-  .previa { display: none; }
+  /* .previa { display: none; } Removido para funcionar mais abaixo */
   .falaBot { top: 45%; padding: 6px 12px; }
   .falaBot b { font-size: 10px; } .falaBot span { font-size: 12px; }
   .golpeExaustao .num { font-size: 54px; }
@@ -1105,3 +1098,24 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
 /* o botão do Registro só existe onde a coluna dele não cabe */
 .soCelular{display:none}
 @media (orientation:landscape) and (max-height:560px){ .soCelular{display:inline-flex} }
+
+
+/* ============================================================================
+   AJUSTES GERAIS ADICIONADOS (Rolagem Index e Prévia Mobile)
+   ============================================================================ */
+
+/* Libera o toque/rolagem na tela inicial (index) */
+body:not(:has(.mesa)) {
+  touch-action: auto !important;
+}
+
+@media (orientation: portrait) and (max-width: 900px) {
+  /* Traz a carta grande (prévia) de volta no modo vertical, centralizada */
+  .previa {
+    display: block !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) scale(0.85) !important;
+    z-index: 100;
+  }
+}
