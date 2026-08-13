@@ -710,112 +710,132 @@ body:not(:has(.mesa)) {
 /* ============================================================================
    MODO RETRATO (VERTICAL): O VERDADEIRO RESPONSIVO 
    ============================================================================ */
+/* ============================================================================
+   MODO RETRATO (VERTICAL) - Layout 4 Colunas e Tabuleiro Expandido
+   ============================================================================ */
 @media (orientation: portrait) {
+    /* Esconde o aviso de girar a tela */
     #gireOAparelho { display: none !important; }
     body:has(#gireOAparelho) > *:not(#gireOAparelho) { visibility: visible !important; }
 
-    /* Força o destravamento total da mesa para empilhar e remover colunas da direita */
-    .mesa { 
-        display: flex !important; 
-        flex-direction: column !important; 
-        padding: 10px !important; 
-        gap: 10px !important; 
-        flex: none !important; 
+    /* 1. MESA GERAL (Fluxo reto de cima para baixo) */
+    .mesa {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 8px !important;
+        gap: 12px !important;
     }
     .colEsq { display: none !important; }
-    .soCelular { display: inline-flex !important; font-size: 14px !important; padding: 8px !important;}
-    
-    .topo { padding: 5px !important; }
-    .vez h1 { font-size: 5px !important; }
-    .pino { width: 10px !important; height: 10px !important; font-size: 12px !important;}
-    .botoesTopo .b { font-size: 5px !important; padding: 3px 5px !important; }
 
-    .arena { min-height: auto !important; padding: 5px !important; }
-    
-    /* FaixaJog agora é mais amigável, evita bater no escudo do meio */
-    .faixaJog { min-height: 30px !important; align-items: flex-start !important;}
-    .placa { padding: 2px 3px !important; gap: 3px !important; }
-    .avatar { width: 16px !important; height: 16px !important; font-size: 14px !important; }
+    /* 2. TABULEIRO (Cresce para a direita assumindo 100% da tela) */
+    .arena {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 12px 6px !important;
+    }
+    /* Restaura proporções agradáveis para não encavalarem (estilo PC zoom) */
+    .faixaJog { min-height: 85px !important; align-items: flex-start !important; }
+    .placa { padding: 4px 8px !important; gap: 8px !important; }
+    .avatar { width: 42px !important; height: 42px !important; font-size: 14px !important; }
     .avatar::after { display: none !important; }
-    .placa .quemNome { font-size: 12px !important; }
-    .placa .papel { font-size: 6px !important; }
+    .placa .quemNome { font-size: 14px !important; }
+    .placa .papel { font-size: 9px !important; }
     
-    /* Escudos menores para na
-  o invadirem os espaços das laterais */
-    .heroi { width: 44px !important; height: 44px !important; }
-    .heroi .placaEsc svg { width: 44px !important; height: 44px !important; }
-    .heroi b { font-size: 14px !important; padding-top: 12px !important; }
+    .heroi { width: 56px !important; height: 56px !important; }
+    .heroi .placaEsc svg { width: 56px !important; height: 56px !important; }
+    .heroi b { font-size: 22px !important; padding-top: 15px !important; }
     .heroi .cap { font-size: 8px !important; bottom: -6px !important; padding: 2px 6px !important; }
 
-    /* Empilhamento das reservas e energia na lateral, liberta o meio da tela */
-    .medidores { flex-direction: column !important; align-items: flex-end !important; gap: 2px !important; }
-    .med { padding: 2px 2px !important; gap: 2px !important; border-radius: 8px !important; min-width: 90px; justify-content: space-between; }
+    .medidores { flex-direction: column !important; align-items: flex-end !important; gap: 4px !important; }
+    .med { padding: 4px 8px !important; gap: 6px !important; border-radius: 8px !important; min-width: 90px; justify-content: space-between; }
     .med .rot { font-size: 9px !important; }
-    .med b { font-size: 13px !important; }
-    .med svg { font-size: 12px !important; }
+    .med b { font-size: 16px !important; }
+    .med svg { font-size: 14px !important; }
 
-    .pista { margin-top: 5px; }
-    .campo { min-height: 40px !important; padding: 2px !important; gap: 2px !important; }
-    .campo .dica { font-size: 11px !important; }
-
-    .f { width: 40px !important; }
-    .f .disco { width: 38px !important; height: 28px !important; }
-    .f .nome { font-size: 8px !important; max-width: 20px !important; margin-top: -6px !important; padding: 2px 4px !important;}
-    .f .num { width: 15px !important; height: 15px !important; font-size: 10px !important; top: 32px !important; border-width: 1px !important;}
+    .campo { min-height: 100px !important; padding: 4px !important; gap: 6px !important; }
+    .f { width: 66px !important; }
+    .f .disco { width: 52px !important; height: 52px !important; }
+    .f .nome { font-size: 9px !important; max-width: 66px !important; margin-top: -6px !important; padding: 2px 4px !important;}
+    .f .num { width: 18px !important; height: 18px !important; font-size: 10px !important; top: 34px !important; border-width: 1px !important;}
     .f .nivel { font-size: 7px !important; padding: 2px 5px !important; margin-bottom: 2px !important;}
     .f .simbChip { font-size: 9px !important; top: 4px !important; }
 
-    .maoArea { padding-bottom: 10px !important; margin-top: 5px !important; padding-top: 0 !important; }
-    .maoArea h2 { font-size: 12px !important; }
-    .maoArea .sub { font-size: 11px !important; }
-    
-    .mao { gap: 4px !important; }
-    .mao > .c { width: 65px !important; border-width: 1px !important; margin: 0 !important;}
-    .c .arte, .c .mohs { display: none !important; } 
-    .c .tit { padding: 4px 2px !important; }
-    .c .n { font-size: 9px !important; line-height: 1 !important; }
-    .c .sub { font-size: 7px !important; margin-top: 2px !important; }
-    .badge.ene { width: 20px !important; height: 20px !important; font-size: 11px !important; left: -5px !important; top: -5px !important; border-width: 1px !important;}
-    .badge.val, .badge.dur { width: 18px !important; height: 18px !important; font-size: 10px !important; border-width: 1px !important;}
-    .badge.sim { width: 16px !important; height: 16px !important; font-size: 8px !important; right: -5px !important; top: -5px !important; border-width: 1px !important;}
-
-    /* BOTOES DA BASE: proporcionais e amigaveis */
+    /* 3. BOTÕES (O TRILHO NA BASE) - 4 Colunas */
     .trilho {
-        position: relative !important;
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: wrap !important;
+        position: static !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr 1fr !important; /* Exatamente 4 colunas */
+        grid-template-rows: 1fr 1fr !important; /* 2 linhas de altura igual */
+        gap: 6px !important;
         width: 100% !important;
-        gap: 8px !important;
-        padding: 10px 0 !important;
         background: transparent !important;
         border: none !important;
-        top: auto !important;
-        bottom: auto !important;
+        padding: 5px 0 10px !important;
     }
+
+    /* Mapeamento das posições desenhadas no esquema */
+    .trilho > .relogio { grid-column: 1; grid-row: 1 / 3; } /* Col 1: Ocupa as duas linhas */
+    #btnPassar { grid-column: 2; grid-row: 1 / 3; }         /* Col 2: Ocupa as duas linhas */
+    #btnForjar { grid-column: 3; grid-row: 1; }             /* Col 3, cima */
+    .pistaLiga, .dicaTrilho { grid-column: 3; grid-row: 2; margin: 0 !important; } /* Col 3, baixo */
+    #btnRefinar { grid-column: 4; grid-row: 1; }            /* Col 4, cima */
+    #btnPeD { grid-column: 4; grid-row: 2; }                /* Col 4, baixo */
+
+    /* Estilo dos botões encaixados na grade */
     .trilho > .b, .trilho > .relogio {
-        flex: 1 1 45% !important; 
-        min-height: 50px !important; 
-        font-size: 12px !important; 
+        min-height: 100% !important; /* Estica para preencher a célula */
+        font-size: 9.5px !important;
+        padding: 4px !important;
+        margin: 0 !important;
         border-radius: 8px !important;
-        margin: 0 !important; 
-        justify-content: center !important; 
-        flex-direction: column !important; 
-        gap: 2px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
-    .trilho > .relogio { align-items: center !important; }
-    .trilho .relogio .lin span { font-size: 9px !important; }
-    .trilho .relogio b { font-size: 18px !important; }
+    .trilho > .relogio { flex-direction: column !important; }
+    .trilho .relogio b { font-size: 20px !important; margin-top: 4px !important; }
+    .trilho .relogio .lin span { font-size: 8px !important; letter-spacing: 0 !important; }
+    #btnPassar { flex-direction: column !important; font-size: 11px !important; gap: 4px !important; }
+    #btnPassar svg { font-size: 20px !important; }
+    .pistaLiga, .dicaTrilho { font-size: 8px !important; padding: 2px !important; text-align: center; display: flex; align-items: center; justify-content: center; line-height: 1.1; }
 
-    .bEncerrar { flex: 1 1 100% !important; min-height: 50px !important; font-size: 14px !important; }
-    .bEncerrar svg { font-size: 18px !important; }
-    .bForjar, .bRefinar, #btnPeD { min-height: 50px !important; font-size: 11px !important; }
+    /* 4. MÃO DE CARTAS - Grade de 4 por linha */
+    .maoArea { padding: 0 8px 12px !important; margin-top: 0 !important; }
+    .maoArea h2 { font-size: 14px !important; }
+    .maoArea .sub { font-size: 11px !important; }
+    
+    .mao {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important; /* 4 Cartas lado a lado */
+        gap: 6px !important;
+        padding: 0 !important;
+    }
+    .mao > .c {
+        width: 100% !important; /* Adapta à coluna certinho */
+        border-width: 1.5px !important;
+        margin: 0 !important;
+        min-height: 90px !important; /* Evita que a carta murche se estiver vazia */
+    }
+    .c .arte, .c .mohs { display: none !important; } /* Esconde para focar nos números */
+    .c .tit { padding: 6px 4px !important; }
+    .c .n { font-size: 10.5px !important; line-height: 1 !important; }
+    .c .sub { font-size: 7px !important; margin-top: 3px !important; }
+    .badge.ene { width: 22px !important; height: 22px !important; font-size: 11px !important; left: -6px !important; top: -6px !important; border-width: 1.5px !important;}
+    .badge.val, .badge.dur { width: 18px !important; height: 18px !important; font-size: 10px !important; border-width: 1.5px !important;}
+    .badge.sim { width: 16px !important; height: 16px !important; font-size: 8px !important; right: -5px !important; top: -5px !important; border-width: 1.5px !important;}
 
+    /* Topo Mais limpo */
+    .topo { padding: 8px !important; }
+    .vez h1 { font-size: 15px !important; }
+    .pino { width: 22px !important; height: 22px !important; font-size: 11px !important;}
+    .botoesTopo .b { font-size: 9px !important; padding: 6px 8px !important; }
+
+    /* Centraliza a visualização ampliada */
     .previa {
         display: block !important;
         left: 50% !important;
         top: 50% !important;
-        transform: translate(-50%, -50%) scale(0.8) !important;
+        transform: translate(-50%, -50%) scale(0.9) !important;
         z-index: 100 !important;
     }
 }
