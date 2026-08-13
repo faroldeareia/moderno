@@ -837,16 +837,16 @@ body:not(:has(.mesa)) {
     #btnPassar { font-size: 9px !important; gap: 2px !important; font-weight: 700 !important; }
     #btnPassar svg { font-size: 13px !important; margin-bottom: 1px !important; }
 
-    /* 4. MÃO DE CARTAS (Coladas nos botões, sem buraco) */
+/* 4. MÃO DE CARTAS (Coladas de vez nos botões) */
     .maoArea { 
-        padding: 2px 6px 8px !important; 
-        margin-top: -10px !important; /* Sucga a mão para cima perfeitamente */
+        padding: 0 6px 6px !important; 
+        margin-top: -24px !important; /* Puxa a mão inteira para cima com força para colar nos botões */
     }
     .maoArea .faixa {
         display: flex !important;
-        margin-bottom: 4px !important; 
+        margin-bottom: 2px !important; 
     }
-    .maoArea h2 { font-size: 12px !important; }
+    .maoArea h2 { font-size: 11px !important; }
     .maoArea .sub { font-size: 9px !important; }
     
     .mao {
@@ -865,15 +865,6 @@ body:not(:has(.mesa)) {
     .c .tit { padding: 3px 2px !important; }
     .c .n { font-size: 8.5px !important; line-height: 1.1 !important; }
     .c .sub { font-size: 5.5px !important; margin-top: 2px !important; }
-    
-    /* CORREÇÃO DOS SELOS: Remove o raio gigante do fundo e destaca os números */
-    .badge.ene .marca { display: none !important; } 
-    .badge.ene { width: 16px !important; height: 16px !important; font-size: 9.5px !important; left: -1px !important; top: -1px !important; border-width: 1px !important;}
-    
-    .badge.val, .badge.dur { width: 15px !important; height: 15px !important; font-size: 9.5px !important; font-weight: 800 !important; border-width: 1px !important;}
-    .badge.val { left: -1px !important; bottom: -1px !important; }
-    .badge.dur { right: -1px !important; bottom: -1px !important; }
-    .badge.sim { width: 12px !important; height: 12px !important; font-size: 6px !important; right: -1px !important; top: -1px !important; border-width: 1px !important;}
 
     /* 5. PAINEL DE AÇÃO FLUTUANTE (P&D / Forjar) - Corrigido tamanho e centralização */
     .painelAcao {
