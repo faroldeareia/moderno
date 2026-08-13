@@ -59,15 +59,41 @@ function caminhosArte(c, b, forma){
   return lista.concat(comFormatos('arte/' + n));
 }
 
-/* Tenta a lista em ordem e entrega a primeira que carregar. */
+/* Cache para não sobrecarregar a rede tentando .webp -> .jpg -> .png 
+   toda vez que o desenhar() for chamado. */
+const CACHE_ARTE = {};
+
 function carregarArte(lista, aoAchar){
-  let i = 0;
-  (function tentar(){
-    if(i >= lista.length) return;
-    const url = lista[i++];
+  if(!lista || !lista.length) return;
+  
+  // Usa o primeiro caminho (ex: 'arte/01.webp') como chave do cache
+  const chave = lista[0]; 
+  
+  // Se já tentamos e sabemos que nenhuma imagem existe, desiste cedo
+  if(CACHE_ARTE[chave] === 'falhou') return;
+  
+  // Se já sabemos qual URL funcionou antes, carrega ela direto
+  if(CACHE_ARTE[chave]){
     const img = new Image();
     img.alt = '';
     img.onload = () => aoAchar(img);
+    img.src = CACHE_ARTE[chave];
+    return;
+  }
+
+  let i = 0;
+  (function tentar(){
+    if(i >= lista.length) {
+      CACHE_ARTE[chave] = 'falhou'; // Anota que essa imagem não tem arte
+      return;
+    }
+    const url = lista[i++];
+    const img = new Image();
+    img.alt = '';
+    img.onload = () => {
+      CACHE_ARTE[chave] = url; // Anota qual extensão deu certo (ex: .jpg)
+      aoAchar(img);
+    };
     img.onerror = tentar;
     img.src = url;
   })();
