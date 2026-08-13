@@ -320,6 +320,15 @@ body.arr-mao .campo.meu{border-color:var(--b3);background:rgba(43,138,83,.12)}
   background:radial-gradient(circle at 34% 28%,#fff,var(--corS) 62%);
   border:3px solid var(--cor);box-shadow:0 4px 12px rgba(0,0,0,.34)}
 .f .disco img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* DESATIVA O ARRASTO NATIVO DAS IMAGENS */
+.f .disco img, 
+.c .arte img,
+.avatar img,
+.previa img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
 .f .simbChip{position:absolute;top:7px;left:50%;transform:translateX(-50%);z-index:2;
   min-width:28px;padding:2px 8px;border-radius:8px;background:rgba(255,255,255,.92);
   border:1.5px solid var(--cor);color:var(--cor);font-family:var(--disp);font-size:17.1px;
