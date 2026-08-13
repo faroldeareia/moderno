@@ -1,70 +1,28 @@
-/* Aparência do Jogo de Cartas Minerais.
-   Separado do HTML em 2026-08-06: o arquivo único tinha 95 KB e cada
-   ajuste de texto obrigava a reler tudo. Agora mudança de cor mexe só
-   aqui, mudança de regra mexe só em mesa.js, e a estrutura fica em
-   jogo.html. */
-/* ============================================================
-   PALETA — a "casca" do jogo agora é escura, de madeira e ouro,
-   para o cenário desenhado poder brilhar por baixo. As CARTAS
-   continuam claras: é onde mora a informação que precisa ser
-   lida de longe, na feira, por uma criança.
-   ============================================================ */
+/* Aparência do Jogo de Cartas Minerais. */
 :root{
-  /* casca */
   --mad:#2b2118;  --mad2:#3a2d20;  --mad3:#1d1610;
   --ouro:#c9a227; --ouro2:#e8cd6b; --ouroEsc:#8a6d14;
   --creme:#f2ead6; --creme2:#c9bda0; --creme3:#9a8f78;
-
-  /* mesa e cartas */
   --areia:#e9e0cb; --areia2:#dbcfb2;
   --papel:#fff;   --tinta:#22252a; --tinta2:#6d7480; --tinta3:#9aa1ad;
   --linha:#dcd5c6; --linha2:#c6bda8;
 
-  /* AS CINCO FAMÍLIAS DE CARTA — uma cor por bloco do dados.js.
-     Eram três e o dados.js tinha cinco, então TODA carta caía no
-     padrão roxo. A cor forte é a borda e o texto; a clara (…s) é o
-     fundo do quadro da arte, e por isso é quase branca: a arte tem
-     que aparecer por cima dela.
-     Se um dia entrar um bloco novo no dados.js, some uma cor aqui e
-     acrescente a linha correspondente no COR do mesa.js. */
-  --b1:#c9453b; --b1s:#fbeceb;   /* Segurança Alimentar  — vermelho: sem eles não se planta */
-  --b2:#7a4fa8; --b2s:#f2ecfa;   /* Transição Energética — roxo:     bateria, ímã, painel */
-  --b3:#2b8a53; --b3s:#e8f5ed;   /* Construção Civil     — verde:    obra e lavoura */
-  --b4:#2f6fae; --b4s:#e9f1fa;   /* Alta Tecnologia      — azul:     indústria e balança */
-  --b5:#d08316; --b5s:#fdf0dd;   /* Segurança Energética — âmbar:    o urânio, sozinho */
+  --b1:#c9453b; --b1s:#fbeceb;
+  --b2:#7a4fa8; --b2s:#f2ecfa;
+  --b3:#2b8a53; --b3s:#e8f5ed;
+  --b4:#2f6fae; --b4s:#e9f1fa;
+  --b5:#d08316; --b5s:#fdf0dd;
 
   --energia:#e0a012; --energiaS:#fdf2dd;
   --valor:#b07d17; --dureza:#3b6ea5;
   --geo:#d1483c; --alvo:#e0603f; --liga:var(--ouro);
 
-  /* ---------- TIPOGRAFIA ----------
-     Três famílias, e só. Para trocar a fonte do jogo inteiro basta:
-       1. mudar o <link> do Google Fonts no <head>;
-       2. mudar as três linhas abaixo.
-     Nenhum outro lugar do arquivo nomeia fonte.
-
-     --disp   Barlow Condensed  títulos, botões, números grandes, nomes de carta
-              (condensada, cabe muito em pouco espaço, boa em caixa alta)
-     --texto  Inter             textos corridos, rótulos, ajuda
-              (desenhada para tela pequena, ótima legibilidade em 11-13px)
-     --serifa Spectral          nome na carta grande e frases em itálico
-              (dá o ar de carta impressa sem virar medieval)
-
-     Se um dia o material precisar seguir a identidade do gov.br, as
-     equivalentes são Rawline (display) e Raleway (texto). */
   --disp:'Barlow Condensed',system-ui,sans-serif;
   --texto:'Inter',system-ui,-apple-system,sans-serif;
   --serifa:'Spectral',Georgia,serif;
   --sombra:0 1px 2px rgba(0,0,0,.16),0 4px 12px rgba(0,0,0,.14);
   --alta:0 6px 14px rgba(0,0,0,.24),0 20px 44px rgba(0,0,0,.3);
 
-  /* IMAGENS FUTURAS — cada uma entra sozinha quando o arquivo existir.
-     mesa/fundo.jpg   cenário da tela inteira
-     mesa/mesa.jpg    tampo da arena (opcional, se quiser diferente do fundo)
-     mesa/verso.jpg   verso da carta
-     avatares/01..04.png
-     arte/01..25.jpg  arte de cada carta
-     molduras/I|II|III.png  moldura da carta, se virar arte */
   --cenario:none; --tampo:none; --verso:none;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -82,11 +40,6 @@ body{
   -webkit-font-smoothing:antialiased}
 svg.ic{width:1em;height:1em;display:block;flex:none}
 
-/* ------------------------------------------------------------
-   PAINEL — a moldura de madeira e ouro que veste tudo.
-   Quando você desenhar as bordas, troque o background por
-   border-image e o resto continua funcionando.
-   ------------------------------------------------------------ */
 .pnl{
   background:linear-gradient(168deg,rgba(70,55,38,.94),rgba(38,29,20,.96));
   border:1px solid rgba(201,162,39,.42);
@@ -97,7 +50,6 @@ svg.ic{width:1em;height:1em;display:block;flex:none}
   color:var(--ouro2);display:flex;align-items:center;gap:7px;margin-bottom:9px}
 .pnl h3 svg{font-size:17.1px;color:var(--ouro)}
 
-/* ---------- topo ---------- */
 .topo{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
   padding:8px 18px;position:sticky;top:0;z-index:8;
   background:linear-gradient(180deg,rgba(30,23,15,.96),rgba(30,23,15,.82));
@@ -114,15 +66,11 @@ svg.ic{width:1em;height:1em;display:block;flex:none}
   text-transform:uppercase;font-weight:700;margin-top:1px}
 .botoesTopo{display:flex;gap:6px}
 
-/* ============================================================
-   MESA
-   ============================================================ */
 .mesa{flex:1;width:100%;max-width:1460px;margin:0 auto;padding:12px 16px 0;
   display:grid;grid-template-columns:212px minmax(0,1fr) 194px;gap:14px;align-items:start}
 .colEsq,.trilho{position:sticky;top:64px;display:flex;flex-direction:column;gap:10px}
 .bloco{padding:12px 13px}
 
-/* ---------- registro ---------- */
 #log{list-style:none;font-size:14px;line-height:1.45;max-height:300px;overflow:auto;
   display:flex;flex-direction:column;gap:6px}
 #log li{display:flex;gap:7px;align-items:flex-start;color:var(--creme2);
@@ -134,7 +82,6 @@ svg.ic{width:1em;height:1em;display:block;flex:none}
 #log .vazio{color:var(--creme3);font-style:italic;border:0}
 .bGuardar{width:100%;margin-top:10px;font-size:13.4px;padding:8px 10px}
 
-/* ---------- arena ---------- */
 .arena{position:relative;border-radius:22px;padding:12px 16px 14px;min-height:548px;
   display:flex;flex-direction:column;gap:6px;
   background:
@@ -145,7 +92,6 @@ svg.ic{width:1em;height:1em;display:block;flex:none}
   box-shadow:inset 0 2px 0 rgba(255,255,255,.5),inset 0 0 60px rgba(90,66,30,.2),var(--alta)}
 .arena.transp{background:var(--tampo);background-size:cover;background-position:center}
 
-/* faixa de identificação */
 .faixaJog{display:flex;align-items:center;gap:12px;min-height:92px}
 .placa{display:flex;align-items:center;gap:11px;padding:7px 9px;border-radius:12px;
   background:linear-gradient(168deg,rgba(60,47,32,.95),rgba(32,25,17,.96));
@@ -156,10 +102,6 @@ svg.ic{width:1em;height:1em;display:block;flex:none}
   border:1.5px solid rgba(201,162,39,.55);font-family:var(--disp);font-size:23.8px;
   font-weight:700;color:var(--ouro2)}
 .avatar img{width:100%;height:100%;object-fit:cover;transition:none}
-/* O avatar é pequeno na barra de propósito (a mesa é o que importa), mas
-   a arte merece ser vista. Passar o mouse cresce a imagem numa caixa que
-   sai por cima de tudo, sem empurrar o resto do layout — por isso o
-   `position:absolute` num filho, e não um resize do próprio quadrado. */
 .avatar{position:relative}
 .avatar::after{content:'';position:absolute;left:50%;top:-6px;
   width:200px;height:200px;transform:translate(-50%,-100%) scale(.72);
@@ -180,16 +122,11 @@ svg.ic{width:1em;height:1em;display:block;flex:none}
 .placa .papel{font-size:11.7px;color:var(--creme3);letter-spacing:.13em;text-transform:uppercase;
   font-weight:700;margin-top:1px}
 
-/* a pilha de energia do adversário, no mesmo desenho da minha */
 .pilhaOp{display:flex;gap:2px;margin-top:3px}
 .pilhaOp i{width:6px;height:6px;border-radius:1px;background:rgba(224,160,18,.22)}
 .pilhaOp i.on{background:var(--energia)}
 
-/* medidores à direita, no lugar do 2/2 da referência */
 .medidores{margin-left:auto;display:flex;align-items:center;gap:8px}
-/* A jazida acabando e a jazida acabada. O amarelo é aviso, o vermelho
-   pulsante é dano acontecendo — e o dano cresce todo turno, então ele
-   tem que puxar o olho até a pessoa entender de onde vem. */
 .med.acabando{color:#e8cd6b}
 .med.acabando b{color:#e8cd6b}
 .med.exausto{color:#ff8f7a;animation:pulsaExausto 1.5s ease-in-out infinite}
@@ -200,10 +137,6 @@ svg.ic{width:1em;height:1em;display:block;flex:none}
   50%    {opacity:.72;text-shadow:0 0 10px rgba(255,90,60,.75)}}
 @media(prefers-reduced-motion:reduce){.med.exausto{animation:none}}
 
-/* O GOLPE DA EXAUSTÃO em cima da mesa. Não é um "aviso" discreto de canto:
-   é o único dano sem agressor no jogo, então precisa ser grande o
-   suficiente para a pessoa parar e ler. Some sozinho em 1,9 s e não
-   bloqueia clique nenhum. */
 .golpeExaustao{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);
   z-index:22;pointer-events:none;text-align:center;
   display:flex;flex-direction:column;align-items:center;gap:2px;
@@ -217,25 +150,14 @@ svg.ic{width:1em;height:1em;display:block;flex:none}
   letter-spacing:.06em;text-transform:uppercase;color:#ffe9e2;
   background:rgba(20,8,4,.72);border:1px solid rgba(255,120,90,.5);
   border-radius:999px;padding:3px 12px;text-shadow:0 1px 3px #000}
-/* barrada pela barreira: âmbar em vez de vermelho, e menor. O jogo está
-   dizendo "isto NÃO te machucou", e a cor tem que dizer o mesmo. */
 .golpeExaustao.absorvido .num{color:var(--ouro2);text-shadow:0 4px 0 #5a4408,
   0 8px 26px rgba(0,0,0,.85),0 0 40px rgba(232,205,107,.5);font-size:78px}
 .golpeExaustao.absorvido .rot{color:#f3e3b4;text-shadow:0 2px 6px #000}
-/* especulação é outra coisa: -1 fixo, por segurar carta demais. Azul, para
-   ninguém confundir com a exaustão, que é vermelha e cresce. */
 .golpeExaustao.especulacao .num{color:#7fb4e8;font-size:78px;
   text-shadow:0 4px 0 #14304d,0 8px 26px rgba(0,0,0,.85),0 0 40px rgba(90,150,220,.5)}
 .golpeExaustao.especulacao .rot{color:#d8e9fa;text-shadow:0 2px 6px #000}
 .golpeExaustao.especulacao .pe{border-color:rgba(120,170,230,.5)}
 
-/* ------------------------------------------------------------
-   O NÚMERO COLADO NO QUE PERDEU O PONTO.
-   O cartaz grande diz que o golpe aconteceu; este diz ONDE doeu.
-   Sem ele, a barreira absorvia o golpe e a ficha continuava exibindo o
-   número velho até desaparecer — o jogador via a carta sumir sem nunca
-   ver o dano que ela tinha levado.
-   ------------------------------------------------------------ */
 .flutua{position:absolute;left:50%;top:34%;transform:translate(-50%,-50%);
   z-index:24;pointer-events:none;white-space:nowrap;
   font-family:var(--disp);font-weight:800;line-height:1;
@@ -270,14 +192,13 @@ svg.ic{width:1em;height:1em;display:block;flex:none}
 .pilhas i{width:7px;height:14px;border-radius:2px;background:rgba(255,255,255,.14)}
 .pilhas i.on{background:linear-gradient(180deg,#f5cf72,var(--energia))}
 
-/* mão virada do adversário, atrás do avatar */
 .maoVirada{display:flex;align-items:center;padding-left:4px}
 .verso{width:30px;height:42px;border-radius:5px;flex:none;
   background:var(--verso),linear-gradient(155deg,#5b4a30,#2b2118);
   background-size:cover;background-position:center;
   border:1px solid rgba(201,162,39,.5);box-shadow:0 2px 6px rgba(0,0,0,.45);
   display:grid;place-items:center;transform-origin:bottom center}
-.verso+.verso{margin-left:-15px}   /* +  em vez de :first-of-type: o rótulo é span também */
+.verso+.verso{margin-left:-15px}
 .verso::after{content:'';width:11px;height:11px;transform:rotate(45deg);
   border:2px solid rgba(232,205,107,.42);border-radius:2px}
 .verso.semArte::after{opacity:1}
@@ -286,9 +207,6 @@ svg.ic{width:1em;height:1em;display:block;flex:none}
 .verso.p-e-d{border-color:var(--ouro2);box-shadow:0 0 10px rgba(201,162,39,.6)}
 .verso.p-e-d::after{border-color:var(--ouro2);background:rgba(201,162,39,.3)}
 
-/* ------------------------------------------------------------
-
-   ------------------------------------------------------------ */
 .faixaJog{position:relative}
 .heroiLinha{position:absolute;left:50%;top:50%;height:0;width:0;z-index:5}
 .heroi{position:absolute;left:0;top:0;transform:translate(-50%,-50%);
@@ -312,17 +230,10 @@ body.arr-ficha .heroi.op,.heroi.op.mira{cursor:pointer;animation:puxa 1.3s ease-
 @keyframes tremor{0%,100%{margin-left:0}20%{margin-left:-7px}40%{margin-left:6px}
                   60%{margin-left:-3px}80%{margin-left:2px}}
 
-/* pista */
 .pista{flex:1;border-radius:16px;background:rgba(255,255,255,.2);
   border:1px solid rgba(255,255,255,.34);box-shadow:inset 0 1px 0 rgba(255,255,255,.42);
   padding:14px 12px;display:flex;flex-direction:column;position:relative}
 .campo{min-height:152px;display:flex;gap:14px;align-items:center;justify-content:center;
-  /* O `transition:all` era o suspeito da "marca fraca em quadrado": ele
-     anima também `border-style`, e no meio da transição de tracejado para
-     transparente o navegador desenha um retângulo pálido que fica um
-     instante na tela. Agora a transição nomeia só o que deve animar.
-     Se a marca persistir, é outra coisa — dá para confirmar inspecionando
-     o elemento `.campo` no navegador e vendo qual borda acende. */
   flex-wrap:wrap;padding:6px;border-radius:12px;
   border:1.5px dashed transparent;
   transition:border-color .2s,background-color .2s,box-shadow .2s}
@@ -337,7 +248,6 @@ body.arr-mao .campo.meu{border-color:var(--b3);background:rgba(43,138,83,.12)}
   transform:translate(-50%,-50%) rotate(45deg);background:var(--areia2);
   border:1px solid rgba(120,95,50,.5)}
 
-/* ---------- trilho ---------- */
 .relogio{padding:10px 13px}
 .relogio .lin{display:flex;justify-content:space-between;align-items:baseline;font-size:11.7px;
   letter-spacing:.13em;text-transform:uppercase;color:var(--creme3);font-weight:700}
@@ -347,60 +257,15 @@ body.arr-mao .campo.meu{border-color:var(--b3);background:rgba(43,138,83,.12)}
 .relogio .barra i{display:block;height:100%;background:linear-gradient(90deg,#4fae76,#2b8a53);
   transition:width 1s linear}
 .relogio.pouco b{color:#f0917f} .relogio.pouco .barra i{background:linear-gradient(90deg,#e07a63,#c9453b)}
-/* Contraste MEDIDO (o painel é um gradiente, então vale a ponta pior, que
-   é o topo, #463726):
-     --creme3 #9a8f78  = 3,58:1   reprova
-     --creme2 #c9bda0  = 6,14:1   passa
-   O mínimo WCAG AA para texto pequeno é 4,5:1, e o site do MME tem
-   obrigação legal de cumprir. Esta é a única instrução escrita da tela —
-   se ela não se lê, ninguém descobre que dá para arrastar. */
 .dicaTrilho{font-size:13.4px;color:var(--creme2);line-height:1.5;text-align:center;
   padding:6px 8px;font-weight:500;
   border-top:1px solid rgba(201,162,39,.22);margin-top:2px}
 
-/* ============================================================================
-   AJUSTES PARA O "SITE PARA COMPUTADOR" (VERTICAL) E TELAS MÉDIAS
-   ============================================================================ */
 @media(max-width:1180px){
   .mesa { grid-template-columns: minmax(0,1fr) 194px; }
-  
-  /* 1. O REGISTRO SOME de vez para não empurrar as cartas para baixo */
   .colEsq { display: none !important; }
-  
-  /* 2. Mostra o botão de Registro no menu superior para compensar */
-  .soCelular { display: inline-flex !important; }
-  
-  /* .previa{display:none} */
 }
 
-/* 3. AUMENTAR UM POUCO A LETRA apenas quando o celular estiver em pé (Portrait) */
-@media(orientation: portrait) and (max-width: 1180px) {
-  /* Nomes e Avatares */
-  .placa .quemNome { font-size: 26px; }
-  .placa .papel { font-size: 14px; }
-  
-  /* Escudos (Heróis) */
-  .heroi { width: 100px; height: 100px; }
-  .heroi b { font-size: 42px; padding-top: 30px; }
-  .heroi .cap { font-size: 12px; bottom: -12px; }
-  
-  /* Medidores de Reserva e Energia */
-  .med { padding: 10px 16px; gap: 10px; }
-  .med .rot { font-size: 14px; }
-  .med b { font-size: 30px; }
-  .med svg { font-size: 24px; }
-  
-  /* Botões e Relógio da direita */
-  .relogio b { font-size: 34px; }
-  .relogio .lin span { font-size: 14px; }
-  .b { font-size: 20px; padding: 14px 20px; }
-  .bEncerrar { min-height: 90px; font-size: 24px; }
-  .bEncerrar svg { font-size: 32px; }
-  
-  /* Rótulo da Mão */
-  .maoArea h2 { font-size: 22px; }
-  .maoArea .sub { font-size: 18px; }
-}
 @media(max-width:820px){
   .mesa{grid-template-columns:minmax(0,1fr)}
   .trilho{position:static;flex-direction:row;flex-wrap:wrap}
@@ -411,9 +276,6 @@ body.arr-mao .campo.meu{border-color:var(--b3);background:rgba(43,138,83,.12)}
   .faixaJog{flex-wrap:wrap}
 }
 
-/* ============================================================
-   BOTÕES — cara de jogo: relevo, ouro, tipografia de display
-   ============================================================ */
 .b{font-family:var(--disp);font-size:17.1px;font-weight:600;letter-spacing:.07em;
   text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;
   justify-content:center;gap:8px;padding:10px 15px;border-radius:11px;
@@ -445,12 +307,7 @@ body.arr-mao .campo.meu{border-color:var(--b3);background:rgba(43,138,83,.12)}
 @keyframes acendeV{0%,100%{box-shadow:inset 0 1px 0 rgba(232,205,107,.22),0 0 0 0 rgba(60,190,120,.5),var(--sombra)}
                    50%{box-shadow:inset 0 1px 0 rgba(232,205,107,.22),0 0 0 9px rgba(60,190,120,0),var(--sombra)}}
 
-/* ============================================================
-   FICHA — degrau em cima, disco no meio, NOME embaixo
-   ============================================================ */
 .f{--cor:var(--b2);--corS:var(--b2s);
-  /* 112 → 126, mesma razão da carta: o nome embaixo do disco tem
-     max-width amarrado nesta largura e começava a cortar. */
   position:relative;width:126px;padding:0;border:0;background:none;cursor:pointer;
   font-family:var(--texto);transition:transform .16s cubic-bezier(.2,.8,.3,1);touch-action:none;
   display:flex;flex-direction:column;align-items:center;gap:0}
@@ -480,9 +337,6 @@ body.arr-mao .campo.meu{border-color:var(--b3);background:rgba(43,138,83,.12)}
 .f .num.d{right:-2px;background:linear-gradient(150deg,#5b8ec2,var(--dureza))}
 .f:hover:not(:disabled){transform:translateY(-7px)}
 .f:disabled{cursor:default}
-/* CARTA DORMINDO. A ficha inteira fica translúcida e sem cor; o Zzz, não —
-   ele é o único que continua vivo, e balança. A ênfase anda pela palavra
-   (Zzz · zZz · zzZ · zzz), que é o truque de gibi para dizer "respirando". */
 .f.dorme .disco{filter:grayscale(.85);opacity:.5}
 .f.dorme .nome,.f.dorme .nivel{opacity:.6}
 .f.dorme .num{opacity:.7}
@@ -498,7 +352,6 @@ body.arr-mao .campo.meu{border-color:var(--b3);background:rgba(43,138,83,.12)}
 @keyframes boiaZ{
   0%,100%{transform:translateY(3px) rotate(-5deg);opacity:.5}
   50%    {transform:translateY(-7px) rotate(5deg);opacity:1}}
-/* Sem animação, o Zzz continua lá — só parado. */
 @media(prefers-reduced-motion:reduce){
   .f.dorme::after{animation:none;opacity:.9;transform:none}}
 .f.sel .disco{box-shadow:0 0 0 4px var(--dureza),0 6px 16px rgba(0,0,0,.4)}
@@ -509,27 +362,13 @@ body.arr-mao .campo.meu{border-color:var(--b3);background:rgba(43,138,83,.12)}
 .f.arrastando{opacity:.3}
 body.arr-ficha .f.op .disco,.f.op.mira .disco{box-shadow:0 0 0 3px var(--alvo),0 4px 12px rgba(0,0,0,.34)}
 .f.op.sobre{transform:scale(1.1) translateY(-4px)}
-/* Sem bloco `to`: o fim da animação passa a ser o estilo próprio do
-   elemento, e não um opacity:1 fixo.
-
-   Era isto que deixava a carta sem energia OPACA no primeiro turno. Com
-   `to{opacity:1}` mais fill-mode `both`, o navegador congelava o valor
-   final da animação — e animação vence declaração normal, então o
-   .c:disabled{opacity:.5} nunca chegava a aparecer. No turno 1 todas as
-   cartas são novas e todas ganham .entra, por isso o bug só se via ali. */
 @keyframes entra{from{opacity:0;transform:translateY(16px) scale(.9)}}
 
-/* ============================================================
-   CARTA da mão — sem barra por cima do nome, badges com folga
-   ============================================================ */
 .c{--cor:var(--b2);--corS:var(--b2s);
-  /* 150 → 166: a tipografia subiu ~15% e o nome comprido ("Grupo da
-     Platina", "Terras Raras") passou a cortar com reticências. A carta
-     acompanha a letra, senão o aumento vira truncamento. */
   width:166px;background:var(--papel);color:var(--tinta);
   border:2px solid var(--cor);border-radius:13px;padding:0;position:relative;text-align:left;
   font-family:var(--texto);cursor:pointer;display:block;touch-action:none;
-  margin:14px 12px 18px;   /* folga para os badges que saem da moldura */
+  margin:14px 12px 18px; 
   box-shadow:0 4px 12px rgba(0,0,0,.3);
   transition:transform .16s cubic-bezier(.2,.8,.3,1),box-shadow .16s,opacity .16s,filter .2s}
 .c:hover:not(:disabled){transform:translateY(-13px);box-shadow:var(--alta)}
@@ -542,8 +381,6 @@ body.arr-ficha .f.op .disco,.f.op.mira .disco{box-shadow:0 0 0 3px var(--alvo),0
   letter-spacing:.02em;display:block}
 .c .sub{display:block;font-size:11.1px;letter-spacing:.07em;text-transform:uppercase;color:var(--cor);
   font-weight:700;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-/* O nome do degrau. Quando a carta é refinada, o nome muda E fica dourado:
-   a mudança precisa ser vista de longe, senão a escada não ensina nada. */
 .c .sub.subRef{color:var(--ouroEsc,#8a6a12);letter-spacing:.05em}
 .c .arte{position:relative;margin:4px 9px 8px;aspect-ratio:4/3;border-radius:6px;overflow:hidden;
   background:radial-gradient(circle at 50% 94%,var(--corS),#f4f1ea 72%);
@@ -556,7 +393,6 @@ body.arr-ficha .f.op .disco,.f.op.mira .disco{box-shadow:0 0 0 3px var(--alvo),0
 .c .mohs i{height:5px;flex:1;background:var(--areia2);border-radius:1px}
 .c .mohs i.on{background:var(--cor)}
 
-/* Nova classe para cartas que sofreram P&D na mão */
 .c.n1 { 
   border-color: var(--ouro2); 
   box-shadow: 0 0 12px rgba(201,162,39,.4), 0 4px 12px rgba(0,0,0,.3); 
@@ -564,16 +400,11 @@ body.arr-ficha .f.op .disco,.f.op.mira .disco{box-shadow:0 0 0 3px var(--alvo),0
 .c.n1 .tit .n { color: var(--ouro2); }
 .c.n1 .arte { border-color: var(--ouro2); }
 
-/* badges */
 .badge{position:absolute;z-index:4;display:grid;place-items:center;color:#fff;
   font-family:var(--disp);font-weight:700;line-height:1;box-shadow:0 3px 8px rgba(0,0,0,.4)}
 .badge.ene{left:-13px;top:-13px;width:42px;height:42px;border-radius:50%;font-size:22.7px;
   background:radial-gradient(circle at 36% 30%,#ffe38f,#f0b427 46%,#a97c08);
   color:#33240a;border:2px solid #ffe9a8;text-shadow:0 1px 0 rgba(255,255,255,.45)}
-/* Só o raio da energia. Os ícones de força e dureza chegaram a ficar aqui
-   em marca d'água e saíram: numa carta de 152 px, três símbolos disputando
-   espaço com três números viram sujeira. A forma é que distingue os
-   selos — disco dourado, disco dourado escuro, escudo azul. */
 .badge .marca{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
 .badge>span:not(.marca){position:relative}
 .badge.ene .marca{color:#7a5605;opacity:.32}
@@ -583,27 +414,9 @@ body.arr-ficha .f.op .disco,.f.op.mira .disco{box-shadow:0 0 0 3px var(--alvo),0
 .badge.sim.peq{font-size:11.6px}
 .badge.val{left:-11px;bottom:-13px;width:34px;height:34px;border-radius:50%;font-size:19.4px;
   background:linear-gradient(150deg,#e0b642,var(--valor));border:2px solid #fff}
-/* O ESCUDO, e por que a borda branca sumia na ponta.
-
-   Era `border:2px solid #fff` + `clip-path`. O navegador desenha a borda
-   e DEPOIS recorta a forma — então os dois lados diagonais da ponta, que
-   nascem do recorte e não da borda, saíam sem branco nenhum. Só o topo e
-   as laterais retas ficavam contornados.
-
-   Não tem como contornar um clip-path com `border`. A saída é desenhar
-   duas camadas: o ::before é o escudo BRANCO inteiro, e o fundo azul é um
-   escudo um pouco menor por cima, centralizado. A borda passa a ser a
-   sobra do branco, e ela acompanha a ponta.
-
-   O mesmo recorte nos dois, com `inset` diferente — se um dia mudar a
-   forma, mude o polígono nos dois lugares. */
 .badge.dur{right:-11px;bottom:-14px;width:35px;height:39px;font-size:19.4px;
   background:none;border:0;padding-bottom:6px;
   --escudo:polygon(0 0,100% 0,100% 68%,50% 100%,0 68%)}
-/* z-index POSITIVO nos três, e não negativo: `.badge` tem z-index:4, o que
-   cria contexto de empilhamento, e ali dentro um filho negativo fica atrás
-   do próprio pai — comportamento que varia com o navegador. Camadas
-   explícitas: 0 branco, 1 azul, 2 número. */
 .badge.dur::before{content:'';position:absolute;inset:0;z-index:0;
   background:#fff;clip-path:var(--escudo)}
 .badge.dur::after{content:'';position:absolute;inset:2px;z-index:1;
@@ -619,13 +432,6 @@ body.arr-ficha .f.op .disco,.f.op.mira .disco{box-shadow:0 0 0 3px var(--alvo),0
   font-size:9.1px;letter-spacing:.02em}
 .c .selos{display:flex;flex-direction:column;gap:3px}
 
-/* ============================================================
-   PRÉVIA GRANDE
-   ============================================================ */
-/* BUG 7 — a prévia ficava em left:20px;bottom:20px, ou seja, EM CIMA das
-   primeiras cartas da mão. A pessoa via a carta grande, agarrava ela (que
-   não é arrastável) e concluía que a primeira carta não arrasta. Subiu para
-   o alto da coluna esquerda, longe da mão. */
 .previa{position:fixed;left:16px;top:70px;z-index:16;pointer-events:none;
   opacity:0;transform:translateY(-12px) scale(.94);transition:opacity .18s,transform .18s}
 .previa.on{opacity:1;transform:none}
@@ -643,65 +449,36 @@ body.arr-ficha .f.op .disco,.f.op.mira .disco{box-shadow:0 0 0 3px var(--alvo),0
 .pc .cab .chip{display:inline-block;margin-top:7px;font-size:11.1px;letter-spacing:.11em;
   text-transform:uppercase;font-weight:700;color:var(--ouro2);background:rgba(0,0,0,.45);
   border:1px solid rgba(232,205,107,.45);border-radius:999px;padding:2px 11px}
-/* O quadro da arte era um radial-gradient partindo de var(--cor): num
-   Cobalto virava um jorro roxo, num Ferro um jorro azul. O Thomas achou
-   feio e tem razão — a moldura de uma carta não deve mudar de humor com a
-   família; a cor já está na borda, no selo e no filete.
-   Agora é pedra neutra, igual para as 28, e a arte é que dá a cor. */
 .pc .quadro{margin:11px 10px 6px;aspect-ratio:4/3;border-radius:4px;overflow:hidden;
   border:1px solid rgba(232,205,107,.28);display:grid;place-items:center;
   background:linear-gradient(180deg,#2a241c,#191510);
   box-shadow:inset 0 0 20px rgba(0,0,0,.7)}
-/* um filete fino da cor da família, só na base do quadro: a identidade
-   fica, sem tingir a arte inteira */
 .pc .quadro{border-bottom:2px solid var(--cor)}
 .pc .quadro img{width:100%;height:100%;object-fit:cover}
 .pc .quadro .vazio{color:rgba(255,255,255,.45)}
 .pc .quadro .vazio svg{font-size:56px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.6))}
-/* Barra de dureza. Era da cor da família (roxo, azul, verde…) e brigava
-   com o resto; agora é ouro velho, igual para todas — é um medidor, e
-   medidor não precisa de cor própria. */
 .pc .mohsP{display:flex;gap:2px;padding:8px 12px 9px}
 .pc .mohsP i{height:5px;flex:1;background:rgba(255,255,255,.1);border-radius:1px}
 .pc .mohsP i.on{background:linear-gradient(180deg,var(--ouro2),var(--ouro))}
-/* Caixa de pergaminho liso, sem o brilho interno que dava ar de plástico.
-   A hierarquia agora é: FAMÍLIA (caixa alta, forte) · minério de
-   referência (serifa, é um nome próprio) · a frase (o que ensina). */
 .pc .caixa{margin:2px 10px 10px;padding:10px 12px 11px;border-radius:5px;text-align:center;
   background:#e7e0cd;border:1px solid #8b7a52;
   box-shadow:0 3px 10px rgba(0,0,0,.45)}
 .pc .chave{font-size:12.4px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
   color:#4a3f24;padding-bottom:6px;margin-bottom:7px;
   border-bottom:1px solid rgba(74,63,36,.28)}
-/* o minério de referência: nome próprio de mineral, então serifa */
 .pc .desc{font-family:var(--serifa);font-size:15px;line-height:1.25;color:#221c12;
   font-weight:600;margin-bottom:6px}
-/* A ESCADA da prévia: concentrado → refinado → liga, com o degrau atual
-   aceso. É desenho, não texto: dá para entender sem saber ler direito. */
 .pc .escada{display:flex;flex-direction:column;align-items:stretch;gap:2px;margin-top:7px}
 .pc .escada .deg{font-size:12.8px;line-height:1.25;padding:4px 6px;border-radius:4px;
   background:rgba(34,28,18,.07);color:#5d5442;border:1px solid transparent}
 .pc .escada .deg.on{background:#221c12;color:var(--ouro2,#e0b642);font-weight:700;
   border-color:#221c12;box-shadow:0 1px 3px rgba(0,0,0,.25)}
 .pc .escada .seta{font-style:normal;font-size:12.2px;color:#8b7a52;line-height:1}
-/* A FRASE É O CORPO DA CARTA, não nota de rodapé — é ela que ensina para
-   que serve o mineral. Sem itálico, a pedido do Thomas: itálico num bloco
-   de três linhas cansa, e esta tem que ser a linha mais fácil de ler da
-   carta inteira. Fonte de texto, não serifa. */
 .pc .frase{font-family:var(--texto);font-style:normal;font-size:13.6px;color:#332c20;
   line-height:1.45}
-/* Saíram daqui, em 10/08, o `.pc hr` e o `.pc .rodape` (aquele selo
-   "005/028 · CONCENTRADO"). O rodapé repetia o degrau que já está no
-   cabeçalho e mostrava número de catálogo, que não interessa a quem está
-   jogando. Estão no backups/20260810-1704/ se fizerem falta. */
 
-/* ---------- mão ---------- */
 .maoArea{width:100%;max-width:1460px;margin:0 auto;padding:2px 16px 18px}
-/* O rótulo cola na mão. Ficava com a altura de uma linha inteira de
-   distância, e com a mão vazia parecia um título solto no meio do nada. */
 .maoArea .faixa{display:flex;align-items:baseline;gap:9px;margin:0 0 -4px;padding-left:14px}
-/* CAMPO CHEIO: entre a mesa e a mão, que é para onde a pessoa olha quando
-   tenta jogar e a carta não desce. */
 .avisoCampo{margin:2px auto 6px;padding:7px 16px;border-radius:999px;width:fit-content;
   font-family:var(--disp);font-size:15px;font-weight:600;letter-spacing:.08em;
   text-transform:uppercase;color:#ffd9cf;
@@ -710,16 +487,10 @@ body.arr-ficha .f.op .disco,.f.op.mira .disco{box-shadow:0 0 0 3px var(--alvo),0
 .maoArea h2{font-family:var(--disp);font-size:17.1px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--ouro2)}
 .maoArea .sub{font-size:14px;color:var(--creme3)}
-/* min-height 250 -> 0: com a mão vazia, a caixa continuava com a altura de
-   uma carta e o rótulo "SUA MÃO" ficava boiando longe do nada. */
 .mao{display:flex;gap:0;flex-wrap:wrap;align-items:flex-start;padding:2px 6px 6px;
   border-radius:16px;justify-content:center}
-/* Mão cheia: o encaixarMao() do mesa.js mede a janela e escreve aqui, em
-   --larguraCarta, a largura exata para as 8 caberem numa linha só. Em
-   janela grande a variável nem é definida e a carta fica no tamanho cheio. */
 .mao > .c{width:var(--larguraCarta,166px)}
 
-/* ---------- painéis de ação ---------- */
 .painelAcao{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:18;
   width:min(780px,94vw);max-height:60vh;overflow:auto;padding:15px;
   animation:sobe .22s both}
@@ -740,7 +511,6 @@ body.arr-ficha .f.op .disco,.f.op.mira .disco{box-shadow:0 0 0 3px var(--alvo),0
 .lg.bloqueada{opacity:.55;cursor:default;border-style:dashed}
 .lg .falta{display:block;font-size:12.8px;color:#f0917f;font-weight:700;margin-top:4px}
 
-/* ---------- telas ---------- */
 .tela{position:fixed;inset:0;z-index:24;display:grid;place-items:center;padding:22px;
   background:rgba(14,10,6,.72);backdrop-filter:blur(4px);animation:surge .2s both}
 @keyframes surge{from{opacity:0}to{opacity:1}}
@@ -771,11 +541,6 @@ body.arr-ficha .f.op .disco,.f.op.mira .disco{box-shadow:0 0 0 3px var(--alvo),0
   line-height:1.5;background:rgba(255,255,255,.06);color:var(--creme2)}
 .blocos div b{color:var(--creme)}
 
-/* ---------- tutorial ---------- */
-/* BUG 7: o balão do tutorial cobria as primeiras cartas da mão e engolia o
-   arrasto. Agora o tutorial é MODAL de verdade: um bloqueio transparente
-   por baixo dele deixa claro que a mesa não responde enquanto ele está
-   aberto, e o balão nunca fica por cima do elemento destacado. */
 #tutorBloqueio{position:fixed;inset:0;z-index:29;background:transparent}
 #holofote{position:fixed;border-radius:18px;z-index:30;pointer-events:none;
   border:2px solid var(--ouro2);box-shadow:0 0 0 9999px rgba(14,10,6,.7);
@@ -786,7 +551,6 @@ body.arr-ficha .f.op .disco,.f.op.mira .disco{box-shadow:0 0 0 3px var(--alvo),0
   line-height:1.1;color:var(--ouro2);letter-spacing:.04em;
   display:flex;align-items:center;gap:8px}
 #balao h4 svg{font-size:23.8px;color:var(--ouro2);flex:none}
-/* ícone dentro de linha de texto: mesma linguagem visual da carta */
 .ic.emLinha{display:inline-block;width:1.15em;height:1.15em;vertical-align:-.22em;margin:0 1px}
 #balao p{font-size:14.2px;color:var(--creme2);line-height:1.55;margin-top:6px}
 #balao .nav{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:8px}
@@ -794,15 +558,6 @@ body.arr-ficha .f.op .disco,.f.op.mira .disco{box-shadow:0 0 0 3px var(--alvo),0
 .pontos i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.22)}
 .pontos i.on{background:var(--ouro2)}
 
-/* ------------------------------------------------------------
-   BARREIRA — mineral duro trava a passagem.
-
-   O desenho tinha que dizer três coisas de longe: quem segura,
-   quem está protegido por trás, e o que não dá para clicar. Por
-   isso são três tratamentos e não um: anel de pedra em quem
-   segura, escurecimento em quem está bloqueado, e o escudo
-   apagado quando não é alvo legal.
-   ------------------------------------------------------------ */
 .f.barreira .disco{
   border-color:#8a96a6;border-width:5px;border-style:solid;
   box-shadow:0 0 0 2px #5c6774, 0 0 0 5px rgba(140,155,175,.32), 0 4px 12px rgba(0,0,0,.4)}
@@ -814,19 +569,16 @@ body.arr-ficha .f.op .disco,.f.op.mira .disco{box-shadow:0 0 0 3px var(--alvo),0
   border:0;box-shadow:0 2px 6px rgba(0,0,0,.45)}
 .f.barreira .muro svg{font-size:17.1px}
 .f.barreira .nome{border-color:#8a96a6}
-/* quem está atrás do muro: não é alvo */
 .f.bloqueado{opacity:.4;filter:grayscale(.6);cursor:not-allowed}
 .f.bloqueado:hover{transform:none}
 .heroi.bloqueado{opacity:.45;filter:grayscale(.55);cursor:not-allowed}
 .heroi.bloqueado .cap{background:#3a2d20;color:var(--creme3)}
-/* aviso curto na faixa do adversário */
 .avisoBarreira{display:inline-flex;align-items:center;gap:6px;margin-left:10px;
   font-family:var(--disp);font-size:14.2px;letter-spacing:.09em;text-transform:uppercase;
   color:#cdd8e6;background:linear-gradient(160deg,rgba(92,103,116,.9),rgba(45,52,62,.92));
   border:1px solid #8a96a6;border-radius:999px;padding:4px 11px}
 .avisoBarreira svg{font-size:16px;color:#eef3f8}
 
-/* ---------- balão de ajuda ---------- */
 #dica{position:fixed;left:-9999px;top:-9999px;z-index:44;max-width:250px;padding:9px 12px;
   border-radius:10px;font-size:14px;line-height:1.45;color:var(--creme2);pointer-events:none;
   opacity:0;transition:opacity .13s}
@@ -834,35 +586,17 @@ body.arr-ficha .f.op .disco,.f.op.mira .disco{box-shadow:0 0 0 3px var(--alvo),0
 #dica b{display:block;font-family:var(--disp);font-size:16px;letter-spacing:.08em;
   text-transform:uppercase;color:var(--ouro2);margin-bottom:3px}
 
-/* ---------- arrasto ---------- */
-/* transition:none é OBRIGATÓRIO aqui. O fantasma é um clone da carta, e a
-   carta tem `transition:transform .16s`. Sem zerar isso, o clone nasce com
-   transform vazio (= canto superior esquerdo da tela) e ANIMA de lá até o
-   dedo — que é o bug do "arrasto vem lá de cima". */
 .arrasto{transition:none!important;animation:none!important;
   position:fixed;z-index:40;pointer-events:none;opacity:.95;
   filter:drop-shadow(0 16px 28px rgba(0,0,0,.55))}
-/* "soltar aqui não faz nada": pálido, torto e acinzentado. É o aviso de
-   que dá para desistir — junto com o Esc, que cancela o arrasto. */
 .arrasto.recusa{opacity:.42;filter:grayscale(.85) drop-shadow(0 8px 14px rgba(0,0,0,.4))}
 body.arrastandoAlgo{cursor:grabbing;user-select:none}
 
-/* ENQUANTO O BOT JOGA. A trava de verdade está no mesa.js (o `agir` recusa
-   jogada humana fora da vez); isto aqui é só para a pessoa VER que não é a
-   vez dela, em vez de clicar e não entender por que nada acontece.
-   A mesa continua nítida de propósito: é olhando o bot jogar que ela
-   aprende a escada. Quem apaga é a mão e os botões. */
 body.vezDoBot .mao,body.vezDoBot .trilho{opacity:.5;filter:saturate(.7)}
 body.vezDoBot .mao,body.vezDoBot .trilho,body.vezDoBot .campo.meu{pointer-events:none}
 body.vezDoBot .heroi.op{cursor:default}
 body.vezDoBot #relogio{opacity:.45}
 
-/* A FALA DO ADVERSÁRIO — a faixa que narra a jogada do bot.
-   Fica no alto da arena, longe da mão, e some sozinha. Sem ela o
-   tabuleiro mudava sem ninguém dizer o que tinha mudado. */
-/* NO MEIO DA MESA, não no alto. Estava fora de onde o olho está durante a
-   jogada, e sumia antes de dar para ler. Agora fica na faixa central da
-   arena — exatamente onde as fichas se encontram. */
 .falaBot{position:absolute;left:50%;top:48%;transform:translateX(-50%);z-index:21;
   pointer-events:none;display:flex;align-items:center;gap:10px;white-space:nowrap;
   padding:8px 18px;border-radius:999px;
@@ -882,15 +616,11 @@ body.vezDoBot #relogio{opacity:.45}
 @media(prefers-reduced-motion:reduce){
   .falaBot{animation:falaSai .3s ease-in 1.2s forwards}}
 
-/* A PISTA DA LIGA — "Bronze: falta Estanho".
-   É o que dá controle no lugar de sorte: sem ela, segurar a peça certa
-   dependia de a pessoa ter decorado as nove receitas. */
 .pistaLiga{margin:-2px 2px 4px;padding:6px 10px;border-radius:8px;
   font-size:12.6px;line-height:1.35;color:var(--creme);text-align:center;
   background:rgba(201,162,39,.14);border:1px solid rgba(201,162,39,.34)}
 .b.bForjar.noRadar{border-color:rgba(201,162,39,.55);opacity:1}
 .b.bForjar.noRadar svg{color:var(--ouro2);opacity:.8}
-/* liga no radar dentro do painel: peça que falta em destaque */
 .lg.radar{opacity:.85}
 .lg.radar .falta b{color:var(--ouro2)}
 body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
@@ -903,138 +633,24 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
 /* ============================================================================
    CELULAR — deitado, e só deitado
    ============================================================================ */
-
-/* ---------- 1. MODO RETRATO (VERTICAL): Jogo Empilhado ---------- */
-#gireOAparelho { display: none !important; } /* Destrói a tela de bloqueio */
-
-@media (orientation:portrait) and (max-width:900px){
-  body { overflow-x: hidden; touch-action: none; }
-  
-  /* Mantém tudo visível */
-  body:has(#gireOAparelho) > *:not(#gireOAparelho) { visibility: visible; }
-  
-  /* Mesa numa coluna só, sem laterais */
-  .mesa { display: flex !important; flex-direction: column !important; padding: 10px !important; gap: 8px; flex: none !important; }
-  .colEsq { display: none; } /* Oculta a coluna de registro grande */
-  .soCelular { display: inline-flex; } /* Mostra o botão de Registro no topo */
-  
-  /* Arena vertical: os medidores ficam compactos */
-  .arena { width: 100% !important; min-height: auto !important; padding: 8px 6px; gap: 10px; }
-  .faixaJog { min-height: auto; flex-wrap: wrap; justify-content: space-between; }
-  .avatar { width: 36px; height: 36px; border-radius: 6px; }
-  .avatar::after { display: none; }
-  
-  /* Heróis e Fichas menores para caberem lado a lado */
-  .heroi { width: 50px; height: 50px; }
-  .heroi b { font-size: 18px; } .heroi .cap { font-size: 8px; }
-  .heroiLinha { min-height: 50px; }
-  .med { font-size: 10px; padding: 4px 8px; } .med b { font-size: 13px; }
-  
-  .pista { flex: 1; display: flex; flex-direction: column; gap: 6px; padding: 6px 4px; }
-  .campo { min-height: 70px; padding: 2px; }
-  
-  /* Fichas redondas adaptadas para retrato */
-  .f { width: 56px; }
-  .f .disco { width: 44px; height: 44px; }
-  .f .nome { font-size: 10px; max-width: 56px; margin-top: -4px; }
-  .f .num { width: 20px; height: 20px; font-size: 12px; top: 26px; }
-  .f .simbChip { font-size: 9px; min-width: 16px; top: 2px; }
-  
-  /* Mão do jogador e área de baixo */
-  .maoArea { padding-bottom: 10px !important; margin-top: 10px !important; padding-top: 0 !important; }
-  .maoArea .faixa { display: none; }
-  .mao { gap: 3px; justify-content: center; }
-  
-  /* Cartas bem compactas na vertical (escondemos a arte e deixamos o nome) */
-  .mao > .c { width: 80px; margin: 2px; border-width: 1px; }
-  .c .arte, .c .mohs { display: none; }
-  .c .tit { padding: 4px 2px; }
-  .c .n { font-size: 12px; line-height: 1; }
-  .c .sub { font-size: 8px; }
-  .badge.ene { width: 22px; height: 22px; font-size: 13px; left: -6px; top: -6px; }
-  .badge.val, .badge.dur { width: 20px; height: 20px; font-size: 11px; }
-  .badge.sim { width: 18px; height: 18px; font-size: 9px; right: -4px; top: -4px; }
-  
-  /* O Trilho (Ações) desce para baixo da arena, fluindo com a página */
-  .trilho {
-    position: relative !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    width: 100% !important;
-    gap: 12px !important;
-    padding: 15px 0 !important;
-    background: transparent !important;
-    border: none !important;
-    top: auto !important;
-    bottom: auto !important;
-  }
-  
-  /* Distribui os botões lado a lado */
-  .trilho > .b, .trilho > .relogio {
-    flex: 1 1 45% !important; 
-    min-height: 80px !important; 
-    font-size: 22px !important; 
-    margin: 0 !important; 
-    justify-content: center !important; 
-    flex-direction: column; gap: 2px;
-  }
-  .trilho > .relogio { align-items: center !important; }
-  
-  .bEncerrar { flex: 1.2; font-size: 11px; background: linear-gradient(168deg,#c9a227,#8a6d14); color: #fff; }
-  .pistaLiga, .dicaTrilho, #btnPeD { display: none; }
-  
-  /* Ajustes extras de mensagens */
-  /* .previa { display: none; } Removido para funcionar mais abaixo */
-  .falaBot { top: 45%; padding: 6px 12px; }
-  .falaBot b { font-size: 10px; } .falaBot span { font-size: 12px; }
-  .golpeExaustao .num { font-size: 54px; }
-}
-
-/* ---------- 2. DEITADO E BAIXO: o arranjo de celular ---------- */
 @media (orientation:landscape) and (max-height:560px){
-
-  /* Trava a rolagem para o touch funcionar perfeitamente sem o navegador interferir */
-  body {
-    overflow: hidden;
-    touch-action: none;
-  }
-
-  /* Deixa um espaço de 100px na direita para a coluna de botões (O Trilho) */
-  .mesa, .maoArea {
-    padding-right: 100px;
-  }
-
-  /* o topo encolhe e para de grudar: 44 px de altura fixa são 12% de uma
-     tela de 360, e a mesa precisa deles */
+  body { overflow: hidden; touch-action: none; }
+  .mesa, .maoArea { padding-right: 100px; }
   .topo{position:static;padding:2px 7px;gap:5px;border-bottom-width:0}
   .vez h1{font-size:14px} .vez small{display:none} .pino{width:19px;height:19px;font-size:11px}
   .botoesTopo .b{padding:5px 8px;font-size:11px}
   .botoesTopo .b span,.botoesTopo .b{gap:4px}
-
-  /* uma coluna só para a mesa, a lateral sai e vira botão */
   .mesa{display:block;padding:4px 6px 0;max-width:none}
-  .colEsq{display:none}          /* Registro -> botão no topo */
-
-  /* TRILHO PASSA A SER UMA COLUNA NA DIREITA DA TELA */
+  .colEsq{display:none} 
   .trilho {
-    position: fixed;
-    right: 4px;
-    top: 48px; /* Fica abaixo do topo do jogo */
-    bottom: 4px;
-    width: 90px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 6px;
-    z-index: 20;
+    position: fixed; right: 4px; top: 48px; bottom: 4px; width: 90px;
+    display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; z-index: 20;
   }
-
   .arena{min-height:0;padding:3px 7px 4px;border-radius:10px;border-width:1px;gap:0}
   .faixaJog{min-height:0;gap:5px}
   .placa{padding:2px 4px;gap:5px}
   .avatar{width:28px;height:28px;border-radius:6px}
-  .avatar::after{display:none}   /* a lupa do avatar não cabe */
+  .avatar::after{display:none}
   .placa .quemNome{font-size:12px}
   .heroi{width:46px;height:46px}
   .heroi b{font-size:17px} .heroi .cap{font-size:7px}
@@ -1049,14 +665,12 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
   .f .num{width:19px;height:19px;font-size:11px;top:29px;border-width:1.5px}
   .f .simbChip{font-size:9px;min-width:17px;padding:0 4px;top:4px}
   .f.dorme::after{font-size:15px;top:2px;right:-6px}
-  .maoVirada{display:none}       /* o leque do adversário é enfeite aqui */
-
-  /* a mão: uma tira baixa, sem título */
-  .maoArea{padding-bottom:4px}   /* Remove o espaço antigo e respeita a coluna direita */
+  .maoVirada{display:none} 
+  .maoArea{padding-bottom:4px}
   .maoArea .faixa{display:none}
   .mao{min-height:0;padding:0;gap:0}
   .mao > .c{width:var(--larguraCarta,96px);margin:3px 3px 4px;border-width:1.5px;border-radius:9px}
-  .c .arte{display:none}         /* sem arte a carta cabe; o nome fica */
+  .c .arte{display:none}
   .c .n{font-size:12px} .c .sub{font-size:7px;margin-top:1px}
   .c .tit{padding:5px 5px 3px}
   .c .mohs{display:none}
@@ -1067,20 +681,12 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
   .badge.val,.badge.dur{width:22px;height:24px;font-size:12px}
   .badge.val{left:-7px;bottom:-8px} .badge.dur{right:-7px;bottom:-9px}
   .selo{font-size:7.5px;padding:1px 4px}
-
-  /* AJUSTE DOS BOTÕES PARA A NOVA COLUNA DA DIREITA */
-  .trilho > .b, .trilho > .relogio {
-    position: static;
-    width: 100%;
-    margin: 0;
-  }
+  .trilho > .b, .trilho > .relogio { position: static; width: 100%; margin: 0; }
   .trilho > .relogio{padding:4px;min-width:0}
   .trilho .relogio .lin span{font-size:8px} .trilho .relogio b{font-size:15px}
   .bEncerrar{min-height:42px;font-size:11px;flex-direction:column;gap:2px}
   .bForjar, .bRefinar, #btnPeD {min-height:38px;font-size:10px;padding:4px}
-  .pistaLiga,.dicaTrilho{display:none}   /* não há linha sobrando */
-
-  /* o resto que não cabe */
+  .pistaLiga,.dicaTrilho{display:none}
   .previa{display:none}
   .falaBot{top:38%;padding:6px 14px}
   .falaBot b{font-size:11px} .falaBot span{font-size:13px}
@@ -1089,33 +695,126 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
   .avisoCampo{font-size:11px;padding:4px 10px;margin:1px auto 3px}
   .painelAcao{bottom:58px;max-height:56vh}
 }
-
-/* Telas MUITO baixas (celular pequeno deitado, ~320 px) */
-@media (orientation:landscape) and (max-height:400px){
-  #btnPeD{display:none}
-}
-
-/* o botão do Registro só existe onde a coluna dele não cabe */
+@media (orientation:landscape) and (max-height:400px){ #btnPeD{display:none} }
 .soCelular{display:none}
 @media (orientation:landscape) and (max-height:560px){ .soCelular{display:inline-flex} }
 
 
 /* ============================================================================
-   AJUSTES GERAIS ADICIONADOS (Rolagem Index e Prévia Mobile)
+   AJUSTES GERAIS (Rolagem Index e Prévia Mobile)
    ============================================================================ */
-
-/* Libera o toque/rolagem na tela inicial (index) */
 body:not(:has(.mesa)) {
   touch-action: auto !important;
 }
 
-@media (orientation: portrait) and (max-width: 900px) {
-  /* Traz a carta grande (prévia) de volta no modo vertical, centralizada */
-  .previa {
-    display: block !important;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%) scale(0.85) !important;
-    z-index: 100;
-  }
+/* ============================================================================
+   MODO RETRATO (VERTICAL): O VERDADEIRO RESPONSIVO 
+   ============================================================================ */
+@media (orientation: portrait) {
+    #gireOAparelho { display: none !important; }
+    body:has(#gireOAparelho) > *:not(#gireOAparelho) { visibility: visible !important; }
+
+    /* Força o destravamento total da mesa para empilhar e remover colunas da direita */
+    .mesa { 
+        display: flex !important; 
+        flex-direction: column !important; 
+        padding: 10px !important; 
+        gap: 10px !important; 
+        flex: none !important; 
+    }
+    .colEsq { display: none !important; }
+    .soCelular { display: inline-flex !important; font-size: 14px !important; padding: 8px !important;}
+    
+    .topo { padding: 10px !important; }
+    .vez h1 { font-size: 16px !important; }
+    .pino { width: 24px !important; height: 24px !important; font-size: 12px !important;}
+    .botoesTopo .b { font-size: 10px !important; padding: 6px 10px !important; }
+
+    .arena { min-height: auto !important; padding: 10px !important; }
+    
+    /* FaixaJog agora é mais amigável, evita bater no escudo do meio */
+    .faixaJog { min-height: 80px !important; align-items: flex-start !important;}
+    .placa { padding: 4px 8px !important; gap: 8px !important; }
+    .avatar { width: 36px !important; height: 36px !important; font-size: 14px !important; }
+    .avatar::after { display: none !important; }
+    .placa .quemNome { font-size: 14px !important; }
+    .placa .papel { font-size: 9px !important; }
+    
+    /* Escudos menores para nao invadirem os espaços das laterais */
+    .heroi { width: 64px !important; height: 64px !important; }
+    .heroi .placaEsc svg { width: 64px !important; height: 64px !important; }
+    .heroi b { font-size: 24px !important; padding-top: 18px !important; }
+    .heroi .cap { font-size: 8px !important; bottom: -6px !important; padding: 2px 6px !important; }
+
+    /* Empilhamento das reservas e energia na lateral, liberta o meio da tela */
+    .medidores { flex-direction: column !important; align-items: flex-end !important; gap: 4px !important; }
+    .med { padding: 4px 8px !important; gap: 6px !important; border-radius: 8px !important; min-width: 90px; justify-content: space-between; }
+    .med .rot { font-size: 9px !important; }
+    .med b { font-size: 16px !important; }
+    .med svg { font-size: 14px !important; }
+
+    .pista { margin-top: 10px; }
+    .campo { min-height: 80px !important; padding: 4px !important; gap: 4px !important; }
+    .campo .dica { font-size: 11px !important; }
+
+    .f { width: 60px !important; }
+    .f .disco { width: 48px !important; height: 48px !important; }
+    .f .nome { font-size: 8px !important; max-width: 60px !important; margin-top: -6px !important; padding: 2px 4px !important;}
+    .f .num { width: 18px !important; height: 18px !important; font-size: 10px !important; top: 32px !important; border-width: 1px !important;}
+    .f .nivel { font-size: 7px !important; padding: 2px 5px !important; margin-bottom: 2px !important;}
+    .f .simbChip { font-size: 9px !important; top: 4px !important; }
+
+    .maoArea { padding-bottom: 10px !important; margin-top: 5px !important; padding-top: 0 !important; }
+    .maoArea h2 { font-size: 14px !important; }
+    .maoArea .sub { font-size: 11px !important; }
+    
+    .mao { gap: 4px !important; }
+    .mao > .c { width: 85px !important; border-width: 1px !important; margin: 0 !important;}
+    .c .arte, .c .mohs { display: none !important; } 
+    .c .tit { padding: 4px 2px !important; }
+    .c .n { font-size: 10px !important; line-height: 1 !important; }
+    .c .sub { font-size: 7px !important; margin-top: 2px !important; }
+    .badge.ene { width: 20px !important; height: 20px !important; font-size: 11px !important; left: -5px !important; top: -5px !important; border-width: 1px !important;}
+    .badge.val, .badge.dur { width: 18px !important; height: 18px !important; font-size: 10px !important; border-width: 1px !important;}
+    .badge.sim { width: 16px !important; height: 16px !important; font-size: 8px !important; right: -5px !important; top: -5px !important; border-width: 1px !important;}
+
+    /* BOTOES DA BASE: proporcionais e amigaveis */
+    .trilho {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        width: 100% !important;
+        gap: 8px !important;
+        padding: 10px 0 !important;
+        background: transparent !important;
+        border: none !important;
+        top: auto !important;
+        bottom: auto !important;
+    }
+    .trilho > .b, .trilho > .relogio {
+        flex: 1 1 45% !important; 
+        min-height: 50px !important; 
+        font-size: 12px !important; 
+        border-radius: 8px !important;
+        margin: 0 !important; 
+        justify-content: center !important; 
+        flex-direction: column !important; 
+        gap: 2px !important;
+    }
+    .trilho > .relogio { align-items: center !important; }
+    .trilho .relogio .lin span { font-size: 9px !important; }
+    .trilho .relogio b { font-size: 18px !important; }
+
+    .bEncerrar { flex: 1 1 100% !important; min-height: 50px !important; font-size: 14px !important; }
+    .bEncerrar svg { font-size: 18px !important; }
+    .bForjar, .bRefinar, #btnPeD { min-height: 50px !important; font-size: 11px !important; }
+
+    .previa {
+        display: block !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) scale(0.8) !important;
+        z-index: 100 !important;
+    }
 }
