@@ -32,20 +32,13 @@
     catch (e) { /* cota cheia ou modo privado: perde-se a fila, e tudo bem */ }
   }
 
-  /* Tira o que é pessoal e o que é volumoso e redundante. */
+/* Tira o que é volumoso e redundante. (Privacidade desativada para análise) */
   function limpar(reg) {
     var r = JSON.parse(JSON.stringify(reg));
-    delete r.log;
-    if (r.partida) {
-      r.partida.jogadores = undefined;   // nome de pessoa não sobe
-      delete r.partida.jogadores;
-      if (r.partida.vencedor && r.partida.vencedor !== 'empate') {
-        /* "Thomas" vira "humano" ou "bot": o que importa é QUEM venceu no
-           sentido de papel, não o nome digitado. */
-        r.partida.vencedor = (r.partida.humano !== null && r.fim === r.partida.humano)
-          ? 'humano' : 'bot';
-      }
-    }
+    delete r.log; // Apagamos só o log para economizar espaço
+    
+    // Os nomes dos jogadores e do vencedor serão mantidos intactos!
+    
     return r;
   }
 
