@@ -891,28 +891,76 @@ body.arrastandoAlgo:has(.arrasto.recusa){cursor:no-drop}
    nenhum. O que dá para fazer, e é o que todo jogo web faz, é pedir.
    ---------------------------------------------------------------------- */
 
-/* ---------- 1. RETRATO: peça para virar ---------- */
-#gireOAparelho{display:none}
+/* ---------- 1. MODO RETRATO (VERTICAL): Jogo Empilhado ---------- */
+#gireOAparelho { display: none !important; } /* Destrói a tela de bloqueio */
+
 @media (orientation:portrait) and (max-width:900px){
-  #gireOAparelho{
-    display:grid;place-items:center;gap:22px;text-align:center;
-    position:fixed;inset:0;z-index:200;padding:32px;
-    background:linear-gradient(170deg,#2b2118,#14100a)}
-  #gireOAparelho .icone{width:92px;height:150px;border:4px solid var(--ouro2);
-    border-radius:14px;animation:gira 2.4s ease-in-out infinite;
-    box-shadow:0 0 0 6px rgba(232,205,107,.12)}
-  #gireOAparelho h2{font-family:var(--disp);font-size:30px;font-weight:700;
-    letter-spacing:.14em;text-transform:uppercase;color:var(--ouro2)}
-  #gireOAparelho p{font-size:16px;color:var(--creme2);max-width:30ch;line-height:1.5}
-  #gireOAparelho small{font-size:13px;color:var(--creme3);max-width:34ch;line-height:1.45}
-/* o jogo continua montado atrás, só não é visível... */
-  body:has(#gireOAparelho) > *:not(#gireOAparelho){visibility:hidden}
+  body { overflow-x: hidden; touch-action: none; }
+  
+  /* Mantém tudo visível */
+  body:has(#gireOAparelho) > *:not(#gireOAparelho) { visibility: visible; }
+  
+  /* Mesa numa coluna só, sem laterais */
+  .mesa { display: flex; flex-direction: column; padding: 4px; gap: 8px; }
+  .colEsq { display: none; } /* Oculta a coluna de registro grande */
+  .soCelular { display: inline-flex; } /* Mostra o botão de Registro no topo */
+  
+  /* Arena vertical: os medidores ficam compactos */
+  .arena { min-height: 45vh; padding: 8px 6px; gap: 10px; }
+  .faixaJog { min-height: auto; flex-wrap: wrap; justify-content: space-between; }
+  .avatar { width: 36px; height: 36px; border-radius: 6px; }
+  .avatar::after { display: none; }
+  
+  /* Heróis e Fichas menores para caberem lado a lado */
+  .heroi { width: 50px; height: 50px; }
+  .heroi b { font-size: 18px; } .heroi .cap { font-size: 8px; }
+  .heroiLinha { min-height: 50px; }
+  .med { font-size: 10px; padding: 4px 8px; } .med b { font-size: 13px; }
+  
+  .pista { flex: 1; display: flex; flex-direction: column; gap: 6px; padding: 6px 4px; }
+  .campo { min-height: 70px; padding: 2px; }
+  
+  /* Fichas redondas adaptadas para retrato */
+  .f { width: 56px; }
+  .f .disco { width: 44px; height: 44px; }
+  .f .nome { font-size: 8px; max-width: 56px; margin-top: -4px; }
+  .f .num { width: 18px; height: 18px; font-size: 11px; top: 26px; }
+  .f .simbChip { font-size: 9px; min-width: 16px; top: 2px; }
+  
+  /* Mão do jogador e área de baixo */
+  .maoArea { padding-bottom: 60px; /* espaço para os botões fixos */ }
+  .maoArea .faixa { display: none; }
+  .mao { gap: 3px; justify-content: center; }
+  
+  /* Cartas bem compactas na vertical (escondemos a arte e deixamos o nome) */
+  .mao > .c { width: 80px; margin: 2px; border-width: 1px; }
+  .c .arte, .c .mohs { display: none; }
+  .c .tit { padding: 4px 2px; }
+  .c .n { font-size: 11px; line-height: 1; }
+  .c .sub { font-size: 7px; }
+  .badge.ene { width: 22px; height: 22px; font-size: 13px; left: -6px; top: -6px; }
+  .badge.val, .badge.dur { width: 20px; height: 20px; font-size: 11px; }
+  .badge.sim { width: 18px; height: 18px; font-size: 9px; right: -4px; top: -4px; }
+  
+  /* O Trilho (Ações) vira uma barra fixada no RODAPÉ */
+  .trilho {
+    position: fixed; bottom: 0; left: 0; right: 0; top: auto;
+    flex-direction: row; flex-wrap: nowrap; background: #18120d;
+    padding: 6px; gap: 4px; z-index: 50; width: 100%;
+    border-top: 1px solid rgba(201,162,39,.4);
+  }
+  
+  /* Distribui os botões lado a lado */
+  .trilho > .b { flex: 1; margin: 0; font-size: 10px; padding: 4px 2px; min-height: 44px; flex-direction: column; gap: 2px; }
+  .bEncerrar { flex: 1.2; font-size: 11px; background: linear-gradient(168deg,#c9a227,#8a6d14); color: #fff; }
+  .trilho > .relogio, .pistaLiga, .dicaTrilho, #btnPeD { display: none; }
+  
+  /* Ajustes extras de mensagens */
+  .previa { display: none; }
+  .falaBot { top: 45%; padding: 6px 12px; }
+  .falaBot b { font-size: 10px; } .falaBot span { font-size: 12px; }
+  .golpeExaustao .num { font-size: 54px; }
 }
-@keyframes gira{
-  0%,20%  {transform:rotate(0deg)}
-  50%,70% {transform:rotate(-90deg)}
-  100%    {transform:rotate(0deg)}}
-@media(prefers-reduced-motion:reduce){#gireOAparelho .icone{animation:none;transform:rotate(-90deg)}}
 
 /* ---------- 2. DEITADO E BAIXO: o arranjo de celular ---------- */
 @media (orientation:landscape) and (max-height:560px){
