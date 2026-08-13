@@ -740,7 +740,8 @@ body:not(:has(.mesa)) {
     .placa .quemNome { font-size: 12px !important; }
     .placa .papel { font-size: 6px !important; }
     
-    /* Escudos menores para nao invadirem os espaços das laterais */
+    /* Escudos menores para na
+  o invadirem os espaços das laterais */
     .heroi { width: 44px !important; height: 44px !important; }
     .heroi .placaEsc svg { width: 44px !important; height: 44px !important; }
     .heroi b { font-size: 14px !important; padding-top: 12px !important; }
@@ -757,10 +758,10 @@ body:not(:has(.mesa)) {
     .campo { min-height: 40px !important; padding: 2px !important; gap: 2px !important; }
     .campo .dica { font-size: 11px !important; }
 
-    .f { width: 20px !important; }
+    .f { width: 40px !important; }
     .f .disco { width: 38px !important; height: 28px !important; }
     .f .nome { font-size: 8px !important; max-width: 20px !important; margin-top: -6px !important; padding: 2px 4px !important;}
-    .f .num { width: 18px !important; height: 18px !important; font-size: 10px !important; top: 32px !important; border-width: 1px !important;}
+    .f .num { width: 15px !important; height: 15px !important; font-size: 10px !important; top: 32px !important; border-width: 1px !important;}
     .f .nivel { font-size: 7px !important; padding: 2px 5px !important; margin-bottom: 2px !important;}
     .f .simbChip { font-size: 9px !important; top: 4px !important; }
 
@@ -769,10 +770,10 @@ body:not(:has(.mesa)) {
     .maoArea .sub { font-size: 11px !important; }
     
     .mao { gap: 4px !important; }
-    .mao > .c { width: 85px !important; border-width: 1px !important; margin: 0 !important;}
+    .mao > .c { width: 65px !important; border-width: 1px !important; margin: 0 !important;}
     .c .arte, .c .mohs { display: none !important; } 
     .c .tit { padding: 4px 2px !important; }
-    .c .n { font-size: 10px !important; line-height: 1 !important; }
+    .c .n { font-size: 9px !important; line-height: 1 !important; }
     .c .sub { font-size: 7px !important; margin-top: 2px !important; }
     .badge.ene { width: 20px !important; height: 20px !important; font-size: 11px !important; left: -5px !important; top: -5px !important; border-width: 1px !important;}
     .badge.val, .badge.dur { width: 18px !important; height: 18px !important; font-size: 10px !important; border-width: 1px !important;}
