@@ -205,7 +205,48 @@ body{
 .folha .fechar:hover{background:#234953}
 .aFazer{background:rgba(197,64,46,.12);border-left:3px solid var(--papoula);
   padding:8px 12px;font-size:13.5px;color:#7a3326;border-radius:0 6px 6px 0}
-
+/* ---- aviso de testes ---- */
+.avisoTeste {
+  margin-top: 10px;
+  padding: 14px 20px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  color: rgba(244, 237, 224, 0.9);
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 480px;
+  text-shadow: 0 1px 3px rgba(0,0,0,.8);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 8px 20px rgba(0,0,0,.4);
+}
+.avisoTeste b {
+  color: var(--papoula);
+  font-weight: 600;
+}
+.avisoTeste a {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--rio2);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.16s, transform 0.16s;
+}
+.avisoTeste a:hover, .avisoTeste a:focus-visible {
+  color: #fff;
+  transform: translateX(3px);
+}
+/* Oculta o aviso quando a tela transiciona para a escolha de adversários */
+.entrada.escolhendo .avisoTeste {
+  display: none;
+  /* Estilo específico para o ícone de alerta dentro do aviso */
+.aviso-ic {
+  color: var(--papoula);
+  margin-right: 4px;
+  vertical-align: text-bottom; /* Ajuda no alinhamento vertical com o texto */
+  width: 18px;  /* Ajuste de tamanho se necessário */
+  height: 18px;
+}
+}
 @media(max-width:700px){
   .marca h1{font-size:38px} .marca h1 span{font-size:17px;letter-spacing:.22em}
   .modo{width:100%;max-width:330px} .adv{width:152px}
@@ -244,7 +285,15 @@ body {
       <small>Contra outra pessoa, pela internet</small>
     </button>
   </div>
-
+<div class="avisoTeste">
+    <p>
+      <!-- Ícone Lucide no lugar do emoticon -->
+      <i data-lucide="alert-triangle" class="ic aviso-ic"></i>
+      <b>Fase de testes:</b> Por enquanto, o jogo está otimizado apenas para computador. Alguns erros podem ocorrer.
+    </p>
+    <a href="LINK_DO_SEU_FORMULARIO_AQUI" target="_blank">Deixe seu comentário ou sugestão aqui &rarr;</a>
+  </div>
+  
   <div class="escolha" id="escolha">
     <div class="tituloEscolha">Escolha seu adversário</div>
     <div class="adversarios" id="adversarios"></div>
