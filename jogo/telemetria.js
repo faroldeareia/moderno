@@ -17,6 +17,7 @@
      Uma não substitui a outra: sem a fila, uma partida jogada offline se perderia; sem a pasta, não haveria acervo. */
    
 var DESTINO = '/api/partida';
+var DESTINO = 'api/partida';
 
   var CHAVE_FILA = 'minerais.fila';
   var MAX_FILA   = 40;     /* ~350 KB. Acima disso o navegador reclama, e
