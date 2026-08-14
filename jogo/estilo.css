@@ -716,18 +716,7 @@ body:not(:has(.mesa)) {
   touch-action: auto !important;
 }
 
-/* ============================================================================
-   MODO RETRATO (VERTICAL): O VERDADEIRO RESPONSIVO 
-   ============================================================================ */
-/* ============================================================================
-   MODO RETRATO (VERTICAL) - Layout 4 Colunas e Tabuleiro Expandido
-   ============================================================================ */
-/* ============================================================================
-   MODO RETRATO (VERTICAL) - Compacto, Layout 4 Colunas e Tudo Visível
-   ============================================================================ */
-/* ============================================================================
-   MODO RETRATO (VERTICAL) - Compacto, Layout 4 Colunas e Tudo Visível
-   ============================================================================ */
+
 /* ============================================================================
    MODO RETRATO (VERTICAL) - Versão Definitiva / Ajustes Finais
    ============================================================================ */
@@ -790,13 +779,13 @@ body:not(:has(.mesa)) {
     .med b { font-size: 13px !important; display: inline-block !important; margin-left: 2px !important; }
     .med svg { font-size: 11px !important; }
 
-    .campo { min-height: 60px !important; padding: 2px !important; gap: 3px !important; }
-    .f { width: 50px !important; }
-    .f .disco { width: 38px !important; height: 38px !important; }
-    .f .nome { font-size: 7.5px !important; max-width: 50px !important; margin-top: -4px !important; padding: 1px 2px !important;}
-    .f .num { width: 15px !important; height: 15px !important; font-size: 8px !important; top: 24px !important; border-width: 1px !important;}
-    .f .nivel { font-size: 6px !important; padding: 1px 3px !important; margin-bottom: 1px !important;}
-    .f .simbChip { font-size: 7.5px !important; top: 2px !important; min-width: 12px !important; padding: 1px 3px !important; }
+.campo { min-height: 80px !important; padding: 4px !important; gap: 6px !important; } /* Gap aumentado de 3 para 6 */
+    .f { width: 44px !important; } /* Ficha um pouquinho mais estreita */
+    .f .disco { width: 36px !important; height: 36px !important; }
+    .f .nome { font-size: 7.5px !important; max-width: 44px !important; margin-top: -6px !important; padding: 2px 4px !important;}
+    .f .num { width: 16px !important; height: 16px !important; font-size: 9px !important; top: 26px !important; border-width: 1px !important;}
+    .f .nivel { font-size: 6px !important; padding: 2px 4px !important; margin-bottom: 2px !important;}
+    .f .simbChip { font-size: 8px !important; top: 2px !important; min-width: 14px !important; padding: 1px 3px !important;}
 
     /* 3. BOTÕES NA BASE (Reorganizados: Tempo, Ações no Meio, Fim do Turno) */
     .trilho {
@@ -874,6 +863,9 @@ body:not(:has(.mesa)) {
     .c .tit { padding: 3px 2px !important; }
     .c .n { font-size: 8.5px !important; line-height: 1.1 !important; }
     .c .sub { font-size: 5.5px !important; margin-top: 2px !important; }
+  .badge.ene { width: 20px !important; height: 20px !important; font-size: 11px !important; left: -5px !important; top: -5px !important; border-width: 1px !important;}
+    .badge.val, .badge.dur { width: 18px !important; height: 18px !important; font-size: 10px !important; border-width: 1px !important;}
+    .badge.sim { width: 16px !important; height: 16px !important; font-size: 8px !important; right: -5px !important; top: -5px !important; border-width: 1px !important;}
 
     /* 5. PAINEL DE AÇÃO FLUTUANTE (P&D / Forjar) - Corrigido tamanho e centralização */
     .painelAcao {
