@@ -259,9 +259,11 @@ body{
 /* Ícone ajustado */
 .aviso-ic {
   color: var(--ocre2);
-  width: 76px; /* Bem maior */
-  height: 76px;
-  flex-shrink: 0; /* Impede que o ícone diminua se o texto for muito longo */
+  width: 76px !important;
+  height: 76px !important;
+  min-width: 76px;
+  min-height: 76px;
+  flex-shrink: 0;
 }
   
 @media(max-width:700px){
