@@ -863,9 +863,11 @@ body:not(:has(.mesa)) {
     .c .tit { padding: 3px 2px !important; }
     .c .n { font-size: 8.5px !important; line-height: 1.1 !important; }
     .c .sub { font-size: 5.5px !important; margin-top: 2px !important; }
-  .badge.ene { width: 20px !important; height: 20px !important; font-size: 11px !important; left: -5px !important; top: -5px !important; border-width: 1px !important;}
-    .badge.val, .badge.dur { width: 18px !important; height: 18px !important; font-size: 10px !important; border-width: 1px !important;}
-    .badge.sim { width: 16px !important; height: 16px !important; font-size: 8px !important; right: -5px !important; top: -5px !important; border-width: 1px !important;}
+  
+/* 2. Ajuste dos Badges/Selos (Bolinhas menores nas cartas de baixo) */
+    .badge.ene { width: 18px !important; height: 18px !important; font-size: 10px !important; left: -6px !important; top: -6px !important; border-width: 1px !important;}
+    .badge.val, .badge.dur { width: 16px !important; height: 16px !important; font-size: 9px !important; border-width: 1px !important;}
+    .badge.sim { width: 14px !important; height: 14px !important; font-size: 7px !important; right: -5px !important; top: -5px !important; border-width: 1px !important;}
 
     /* 5. PAINEL DE AÇÃO FLUTUANTE (P&D / Forjar) - Corrigido tamanho e centralização */
     .painelAcao {
