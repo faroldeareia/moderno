@@ -992,4 +992,116 @@ body:not(:has(.mesa)) {
 
     /* Prévia */
     .previa { display: none !important; }
+/* ============================================================================
+   AJUSTES v11 — cole ESTE BLOCO NO FIM do estilo.css
+   (vem depois de tudo, então vence as regras antigas)
+   Lembre de trocar a versão no HTML: estilo.css?v=22
+   ============================================================================ */
+
+/* --- 1. GERAIS (valem em qualquer orientação) --------------------------- */
+
+/* O muro da barreira escondia os números da ficha. A borda cinza-azulada
+   grossa do disco já marca a barreira sozinha. */
+.f.barreira .muro{display:none !important}
+
+/* Contadores dos botões (o "2" do Refinar / P&D / Forjar): fora do jogo. */
+.b .cont{display:none !important}
+
+/* Cartas que não dá para jogar: menos apagadas, ainda legíveis como bloqueadas. */
+.c:disabled{opacity:.74;filter:saturate(.62)}
+
+
+/* --- 2. RETRATO (vertical) ---------------------------------------------- */
+@media (orientation: portrait){
+
+  /* 2.1 Mesa cresce para baixo e as fichas crescem junto */
+  .arena{padding:8px 4px 12px !important}
+  .pista{padding:6px 6px !important}
+  .campo{min-height:96px !important; gap:6px !important; padding:4px !important}
+
+  .f{width:64px !important}
+  .f .disco{width:50px !important; height:50px !important; border-width:2.5px !important}
+  .f .nome{font-size:9px !important; max-width:64px !important;
+           margin-top:-5px !important; padding:1px 5px !important}
+  .f .num{width:19px !important; height:19px !important; font-size:11px !important;
+          top:32px !important; border-width:1.5px !important}
+  .f .nivel{font-size:7px !important; padding:1px 5px !important; margin-bottom:2px !important}
+  .f .simbChip{font-size:9px !important; top:3px !important;
+               min-width:15px !important; padding:1px 4px !important}
+  .f.dorme::after{font-size:15px !important; right:-6px !important; top:6px !important}
+
+  /* 2.2 Mão: números (selos) bem menores — era isso que estava gigante */
+  .maoArea{margin-top:-6px !important; padding:0 8px 8px !important}
+  .mao{gap:11px 9px !important; padding:8px 5px 0 !important}
+  .mao > .c{min-height:50px !important}
+  .c .tit{padding:6px 4px 5px !important}
+  .c .n{font-size:9px !important}
+  .c .sub{font-size:6px !important}
+
+  .mao .badge.ene{width:19px !important; height:19px !important; font-size:10.5px !important;
+                  left:-6px !important; top:-6px !important; border-width:1.5px !important}
+  .mao .badge.ene .marca svg{font-size:14px !important}
+  .mao .badge.sim{width:15px !important; height:15px !important; font-size:7.5px !important;
+                  right:-5px !important; top:-5px !important; border-width:1px !important}
+  .mao .badge.sim.peq{font-size:5.5px !important}
+  .mao .badge.val{width:16px !important; height:16px !important; font-size:9.5px !important;
+                  left:-5px !important; bottom:-6px !important; border-width:1px !important}
+  .mao .badge.dur{width:17px !important; height:19px !important; font-size:9.5px !important;
+                  right:-5px !important; bottom:-6px !important; padding-bottom:3px !important}
+  .c .selos{top:20px !important; left:-4px !important}
+  .selo{font-size:6px !important; padding:1px 3px !important}
+}
+
+
+/* --- 3. PAISAGEM (celular deitado) --------------------------------------- */
+@media (orientation: landscape) and (max-height:600px){
+
+  /* 3.1 Menu da esquerda: mais estreito e sem espaço sobrando */
+  .topo{width:44px !important; padding:6px 3px !important; gap:7px !important;
+        justify-content:flex-start !important}
+  .vez{gap:5px !important}
+  .vez h1{display:none !important}
+  .pino{width:22px !important; height:22px !important; font-size:12px !important}
+  .botoesTopo{gap:5px !important}
+  .botoesTopo .b{width:30px !important; height:30px !important; padding:5px !important}
+  .botoesTopo .b svg{font-size:15px !important}
+
+  /* 3.2 Menu da direita: mais estreito, botões juntos */
+  .trilho{width:66px !important; gap:4px !important; padding:4px 3px !important;
+          justify-content:center !important}
+  .trilho .b{min-height:28px !important; font-size:9px !important; padding:4px 2px !important}
+  .bEncerrar{min-height:38px !important; font-size:11px !important}
+  .bEncerrar svg{font-size:14px !important}
+  .trilho .relogio{padding:3px !important}
+  .trilho .relogio .lin span{font-size:7px !important}
+  .trilho .relogio b{font-size:15px !important}
+
+  /* 3.3 A mesa para de esticar até o rodapé; a mão volta a caber */
+  body{justify-content:center !important}
+  .mesa{height:auto !important; flex:0 0 auto !important;
+        padding:2px 70px 0 47px !important; gap:0 !important}
+  .arena{flex:0 0 auto !important; padding:3px 8px !important; border-radius:10px !important}
+
+  .faixaJog{min-height:30px !important}
+  .avatar{width:24px !important; height:24px !important; font-size:11px !important}
+  .placa{padding:2px 5px !important; gap:5px !important}
+  .placa .quemNome{font-size:11px !important}
+  .med{padding:2px 5px !important; min-width:38px !important}
+  .med b{font-size:15px !important}
+  .med svg{font-size:12px !important}
+
+  .pista{flex:0 0 auto !important; padding:3px !important; gap:3px !important}
+  .campo{min-height:48px !important}
+  .heroi{width:42px !important; height:42px !important}
+  .heroi .placaEsc svg{width:42px !important; height:42px !important}
+  .heroi b{font-size:17px !important; padding-top:11px !important}
+  .heroi .cap{font-size:6px !important}
+
+  .maoArea{flex:0 0 auto !important; padding:4px 70px 4px 47px !important}
+  .mao{gap:9px 7px !important; padding:4px 0 0 !important}
+  .mao > .c{width:78px !important}
+  .mao .badge.ene .marca svg{font-size:12px !important}
+
+
+
 }
