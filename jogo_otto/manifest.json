@@ -1,0 +1,12 @@
+{
+  "name": "Baralho do Otto",
+  "short_name": "Otto",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#16C4D4",
+  "theme_color": "#16C4D4",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "icone.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
