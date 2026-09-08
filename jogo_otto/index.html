@@ -1,1 +1,472 @@
 
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#DFF4F7">
+<title>Baralho do Otto</title>
+<link rel="icon" href="icone.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Baralho do Otto">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* cada cor da paleta em duas versoes: pastel pro fundo, forte pro resto */
+    --fundo:#DFF4F7; --acento:#0FA5B4; --tinta:#4A4360;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  [hidden]{ display:none !important; }
+
+  html,body{
+    height:100%; overscroll-behavior:none;
+    -webkit-user-select:none; user-select:none;
+    -webkit-tap-highlight-color:transparent; touch-action:manipulation;
+  }
+  body{
+    font-family:'Fredoka',system-ui,-apple-system,'Segoe UI',sans-serif;
+    background:var(--fundo); transition:background .5s ease;
+    display:flex; flex-direction:column; height:100dvh;
+    padding:env(safe-area-inset-top) env(safe-area-inset-right)
+            env(safe-area-inset-bottom) env(safe-area-inset-left);
+    color:var(--tinta);
+  }
+  .tela{ flex:1 1 auto; display:flex; flex-direction:column; min-height:0; }
+
+  /* ==================== TELA INICIAL ==================== */
+  #inicio{ justify-content:center; align-items:center; padding:24px 22px; }
+  .caixa{
+    width:100%; max-width:400px; background:#fff; border-radius:30px;
+    padding:30px 24px 26px; text-align:center;
+    box-shadow:0 14px 34px rgba(60,50,80,.13), 0 2px 5px rgba(60,50,80,.08);
+  }
+  .caixa h1{
+    font-size:clamp(26px,7vw,34px); font-weight:700; letter-spacing:.02em;
+    color:var(--acento); line-height:1.15;
+  }
+  .sub{ font-size:14px; opacity:.55; margin-top:6px; font-weight:500; }
+
+  .grupo{ margin-top:26px; text-align:left; }
+  .rotulo{
+    display:block; font-size:11.5px; font-weight:700; letter-spacing:.14em;
+    text-transform:uppercase; opacity:.42; margin-bottom:10px; padding-left:4px;
+  }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{
+    font-family:inherit; font-size:14px; font-weight:600; letter-spacing:.3px;
+    color:var(--tinta); background:#F1EFF5; border:2px solid transparent;
+    border-radius:999px; padding:10px 16px; cursor:pointer; flex:1 1 auto;
+    transition:background .18s, color .18s, border-color .18s;
+  }
+  .chip:active{ transform:scale(.95); }
+  .chip.ligado{ background:var(--acento); color:#fff; }
+
+  .comecar{
+    font-family:inherit; font-size:17px; font-weight:700; letter-spacing:1.2px;
+    color:#fff; background:var(--acento); border:0; border-radius:999px;
+    padding:17px 20px; margin-top:30px; width:100%; cursor:pointer;
+    box-shadow:0 8px 20px rgba(60,50,80,.18);
+  }
+  .comecar:active{ transform:scale(.97); }
+
+  /* ==================== TELA DO JOGO ==================== */
+  header{
+    flex:0 0 auto; display:flex; align-items:center;
+    justify-content:space-between; gap:8px; padding:14px 14px 2px;
+  }
+  .contador{
+    font-size:15px; font-weight:600; letter-spacing:.5px;
+    opacity:.5; font-variant-numeric:tabular-nums; padding-left:4px;
+  }
+  .controles{ display:flex; gap:7px; }
+  .icone{
+    width:40px; height:40px; display:grid; place-items:center;
+    color:var(--tinta); background:rgba(255,255,255,.72);
+    border:0; border-radius:999px; cursor:pointer;
+    box-shadow:0 1px 3px rgba(60,50,80,.09);
+    transition:background .3s, color .3s;
+  }
+  .icone:active{ transform:scale(.9); }
+  .icone svg{ width:19px; height:19px; display:block; }
+  .icone.destaque{
+    background:var(--acento); color:#fff;
+    animation:pulsa 1.5s ease-in-out infinite;
+  }
+  @keyframes pulsa{ 0%,100%{transform:scale(1);} 50%{transform:scale(1.1);} }
+
+  main{
+    flex:1 1 auto; display:flex; align-items:center; justify-content:center;
+    padding:6px 18px; min-height:0; cursor:pointer;
+  }
+  .carta{
+    width:100%; max-width:min(92vw,440px); aspect-ratio:5/7; max-height:100%;
+    background:#fff; border-radius:30px;
+    box-shadow:0 14px 34px rgba(60,50,80,.13), 0 2px 5px rgba(60,50,80,.08);
+    display:flex; flex-direction:column; overflow:hidden; padding:14px 14px 0;
+  }
+  .carta.entrando{ animation:entra .42s cubic-bezier(.2,.9,.3,1.3) both; }
+  @keyframes entra{
+    from{ opacity:0; transform:translateY(26px) scale(.9) rotate(-3deg); }
+    to  { opacity:1; transform:none; }
+  }
+  .figura{
+    flex:1 1 auto; min-height:0; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .figura img{
+    width:100%; height:100%; object-fit:contain; display:block;
+    transform:scale(1.16);            /* a imagem ja vem com margem branca */
+  }
+  .palavra{
+    flex:0 0 auto; text-align:center; font-weight:700;
+    font-size:clamp(26px,7.5vw,44px); letter-spacing:.04em; line-height:1.15;
+    padding:6px 6px 20px; color:var(--acento); transition:color .5s ease;
+    animation:sobe .5s .12s both;
+  }
+  @keyframes sobe{ from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:none;} }
+
+  /* ---- o monte ---- */
+  .rodape{
+    flex:0 0 auto; display:flex; align-items:center; justify-content:center;
+    padding:6px 18px 22px;
+  }
+  .monte{
+    position:relative; width:78px; height:104px;
+    background:none; border:0; padding:0; cursor:pointer;
+    animation:respira 2.4s ease-in-out infinite;
+  }
+  @keyframes respira{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-5px);} }
+  .monte:active{ animation:none; transform:scale(.93); }
+  .monte i{
+    position:absolute; inset:0; border-radius:13px; display:block;
+    background:var(--acento); border:3px solid #fff;
+    box-shadow:0 3px 9px rgba(60,50,80,.2);
+    transition:background .5s ease, opacity .35s, transform .35s;
+  }
+  .monte i.face{
+    background-image:radial-gradient(circle at 50% 50%, rgba(255,255,255,.55) 2.5px, transparent 3px);
+    background-size:15px 15px;
+  }
+
+  .aviso{
+    margin:auto; max-width:340px; text-align:center;
+    background:#fff; border-radius:22px; padding:24px 20px;
+    font-size:15px; line-height:1.5;
+    box-shadow:0 10px 26px rgba(60,50,80,.12);
+  }
+  .aviso code{
+    display:block; margin-top:10px; font-family:ui-monospace,monospace;
+    font-size:12.5px; background:rgba(0,0,0,.06); padding:9px 10px;
+    border-radius:10px; word-break:break-all;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TELA INICIAL (pros pais) ============ -->
+<section class="tela" id="inicio">
+  <div class="caixa">
+    <h1>Baralho do Otto</h1>
+    <p class="sub" id="sub">carregando…</p>
+
+    <div class="grupo">
+      <span class="rotulo">O que vai ter</span>
+      <div class="chips" id="chipsFiltro"></div>
+    </div>
+
+    <div class="grupo">
+      <span class="rotulo">Quantas cartas</span>
+      <div class="chips" id="chipsQtd"></div>
+    </div>
+
+    <button class="comecar" id="btComecar">COMEÇAR</button>
+  </div>
+</section>
+
+<!-- ============ TELA DO JOGO ============ -->
+<section class="tela" id="jogo" hidden>
+  <header>
+    <span class="contador" id="contador">–</span>
+    <div class="controles">
+      <button class="icone" id="btEmbaralhar" aria-label="embaralhar" title="embaralhar"></button>
+      <button class="icone" id="btInicio"     aria-label="novo jogo"  title="novo jogo"></button>
+      <button class="icone" id="btSom"        aria-label="som"        title="som"></button>
+    </div>
+  </header>
+
+  <main id="palco"></main>
+
+  <div class="rodape">
+    <button class="monte" id="monte" aria-label="tirar uma carta"></button>
+  </div>
+</section>
+
+<script>
+(function(){
+  "use strict";
+
+  // [ fundo pastel , cor forte ]
+  const CORES = [
+    ["#DFF4F7","#0FA5B4"], ["#FFE4E1","#E8412F"], ["#FFE1EE","#DE2C7F"],
+    ["#FFF1D4","#C98A00"], ["#EAE2F5","#6B3FA0"], ["#DCF6FC","#0090AD"],
+  ];
+
+  // Onde estao as imagens. "../img_web/" e a versao leve pro celular;
+  // troque por "../img/" se quiser as originais de 1024px.
+  const PASTA = "../img_web/";
+  const PASTA_RESERVA = "../img/";
+
+  const $ = id => document.getElementById(id);
+  const telaInicio = $("inicio"), telaJogo = $("jogo");
+  const palco = $("palco"), contador = $("contador"), monteEl = $("monte");
+
+  let baralho = [];          // tudo que veio do cards.json
+  let monte   = [];          // a rodada atual, ja embaralhada e cortada
+  let posicao = 0;
+  let filtro  = "tudo";      // tudo | acao | animal
+  let quantia = "todas";     // "todas" ou um numero
+  let comSom  = true;
+
+  // ================= SOM =================
+  // Nenhum arquivo de audio: e um chiado curto passando por um filtro
+  // que desce de 2600Hz pra 500Hz. Soa como carta deslizando.
+  let audio = null;
+  function tocarSom(){
+    if(!comSom) return;
+    try{
+      if(!audio) audio = new (window.AudioContext||window.webkitAudioContext)();
+      if(audio.state === "suspended") audio.resume();
+      const dur = 0.26, taxa = audio.sampleRate;
+      const buffer = audio.createBuffer(1, taxa*dur, taxa);
+      const d = buffer.getChannelData(0);
+      for(let i=0;i<d.length;i++) d[i] = Math.random()*2-1;
+      const fonte = audio.createBufferSource(); fonte.buffer = buffer;
+      const passa = audio.createBiquadFilter();
+      passa.type="bandpass"; passa.Q.value=0.8;
+      passa.frequency.setValueAtTime(2600, audio.currentTime);
+      passa.frequency.exponentialRampToValueAtTime(500, audio.currentTime+dur);
+      const vol = audio.createGain();
+      vol.gain.setValueAtTime(0.0001, audio.currentTime);
+      vol.gain.exponentialRampToValueAtTime(0.22, audio.currentTime+0.02);
+      vol.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime+dur);
+      fonte.connect(passa); passa.connect(vol); vol.connect(audio.destination);
+      fonte.start();
+    }catch(e){}
+  }
+
+  // ================= ICONES =================
+  const SVG = {
+    embaralhar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="M4 4l5 5"/></svg>',
+    inicio:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>',
+    som:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a4.5 4.5 0 0 1 0 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>',
+    mudo:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>',
+  };
+  $("btEmbaralhar").innerHTML = SVG.embaralhar;
+  $("btInicio").innerHTML     = SVG.inicio;
+  function desenharSom(){ $("btSom").innerHTML = comSom ? SVG.som : SVG.mudo; }
+
+  // ================= EMBARALHAR =================
+  // Fisher-Yates: da ultima carta pra primeira, troca cada uma com outra
+  // sorteada antes dela. Todo arranjo tem a mesma chance de sair.
+  function embaralhar(lista){
+    const a = lista.slice();
+    for(let i=a.length-1;i>0;i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [a[i],a[j]] = [a[j],a[i]];
+    }
+    return a;
+  }
+
+  function filtradas(){
+    return baralho.filter(c => filtro==="tudo" || c.categoria===filtro);
+  }
+
+  // ================= TELA INICIAL =================
+  const NOMES = { tudo:"TUDO", acao:"AÇÕES", animal:"ANIMAIS" };
+
+  function montarChipsFiltro(){
+    const caixa = $("chipsFiltro"); caixa.innerHTML = "";
+    ["tudo","acao","animal"].forEach(f => {
+      const n = baralho.filter(c => f==="tudo" || c.categoria===f).length;
+      const b = document.createElement("button");
+      b.className = "chip" + (f===filtro ? " ligado" : "");
+      b.textContent = NOMES[f] + " (" + n + ")";
+      b.onclick = () => { filtro = f; montarChipsFiltro(); montarChipsQtd(); };
+      caixa.appendChild(b);
+    });
+  }
+
+  function montarChipsQtd(){
+    const total = filtradas().length;
+    const caixa = $("chipsQtd"); caixa.innerHTML = "";
+
+    // opcoes que fazem sentido pro tamanho disponivel
+    const opcoes = [8, 16, 32].filter(n => n < total);
+    opcoes.push("todas");
+    if(quantia !== "todas" && !opcoes.includes(quantia)) quantia = "todas";
+
+    opcoes.forEach(q => {
+      const b = document.createElement("button");
+      b.className = "chip" + (q===quantia ? " ligado" : "");
+      b.textContent = q==="todas" ? "TODAS (" + total + ")" : q;
+      b.onclick = () => { quantia = q; montarChipsQtd(); };
+      caixa.appendChild(b);
+    });
+  }
+
+  function irParaInicio(){
+    telaJogo.hidden = true;
+    telaInicio.hidden = false;
+    document.documentElement.style.setProperty("--fundo", CORES[0][0]);
+    document.documentElement.style.setProperty("--acento", CORES[0][1]);
+    montarChipsFiltro(); montarChipsQtd();
+  }
+
+  // ================= O JOGO =================
+  function novoMonte(){
+    const lista = embaralhar(filtradas());
+    monte = quantia==="todas" ? lista : lista.slice(0, quantia);
+    posicao = 0;
+    atualizarMonte();
+  }
+
+  function acabou(){ return posicao >= monte.length; }
+
+  const CAMADAS_MAX = 5;
+
+  function desenharMonte(){
+    const faltam = monte.length - posicao;
+
+    // acabou: o monte some de vez
+    monteEl.hidden = faltam <= 0;
+    if(faltam <= 0){ monteEl.innerHTML = ""; return; }
+
+    // quantas cartinhas empilhar: de CAMADAS_MAX ate 1, proporcional ao
+    // que falta. Vira uma barra de progresso que nao precisa saber ler.
+    const n = Math.max(1, Math.ceil(faltam / monte.length * CAMADAS_MAX));
+    if(monteEl.childElementCount === n) return;   // nada mudou, nao redesenha
+
+    monteEl.innerHTML = "";
+    for(let i=0;i<n;i++){
+      const camada = document.createElement("i");
+      if(i === n-1){
+        camada.className = "face";                 // a de cima, com o padrao
+      }else{
+        const atras = n-1-i;                       // 1, 2, 3... quanto mais fundo
+        const lado  = (i % 2) ? 1 : -1;
+        camada.style.transform =
+          "translate(" + (lado*(3+atras*1.6)).toFixed(1) + "px," +
+                         (atras*1.8).toFixed(1) + "px) rotate(" +
+                         (lado*(3+atras*1.8)).toFixed(1) + "deg)";
+      }
+      monteEl.appendChild(camada);
+    }
+  }
+
+  function atualizarMonte(){
+    desenharMonte();
+    $("btEmbaralhar").classList.toggle("destaque", acabou());
+    contador.textContent = posicao + " / " + monte.length;
+  }
+
+  function caminho(c){ return PASTA + c.id + ".jpg"; }
+
+  function preCarregar(n){
+    for(let i=0;i<n;i++){
+      const c = monte[posicao+i];
+      if(c) new Image().src = caminho(c);
+    }
+  }
+
+  function mostrar(carta, i){
+    const [fundo, acento] = CORES[i % CORES.length];
+    document.documentElement.style.setProperty("--fundo", fundo);
+    document.documentElement.style.setProperty("--acento", acento);
+    document.querySelector('meta[name=theme-color]').setAttribute("content", fundo);
+
+    palco.innerHTML =
+      '<div class="carta entrando">' +
+        '<div class="figura"><img alt="" src="' + caminho(carta) + '" ' +
+          'onerror="this.onerror=null;this.src=\'' + PASTA_RESERVA + carta.id + '.jpg\'"></div>' +
+        '<div class="palavra">' + carta.palavra + '</div>' +
+      '</div>';
+  }
+
+  function proxima(){
+    if(!monte.length || acabou()) return;
+    const carta = monte[posicao];
+    posicao++;
+    tocarSom();
+    mostrar(carta, posicao);
+    atualizarMonte();
+    preCarregar(3);
+  }
+
+  function comecarPartida(){
+    telaInicio.hidden = true;
+    telaJogo.hidden = false;
+    novoMonte();
+    proxima();
+  }
+
+  function reembaralhar(){ novoMonte(); tocarSom(); proxima(); }
+
+  // ================= INTERACAO =================
+  palco.addEventListener("pointerdown", proxima);
+  monteEl.addEventListener("click", e => { e.stopPropagation(); proxima(); });
+  $("btEmbaralhar").addEventListener("click", e => { e.stopPropagation(); reembaralhar(); });
+  $("btInicio").addEventListener("click", e => { e.stopPropagation(); irParaInicio(); });
+  $("btSom").addEventListener("click", e => {
+    e.stopPropagation(); comSom = !comSom; desenharSom(); if(comSom) tocarSom();
+  });
+  $("btComecar").addEventListener("click", comecarPartida);
+
+  document.addEventListener("keydown", e => {
+    if(telaJogo.hidden) return;
+    if(e.code==="Space"||e.code==="ArrowRight"||e.code==="Enter"){ e.preventDefault(); proxima(); }
+    if(e.code==="KeyE"){ reembaralhar(); }
+    if(e.code==="Escape"){ irParaInicio(); }
+  });
+
+  // ================= INICIO =================
+  desenharSom();
+
+  function ligar(dados){
+    baralho = (dados && dados.cartas) || [];
+    if(!baralho.length){ falhou(); return; }
+    const acoes   = baralho.filter(c => c.categoria==="acao").length;
+    const animais = baralho.filter(c => c.categoria==="animal").length;
+    $("sub").textContent = baralho.length + " cartas · " + acoes + " ações e " + animais + " animais";
+    montarChipsFiltro(); montarChipsQtd();
+  }
+
+  function falhou(){
+    telaInicio.innerHTML =
+      '<div class="aviso"><b>Não achei as cartas.</b><br>' +
+      'Abrindo o arquivo direto (file://) o navegador proíbe ler o cards.json. ' +
+      'Gere o atalho uma vez, na pasta do projeto:' +
+      '<code>echo "window.BARALHO=$(cat cards.json)" &gt; celular/dados.js</code></div>';
+  }
+
+  // Num servidor o fetch funciona e le o cards.json direto. Aberto como
+  // arquivo (file://) o navegador proibe o fetch, e ai caimos no dados.js,
+  // que e o mesmo JSON embrulhado num <script>.
+  fetch("../cards.json")
+    .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(ligar)
+    .catch(() => {
+      const tag = document.createElement("script");
+      tag.src = "dados.js";
+      tag.onload  = () => ligar(window.BARALHO);
+      tag.onerror = falhou;
+      document.head.appendChild(tag);
+    });
+
+})();
+</script>
+</body>
+</html>
