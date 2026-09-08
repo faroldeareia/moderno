@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -217,8 +216,8 @@
 
   // Onde estao as imagens. "../img_web/" e a versao leve pro celular;
   // troque por "../img/" se quiser as originais de 1024px.
-  const PASTA = "../img_web/";
-  const PASTA_RESERVA = "../img/";
+  const PASTA = "img_web/";
+  const PASTA_RESERVA = "img/";
 
   const $ = id => document.getElementById(id);
   const telaInicio = $("inicio"), telaJogo = $("jogo");
@@ -455,7 +454,7 @@
   // Num servidor o fetch funciona e le o cards.json direto. Aberto como
   // arquivo (file://) o navegador proibe o fetch, e ai caimos no dados.js,
   // que e o mesmo JSON embrulhado num <script>.
-  fetch("../cards.json")
+  fetch("cards.json")
     .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
     .then(ligar)
     .catch(() => {
