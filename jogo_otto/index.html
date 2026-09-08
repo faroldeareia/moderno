@@ -128,11 +128,32 @@
   }
   @keyframes sobe{ from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:none;} }
 
-  /* ---- o monte ---- */
-  .rodape{
-    flex:0 0 auto; display:flex; align-items:center; justify-content:center;
-    padding:6px 18px 22px;
+  /* ---- a carta virada (comeco de partida) ---- */
+  .carta.virada{
+    background:var(--acento);
+    background-image:radial-gradient(circle at 50% 50%, rgba(255,255,255,.5) 4.5px, transparent 5.5px);
+    background-size:36px 36px;
+    border:7px solid #fff;
+    animation:convida 2.4s ease-in-out infinite;
   }
+  @keyframes convida{ 0%,100%{transform:scale(1);} 50%{transform:scale(1.035);} }
+
+  /* ---- rodape: voltar + monte ---- */
+  .rodape{
+    flex:0 0 auto; display:grid; grid-template-columns:1fr auto 1fr;
+    align-items:center; gap:10px; padding:6px 18px 22px;
+  }
+  .lado{ display:flex; justify-content:center; }
+  .voltar{
+    width:48px; height:48px; display:grid; place-items:center;
+    color:var(--tinta); background:rgba(255,255,255,.72);
+    border:0; border-radius:999px; cursor:pointer;
+    box-shadow:0 1px 3px rgba(60,50,80,.09);
+    transition:opacity .25s;
+  }
+  .voltar:active{ transform:scale(.9); }
+  .voltar svg{ width:22px; height:22px; display:block; }
+  .voltar[disabled]{ opacity:.18; pointer-events:none; }
   .monte{
     position:relative; width:78px; height:104px;
     background:none; border:0; padding:0; cursor:pointer;
@@ -200,7 +221,9 @@
   <main id="palco"></main>
 
   <div class="rodape">
+    <div class="lado"><button class="voltar" id="btVoltar" aria-label="carta anterior" disabled></button></div>
     <button class="monte" id="monte" aria-label="tirar uma carta"></button>
+    <div class="lado"></div>
   </div>
 </section>
 
@@ -229,6 +252,20 @@
   let filtro  = "tudo";      // tudo | acao | animal
   let quantia = "todas";     // "todas" ou um numero
   let comSom  = true;
+  let virada  = false;      // true = a carta do meio esta de costas, esperando o primeiro toque
+
+  // Mao de crianca de 4 anos deixa o dedo parado na tela e dispara varios
+  // eventos. Esse intervalo minimo entre uma carta e outra evita pular tres
+  // de uma vez sem querer.
+  const ESPERA_TOQUE = 600;   // milissegundos
+  let ultimoToque = 0;
+
+  function cedoDemais(){
+    const agora = Date.now();
+    if(agora - ultimoToque < ESPERA_TOQUE) return true;
+    ultimoToque = agora;
+    return false;
+  }
 
   // ================= SOM =================
   // Nenhum arquivo de audio: e um chiado curto passando por um filtro
@@ -261,11 +298,13 @@
   const SVG = {
     embaralhar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="M4 4l5 5"/></svg>',
     inicio:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>',
+    voltar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
     som:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a4.5 4.5 0 0 1 0 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>',
     mudo:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>',
   };
   $("btEmbaralhar").innerHTML = SVG.embaralhar;
   $("btInicio").innerHTML     = SVG.inicio;
+  $("btVoltar").innerHTML     = SVG.voltar;
   function desenharSom(){ $("btSom").innerHTML = comSom ? SVG.som : SVG.mudo; }
 
   // ================= EMBARALHAR =================
@@ -368,7 +407,8 @@
 
   function atualizarMonte(){
     desenharMonte();
-    $("btEmbaralhar").classList.toggle("destaque", acabou());
+    $("btEmbaralhar").classList.toggle("destaque", acabou() && !virada);
+    $("btVoltar").disabled = (posicao <= 1);
     contador.textContent = posicao + " / " + monte.length;
   }
 
@@ -395,8 +435,18 @@
       '</div>';
   }
 
+  // A partida comeca com uma carta de costas, parada. Nada acontece ate a
+  // crianca tocar nela: e ela que "abre a porta do elevador".
+  function mostrarVirada(){
+    virada = true;
+    palco.innerHTML = '<div class="carta virada"></div>';
+    atualizarMonte();
+  }
+
   function proxima(){
+    if(cedoDemais()) return;
     if(!monte.length || acabou()) return;
+    virada = false;
     const carta = monte[posicao];
     posicao++;
     tocarSom();
@@ -405,20 +455,30 @@
     preCarregar(3);
   }
 
+  function voltar(){
+    if(cedoDemais()) return;
+    if(virada || posicao <= 1) return;
+    posicao--;
+    tocarSom();
+    mostrar(monte[posicao-1], posicao);
+    atualizarMonte();
+  }
+
   function comecarPartida(){
     telaInicio.hidden = true;
     telaJogo.hidden = false;
     novoMonte();
-    proxima();
+    mostrarVirada();
   }
 
-  function reembaralhar(){ novoMonte(); tocarSom(); proxima(); }
+  function reembaralhar(){ novoMonte(); tocarSom(); mostrarVirada(); }
 
   // ================= INTERACAO =================
   palco.addEventListener("pointerdown", proxima);
   monteEl.addEventListener("click", e => { e.stopPropagation(); proxima(); });
   $("btEmbaralhar").addEventListener("click", e => { e.stopPropagation(); reembaralhar(); });
   $("btInicio").addEventListener("click", e => { e.stopPropagation(); irParaInicio(); });
+  $("btVoltar").addEventListener("click", e => { e.stopPropagation(); voltar(); });
   $("btSom").addEventListener("click", e => {
     e.stopPropagation(); comSom = !comSom; desenharSom(); if(comSom) tocarSom();
   });
@@ -427,6 +487,7 @@
   document.addEventListener("keydown", e => {
     if(telaJogo.hidden) return;
     if(e.code==="Space"||e.code==="ArrowRight"||e.code==="Enter"){ e.preventDefault(); proxima(); }
+    if(e.code==="ArrowLeft"){ e.preventDefault(); voltar(); }
     if(e.code==="KeyE"){ reembaralhar(); }
     if(e.code==="Escape"){ irParaInicio(); }
   });
